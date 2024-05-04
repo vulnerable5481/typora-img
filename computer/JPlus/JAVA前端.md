@@ -10,39 +10,39 @@
 
 ### 1.1字体,img
 
-![image-20240314160542448](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240314160542448.png)
+![image-20240314160542448](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314160542448.png)
 
 ### 1.2 table 
 
-![image-20240314164001972](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240314164001972.png)
+![image-20240314164001972](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314164001972.png)
 
 
 
-### 1.3 有序无序 自定义列表(⭐)
+### 1.3 有序无序 自定义列表
 
-![image-20240314165105980](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240314165105980.png)
+![image-20240314165105980](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314165105980.png)
 
 
 
 ⭐⭐⭐⭐⭐⭐
 
-![image-20240314165501331](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240314165501331.png)
+![image-20240314165501331](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314165501331.png)
 
 
 
-C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\https://gitee.com/vulnerable5481/typora-img/raw/master/img/
+
 
 ### 1.4 input输入表单元素
 
-![image-20240314170822396](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240314170822396.png)
+![image-20240314170822396](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314170822396.png)
 
-![image-20240314170836049](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240314170836049.png)
+![image-20240314170836049](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314170836049.png)
 
 
 
 ### 1.5 lable标签
 
-![image-20240314171626257](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240314171626257.png)
+![image-20240314171626257](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314171626257.png)
 
 
 
@@ -52,13 +52,13 @@ C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\https://gitee.com/v
 
 
 
-![image-20240314172009678](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240314172009678.png)
+![image-20240314172009678](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314172009678.png)
 
 
 
 ### 1.7文本域
 
-![image-20240314172304685](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240314172304685.png)
+![image-20240314172304685](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314172304685.png)
 
 
 
@@ -68,11 +68,11 @@ C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\https://gitee.com/v
 
 
 
-![image-20240315122337048](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240315122337048.png)
+![image-20240315122337048](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240315122337048.png)
 
 
 
-![image-20240315122621491](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240315122621491.png)
+![image-20240315122621491](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240315122621491.png)
 
 
 
@@ -86,7 +86,7 @@ C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\https://gitee.com/v
 
 
 
-![image-20240326145754863](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240326145754863.png)
+![image-20240326145754863](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326145754863.png)
 
 
 
@@ -98,21 +98,21 @@ C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\https://gitee.com/v
 
 
 
-![image-20240314205404290](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240314205404290.png)
+![image-20240314205404290](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314205404290.png)
 
 
 
 **复合选择器**
 
-![image-20240318173738463](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318173738463.png)
+![image-20240318173738463](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240318173738463.png)
 
-![image-20240318174323877](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318174323877.png)
+![image-20240318174323877](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240318174323877.png)
 
-![image-20240318174919766](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318174919766.png)
+![image-20240318174919766](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240318174919766.png)
 
-![image-20240318175411067](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318175411067.png)
+![image-20240318175411067](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240318175411067.png)
 
-![image-20240325130848922](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325130848922.png)
+![image-20240325130848922](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325130848922.png)
 
 
 
@@ -146,7 +146,7 @@ C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\https://gitee.com/v
 
 #### 2.2.1字体属性
 
-![image-20240319183954518](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240319183954518.png)
+![image-20240319183954518](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240319183954518.png)
 
 **//font-size 尽可能不使用默认大小，最好自己去指定大小**
 
@@ -166,7 +166,7 @@ C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\https://gitee.com/v
 
 
 
-![image-20240319184324372](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240319184324372.png)
+![image-20240319184324372](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240319184324372.png)
 
 **//text-align center left/right center 三种对齐方法**
 
@@ -188,7 +188,7 @@ C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\https://gitee.com/v
 
 #### 2.2.3 背景属性
 
-![image-20240319184729040](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240319184729040.png)
+![image-20240319184729040](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240319184729040.png)
 
  
 
@@ -214,9 +214,9 @@ C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\https://gitee.com/v
 
 
 
-![image-20240325141824675](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325141824675.png)
+![image-20240325141824675](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325141824675.png)
 
-![image-20240325141840598](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325141840598.png)
+![image-20240325141840598](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325141840598.png)
 
 
 
@@ -241,7 +241,7 @@ C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\https://gitee.com/v
   - 子元素可以继承父元素一些样式，但是只能继承文字相关样式，但是不会继承浮动啊边框等其他元素
 
 - 优先级
-  - 权重：![image-20240327173935459](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240327173935459.png)
+  - 权重：![image-20240327173935459](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240327173935459.png)
 
 
 
@@ -256,15 +256,15 @@ C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\https://gitee.com/v
 
 
 
-![image-20240325131138597](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325131138597.png)
+![image-20240325131138597](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325131138597.png)
 
 
 
 #### 2.5.2盒子组成
 
-![image-20240325132217249](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325132217249.png)
+![image-20240325132217249](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325132217249.png)
 
-
+C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\
 
 ##### 1.Border边框
 
@@ -289,7 +289,7 @@ border分框写法:
 
 ##### 2.padding内间距
 
-![image-20240325134952622](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325134952622.png)
+![image-20240325134952622](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325134952622.png)
 
 ```
  padding: 5px   意思是上下左右都是5px
@@ -300,7 +300,7 @@ border分框写法:
 
 **padding也会影响盒子大小**
 
-![image-20240325135714210](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325135714210.png)
+![image-20240325135714210](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325135714210.png)
 
 
 
@@ -312,29 +312,29 @@ border分框写法:
 
 
 
-![image-20240325142237958](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325142237958.png)
+![image-20240325142237958](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325142237958.png)
 
-![image-20240325144600848](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325144600848.png)
+![image-20240325144600848](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325144600848.png)
 
-![image-20240325143809887](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325143809887.png)
-
-
+![image-20240325143809887](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325143809887.png)
 
 
 
-![image-20240325144420339](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325144420339.png)
+
+
+![image-20240325144420339](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325144420339.png)
 
 
 
 **外边距合并现象**
 
-![image-20240325144959114](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325144959114.png)
+![image-20240325144959114](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325144959114.png)
 
 
 
-![image-20240325145524886](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325145524886.png)
+![image-20240325145524886](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325145524886.png)
 
-![image-20240325145822464](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325145822464.png)
+![image-20240325145822464](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325145822464.png)
 
 
 
@@ -364,13 +364,13 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 
 
-![image-20240325184453503](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325184453503.png)
+![image-20240325184453503](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325184453503.png)
 
 
 
 例子：   一般影子颜色推荐:   rgba(0,0,0,.3)  
 
-![image-20240325184419127](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325184419127.png)
+![image-20240325184419127](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325184419127.png)
 
 
 
@@ -380,7 +380,7 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 
 
-![image-20240325184520481](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325184520481.png)
+![image-20240325184520481](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325184520481.png)
 
 
 
@@ -392,31 +392,31 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 
 
-![image-20240325185923009](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325185923009.png)
+![image-20240325185923009](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325185923009.png)
 
 
 
 
 
-![image-20240325190039125](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325190039125.png)
+![image-20240325190039125](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325190039125.png)
 
 #### 2.6.1 浮动三特性
 
-![image-20240326121836258](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240326121836258.png)
+![image-20240326121836258](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326121836258.png)
 
 
 
-![image-20240326121940735](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240326121940735.png)
+![image-20240326121940735](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326121940735.png)
 
 
 
 
 
-![image-20240326122357841](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240326122357841.png)
+![image-20240326122357841](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326122357841.png)
 
 
 
-![image-20240326122927859](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240326122927859.png)
+![image-20240326122927859](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326122927859.png)
 
 #### 2.6.2浮动元素与标准元素搭配使用
 
@@ -426,7 +426,7 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 
 
-![image-20240326124519492](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240326124519492.png)
+![image-20240326124519492](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326124519492.png)
 
 
 
@@ -434,11 +434,11 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 #### 2.6.3清除浮动
 
-![image-20240326141835582](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240326141835582.png)
+![image-20240326141835582](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326141835582.png)
 
-![image-20240326143455710](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240326143455710.png)
+![image-20240326143455710](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326143455710.png)
 
-![image-20240326142807691](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240326142807691.png) 
+![image-20240326142807691](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326142807691.png) 
 
 ```
 overflow:hidden 
@@ -475,11 +475,11 @@ overflow:hidden
 
 #### 2.8.1为什么需要定位
 
-![image-20240330161923651](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240330161923651.png)
+![image-20240330161923651](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330161923651.png)
 
 #### 2.8.2定位组成及语法
 
-![image-20240330162224441](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240330162224441.png)
+![image-20240330162224441](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330162224441.png)
 
 
 
@@ -506,7 +506,7 @@ overflow:hidden
 
 #### 2.8.3子绝父相
 
-![image-20240330171833737](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240330171833737.png)
+![image-20240330171833737](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330171833737.png)
 
 
 
@@ -516,7 +516,7 @@ overflow:hidden
 
 #### 2.8.4 定位叠放次序
 
-![image-20240330183200722](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240330183200722.png)
+![image-20240330183200722](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330183200722.png)
 
 
 
@@ -528,7 +528,7 @@ overflow:hidden
 - float:left;
 - position: absolute / fixed
 
-![image-20240330184511724](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240330184511724.png)
+![image-20240330184511724](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330184511724.png)
 
 
 
@@ -550,11 +550,11 @@ overflow:hidden
 
 
 
-![image-20240331150414524](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240331150414524.png)
+![image-20240331150414524](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240331150414524.png)
 
-![image-20240331150517629](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240331150517629.png)
+![image-20240331150517629](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240331150517629.png)
 
-![image-20240331150946186](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240331150946186.png)
+![image-20240331150946186](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240331150946186.png)
 
 
 
@@ -715,7 +715,7 @@ text-align: center  //可以使单行文字居中
 
 **//解答：一般都是给li    ，不过看情况，灵活选择**
 
-![image-20240330133912312](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240330133912312.png)
+![image-20240330133912312](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330133912312.png)
 
 
 
@@ -767,7 +767,7 @@ text-align: center  //可以使单行文字居中
 
 
 
-![image-20240330174603275](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240330174603275.png)
+![image-20240330174603275](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330174603275.png)
 
 
 
@@ -801,6 +801,94 @@ text-align: center  //可以使单行文字居中
 
 
 
+### 一些知识点	
+
+
+
+#### 1.知识点
+
+```
+1.el的两种写法
+el:'#app'  ;  const app =  new Vue({xxx})  app.$mout(app);挂载
+
+2.data必须使用函数式
+data:function(){        可简化成 data(){  }
+	return {
+		name: 'zlc'
+	}
+}
+```
+
+#### 2.MVVM模型
+
+![image-20240504193007719](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504193007719.png)
+
+#### 3.通过js的一个方法理解vue的数据代理
+
+**//理解了这个方法的过程，将非常有助于理解vue的数据代理，进而理解MVVM模型**
+
+![image-20240504194350060](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504194350060.png)
+
+![image-20240504201600879](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504201600879.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 1.1插值操作
 
 
@@ -809,9 +897,25 @@ text-align: center  //可以使单行文字居中
 
 
 
-注意: 可以直接写变量，还可以**写简单的表达式**
+注意: 可以直接写变量，还可以完成**简单的js表达式,计算**
 
-![image-20240319141909439](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240319141909439.png)
+```
+</head>
+<body>
+    <div class="app">{{message1}}，{{1+1}},{{Date.now()}}</div>
+    
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script>
+            const app = new Vue ({
+            el:'.app',  
+            data:{
+                message1: '你好, zlc'
+            }
+        })
+    </script>
+    
+</body>
+```
 
 
 
@@ -824,7 +928,7 @@ text-align: center  //可以使单行文字居中
   - 该指令表示元素和组件(组件后面才会学习)**只渲染一次**，不会随着数据的改变而改变。
   - 代码如下：
 
-![image-20240319141444920](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240319141444920.png)
+![image-20240319141444920](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240319141444920.png)
 
 
 
@@ -848,8 +952,10 @@ text-align: center  //可以使单行文字居中
     <script>
         const app = new Vue({
             el:'#app',
-            data: {
-                url:'<a href="http://www.baidu.com">百度一下</a>'
+            data(){
+                return {
+                    url:'<a href="http://www.baidu.com">百度一下</a>'
+                }
             }
         })
     </script>
@@ -863,7 +969,7 @@ text-align: center  //可以使单行文字居中
 
 原封不动的显示出来，而不会渲染
 
-![image-20240319143003748](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240319143003748.png)
+![image-20240319143003748](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240319143003748.png)
 
 
 
@@ -888,6 +994,8 @@ text-align: center  //可以使单行文字居中
 
 
 前面我们学习了如何插入内容，但实际开发中很多属性是动态的，比如轮换图,超链接，这就需要我们给这些属性动态绑定
+
+**//v-bind 一般都是标签内部的东西**
 
 **//语法糖写法   :src="imgUrl"**,只需要写一个:即可,v-bind可以省略
 
@@ -984,9 +1092,26 @@ text-align: center  //可以使单行文字居中
 
 
 
-v-bind 绑定style
 
-不知道有什么用？？？？
+
+### 1.2 v-model 数值双向绑定
+
+
+
+**//可以双向绑定数据，即在一个输入框中你输入的信息也会影响代码中的信息**
+
+**//注意:只能用于表单属性，或句话说 只能用于  有value属性的标签**
+
+**//注意:不需要使用大胡子语法**
+
+```
+<input type="text" v-model="name">
+data(){
+	return {
+		name: zlc
+	}
+}
+```
 
 
 
@@ -1109,7 +1234,7 @@ v-bind 绑定style
 
 **//总之就是推荐 使用V-for时  要添加:key=“item"**
 
-![image-20240319194919651](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240319194919651.png)
+![image-20240319194919651](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240319194919651.png)
 
 
 
@@ -1129,57 +1254,70 @@ v-bind 绑定style
 
 
 
-### 1.4计算属性
+### 1.4计算属性与监视
 
 
 
-**//我个人的理解就是对一些其他属性的拆解组合等等然后造出来的新属性，这种属性就是计算属性**
+//我个人的理解就是对一些其他属性的拆解组合等等然后造出来的新属性，这种属性就是计算属性
 
-**///计算属性的set,get方法知道有这个东西就Ok**
+///计算属性的set,get方法知道有这个东西就Ok
 
-**//为什么推荐使用计算属性，而不是写一个函数来获取属性？因为你写成函数那么用几次该属性就需要调用几次该函数，没有缓存，效率低。但是你使用计算属性，只会调用一次就会一直获取到该属性，后续再使用该属性可以直接使用.**
+**//为什么推荐使用计算属性，而不是写一个函数来获取属性？**因为你写成函数那么用几次该属性就需要调用几次该函数，没有缓存，效率低。**但是你使用计算属性，只会调用一次就会一直获取到该属性，后续再使用该属性可以直接使用**.
 
 
 
 
 
 ```vue
-</head>
-<body>
-    <div class="app">书的总价:{{totalprice}}</div>
+    <div class="app">
+        姓:<input type="text" v-model="firstname"><br>
+        名:<input type="text" v-model="lastname"><br>
+        全名: <span>{{fullName}}</span>
+    </div>
     
     <script type="text/javascript" src="../js/vue.js"></script>
     <script>
-            const app = new Vue({
+            const app = new Vue ({
             el:'.app',
-            data:{
-                message1: '你好，zlc',
-                books: [
-                    {id:110,name:'Java设计开发',price:10},
-                    {id:111,name:'深入理解计算机组成原理',price:120},
-                    {id:110,name:'C语言',price:10},
-                    {id:110,name:'Unix设计开发',price:10}
-                ]
+            data(){
+                return {
+                    firstname:'张',
+                    lastname:'三'
+                }
             },
-            computed: {
-                totalprice(){
-                    let result = 0;
-                    //ES6的for写法
-                    // for(let i in this.books){
-                    //     result += this.books[i].price;
-                    // }
-                    //ES6的for写法
-                    for(let book of this.books){
-                        result += book.price;
-                    }
-                    return result;
+            computed:{
+                fullName(){
+                      //这里是一个语法糖 其实是调用的fullName的get方法
+//一个细节:我们不能直接获取data中的属性，但是get方法里面默认将this指向了vm实例，这样我们就可以this.属性获取data里面的属性
+                    return this.firstname + "-" + this.lastname
                 }
             }
+ 
         })
     </script>
-
-</body>
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1187,9 +1325,7 @@ v-bind 绑定style
 
 ### 1.5事件监听v-on
 
-- 在前端开发中，我们需要经常和用于交互。
-  - 这个时候，我们就必须监听用户发生的事件，比如点击、拖拽、键盘事件等等
-  - 在Vue中如何监听事件呢？使用v-on指令
+**v-on:xxxx ,  @xxx   xxx为绑定的一个事件** 
 
 **//语法糖：缩写为@**
 
@@ -1199,13 +1335,24 @@ v-bind 绑定style
 
 情况一：如果该方法不需要额外参数，那么方法后的()可以不添加。
 
-但是注意：如果方法本身中有一个参数，那么会默认将原生事件event参数传递进去
+但是注意：如果方法本身中有一个参数，那么会默认将原生事件event参数传递进去，**可以在参数列表写一个名字获取event**
 
-情况二：如果需要同时传入某个参数，同时需要event时，可以通过$event传入事件。
+情况二：如果需要同时传入某个参数，同时需要event时，可以通过$event传入事件,否则传入的参数会顶替掉even。
 
 
 
-**//v-on修饰符,可能仔细学下js就明白了**
+**//v-on修饰符, 可以代替以往写js代码的形式**
+
+```
+methods:{
+	showInfo(e){
+		e.preventDefault()   //js
+		alter('你好!')
+	}
+}
+//1.阻止默认行为     //比如一个超链接，点击就跳转，阻止默认行为就不跳转
+//2.事件冒泡        //比如父标签有一个@click子标签也有一个一摸一样的@click，这时点击子标签就会触发两次，这就是典型的事件冒泡
+```
 
 ![img](https://img-blog.csdnimg.cn/20210712190852410.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzIzMDczODEx,size_16,color_FFFFFF,t_70)
 
@@ -1213,11 +1360,33 @@ v-bind 绑定style
 
 
 
+### 1.6 键盘监听
+
+
+
+**//比如@keyup: 按下某个键松开后才触发，@keydown：按下就触发**
+
+```
+name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="showInfo">
+            methods:{   
+                showInfo(){
+                    alert('请输入名字')
+                }
+            }
+            
+```
+
+![image-20240504204050490](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504204050490.png)
+
+![image-20240504204448563](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504204448563.png)
 
 
 
 
-### 1.6 v-if、v-else-if、v-else
+
+
+
+### 1.7 v-if、v-else-if、v-else
 
 
 
@@ -1259,7 +1428,7 @@ v-else-if  用的比较少，其他两个用得比较多
 
 
 
-### 1.7响应式方法
+### 1.8响应式方法
 
 
 
@@ -1295,7 +1464,7 @@ this.student.sort()
 
 8.**通过索引修改数组中的元素**
 
-![image-20240319200957022](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240319200957022.png)
+![image-20240319200957022](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240319200957022.png)
 
 
 
