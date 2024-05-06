@@ -42,6 +42,8 @@
 
 ### 1.5 lable标签
 
+**//比如lable标签可以使鼠标点击用户名三个字就触发输入框，输入信息，就是将鼠标点击范围从单一的框变为框加文字的所在的盒子**
+
 ![image-20240314171626257](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314171626257.png)
 
 
@@ -797,7 +799,7 @@ text-align: center  //可以使单行文字居中
 
 
 
-## 1.基础语法使用
+## 1.Vue核心
 
 
 
@@ -823,11 +825,19 @@ data:function(){        可简化成 data(){  }
 
 ![image-20240504193007719](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504193007719.png)
 
-#### 3.通过js的一个方法理解vue的数据代理
+#### 3.vue的数据代理
 
 **//理解了这个方法的过程，将非常有助于理解vue的数据代理，进而理解MVVM模型**
 
 ![image-20240504194350060](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504194350060.png)
+
+**//你写在data里面的数据，vue会将其加工(生成get,set)到vue._data里面，然后vue实例根据vue._date生成数据名，然后只要调用set就将变化更新到视图上**
+
+**所谓的数据代理，就是vue实例中的data的数据是通过_data的get获取值，通过__data的set来修改值**
+
+**//数据代理的好处就是方便我们的编码**
+
+**(<font color="green">既然已经vue实例_date已经有了真实数据，为什么还要在vue实例再创建数据呢？因为你每次都要__data.xxx获取属性不麻烦吗，直接 使用 xx多方便，所以vue实例中的_data的数据是通过___data的get获取值，通过__data的set来修改值，这样就可以直接使用属性名，而不用加-data.xxx</font> ）**
 
 ![image-20240504201600879](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504201600879.png)
 
@@ -837,6 +847,52 @@ data:function(){        可简化成 data(){  }
 
 
 
+#### 4.vue视图更新
+
+- **问题引出：第二种方式修改数据，虽然内存上确实修改成功，但是vue没有监视到这种更新，视图不会变。**
+
+![image-20240506132222822](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506132222822.png)
+
+- **vue如何检测对象更新？**
+
+所有对象的数据全部都是由set和get方法构成，只要修改数据就必须使用set方法，一旦使用set方法，vue就会更新视图
+**也就说，set方法与视图的更新密切相关！！！一旦视图不更新就要思考是不是和该数据的set有关！**
+
+比如，像这种，直接写了一个属性sex ,然后给予一个值 '男'，这个属性压根没有get set方法怎么可能会在视图上显示出来！
+
+![image-20240506134152240](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506134152240.png)
+
+
+
+- **vue如何检测数组更新**
+
+数组里的属性没有set,get，数组里的对象肯定可以有，vue如何检测数组更新？
+
+![image-20240506140647104](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506140647104.png)
+
+
+
+![image-20240506141316420](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506141316420.png)
+
+
+
+
+
+- **问题的解决**
+
+**可以调用数组里的那七个api，也可以使用Vue.set(target,key,value)**
+
+addSex(){
+
+​		Vue.set(this.student,'sex','男')
+
+}
+
+
+
+**//总结**
+
+![image-20240506142422659](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506142422659.png)
 
 
 
@@ -860,36 +916,7 @@ data:function(){        可简化成 data(){  }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 1.1插值操作
+### 1.1插值操作(标签内容绑定)
 
 
 
@@ -934,13 +961,13 @@ data:function(){        可简化成 data(){  }
 
 
 
-#### （3）v-html
+#### (3)v-html
 
 - 某些情况下，我们从服务器请求到的数据本身就是一个HTML代码
   - 如果我们直接通过{{}}来输出，会将HTML代码也一起输出。
   - 但是我们可能希望的是按照HTML格式进行解析，并且显示对应的内容。
 
-
+89
 
 ```vue
     <div id="app">
@@ -989,7 +1016,7 @@ data:function(){        可简化成 data(){  }
 
 
 
-### 1.2 v-bind 动态绑定属性
+### 1.2 v-bind 标签属性绑定
 
 
 
@@ -1065,7 +1092,7 @@ data:function(){        可简化成 data(){  }
 <body>
     <div class="app">
         <h2 v-bind:class="getClasses()">{{message1}}</h2>//如果这个对象很复杂就可以通过调用函数的方式来实现
-        <button v-on:click="update">按钮</button>
+        <button @click="update">按钮</button>
     </div>
     
     <script type="text/javascript" src="../js/vue.js"></script>
@@ -1078,10 +1105,10 @@ data:function(){        可简化成 data(){  }
                 isLine:true
             },
             methods: {
-                update: function(){
+                update(){
                     this.isActive = !this.isActive
                 },
-                getClasses: function(){
+                getClasses(){
                     return {active:this.isActive,line:this.isLine}
                 }
             }
@@ -1090,28 +1117,83 @@ data:function(){        可简化成 data(){  }
 </body>
 ```
 
-
-
-
-
-### 1.2 v-model 数值双向绑定
-
-
-
-**//可以双向绑定数据，即在一个输入框中你输入的信息也会影响代码中的信息**
-
-**//注意:只能用于表单属性，或句话说 只能用于  有value属性的标签**
-
-**//注意:不需要使用大胡子语法**
-
 ```
-<input type="text" v-model="name">
+<div><h2 class="basic" :class="mood">{{message1}}</h2></div> 
+<button @click="update">按钮</button>
+
 data(){
 	return {
-		name: zlc
+		mood = sad
+	}
+}
+method:{
+	update(){
+		this.mood = happy
 	}
 }
 ```
+
+
+
+**//v-bind绑定style属性**
+
+v-bind可以动态绑定style的属性，格式为：style="{key(属性名):value(属性值)}，此处要注意属性值是否带引号，带引号时为字符串，不带引号时[vue](https://so.csdn.net/so/search?q=vue&spm=1001.2101.3001.7020)会认为它是一个变量。
+
+如果key与value重名就可以简写为 :style="{key}"
+
+```
+        <h2 :style="{opacity}">你好啊</h2>		简写
+        <h2 :style="{opacity:opacity}></h2>  完整写法
+                    data(){
+                return{
+                    opacity: 1
+                }
+            },
+```
+
+
+
+
+
+
+
+### 1.2 v-model 数据双向绑定
+
+
+
+**//可以双向绑定数据，即在一个输入框中你输入的信息也会实时影响vue实例中的数据**
+
+**//注意:只能用于表单属性，或句话说 只能用于  有value属性的标签**
+
+![image-20240506144227751](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506144227751.png)
+
+**//表单修饰符**
+
+```
+//1.lazy
+在默认情况下，v-model 在每次 input 事件触发后将输入框的值与数据进行同步 (除了上述输入法组合文字时)。你可以添加 lazy 修饰符，从而转变为使用 change 事件进行同步：
+
+<!-- 在“change”时而非“input”时更新 -->
+<input v-model.lazy="msg" >
+
+//2.number
+如果想自动将用户的输入值转为数值类型，可以给 v-model 添加 number 修饰符：
+
+<input v-model.number="age" type="number">
+
+//3.trim
+如果要自动过滤用户输入的首尾空白字符，可以给 v-model 添加 trim 修饰符：
+
+```
+
+.trim
+如果要自动过滤用户输入的首尾空白字符，可以给 v-model 添加 trim 修饰符：
+
+**//总结**
+
+![image-20240506144631933](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506144631933.png)
+
+
 
 
 
@@ -1125,16 +1207,19 @@ data(){
 
 - 当我们有一组数据需要进行渲染时，我们就可以使用v-for来完成。
   - v-for的语法类似于JavaScript中的for循环。
-  - 格式如下：item in items的形式。
+  - 格式如下：v-for=" item in items  :key = "xxx" ",这里的key作为唯一标识，必须得写！！！
+  - 格式还可以另一种写法v-for=" (item,index) in items  :key = "index" ",利用数组index角标作为唯一标识
 
 
 
-从数组中循环取出数据
+**从数组中循环取出数据**
 
 ```vue
 <body>
     <div id="app">
-        <li v-for="item in movies">{{item}}</li>
+        <li v-for="student in students" :key="student.id">
+            {{student.id}}-{{student.name}} <!--也可以直接{{student}}取出整体-->
+        </li>
     </div>
 
 <script src="../js/vue.js"></script>
@@ -1142,39 +1227,23 @@ data(){
     const app = new Vue({
         el:'#app',
         data: {
-            movies: ['海贼王','火影忍者','名侦探柯南']
+            students: [
+                {id:'001',name:'赵联城',age:20},
+                {id:'002',name:'赵城联',age:21},
+                {id:'003',name:'赵某人',age:22}
+            ]
         }
     })
 
 </script>
 ```
 
-从对象中循环取出数据 :  需要注意  先是取出value然后取出key，最后是index
+**从对象中循环取出数据** :  需要注意参数列表是固定的	  先是取出value然后取出key，最后是index
 
 ```vue
-<body>
-    <div id="app">
-        <ul>
-            <li v-for="(value,key,index) in student">{{key}}:{{value}},{{index}}</li>
-        </ul>
-    </div>
-
-
-
-    <script src="../js/vue.js"></script>
-    <script>
-        const app = new Vue({
-            el:'#app',
-            data: {
-                student: {
-                    name: '赵联城',
-                    age: 20,
-                    address: '山东'
-                }
-            }
-        })
-    </script>
-</body>
+        <li v-for="(value,key,index) in students[0]" :key="index">
+            {{key}}-{{value}}
+        </li>
 ```
 
 
@@ -1232,9 +1301,9 @@ data(){
 
 
 
-**//总之就是推荐 使用V-for时  要添加:key=“item"**
+**//总之就是 使用V-for时  必须添加:key=“唯一标识一般都是id"**
 
-![image-20240319194919651](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240319194919651.png)
+![image-20240506122313905](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506122313905.png)
 
 
 
@@ -1258,15 +1327,13 @@ data(){
 
 
 
-//我个人的理解就是对一些其他属性的拆解组合等等然后造出来的新属性，这种属性就是计算属性
-
-///计算属性的set,get方法知道有这个东西就Ok
+///计算属性的set,get方法知道有这个东西就Ok，一般是不会使用的
 
 **//为什么推荐使用计算属性，而不是写一个函数来获取属性？**因为你写成函数那么用几次该属性就需要调用几次该函数，没有缓存，效率低。**但是你使用计算属性，只会调用一次就会一直获取到该属性，后续再使用该属性可以直接使用**.
 
+<font color="red">**创建时间**</font>：**刚开始就自动生成一次**
 
-
-
+**//计算机属性**
 
 ```vue
     <div class="app">
@@ -1301,15 +1368,31 @@ data(){
 
 
 
+**监视属性**
+
+<font color="red">**创建时间**</font>：**immediate: false(默认刚开始不自动生成)，当属性发生变化时再调用，如果将immediate设置为true,参考列表过滤也许有奇效！！！！！**
 
 
 
+```js
+// 监视属性配置项
+watch: {
+    // 监视isSunny属性
+    imeediate: true/false,
+    isHot: {
+        // handler函数名称是固定的，不能随意更改,固定有两个参数一个是修改前的旧数据，一个是修改后的新数据
+        handler(newValue, oldValue) {
+            console.log("new:"newValue, "old:"oldValue)
+        }
+    }
+}
+```
 
 
 
+<font color="red">**建议**</font>：**计算属性也可以实现很多属性监视，能够使用计算属性就使用，实在不行才使用监视属性**
 
-
-
+![image-20240504214603128](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504214603128.png)
 
 
 
@@ -1329,7 +1412,7 @@ data(){
 
 **//语法糖：缩写为@**
 
-
+​	
 
 当通过methods中定义方法，以供@click调用时，需要注意参数问题：
 
@@ -1386,11 +1469,13 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 
 
 
-### 1.7 v-if、v-else-if、v-else
+### 1.7 v-if、v-else-if、v-else,v-show
 
 
 
-v-else-if  用的比较少，其他两个用得比较多
+- v-if适合用于**切换频率低**的场景
+- v-if与v-else-if,v-else搭配使用时 结构不能被打断
+- v-if如果判断是false，那么就直接不生成相关代码
 
 ```vue
 <body>
@@ -1420,62 +1505,163 @@ v-else-if  用的比较少，其他两个用得比较多
 
 
 
+- v-show 和 v-if差不多，适合用于**切换频率高**的场景
+- v-show如果判断是false，那么会生成相关代码，但是样式被隐藏起来了
 
 
 
+**//一个关于组件化的知识**
 
+```
+//下面每个都做了相同的判断，太不合理了，怎么解决呢？
+<h2 v-if="isright">你好1</h2>
+<h2 v-if="isright">你好2</h2>
+<h2 v-if="isright">你好3</h2>
+//第一种，用div包起来, 但是这样有一个问题就是破坏了原有的css结构，可能造成css冲突
+<div class="abc" v-if="isright"
+	<h2>你好1</h2>
+    <h2>你好2</h2>
+    <h2>你好3</h2>
+</div>
+//第二种，template,这样虽然包裹了但是不会破坏css结构，这一层只是逻辑层，不是真实存在的css层
+<template class="abc" v-if="isright"   //注意这里只能使用v-if不能用v-show
+	<h2>你好1</h2>
+    <h2>你好2</h2>
+    <h2>你好3</h2>
+</template>
+```
 
 
 
 
-### 1.8响应式方法
 
+### 1.8 自定义指令
 
+![image-20240506145621186](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506145621186.png)
 
-**//所谓响应式方法就是  使用这个方法后，页面会立即刷新**
 
 
 
-1. **push() 在尾部添加一个元素**
 
-this.student.push('zlc')
+### 1.9 vue生命周期
 
-​	2.**pop()在尾部删除一个元素**
+#### ①引出生命周期
 
-this.student.pop();
+实现效果：   让一段文字的透明度从0->1再从1->0来回重复 
 
-​	3.**shift() 在头部删除一个元素**
+**changeOpacity方法不能看模板初始化的时候就调用，这时候需要用到生命周期的一些关键方法**
 
-​	4.**unshift() 在头部添加一个元素**
+```
+<body>
+    <div id="app">
+        <h2 :style="{opacity}">你好啊</h2>
+        <h2>{{name}}</h2>
+    </div>
+    
+    <script src="../js/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data(){
+                return{
+                    name: 'zlc',
+                    button: true,
+                    opacity: 1
+                }
+            },
+            methods: {
+            	//修改透明度的方法
+                changeOpacity(){
+                        setInterval(() => {
+                        if (this.button == true) {
+                            this.opacity -= 0.01
+                        } else {
+                            this.opacity += 0.01
+                        }
+                        if (this.opacity <= 0 || this.opacity >= 1) this.button = !this.button
+                    }, 16)
+                }
+            },
+            mounted(){
+                    this.changeOpacity()
+                }
+        })
+    </script>
+</body>
+```
 
-​	5.**splice  删除/修改/添加元素**
 
-删除:   this.student.splice(参数1，参数2),参数1从第几个开始删除，参数2要删除几个
 
-修改:this.student.splice(参数1，参数2,'','修改数据1','修改数据2'.....)  参数1从第几个开始修改,参数2修改几个数据
+#### ②生命周期
 
-添加：this.student.splice(参数1，0,'x','y',.....)，参数1从哪开始添加，0表示此方法为添加，要添加几个写在后面
+- **挂载流程**
+- **更新流程**
+- **销毁流程**
 
-​	6.**sort()排序方法**
 
-this.student.sort()
 
-7.**reverse()反转方法**
 
-8.**通过索引修改数组中的元素**
 
-![image-20240319200957022](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240319200957022.png)
 
 
+### 2.初学案例
 
-this.student[0] = 'zlc'
 
-Vue.set(this.student[1],0,'zlc')
 
+### ①列表过滤
 
+```
+<body>
+    <div id="app">
+        <input type="text" placeholder="请输入名字" v-model="keyWord" @keyup.enter="query">
+        <ul>
+            <li v-for="p in fpersons" :key="p.id">
+                {{p.name}}------{{p.age}}
+            </li>
+        </ul>
+    </div>
 
 
 
+    <script src="../js/vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                keyWord: '',
+                persons:[
+                    { id: '001', name: '1zlc', age: 18 },
+                    { id: '002', name: 'zlc1', age: 18 },
+                    { id: '003', name: 'zlc2', age: 18 },
+                    { id: '004', name: 'zl2c', age: 18 }
+                ],
+                Fpersons:[]
+            },
+            methods: {
+            },
+            //使用监视属性实现
+            watch: {
+                keyWord:{
+                    immediate: true,
+                    handler(val) {
+                        this.fpersons = this.persons.filter((p) =>{
+                            return p.name.indexOf(val) !== -1
+                        })
+                    }
+                }
+            //使用计算属性实现（优先使用计算属性）
+            computed:{
+                fpersons(){
+                    return this.persons.filter((p) =>{
+                        return p.name.indexOf(this.keyWord) !== -1
+                    })
+                }
+            }
+            }
+        })
+    </script>
+</body>
+```
 
 
 
@@ -1485,38 +1671,72 @@ Vue.set(this.student[1],0,'zlc')
 
 
 
+## 2.Vue组件化编程
 
 
 
+### 2.1组件的构成
 
 
 
+**一个Vue组件包括三个部分 <template></template>**,<script></script>,<style></style>**三个部分**
 
 
 
 
 
+### 2.2组件的创建
 
+**//此处的test也可以称之为组件实例对象(vc)**
 
+```
+const test = Vue.extend({
+	template:``,   //写html
+	data(){        //必须使用函数式，因为函数式每次都return一个新对象，保证数据是全新的
+		return {
+			xxx
+		}
+	}
+})
+```
 
+![image-20240506181743102](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506181743102.png)
 
+**//一个重要的内置对象VueComponent.prototype._proto__ == Vue.prototype**
 
+**//为什么要有这个关系？让组件实例对象(vc)也可以访问到Vue原型上的属性和方法**
 
+![image-20240506184259276](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506184259276.png)
 
 
 
 
 
+### 2.3 组件的注册
 
+```
+new Vue({
+	components:{
+		App,
+		School
+	}
+})
+```
 
 
 
 
 
+### 2.4 组件的使用
 
 
 
+**//写组件标签**
 
+```
+//比如我们有一个School组件
+可以直接在div中写 <School></School>
+```
 
 
 
@@ -1524,24 +1744,75 @@ Vue.set(this.student[1],0,'zlc')
 
 
 
+### 2.5 开发经典模板
 
 
 
+![image-20240506205724978](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506205724978.png)
 
 
 
+**main.js**
 
+```
+import Vue from 'vue'
+import App from './App'
+import router from './router'
 
+Vue.config.productionTip = false
 
+/* eslint-disable no-new */
+new Vue({
+  el: '#app',
+  router,
+  render: h => h(App)
+})
+```
 
+**App.vue**
 
+```
+<template>
+  <div>
+    <School></School>
+  </div>
+</template>
 
+<script>
+    //引入组件
+    import School from './components/School.vue'
 
+export default {
+    name: 'App',
+    components:{
+        School
+    }
+}
+</script>
 
+<style>
 
+</style>
+```
 
+**index.html**
 
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>vue_test</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
+```
 
+**compoments下的各种组件**
 
 
 
@@ -1549,6 +1820,7 @@ Vue.set(this.student[1],0,'zlc')
 
 
 
+### 2.6 组件可以嵌套使用
 
 
 
@@ -1556,17 +1828,35 @@ Vue.set(this.student[1],0,'zlc')
 
 
 
+### 2.7 render渲染
 
+**//详情去看视频**
 
 
 
+**vue脚手架生成的main.js为什么要使用render渲染而不使用模板？**
 
+```
+  render: h => h(App)  
+```
 
+**//我们import Vue from 'vue'，实际上引入的是残缺版本的vue，只有核心缺少了模板解析器(缺少的是解析Js中的模板解析器，vue文件的模板解析器还是一直存在的)，所以需要使用别的方法来替代使用template模板**
 
+**//render的使用方法**
 
+```
+render(createElement){
+	return createElement('h1','你好啊')
+}
+//只有一个参数 一行任务，不需要this，可以使用箭头函数
+render: zlc => zlc('h1','你好啊')
+如果是组件则可以直接写组件名
+render: zlc => zlc(App)
+```
 
 
 
+![image-20240506211230109](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506211230109.png)
 
 
 
@@ -1576,37 +1866,17 @@ Vue.set(this.student[1],0,'zlc')
 
 
 
+### 2.8 获取dom元素
 
+**//某些特殊场景我们确实需要获取dom元素，不建议使用js获取，可以使用vue提供的ref**
 
+**//如果只是单纯地获取html标签，那传统的js代码和vue提高的ref确实没区别，但要是针对组件区别就大了！！！**
 
+**//document.getElementById('xx')只会获取组件html结构**
 
+**//vue的ref可以获取组件实例对象,即可以获取vc**
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+![image-20240506212859551](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506212859551.png)
 
 
 

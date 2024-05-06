@@ -283,6 +283,14 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 
 
 
+1. git remote add xxx  url     添加一个新的远程仓库,并命名。
+2. git remote -v 显示所有远程仓库的详细信息。
+3. git remote show 显示某个远程仓库的详细信息。
+4. git remote rename 重命名远程仓库。
+5. git remote remove 删除远程仓库。
+
+
+
 ## 3.分支
 
 
