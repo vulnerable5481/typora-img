@@ -8,25 +8,90 @@
 
 
 
-### 1.1字体,img
+### 1.1总结⭐
 
-![image-20240314160542448](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314160542448.png)
+直接去看这个
+
+https://blog.csdn.net/weixin_43461520/article/details/110143997
+
+```
+//1.文本格式化标签
+		加粗：<strong> </strong>或者<b> </b>
+
+        倾斜：<em> </em>或者<i> </i>
+
+        删除线：<del> </del>或者<s> </s>
+
+        下划线：<ins> </ins>或者<u> </u>
+//2.段落标签
+	<P></P>
+//3.盒子标签
+	<div></div>是大盒子，一行只能放一个大盒子;
+	<span></span>是小盒子，一行可以放多个
+
+//4.图片标签
+		<img src="xxxxxx" 属性2="xxxxxx">  
+alt	文本	替换文本。图像不能显示的文字
+title	文本	提示文本。鼠标放到图像上，显示的文字
+width	像素	设置图像的宽度
+height	像素	设置图像的高度
+border	像素	设置图像的边框粗
+
+//5.超链接标签
+	< a href="跳转目标" target="目标窗口的弹出方式">文本或图像</a>
+	
+//6.表格标签
+<table></tabe>是用于定义表格的标签。
+
+<tr></tr>标签用于定义表格中的行,必须嵌套在< table></ table>标签中
+
+<td></td>用于定义表格中的单元格，必须嵌套在< tr></ tr>标签中
+
+<th></th>表示表格的表头部分，表示表格的第一行或第一列，其中的文本内容加粗居中显示
+
+<thead></thead>用于定义表格的头部。< thead>内部必须拥有< tr>标签，一般是位于第一行
+
+<tbody></tbody>用于定义表格的主体，主要用于放数据本体。
+
+align	left、center、right	规定表格相对周围元素的对齐方式
+border	1 或 “”	规定表格单元是否拥有边框，默认为“”，表示没有边框
+cellpadding	像素值	规定单元边沿与其内容之间的空白,默认1像素
+cellspacing	像素值	规定单元格之间的空白，默认2像素
+width	像素值或百分比	规定表格的宽度
+height	像素值或百分比	规定表格的高度
+rowspan	要合并的单元格个数	合并行单元格，记得要删除多余的单元格
+colspan	要合并的单元格个数	合并列单元格，记得要删除多余的单元格
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 ### 1.2 table 
 
-![image-20240314164001972](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314164001972.png)
+![image-20240314164001972](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240314164001972.png)
 
 
 
 ### 1.3 有序无序 自定义列表
 
-![image-20240314165105980](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314165105980.png)
+![image-20240314165105980](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240314165105980.png)
 
 
 
 ⭐⭐⭐⭐⭐⭐
 
-![image-20240314165501331](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314165501331.png)
+![image-20240314165501331](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240314165501331.png)
 
 
 
@@ -34,9 +99,9 @@
 
 ### 1.4 input输入表单元素
 
-![image-20240314170822396](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314170822396.png)
+![image-20240314170822396](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240314170822396.png)
 
-![image-20240314170836049](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314170836049.png)
+![image-20240314170836049](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240314170836049.png)
 
 
 
@@ -44,7 +109,7 @@
 
 **//比如lable标签可以使鼠标点击用户名三个字就触发输入框，输入信息，就是将鼠标点击范围从单一的框变为框加文字的所在的盒子**
 
-![image-20240314171626257](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314171626257.png)
+![image-20240314171626257](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240314171626257.png)
 
 
 
@@ -54,13 +119,13 @@
 
 
 
-![image-20240314172009678](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314172009678.png)
+![image-20240314172009678](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240314172009678.png)
 
 
 
 ### 1.7文本域
 
-![image-20240314172304685](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314172304685.png)
+![image-20240314172304685](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240314172304685.png)
 
 
 
@@ -70,7 +135,7 @@
 
 
 
-![image-20240315122337048](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240315122337048.png)
+![image-20240315122337048](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240315122337048.png)
 
 
 
@@ -88,7 +153,7 @@
 
 
 
-![image-20240326145754863](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326145754863.png)
+![image-20240326145754863](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326145754863.png)
 
 
 
@@ -100,21 +165,21 @@
 
 
 
-![image-20240314205404290](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240314205404290.png)
+![image-20240314205404290](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240314205404290.png)
 
 
 
 **复合选择器**
 
-![image-20240318173738463](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240318173738463.png)
+![image-20240318173738463](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318173738463.png)
 
-![image-20240318174323877](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240318174323877.png)
+![image-20240318174323877](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318174323877.png)
 
-![image-20240318174919766](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240318174919766.png)
+![image-20240318174919766](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318174919766.png)
 
-![image-20240318175411067](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240318175411067.png)
+![image-20240318175411067](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318175411067.png)
 
-![image-20240325130848922](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325130848922.png)
+![image-20240325130848922](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325130848922.png)
 
 
 
@@ -148,7 +213,7 @@
 
 #### 2.2.1字体属性
 
-![image-20240319183954518](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240319183954518.png)
+![image-20240319183954518](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240319183954518.png)
 
 **//font-size 尽可能不使用默认大小，最好自己去指定大小**
 
@@ -168,7 +233,7 @@
 
 
 
-![image-20240319184324372](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240319184324372.png)
+![image-20240319184324372](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240319184324372.png)
 
 **//text-align center left/right center 三种对齐方法**
 
@@ -190,7 +255,7 @@
 
 #### 2.2.3 背景属性
 
-![image-20240319184729040](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240319184729040.png)
+![image-20240319184729040](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240319184729040.png)
 
  
 
@@ -216,9 +281,9 @@
 
 
 
-![image-20240325141824675](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325141824675.png)
+![image-20240325141824675](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325141824675.png)
 
-![image-20240325141840598](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325141840598.png)
+![image-20240325141840598](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325141840598.png)
 
 
 
@@ -243,7 +308,7 @@
   - 子元素可以继承父元素一些样式，但是只能继承文字相关样式，但是不会继承浮动啊边框等其他元素
 
 - 优先级
-  - 权重：![image-20240327173935459](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240327173935459.png)
+  - 权重：![image-20240327173935459](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240327173935459.png)
 
 
 
@@ -258,13 +323,13 @@
 
 
 
-![image-20240325131138597](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325131138597.png)
+![image-20240325131138597](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325131138597.png)
 
 
 
 #### 2.5.2盒子组成
 
-![image-20240325132217249](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325132217249.png)
+![image-20240325132217249](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325132217249.png)
 
 C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\
 
@@ -291,7 +356,7 @@ border分框写法:
 
 ##### 2.padding内间距
 
-![image-20240325134952622](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325134952622.png)
+![image-20240325134952622](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325134952622.png)
 
 ```
  padding: 5px   意思是上下左右都是5px
@@ -302,7 +367,7 @@ border分框写法:
 
 **padding也会影响盒子大小**
 
-![image-20240325135714210](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325135714210.png)
+![image-20240325135714210](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325135714210.png)
 
 
 
@@ -314,29 +379,29 @@ border分框写法:
 
 
 
-![image-20240325142237958](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325142237958.png)
+![image-20240325142237958](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325142237958.png)
 
 ![image-20240325144600848](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325144600848.png)
 
-![image-20240325143809887](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325143809887.png)
+![image-20240325143809887](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325143809887.png)
 
 
 
 
 
-![image-20240325144420339](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325144420339.png)
+![image-20240325144420339](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325144420339.png)
 
 
 
 **外边距合并现象**
 
-![image-20240325144959114](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325144959114.png)
+![image-20240325144959114](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325144959114.png)
 
 
 
-![image-20240325145524886](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325145524886.png)
+![image-20240325145524886](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325145524886.png)
 
-![image-20240325145822464](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325145822464.png)
+![image-20240325145822464](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325145822464.png)
 
 
 
@@ -366,13 +431,13 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 
 
-![image-20240325184453503](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325184453503.png)
+![image-20240325184453503](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325184453503.png)
 
 
 
 例子：   一般影子颜色推荐:   rgba(0,0,0,.3)  
 
-![image-20240325184419127](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325184419127.png)
+![image-20240325184419127](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325184419127.png)
 
 
 
@@ -382,7 +447,7 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 
 
-![image-20240325184520481](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325184520481.png)
+![image-20240325184520481](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325184520481.png)
 
 
 
@@ -394,31 +459,31 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 
 
-![image-20240325185923009](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325185923009.png)
+![image-20240325185923009](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325185923009.png)
 
 
 
 
 
-![image-20240325190039125](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240325190039125.png)
+![image-20240325190039125](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325190039125.png)
 
 #### 2.6.1 浮动三特性
 
-![image-20240326121836258](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326121836258.png)
+![image-20240326121836258](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326121836258.png)
 
 
 
-![image-20240326121940735](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326121940735.png)
+![image-20240326121940735](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326121940735.png)
 
 
 
 
 
-![image-20240326122357841](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326122357841.png)
+![image-20240326122357841](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326122357841.png)
 
 
 
-![image-20240326122927859](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326122927859.png)
+![image-20240326122927859](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326122927859.png)
 
 #### 2.6.2浮动元素与标准元素搭配使用
 
@@ -428,7 +493,7 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 
 
-![image-20240326124519492](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326124519492.png)
+![image-20240326124519492](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326124519492.png)
 
 
 
@@ -436,11 +501,11 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 #### 2.6.3清除浮动
 
-![image-20240326141835582](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326141835582.png)
+![image-20240326141835582](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326141835582.png)
 
-![image-20240326143455710](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326143455710.png)
+![image-20240326143455710](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326143455710.png)
 
-![image-20240326142807691](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240326142807691.png) 
+![image-20240326142807691](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326142807691.png) 
 
 ```
 overflow:hidden 
@@ -477,11 +542,11 @@ overflow:hidden
 
 #### 2.8.1为什么需要定位
 
-![image-20240330161923651](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330161923651.png)
+![image-20240330161923651](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330161923651.png)
 
 #### 2.8.2定位组成及语法
 
-![image-20240330162224441](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330162224441.png)
+![image-20240330162224441](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330162224441.png)
 
 
 
@@ -508,7 +573,7 @@ overflow:hidden
 
 #### 2.8.3子绝父相
 
-![image-20240330171833737](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330171833737.png)
+![image-20240330171833737](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330171833737.png)
 
 
 
@@ -518,7 +583,7 @@ overflow:hidden
 
 #### 2.8.4 定位叠放次序
 
-![image-20240330183200722](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330183200722.png)
+![image-20240330183200722](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330183200722.png)
 
 
 
@@ -530,7 +595,7 @@ overflow:hidden
 - float:left;
 - position: absolute / fixed
 
-![image-20240330184511724](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330184511724.png)
+![image-20240330184511724](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330184511724.png)
 
 
 
@@ -552,11 +617,11 @@ overflow:hidden
 
 
 
-![image-20240331150414524](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240331150414524.png)
+![image-20240331150414524](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240331150414524.png)
 
-![image-20240331150517629](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240331150517629.png)
+![image-20240331150517629](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240331150517629.png)
 
-![image-20240331150946186](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240331150946186.png)
+![image-20240331150946186](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240331150946186.png)
 
 
 
@@ -717,7 +782,7 @@ text-align: center  //可以使单行文字居中
 
 **//解答：一般都是给li    ，不过看情况，灵活选择**
 
-![image-20240330133912312](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330133912312.png)
+![image-20240330133912312](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330133912312.png)
 
 
 
@@ -769,7 +834,7 @@ text-align: center  //可以使单行文字居中
 
 
 
-![image-20240330174603275](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240330174603275.png)
+![image-20240330174603275](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330174603275.png)
 
 
 
@@ -811,7 +876,10 @@ text-align: center  //可以使单行文字居中
 
 ```
 1.el的两种写法
-el:'#app'  ;  const app =  new Vue({xxx})  app.$mout(app);挂载
+el:'#app'  ; 
+
+挂载
+const app =  new Vue({xxx})  app.$mout(app);
 
 2.data必须使用函数式
 data:function(){        可简化成 data(){  }
@@ -823,23 +891,19 @@ data:function(){        可简化成 data(){  }
 
 #### 2.MVVM模型
 
-![image-20240504193007719](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504193007719.png)
+![image-20240504193007719](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240504193007719.png)
 
 #### 3.vue的数据代理
 
-**//理解了这个方法的过程，将非常有助于理解vue的数据代理，进而理解MVVM模型**
-
-![image-20240504194350060](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504194350060.png)
-
-**//你写在data里面的数据，vue会将其加工(生成get,set)到vue._data里面，然后vue实例根据vue._date生成数据名，然后只要调用set就将变化更新到视图上**
+**//你写在data里面的数据，vue会将其加工(生成get,set)到vue.\_data里面，然后vue实例根据vue._date生成数据名，然后只要调用set就将变化更新到视图上**
 
 **所谓的数据代理，就是vue实例中的data的数据是通过_data的get获取值，通过__data的set来修改值**
 
 **//数据代理的好处就是方便我们的编码**
 
-**(<font color="green">既然已经vue实例_date已经有了真实数据，为什么还要在vue实例再创建数据呢？因为你每次都要__data.xxx获取属性不麻烦吗，直接 使用 xx多方便，所以vue实例中的_data的数据是通过___data的get获取值，通过__data的set来修改值，这样就可以直接使用属性名，而不用加-data.xxx</font> ）**
+**(<font color="green">既然vue实例的 \_data已经有了真实数据，为什么还要在vue实例再创建数据呢？因为你每次都要\_data.xxx获取属性不麻烦吗，直接 使用 xx多方便，所以vue实例中的data的数据是通过___data的get获取值，通过_____data的set来修改值，这样就可以直接使用属性名，而不用加-data.xxx</font> ）**
 
-![image-20240504201600879](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504201600879.png)
+![image-20240504201600879](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240504201600879.png)
 
 
 
@@ -851,7 +915,7 @@ data:function(){        可简化成 data(){  }
 
 - **问题引出：第二种方式修改数据，虽然内存上确实修改成功，但是vue没有监视到这种更新，视图不会变。**
 
-![image-20240506132222822](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506132222822.png)
+![image-20240506132222822](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506132222822.png)
 
 - **vue如何检测对象更新？**
 
@@ -860,7 +924,7 @@ data:function(){        可简化成 data(){  }
 
 比如，像这种，直接写了一个属性sex ,然后给予一个值 '男'，这个属性压根没有get set方法怎么可能会在视图上显示出来！
 
-![image-20240506134152240](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506134152240.png)
+![image-20240506134152240](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506134152240.png)
 
 
 
@@ -868,7 +932,7 @@ data:function(){        可简化成 data(){  }
 
 数组里的属性没有set,get，数组里的对象肯定可以有，vue如何检测数组更新？
 
-![image-20240506140647104](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506140647104.png)
+![image-20240506140647104](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506140647104.png)
 
 
 
@@ -892,7 +956,7 @@ addSex(){
 
 **//总结**
 
-![image-20240506142422659](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506142422659.png)
+![image-20240506142422659](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506142422659.png)
 
 
 
@@ -1018,15 +1082,13 @@ addSex(){
 
 ### 1.2 v-bind 标签属性绑定
 
+​	
 
-
-前面我们学习了如何插入内容，但实际开发中很多属性是动态的，比如轮换图,超链接，这就需要我们给这些属性动态绑定
-
-**//v-bind 一般都是标签内部的东西**
+**//v-bind 一般都是标签属性的东西**
 
 **//语法糖写法   :src="imgUrl"**,只需要写一个:即可,v-bind可以省略
 
- 
+ <font color="red">**v-bind的实质就是将引号里面的东西当成js代码而不是字符串看待！！！！！！**</font>
 
 ```vue
     <div id="app">
@@ -1126,7 +1188,7 @@ data(){
 		mood = sad
 	}
 }
-method:{
+methods:{
 	update(){
 		this.mood = happy
 	}
@@ -1167,6 +1229,21 @@ v-bind可以动态绑定style的属性，格式为：style="{key(属性名):valu
 
 ![image-20240506144227751](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506144227751.png)
 
+```
+//1.checkbox，如果绑定的是布尔值，那么勾选与不勾选将直接影响布尔值;
+			  如果绑定的是数组，那么勾选与不勾选 影响的是数组中有无该数据
+```
+
+
+
+
+
+
+
+
+
+
+
 **//表单修饰符**
 
 ```
@@ -1186,12 +1263,9 @@ v-bind可以动态绑定style的属性，格式为：style="{key(属性名):valu
 
 ```
 
-.trim
-如果要自动过滤用户输入的首尾空白字符，可以给 v-model 添加 trim 修饰符：
-
 **//总结**
 
-![image-20240506144631933](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506144631933.png)
+![image-20240506144631933](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506144631933.png)
 
 
 
@@ -1208,7 +1282,7 @@ v-bind可以动态绑定style的属性，格式为：style="{key(属性名):valu
 - 当我们有一组数据需要进行渲染时，我们就可以使用v-for来完成。
   - v-for的语法类似于JavaScript中的for循环。
   - 格式如下：v-for=" item in items  :key = "xxx" ",这里的key作为唯一标识，必须得写！！！
-  - 格式还可以另一种写法v-for=" (item,index) in items  :key = "index" ",利用数组index角标作为唯一标识
+  - 格式还可以另一种写法v-for=" (item,index) in items  :key = "index" ",利用数组index角标作为唯一标识(但是一般别这么做)
 
 
 
@@ -1303,7 +1377,7 @@ v-bind可以动态绑定style的属性，格式为：style="{key(属性名):valu
 
 **//总之就是 使用V-for时  必须添加:key=“唯一标识一般都是id"**
 
-![image-20240506122313905](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506122313905.png)
+![image-20240506122313905](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506122313905.png)
 
 
 
@@ -1331,7 +1405,7 @@ v-bind可以动态绑定style的属性，格式为：style="{key(属性名):valu
 
 **//为什么推荐使用计算属性，而不是写一个函数来获取属性？**因为你写成函数那么用几次该属性就需要调用几次该函数，没有缓存，效率低。**但是你使用计算属性，只会调用一次就会一直获取到该属性，后续再使用该属性可以直接使用**.
 
-<font color="red">**创建时间**</font>：**刚开始就自动生成一次**
+**<font color="red">创建时间：immediate:true 刚开始就自动生成一次</font>**
 
 **//计算机属性**
 
@@ -1392,7 +1466,7 @@ watch: {
 
 <font color="red">**建议**</font>：**计算属性也可以实现很多属性监视，能够使用计算属性就使用，实在不行才使用监视属性**
 
-![image-20240504214603128](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504214603128.png)
+![image-20240504214603128](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240504214603128.png)
 
 
 
@@ -1416,7 +1490,7 @@ watch: {
 
 当通过methods中定义方法，以供@click调用时，需要注意参数问题：
 
-情况一：如果该方法不需要额外参数，那么方法后的()可以不添加。
+情况一：如果该方法不需要额外参数，那么方法后的括号()可以不添加。
 
 但是注意：如果方法本身中有一个参数，那么会默认将原生事件event参数传递进去，**可以在参数列表写一个名字获取event**
 
@@ -1429,7 +1503,7 @@ watch: {
 ```
 methods:{
 	showInfo(e){
-		e.preventDefault()   //js
+		e.preventDefault()   //老旧的使用js  api
 		alter('你好!')
 	}
 }
@@ -1445,9 +1519,8 @@ methods:{
 
 ### 1.6 键盘监听
 
-
-
-**//比如@keyup: 按下某个键松开后才触发，@keydown：按下就触发**
+1. `@keydown`：监听键盘按下事件。
+2. `@keyup`：监听键盘抬起事件。
 
 ```
 name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="showInfo">
@@ -1459,9 +1532,9 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
             
 ```
 
-![image-20240504204050490](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504204050490.png)
+![image-20240504204050490](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240504204050490.png)
 
-![image-20240504204448563](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240504204448563.png)
+![image-20240504204448563](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240504204448563.png)
 
 
 
@@ -1602,6 +1675,16 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 
 
 
+#### ③知道两个重要的钩子函数
+
+
+
+mouted  和  updated
+
+
+
+
+
 
 
 ### 2.初学案例
@@ -1687,7 +1770,7 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 
 ### 2.2组件的创建
 
-**//此处的test也可以称之为组件实例对象(vc)**
+**//此处的test就称之为组件实例对象(vc)**
 
 ```
 const test = Vue.extend({
@@ -1698,21 +1781,26 @@ const test = Vue.extend({
 		}
 	}
 })
+// 还有简写版本
+
+
 ```
 
-![image-20240506181743102](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506181743102.png)
+![image-20240506181743102](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506181743102.png)
 
 **//一个重要的内置对象VueComponent.prototype._proto__ == Vue.prototype**
 
 **//为什么要有这个关系？让组件实例对象(vc)也可以访问到Vue原型上的属性和方法**
 
-![image-20240506184259276](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506184259276.png)
+![image-20240506184259276](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506184259276.png)
 
 
 
 
 
 ### 2.3 组件的注册
+
+
 
 ```
 new Vue({
@@ -1824,11 +1912,11 @@ export default {
 
 
 
+## 3.Vue技术
 
 
 
-
-### 2.7 render渲染
+### 3.1 render渲染
 
 **//详情去看视频**
 
@@ -1856,7 +1944,7 @@ render: zlc => zlc(App)
 
 
 
-![image-20240506211230109](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506211230109.png)
+![image-20240506211230109](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506211230109.png)
 
 
 
@@ -1866,7 +1954,7 @@ render: zlc => zlc(App)
 
 
 
-### 2.8 获取dom元素
+### 3.2 ref
 
 **//某些特殊场景我们确实需要获取dom元素，不建议使用js获取，可以使用vue提供的ref**
 
@@ -1876,9 +1964,405 @@ render: zlc => zlc(App)
 
 **//vue的ref可以获取组件实例对象,即可以获取vc**
 
-![image-20240506212859551](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240506212859551.png)
+**//this.$ref.student.$on('xxx',function({**
+
+​		**这里面的this指的是student组件，想使用本组件需要用箭头函数，箭头函数没有自己的this，会向外找，就会找到本组件**
+
+**}))**
+
+![image-20240506212859551](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506212859551.png)
 
 
+
+
+
+### 3.3 props
+
+
+
+```
+//1.简单声明接收 (开发中这种简单的用的多)
+props:['name','age','sex']
+
+//2.类型限制
+props:{
+	name:String,
+	age:Number,
+	sex:String
+}
+
+//3.限制类型，限制必要性，指定默认值
+props:{
+	name:{
+		type:String,    //name的类型是字符串
+		required:true   //name是必要的
+	}，
+	age:{
+		type:Number,
+		default:99    	//默认值
+	}
+}
+```
+
+
+
+**{备注：props是只读的，Vue底层会检测你对props的修改，如果进行了修改，就会发出警告，若业务确实需要修改，那么请复制props的内容到data中一份，然后去修改data中的数据}**
+
+**//如果你传的是一个基本类型的数据，修改的话vue会直接报错；但是如果你传的是一个对象,修改对象中的一个基本数据类型是不会报错的，只是vue不建议你这么写！！！！**
+
+
+
+
+
+### 3.4 mixin(混入)
+
+**//类似一个公共函数库,或者工具类**
+
+**//感觉用的不多，除非很多组件都需要频繁使用**
+
+```
+一个mixin.js,名字可以随意取
+export const timeUtil = {
+    methods:{
+        NowTime(){
+            alert(Date.now())
+        }
+    },
+    mounted() {
+        this.NowTime()
+    },
+}
+
+export const test = {
+    data(){
+        return {
+            x:666
+        }
+    },
+        methods:{
+            showX(){
+                alert(this.x)
+            }
+        }
+    }
+```
+
+**//局部混入**
+
+```
+<template>
+    <div class="demon">
+        <!-- 组件的结构 -->
+        <h2>{{msg}}</h2>
+        <h2 @click="showInfo">校名:{{name}}</h2>
+        <h2>校长:{{leader}}</h2>
+        <h2 @click="showX">{{x}}</h2>					//可以正常使用
+        <button @click="showInfo">点我提示校长</button>
+    </div>
+</template>
+<script>
+    import {timeUtil,test} from '../mixin'			//引入mixin.js中需要用到的vc对象
+    // 组件交互代码
+    export default {
+        name: 'School',
+        data(){
+            return {
+                msg:'你好啊'
+            }
+        },
+        methods:{
+            showInfo(){
+                alert(this.leader)
+            }
+        },
+        props:['name','leader'],
+        mixins:[timeUtil,test]                  //声明
+    }
+</script>
+```
+
+
+
+**//全局混入**
+
+//这样所有的vm,vc都会拥有混合里面的内容（慎用）
+
+![image-20240507152322539](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240507152322539.png)
+
+
+
+
+
+
+
+### 3.5 Vue插件
+
+**//功能：增强Vue**
+
+**//本质就是包含intall()方法的一个对象。install方法第一个参数默认是Vue原型，第二个以后的参数是插件使用者传递的数据**
+
+**//Vue.use(),可以写多个；后面我们引入别人写的功能强大的插件，大大加快开发效率**
+
+
+
+- 创建一个plugin.js
+  - 内容：![image-20240507153648504](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240507153648504.png)
+- 使用方法：在main.js中 使用Vue.use(xxx)
+  - ![image-20240507153728040](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240507153728040.png)
+
+
+
+
+
+
+
+
+
+### 3.6 scopted
+
+比如组件A和组件B样式中都有一个同名的class选择器，这时候将他们都注册到app中，就会发生冲突，后引入的样式会覆盖前面引入的样式
+
+**//解决方法就是加入scopted,本质就是将样式中各种选择器的名字随机生成确保不会重复**
+
+```
+<style scopted>
+	xxxxxx
+</style>
+```
+
+
+
+
+
+### 3.7 自定义事件
+
+**//自定义事件本质是给xx组件的vc绑定的事件**
+
+**//作用:子组件 ===> 父组件，子组件传数据给父组件**
+
+
+
+#### ①问题引入
+
+前面我们使用props解决了父组件给子组件传数据/方法的问题，但是那种不够灵活，解耦性低
+
+vue提供的自定义事件帮助我们解决这个问题
+
+
+
+#### ②自定义事件使用/演示
+
+**语法：1.创建自定义事件  **
+
+​			**2.触发自定义事件:  this.$emit(自定义事件名字,args)**
+
+​		    **3.解除单个绑定:this.$off(自定义事件名字)**
+
+​			**4.解除多个绑定:this.$off(['xx','xx',.......])**
+
+​			**5.解除所有绑定:销毁绑定组件实例，就可以销毁所有该组件自定义事件！！！！！！！！！！**
+
+​			**//第五条的言外之意就是说，当后面学习路由的时候，出现他杀，自定义事件会失效**
+
+//父组件
+
+```
+<MyChild @zlc />
+
+```
+
+//子组件
+
+```
+<button @click="test">触发绑定事件</button>
+
+methods:{
+	test(){
+		//触发事件
+		this.$emit('zlc',name,age)
+	}
+}
+```
+
+
+
+![image-20240508193751654](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240508193751654.png)
+
+
+
+
+
+
+
+#### ③ 组件使用Js内置事件
+
+组件无法使用直接使用内置事件，直接使用vue会当成自定义事件
+
+```
+<student @click="demon"/>   //组件上使用内置事件，vue依然会当成自定义事件从而失效
+```
+
+
+
+**组件使用Js内置事件需要声明**
+
+```
+<student @click.native="demon"/> 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 3.8全局事件总线
+
+**//前人总结的经验，而非vue设计开发的**
+
+
+
+#### ① 实现任意组件通信
+
+![image-20240508200931892](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240508200931892.png)
+
+
+
+
+
+#### ② 使用流程
+
+
+
+![image-20240508205145208](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240508205145208.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 3.9 消息订阅与发布
+
+
+
+#### ① 下载 pubsub.js库
+
+
+
+```
+命令行: npm i pubsub-js
+```
+
+
+
+#### ② 使用流程
+
+```
+//1.引入pubsub.js
+	import Pubsub from 'pubsub-js'
+	Pubsub是一个对象
+
+//2.类比 this.$bus.$on
+	this.pubId = Pubsub.subscript('xx',function(){}) //返回的是一个订阅id，用来取消订阅
+	可以将方法写在$on/subscript里面，但是必须要用箭头函数，使this指向vc
+	或者将方法老老实实写在methods里面，然后this.xxx调用
+
+//3.类比this.$bus.$emit
+	Pubsub.publish('xx',参数)
+
+//4.类比this.$bus.$off
+	beforeDestroy(){
+		Pubsub.unsubscript(this.pubId)    //输入订阅id，就可以取消订阅
+	}
+```
+
+
+
+
+
+
+
+
+
+### 3.10 $nextTick()
+
+**作用:是将$nextTick()中的回调函数延迟在下一次dom更新数据后调用**
+
+**用法：如下案例**
+
+
+
+
+
+**//一个案例，实现点击编辑就会自动将鼠标焦点锁定输入框**
+
+![image-20240508220200832](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240508220200832.png)
+
+```
+<template>
+        <li>
+            <label>
+                <input type="checkbox" v-model="todoObj.done">
+                <span v-show="!todoObj.isEdit">{{todoObj.name}}</span>
+                <input
+                 v-show="todoObj.isEdit"
+                 type="text" ref="inputTitle"
+                 v-model="todoObj.name"
+                 @blur="todoObj.isEdit = false">
+            </label>
+            <button class="btn btn-editnpm" @click="editTodoObj(todoObj)">编辑</button>
+            <button class="btn btn-danger" @click="todoObjDelete">删除</button>
+        </li>
+</template>
+
+<script>
+    export default {
+        name: 'MyItem',
+        props:['todoObj'],
+        methods:{
+            changeDone(){
+                this.todoObj.done = !this.todoObj.done
+            },
+            todoObjDelete(){
+                if(confirm('是否删除')){
+                    this.$bus.$emit('deleteTodoObj',this.todoObj.id)
+                }
+            },
+            editTodoObj(todoObj){
+                this.$set(todoObj,'isEdit',true)
+                //由于我们当时并没有给todoObj这个类加入idEdit属性，我们这里选择后加入该属性，这就导致我们上面
+                //的代码无法及时同步视图，此时视图中还没有文本框，没有文本框这时候设置自动获取焦点是无效的。
+                //问题的解决：使用$nextTick(),可以在该函数回调完的最后再去执行
+                
+                //题外话：vue更新视图是在回调完一整个函数后再回调！！！因为你遇见一个更新就回调效率很慢，vue
+                	//   选择全部执行完之后再去更新视图
+                this.$nextTick(function(){
+                    this.$refs.inputTitle.focus()
+                })
+            }
+        },
+    }
+</script>
+
+<style>
+
+</style>
+```
 
 
 

@@ -115,7 +115,7 @@ $ git clone [url]  # https://gitee.com/kuangstudy/openclass.git
 
 
 
-![img](https://img-blog.csdnimg.cn/img_convert/f6d1d99b0ed7a5b02150016060b7a30d.png)
+![img](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/f6d1d99b0ed7a5b02150016060b7a30d.png)
 
 
 
@@ -299,7 +299,7 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 
 **//可以以明日方舟的更新来理解这张图**
 
-![image-20240417210348681](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240417210348681.png)
+![image-20240417210348681](https://cdn.jsdelivr.net/gh/nmsil/typora_img@main/data/image-20240417210348681.png)
 
 
 
@@ -330,13 +330,13 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 
 ### 3.团队协作与跨团队协作
 
-![image-20240417215045143](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240417215045143.png)
+![image-20240417215045143](https://cdn.jsdelivr.net/gh/nmsil/typora_img@main/data/image-20240417215045143.png)
 
 
 
 **//垮团队协作**
 
-![image-20240417215058189](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240417215058189.png)
+![image-20240417215058189](https://cdn.jsdelivr.net/gh/nmsil/typora_img@main/data/image-20240417215058189.png)
 
 
 
@@ -354,7 +354,7 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 
 **//直接clone和fork的区别，直接clone你在github上没有对应的库，而fork是将别人的库复制一份在github仓库中，然后clone就可以正常push，想修改人家的代码，需要pull request 对方审核同意才可以合并**
 
-![image-20240417215058189](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240417215058189.png)
+![image-20240417215058189](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417215058189.png)
 
 
 
