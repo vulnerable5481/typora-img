@@ -711,6 +711,19 @@ overflow:hidden
 
 
 
+### 1.基础语法对比
+
+#### 1.1变量
+
+**//const 不变的是地址，因为基本类型直接存储在栈里面所以值就是地址，但是引用类型值在堆里面，指针指向堆，只要地址不变，堆里的值变无所谓，数组中的push，pop也是修改堆里的数据，地址没变，但是arr = [xxx],这样地址就变了**
+
+![image-20240509120603382](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509120603382.png)
+
+### 1.2 数据类型
+
+- 布尔值
+  - 空字符串 默认是 false
+  - 除了空字符串其他的非布尔值全都会隐式转换成true
 
 
 
@@ -718,6 +731,502 @@ overflow:hidden
 
 
 
+
+
+
+
+
+
+### 2.DOM-API	
+
+![image-20240509121056093](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509121056093.png)
+
+#### 2.1 操作DOM对象
+
+
+
+- **获取DOM对象**
+
+```
+//1.返回第一个 ⭐!!!
+	document.querySelector('css选择器')   和css各种选择器的写法一摸一样
+//2.返回所有
+	document.querySelectorAll('css选择器')   
+```
+
+
+
+- **操作DOM对象**
+
+```
+//1.修改文本内容
+	xx.innerHTML = xxx       //解析标签   （推荐这个，顶多就是你不写标签呗）
+	
+//2.修改标签属性 
+	xx.src = xxx    //直接 对象.属性 即可
+	 	
+//3.1直接修改样式属性 （麻烦）
+	xx.style.xx    //直接 对象.style.属性 即可
+	xx.style.backgroudColor   //如果涉及多个单词，使用小驼峰
+//3.2追加类名 ⭐
+	xx.classList.add('xx')
+	xx.classList.delete('xx')
+	xx.classList.toggle('xx')  切换类名
+	
+//4.操作表达元素
+	xxx.type = 'password'
+	xxx.value = 'xxx'    
+	xxx.checked = true  如果是布尔值
+
+//5.操作自定义对象 ⭐
+//还真挺关键的！
+	xx.dataset.xxx
+```
+
+![image-20240509140552963](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509140552963.png)
+
+
+
+
+
+#### 2.2 定时器-间歇函数
+
+
+
+**使用 setInterval(函数，间隔时间)**
+
+```
+setInterval(data => {
+	console.log(`每隔三秒发送一次数据:${data}`)
+},3000)
+```
+
+**setInterval返回的是一个 基本类型id，需要使用let接收**
+
+```
+let id = setInterval(xxx,x)
+```
+
+**关闭定时器**
+
+```
+clearInterval(id)
+```
+
+
+
+一个例子：我同意协议：原来还可以自杀啊，直接在定时器里面让其自杀
+
+```
+    let cur = 5
+    let id = setInterval(()=>{
+      btn.innerHTML = `我同意该协议(${--cur})`
+      if(cur == 0){
+        btn.disabled = false
+        btn.innerHTML = `我同意该协议`
+        clearInterval(id)  
+      }
+    },1000)
+```
+
+
+
+一个例子：图片轮播图：关于li的扩展
+
+```
+      //修改图片标题
+      const title = document.querySelector('.slider-footer p')
+      title.innerHTML = sliderData[i].title
+      //修改图片
+      const img = document.querySelector('.slider-wrapper img')
+      img.src = sliderData[i].url
+      //修改小圆点 (排他思想)
+      document.querySelector('.slider-indicator .active').classList.remove('active')
+      document.querySelector(`.slider-indicator li:nth-child(${i+1})`).classList.add('active')
+```
+
+
+
+
+
+
+
+#### 2.3 事件监听
+
+```
+xxx.addEventListener(函数)     
+```
+
+![image-20240509181304225](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509181304225.png)
+
+
+
+#### 2.4几个重要知识
+
+
+
+- ##### **事件对象**
+
+**作用：可以获取事件触发时的相关信息**
+
+**例如:鼠标点击事件，事件对象就存储了鼠标点在哪个位置等信息，可以实现点哪里哪里就出现特效**
+
+​		**判断用户按下了哪个键，比如按下不同的键有不同的作用**
+
+
+
+```
+//1.获取事件对象
+	任意事件回调函数的参数默认都是事件对象，一般使用event / e 来接收
+
+//2.常见属性
+	e.type:当前事件类型
+	e.clientX/clientY:获取光标相对于浏览器可见窗口左上角的位置
+	e.key: 用户按下的键盘值
+	e.target.xxx: 获取触发事件的元素  比如 e.target.style = 'red' ,e.target.tagName = '元素标签名如Li,p'
+```
+
+
+
+- **环境对象**
+
+**普通函数的this指向的是window,因为是window调用的函数**
+
+**简单一句话，谁调用的就指向谁**
+
+
+
+- **回调函数**
+
+![image-20240509185605162](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509185605162.png)
+
+
+
+
+
+
+
+#### 2.5 事件流
+
+##### **定义**
+
+##### **事件执行流程的流动路径**
+
+![image-20240509212656309](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509212656309.png)
+
+
+
+##### **捕获阶段(很少使用)**
+
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509212856720.png)
+
+
+
+##### **冒泡阶段(⭐)**
+
+![image-20240509215801602](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509215801602.png)
+
+![image-20240509213011940](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509213011940.png)
+
+
+
+##### **阻止冒泡**
+
+##### 阻止默认行为
+
+![image-20240509223306880](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240509223306880.png)
+
+
+
+
+
+#### 2.6事件委托
+
+
+
+##### **引出**
+
+![image-20240509213356085](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509213356085.png)
+
+##### **好处**
+
+![image-20240509213459830](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509213459830.png)
+
+
+
+
+
+
+
+
+
+
+
+#### 2.7 其他事件
+
+##### 页面加载事件
+
+**//一般写在head**
+
+![image-20240509223757732](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509223757732.png)
+
+
+
+##### 页面滚动事件⭐
+
+**//不仅仅是window里面有，普通的事件也有**
+
+![image-20240509224019879](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509224019879.png)
+
+​	
+
+
+
+![image-20240509224318782](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509224318782.png)
+
+![image-20240509224517953](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509224517953.png)
+
+![image-20240509224648219](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509224648219.png)
+
+
+
+##### 页面尺寸事件
+
+```
+window.scrollTo(0,0)   跳转到顶部
+```
+
+
+
+
+
+
+
+
+
+#### 2.8 获取dom对象的html元素 
+
+##### **获取一个盒子的宽度高度？**
+
+![image-20240510122858166](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240510122858166.png)
+
+```
+//1. dom对象.clientWidth
+	 dom对象.clientHeight
+```
+
+
+
+****
+
+
+
+
+
+##### 获取距离页面的滚动位置
+
+![image-20240509224318782](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509224318782.png)
+
+![image-20240510124517389](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240510124517389.png)
+
+```
+//1.不包含padding,border  ，可读可写
+	使用documentElement就可以获取html元素
+	const n = document.documentElement.scrollTop
+	
+	
+//2.获取元素距离父级元素的可视化高度与宽度， 只能读
+	dom对象.offsetLeft/offsetTop
+```
+
+
+
+
+
+
+
+##### 另外一个方法(了解？)
+
+**//这个貌似一口气获得了所有的宽高属性哎**
+
+```
+dom对象.getBoudingClientRect()
+```
+
+![image-20240510132044304](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240510132044304.png)
+
+##### 
+
+
+
+ 
+
+##### 滚动跳转
+
+
+
+方法一：window.scrollTo(x,y)
+
+
+
+
+
+方法二: document.documentElement.scrollTop = xxx.offsetTop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#### 2.9 时间函数
+
+
+
+```
+//1.const d = new Date()
+
+//2.时间戳
+	2.1 d.getTime()
+	2.2 Date.now()
+	2.3 +new Date()
+```
+
+
+
+#### 2.10 节点操作
+
+![image-20240510212715023](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240510212715023.png)
+
+
+
+- 查询节点
+  - xx.parentNode
+  - xx.childrien
+  - xxx.nextElementSibling/previousElementSibling
+
+- 增加节点 :演示⭐
+  - const ul = document.querySelector('ul')
+  - const li= document.createElement("li")
+  - li.appendChild/insertBefore(li,ul.children[0])
+- 克隆节点
+- 删除节点
+  - xx.remove(child)
+
+
+
+
+
+
+
+#### 2.11 M端事件
+
+**//移动端事件，主要服务于手机，平板之类的触屏事件**
+
+**//不过用于PC端，只要你的鼠标在页面移动好像就算是触摸了！！！！！，也许以后有奇效!**
+
+![image-20240510221650931](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240510221650931.png)
+
+
+
+
+
+
+
+#### 2.12 Swiper插件
+
+
+
+**//一个很强大的开源插件，只需要cv修改部分代码，就可以实现很多功能**
+
+![image-20240510224109619](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240510224109619.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 3.BOM
+
+
+
+#### 3.1 window对象
+
+**//实际上我们之前就接触了很多BOM相关的api，比如定时器，获取当前滚动位置；**
+
+
+
+![image-20240511115039272](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511115039272.png)
+
+
+
+#### 3.2 定时器-延时函数
+
+- 延时函数仅执行一次
+
+
+```
+setTimeout(回调函数，等待的毫秒数)
+```
+
+- 清除延时函数
+
+```
+let timer = setTimeout(回调函数,等待毫秒数)
+clearTimeout(timer)   
+```
+
+
+
+
+
+
+
+
+
+
+
+#### 3.3 JS执行机制
+
+- 引子
+  - ![image-20240511115542291](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511115542291.png)
+
+
+
+![image-20240511115603345](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511115603345.png)
+
+![image-20240511115732109](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511115732109.png)
+
+![image-20240511115745875](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511115745875.png)
+
+**//简单来说就是执行栈全部执行完就执行消息队列里的任务，消息队列执行完再取执行栈看看有无任务，以此往复循环**
+
+![image-20240511120926321](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511120926321.png)
+
+
+
+![image-20240511121133346](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511121133346.png)
 
 
 
@@ -840,19 +1349,159 @@ text-align: center  //可以使单行文字居中
 
 
 
+## 5.一些功能的实现
+
+
+
+### 1.tab栏切换
+
+```
+<body>
+  <div class="tab">
+    <div class="tab-nav">
+      <h3>每日特价</h3>
+      <ul>
+        <li><a class="active" href="javascript:;" data-id="0">精选</a></li>
+        <li><a href="javascript:;" data-id="1">美食</a></li>
+        <li><a href="javascript:;" data-id="2">百货</a></li>
+        <li><a href="javascript:;" data-id="3">个护</a></li>
+        <li><a href="javascript:;" data-id="4">预告</a></li>
+      </ul>
+    </div>
+    <div class="tab-content">
+      <div class="item active"><img src="./images/tab00.png" alt="" /></div>
+      <div class="item"><img src="./images/tab01.png" alt="" /></div>
+      <div class="item"><img src="./images/tab02.png" alt="" /></div>
+      <div class="item"><img src="./images/tab03.png" alt="" /></div>
+      <div class="item"><img src="./images/tab04.png" alt="" /></div>
+    </div>
+  </div>
+  <script>
+    //绑定事件
+    document.querySelector('.tab-nav ul').addEventListener('click',function(e){
+      //只要我们点击a标签 事件才触发
+      if(e.target.tagName === 'A'){
+        //修改a标签
+        document.querySelector('.tab-nav .active').classList.remove('active')
+        e.target.classList.add('active')
+        //修改大盒子
+        const i = +e.target.dataset.id // 隐式转换成 Number类型，避免下面的字符串 0 + 1 = 01
+        document.querySelector('.tab-content .active').classList.remove('active')
+        document.querySelector(`.tab-content .item:nth-child(${i+1})`).classList.add('active')
+      }
+    })
+  </script>
+
+</body>
+
+</html>
+```
 
 
 
 
 
+### 2.导航栏
+
+**如果使用透明度也可以但就不会有上下滑动的效果**
+
+```
+<body>
+    <div class="header">我是顶部导航栏</div>
+    <div class="content">
+        <div class="sk">秒杀模块</div>
+    </div>
+    <div class="backtop">
+        <img src="./images/close2.png" alt="">
+        <a href="javascript:;"></a>
+    </div>
+    <script>
+        document.querySelector('.header').style.top = '-80px'
+        const sk = document.querySelector('.sk')
+        //页面滚动事件
+        window.addEventListener('scroll',function(){
+            //当页面滚动到秒杀模块，就改变头部的top值
+            const scrollLength = document.documentElement.scrollTop
+            if(scrollLength >= sk.offsetTop && scrollLength <= (sk.offsetTop + sk.clientHeight)){
+                document.querySelector('.header').style.top = 0
+            }else{
+                document.querySelector('.header').style.top = '-80px'
+            }
+        })
+    </script>
+</body>
+
+</html>
+```
 
 
 
+### 3.页面滚动
 
 
 
+```
+ <!-- 电梯 -->
+  <div class="xtx-elevator">
+    <ul class="xtx-elevator-list">
+      <li><a href="javascript:;" data-name="new">新鲜好物</a></li>
+      <li><a href="javascript:;" data-name="popular">人气推荐</a></li>
+      <li><a href="javascript:;" data-name="brand">热门品牌</a></li>
+      <li><a href="javascript:;" data-name="topic">最新专题</a></li>
+      <li><a href="javascript:;" id="backTop"><i class="sprites"></i>顶部</a></li>
+    </ul>
+  </div>
+  <script>
+    (function () {
+      //1.滚动显示电梯
+      const elevator = document.querySelector('.xtx-elevator')
+      const entry = document.querySelector('.xtx_entry')
+      window.addEventListener('scroll', function () {
+        const scrollLength = document.documentElement.scrollTop
+        elevator.style.opacity = scrollLength >= entry.offsetTop ? 1 : 0
+      })
+      //2.点击顶部跳转
+      const backTop = document.querySelector('#backTop')
+      backTop.addEventListener('click', function () {
+        window.scrollTo(0, 0)
+      })
+    })();
+
+    (function () {
+      //3.电梯跳转
+      const list = document.querySelector('.xtx-elevator-list')
+      list.addEventListener('click', function (e) {
+        if (e.target.tagName === 'A') {
+          //排他思想
+          const old = document.querySelector('.xtx-elevator-list .active')
+          if (old) {
+            old.classList.remove('active')
+          }
+          //添加active
+          e.target.classList.add('active')
+          //跳转
+          const go = document.querySelector('.xtx_goods_' + e.target.dataset.name)
+          document.documentElement.scrollTop = go.offsetTop
+        }
+      })
+    })();
 
 
+    (function () {
+      //4.滚到哪里，哪里高亮
+      const list = document.querySelector('.xtx-elevator-list')
+      window.addEventListener('scroll', function (e) {
+        //排他思想
+        const old = document.querySelector('.xtx-elevator-list .active')
+        if (old) {
+          old.classList.remove('active')
+        }
+        //还真是将各个模块的高度获取啊，懒得获取了，很简单那
+      })
+    })()
+
+  </script>
+```
 
 
 
@@ -966,7 +1615,12 @@ addSex(){
 
 
 
+#### 5.使用属性方法加不加this
 
+
+
+- 模板里面是不需要加this的
+- js里面需要加this的
 
 
 
@@ -1405,7 +2059,7 @@ v-bind可以动态绑定style的属性，格式为：style="{key(属性名):valu
 
 **//为什么推荐使用计算属性，而不是写一个函数来获取属性？**因为你写成函数那么用几次该属性就需要调用几次该函数，没有缓存，效率低。**但是你使用计算属性，只会调用一次就会一直获取到该属性，后续再使用该属性可以直接使用**.
 
-**<font color="red">创建时间：immediate:true 刚开始就自动生成一次</font>**
+
 
 **//计算机属性**
 
@@ -1442,7 +2096,9 @@ v-bind可以动态绑定style的属性，格式为：style="{key(属性名):valu
 
 
 
-**监视属性**
+**监听器**
+
+**基本上不用watch来实现数据监听，因为太麻烦了，但是watch可以监听路由变化！**
 
 <font color="red">**创建时间**</font>：**immediate: false(默认刚开始不自动生成)，当属性发生变化时再调用，如果将immediate设置为true,参考列表过滤也许有奇效！！！！！**
 
@@ -1960,8 +2616,6 @@ render: zlc => zlc(App)
 
 **//如果只是单纯地获取html标签，那传统的js代码和vue提高的ref确实没区别，但要是针对组件区别就大了！！！**
 
-**//document.getElementById('xx')只会获取组件html结构**
-
 **//vue的ref可以获取组件实例对象,即可以获取vc**
 
 **//this.$ref.student.$on('xxx',function({**
@@ -2015,6 +2669,8 @@ props:{
 
 
 ### 3.4 mixin(混入)
+
+所以在vue3就不用混入了
 
 **//类似一个公共函数库,或者工具类**
 
@@ -2204,7 +2860,7 @@ methods:{
 
 
 
-**组件使用Js内置事件需要声明**
+组件使用Js内置事件需要声明
 
 ```
 <student @click.native="demon"/> 
@@ -2258,6 +2914,8 @@ methods:{
 
 ### 3.9 消息订阅与发布
 
+**//知道这个就好，我们一般都还是更加推荐使用全局事件总线 进行 组件间的通信**
+
 
 
 #### ① 下载 pubsub.js库
@@ -2304,8 +2962,6 @@ methods:{
 **作用:是将$nextTick()中的回调函数延迟在下一次dom更新数据后调用**
 
 **用法：如下案例**
-
-
 
 
 
@@ -2363,6 +3019,462 @@ methods:{
 
 </style>
 ```
+
+
+
+
+
+### 3.11动画效果
+
+//学习css动画 后 补
+
+
+
+
+
+
+
+
+
+## 4.Vue技术2
+
+
+
+### 4.1 axios配置代理
+
+**简介：通过配置vue的vue.comfig.js**
+
+![image-20240511125441943](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511125441943.png)
+
+**那么如何开启代理服务器呢？？？？**
+
+- 方法一：nginx （专业）
+- 方法二:   vue-cli （用于自己学习）
+
+
+
+**使用**
+
+```
+自己去搜，很简单	
+```
+
+
+
+
+
+
+
+
+
+### 4.2 v-resource
+
+**//维护频率低，更推荐axios**
+
+
+
+
+
+
+
+
+
+
+
+### 4.3 插槽
+
+
+
+#### ①默认插槽
+
+
+
+**例子演示：直接在组件标签内部写，然后在组件中需要的位置用slot引出**
+
+```
+  <div id="app">
+    <Category title='美食' :listData='foods'>
+      <img src="./assets/logo.png" alt="失败">
+    </Category>
+
+    <Category title='游戏' :listData='games'>
+      <ul>
+        <li v-for="(item,index) in games" :key="index">{{item}}</li>
+      </ul>
+    </Category>
+
+    <Category title='电影' :listData='movies'>
+      <video controls src="#"></video>
+    </Category>
+  </div>
+</template>
+```
+
+```
+组件
+<template>
+  <div class="category">
+    <h3>{{title}}分类</h3>
+      <slot>我是默认的</slot>
+  </div>
+</template>
+```
+
+
+
+- **slot标签内部也可以写一些默认的东西类似于 img的alt**
+
+- **style样式也在组件使用位置可以，相当于将要放入插槽的东西的style加载好一块给插槽**
+
+- **style样式也可以在组件内部写，相当于将要放入插槽的东西的style在插槽加载**
+
+  
+
+#### ②具名插槽
+
+用到再说
+
+
+
+#### ③作用域插槽⭐
+
+**//非常常用！！！也算是一种比较便捷的子向父 传数据！**！
+
+自己看例子
+
+```
+<template>
+  <div id="app">
+    <Category title='游戏' :listData='games'>
+      <template v-slot="zlc">
+      <ul>
+        <li v-for="(item,index) in zlc.games" :key="index">{{item}}</li>
+      </ul>
+      </template>
+    </Category>
+
+    <Category title='游戏' :listData='games'>
+      <template v-slot="zlc">
+      <ul>
+        <li v-for="(item,index) in zlc.games" :key="index">{{item}}</li>
+      </ul>
+      </template>
+    </Category>
+    
+    <Category title='游戏' :listData='games'>
+      <template v-slot="zlc">
+      <ul>
+        <li v-for="(item,index) in zlc.games" :key="index">{{item}}</li>
+      </ul>
+      </template>
+    </Category>
+
+  </div>
+</template>
+
+```
+
+```
+<template>
+  <div class="category">
+    <h3>{{title}}分类</h3>
+      <slot :games="games" msg:"你好">我是默认的</slot>
+  </div>
+</template>
+
+<script>
+      数据在这  games:['LOL','CSGO2','CF','地下城'],
+</script>
+
+```
+
+
+
+
+
+
+
+
+
+
+
+### 4.4 VueX
+
+<font color="red">**Vue3使用Piano,vueX就没什么用了**</font>
+
+#### ① 引出-多组件操作相同数据
+
+**//当组件间的通信变得复杂，那么全局事件总线实现起来就很麻烦**
+
+![image-20240511155006876](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511155006876.png)
+
+
+
+
+
+![image-20240511155252491](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511155252491.png)
+
+
+
+
+
+## 5.Vue-router
+
+
+
+### 5.1 SPA
+
+- 单页Web应用,single page web application,SPA
+- 整个应用只有一个页面
+- 点击页面的导航栏链接，不会刷新页面，只会做页面的局部更新
+- 数据需要通过ajax请求获取
+
+
+
+**路由：在前端就是一个键值对，key是路径，value是组件**
+
+
+
+
+
+### 5.2 路由的基本使用
+
+
+
+#### ① 下载路由		
+
+```
+npm i vue-router
+```
+
+
+
+#### ② 注册路由
+
+main.js中，
+
+```
+//引入插件
+import VueRouter from 'vue-router'
+//引入路由器
+import router from './router'
+//使用插件
+Vue.use(VueRouter)
+
+new Vue({
+  render: h => h(App),
+  //注册路由
+  router:router
+}).$mount('#app')
+
+```
+
+
+
+
+
+
+
+#### ③ 配置路由
+
+在src下面生成一个目录router/index.js,内容如下：
+
+```
+// 该文件专门用于创建整个应用的路由器
+import VueRouter from "vue-router"
+//引入组件
+import About from '../components/About'
+import Home from '../components/Home'
+
+//创建并暴露一个路由器
+export default new VueRouter({
+  routes:[
+    {
+      path:'/about',
+      component:About
+    },
+    {
+      path:'/home',
+      component:Home
+    }
+  ]
+})
+```
+
+
+
+#### ④ 使用路由
+
+```
+链接标签: <router-link to="/组件名">xxx</router-link>
+
+显示标签: <router-view></router-view>
+```
+
+
+
+
+
+
+
+
+
+### 5.3 几个注意点
+
+
+
+- 1.涉及路由的组件我们放入文件夹pages,普通组件还是放在components
+- 2.来回切换组件，组件是在不停地销毁产生
+- 3.每个路由相关的组件身上多了两个属性，一个是自身信息的route(传参有用)，一个是共同的router路由器(里面封装很多好用方法)
+  - ![image-20240511201359998](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511201359998.png)
+
+
+
+
+
+### 5.4 多级路由
+
+
+
+区别就两个:
+
+```
+//1.在父级下面加入children数组，一定要注意此处的path 不需要加/  ，再说一遍：二级路由不要加 / ！！
+    {
+      path:'/home',
+      component:Home,
+      children:[
+        {
+          path:'test1',
+          component:Test1
+        },
+        {
+          path:'test2',
+          component:Test2
+        }
+      ]
+    }
+   
+//2.router-link的 to  也需要写多级
+	<router-link class="test" to="/home/test1">test1</router-link>
+```
+
+
+
+
+
+### 5.5 路由携带参数
+
+
+
+
+
+#### ①pageURL携带参数
+
+```
+<router-link to='/home/test1/msg?id=${item.id}&title=${item.title}'>{{item.id}}</router-link>
+											↓↓↓↓
+									//知道这么写就完事了
+<router-link :to='`/home/test1/msg?id=${item.id}&title=${item.title}`'>{{item.id}}</router-link>
+```
+
+```
+//接收参数，这时候就用到了我们前面学到的多出来的两个属性中的route,里面的query
+  <h4>消息编号:{{ $route.query.id }}</h4>
+  <h4>消息标题:{{ $route.query.title }}</h4>
+```
+
+
+
+
+
+**//个人感觉其实都可以**
+
+#### ②page对象携带参数(推荐)
+
+```
+<router-link :to='{
+	path:'/home/test1/msg',
+	query:{
+		id:item.id.
+		title:item.title
+	}
+}'>
+{{item.id}}
+</router-link>
+```
+
+
+
+
+
+#### ③params获取参数
+
+<font color="red">**和占位符一摸一样**</font>
+
+```
+//1.配置占位符
+		path:'/zlc/:id/:name/:age'
+//2.配置数据
+		<router-link :to="`/zlc/001/赵联城/18`">xx</router-link>
+		or					//如果使用params 必须使用name命名路由，不能使用path
+		<router-link :to="{name:'xx',params:{id:item.id,name:xx,age:xx}}">xx</router-link>
+//3.获取数据
+		$this.params.xxx  简简单单改个params就好了
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 5.6 路由命名
+
+**//要是多级路由，整个path会很长，使用路由命名来简化**
+
+**//建议必须路由命名**
+
+```
+    {
+      name: 'home'   //给路由起名字
+      path:'/home',
+    }
+    
+   
+//使用
+<router-link :to="{name:'home'}">xx</router-link>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 三.React
 
 
 
