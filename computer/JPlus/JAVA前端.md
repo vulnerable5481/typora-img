@@ -187,26 +187,6 @@ colspan	要合并的单元格个数	合并列单元格，记得要删除多余�
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### 2.2 各种属性
 
 
@@ -257,7 +237,38 @@ colspan	要合并的单元格个数	合并列单元格，记得要删除多余�
 
 ![image-20240319184729040](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240319184729040.png)
 
- 
+####  2.2.4 圆形盒子
+
+```
+如果是一个正方形->圆形  :  border-radius:50%   数值修改为高度或宽度的一半，或者直接用50%即可
+如果是个矩形   ->圆角矩形  :  border-radius:height/2   数值改为高度的一半
+
+border-top-radius 也可以只调正一个地方的角度
+
+border-radius: 0 0 0 0   按照顺时针角度设置
+```
+
+
+
+#### 2.2.5 盒子阴影
+
+盒子阴影一般推荐 rgba(0,0,0,0.3)
+
+![image-20240325184453503](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325184453503.png)
+
+![image-20240325184419127](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325184419127.png)
+
+
+
+
+
+#### 2.26 文字阴影
+
+
+
+![image-20240325184520481](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325184520481.png)
+
+
 
 
 
@@ -271,9 +282,9 @@ colspan	要合并的单元格个数	合并列单元格，记得要删除多余�
 
 
 
--  块元素:div
-- 行内元素
-- 行内块元素
+-  块元素:**< h1 >~< h6 >、< p >、< div >、< ul >、< ol >、< li >**
+-  行内元素: **< a >、< strong >、< b >、< em >、< i >、< del >、< s >、< ins >、< u >、< span >、< img />、< input />、< select >、< textarea >、< br />、等，其中 < span > 标签是最典型的行内元素。有的地方也将行内元素称为内联元素。**
+- 行内块元素:**< img />、< input />、< td >**
 
 **行内元素转换为块元素(常用！)	:**
 
@@ -284,16 +295,6 @@ colspan	要合并的单元格个数	合并列单元格，记得要删除多余�
 ![image-20240325141824675](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325141824675.png)
 
 ![image-20240325141840598](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325141840598.png)
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -407,49 +408,15 @@ border分框写法:
 
 
 
-##### 4.圆形盒子
-
-如何将盒子模型变成一个圆？？
-
-
-
-```
-如果是一个正方形->圆形  :  border-radius:50%   数值修改为高度或宽度的一半，或者直接用50%即可
-如果是个矩形   ->圆角矩形  :  border-radius:height/2   数值改为高度的一半
-
-border-top-radius 也可以只调正一个地方的角度
-
-border-radius: 0 0 0 0   按照顺时针角度设置
-
-```
-
 ​	
 
 
 
-##### 5.盒子阴影
-
-
-
-![image-20240325184453503](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325184453503.png)
-
-
-
-例子：   一般影子颜色推荐:   rgba(0,0,0,.3)  
-
-![image-20240325184419127](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325184419127.png)
 
 
 
 
-
-##### 6.文字阴影
-
-
-
-![image-20240325184520481](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325184520481.png)
-
-
+​	
 
 
 
@@ -469,6 +436,8 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 #### 2.6.1 浮动三特性
 
+**注意浮动之后，只会漂浮在该盒子之前的盒子上面，如果是在后面就不会浮动   !  !  ! ! !   ! !  !   ! !   !   !1**
+
 ![image-20240326121836258](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326121836258.png)
 
 
@@ -481,7 +450,7 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 ![image-20240326122357841](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326122357841.png)
 
-
+**设置为浮动之后，两个浮动模块彼此之间是没有缝隙的！！如果是普通的行内块元素会存在缝隙！！！**
 
 ![image-20240326122927859](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326122927859.png)
 
@@ -505,15 +474,38 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 ![image-20240326143455710](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326143455710.png)
 
-![image-20240326142807691](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326142807691.png) 
+
+
+
+
+清除浮动的本质
+
+![image-20240520133023423](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240520133023423.png)
+
+
+
+
+
+
+
+
+
+
+
+清除浮动有四种方式
+
+![image-20240326142807691](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326142807691.png)
+
+**1.父类添加overflow:hidden** 
 
 ```
-overflow:hidden 
+1.overflow:hidden 
+//方便，但是有一个问题就是如果你设置了高度为90px宽由子元素撑开，但要是有元素超过父元素的高就直接不显示了
 ```
 
 
 
-**//after伪类元素法（推荐）**
+**2.after伪类元素法（推荐）**
 
 ```
         .clearfix:after {
@@ -524,13 +516,15 @@ overflow:hidden
             visibility: hidden;
         }
 固定这么写
-直接在父类元素上面加这个
+直接在父类元素上面加这个类即可
 
 ```
 
+**3.双伪元素清除浮动**
 
+//和after伪类元素法 差不多
 
-
+![image-20240520152120982](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240520152120982.png)
 
 
 
@@ -552,22 +546,22 @@ overflow:hidden
 
 - static(了解）
   - 和普通标准流没有区别 
-
 - relative⭐
   - 选择器 {position: relative;}
   - 特点1:总是按照原来的位置来移动，移动的参照点是自己原来的位置
   - 特点2:原来位置依然会被占有，其他盒子不会上升，**不脱标**
-
 - absolute⭐
   - 特点1:元素在移动时，参照它祖先元素来说的
   - 特点2:如果没有父元素/父元素没有定位，就以浏览器为标准。
   - 特点3:如果父元素，爷元素都有定位，就近原则
   - 特点4: 原来位置可以被其他盒子占有    **脱标**
-
 - fixed⭐
   - 特点1:元素不会随着页面移动而移动，以浏览器的可视串口为参照点移动元素
   - 特点2:跟父元素没有一点关系
   - 特点3:不占有原先位置 **脱标**
+- sticky(了解)
+  - 粘性定位
+
 
 
 
@@ -631,10 +625,13 @@ overflow:hidden
 
 
 
+## 3.CSS高级
 
 
 
+### 3.1 精灵图
 
+![image-20240520170937036](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240520170937036.png)
 
 
 
@@ -706,8 +703,7 @@ overflow:hidden
 
 
 
-
-## 3.JavaScript
+## 4.JavaScript
 
 
 
@@ -715,23 +711,13 @@ overflow:hidden
 
 #### 1.1变量
 
-**//const 不变的是地址，因为基本类型直接存储在栈里面所以值就是地址，但是引用类型值在堆里面，指针指向堆，只要地址不变，堆里的值变无所谓，数组中的push，pop也是修改堆里的数据，地址没变，但是arr = [xxx],这样地址就变了**
-
 ![image-20240509120603382](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509120603382.png)
 
-### 1.2 数据类型
+#### 1.2 数据类型
 
 - 布尔值
   - 空字符串 默认是 false
   - 除了空字符串其他的非布尔值全都会隐式转换成true
-
-
-
-
-
-
-
-
 
 
 
@@ -791,6 +777,10 @@ overflow:hidden
 
 #### 2.2 定时器-间歇函数
 
+**//setInterval每隔一段时间都会执行一次；setTimeout只会在指定时间到后执行一次	**
+
+
+
 
 
 **使用 setInterval(函数，间隔时间)**
@@ -812,6 +802,10 @@ let id = setInterval(xxx,x)
 ```
 clearInterval(id)
 ```
+
+<font color="red">**setInerval是可以在函数体内自杀的！！！**</font>
+
+
 
 
 
@@ -1191,6 +1185,8 @@ setTimeout(回调函数，等待的毫秒数)
 ```
 
 - 清除延时函数
+  - <font color="red">**注意无法在settimeout函数体中clearTimeout，因为此时函数还在运作，是不能自杀的**</font>
+
 
 ```
 let timer = setTimeout(回调函数,等待毫秒数)
@@ -1230,6 +1226,185 @@ clearTimeout(timer)
 
 
 
+#### 3.4 location对象
+
+**//总之location对象可以获取页面URL属性，可以刷新页面，可以从当前页面跳转**
+
+![image-20240516123412218](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240516123412218.png)
+
+
+
+#### 3.5 navigation对象和history对象
+
+**navigation对象的主要作用就是里面有很多关于浏览器的信息**
+
+**可以用来判断当前是移动端还是PC，PC跳转到哪个页面，移动端跳转到哪个页面**
+
+
+
+**history对象的主要作用就是操纵浏览器历史记录，可以back/forward**
+
+**比如vue中的下面几个方法底层都是用的history对象**
+
+```
+		this.$router.back() // 后退一步
+		this.$router.forward()  //前进一步
+		this.$router.go(N)  //整数前进N步   负数倒退N步
+```
+
+
+
+#### 3.6 本地存储 
+
+
+
+##### ①localStorage
+
+![image-20240516124507755](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240516124507755.png)
+
+**//生命周期：永久存储在本地电脑，需要手动删除，不过好像有时间限制到期删除，否则关闭页面也会存在**
+
+```
+1.增/改
+localStorage.setItem(k,v)
+
+2.查
+localStorage.getItem(k)
+
+3.删
+localStorage.removeItem(k)
+
+//如果要存储对象，需要将其转换成json字符串,用的时候再反序列化就ok了
+localStorage.setItem(k,Json.stringfy(v))
+Json.parse(json字符串)
+```
+
+
+
+
+
+
+
+
+
+##### ②sessionStorage
+
+只有一点不同：生命周期仅限当前页面，关闭则数据丢失。
+
+
+
+
+
+### 4.js进阶
+
+
+
+#### 4.1 解构赋值
+
+多级解构
+
+![image-20240516144832622](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240516144832622.png)
+
+修改变量名
+
+![image-20240516150431885](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240516150431885.png)
+
+
+
+
+
+#### 4.2 数组常用方法
+
+
+
+- **map:**数组.map 返回的是新数组，里面可以对原数组进行改动;map比forEach更常用
+- **filter:**过滤数组中的一些数据，返回符合条件后的新数组  比如return item >= 20
+- 用到自己搜呗
+
+
+
+
+
+
+
+#### 4.3 内置构造函数常用方法
+
+![image-20240517100231229](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240517100231229.png)
+
+
+
+
+
+#### 4.4 原型对象与原型链
+
+个人理解就是将java中的一个完整父类中的构造函数独立出去然后通过prototype与constructor互相连接起来，实例对象则通过_proto_这个隐式属性指向构造函数的原型对象	
+
+这样一层一层向上查找就会形成一个链式结构，我们称为**`原型链`。**
+
+![image-20240517101735224](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240517101735224.png)
+
+
+
+#### 4.5 异常处理
+
+就是try catch finally
+
+
+
+#### 4.6 防抖
+
+![image-20240517102714205](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240517102714205.png)
+
+
+
+例子：
+
+```js
+  function debounce(fn, t) {
+      //声明定时器变量
+      let timeId
+      return function () {
+        // 如果有定时器就清除
+        if (timeId) clearTimeout(timeId)
+        // 开启定时器 
+        timeId = setTimeout(function () {
+          fn() //执行逻辑
+        }, t)
+      }
+    }
+```
+
+
+
+
+
+
+
+#### 4.7 节流
+
+![image-20240517115513721](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240517115513721.png)
+
+
+
+例子:
+
+```js
+function(fn,t){
+    let timer = null
+    return function(){
+        //如果没有定时器
+        if(!timer){
+            timer = setTimeout(()=>{
+                fn()//执行逻辑
+                //程序执行完成，清除定时器
+                timer = null
+            },t)
+        }
+    }
+}
+```
+
+![image-20240517122326027](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240517122326027.png)
 
 
 
@@ -1251,8 +1426,7 @@ clearTimeout(timer)
 
 
 
-
-## 4.案例和技巧
+## 5.案例和技巧
 
 
 
@@ -1264,7 +1438,7 @@ clearTimeout(timer)
 
 ```
 height: x px;
-line-height: x px;  // line-height = height 可以实现垂直居中
+line-height: x px;  // line-height = height 可以实现文字垂
 text-align: center  //可以使单行文字居中
 
 ```
@@ -1327,7 +1501,7 @@ text-align: center  //可以使单行文字居中
 
 //解答：因为margin: 0 auto 是根据文档位置计算的，浮动使其脱离文档，导致计算公式无法计算，但是指明margin依然可以正常使用！
 
-
+//如果margin:0 auto在 margin-xxx: 10px 的后面也会失效，在前面就有效
 
 使用position: absolute 绝对定位也会使margin: 0 auto 失效
 
@@ -1349,7 +1523,30 @@ text-align: center  //可以使单行文字居中
 
 
 
-## 5.一些功能的实现
+#### 6.操纵placeholder
+
+```
+.search input::placeholder {
+    font-size: 14px;
+    color: #bfbfbf;
+} 
+```
+
+
+
+#### 7.文本框点击变黑
+
+```
+outline: none; //在文本框css样式中加入该属性
+```
+
+
+
+
+
+
+
+## 6.一些功能的实现
 
 
 
@@ -1503,6 +1700,24 @@ text-align: center  //可以使单行文字居中
   </script>
 ```
 
+### 4.记录上一次视频播放位置
+
+![image-20240517123201942](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240517123201942.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1529,13 +1744,6 @@ el:'#app'  ;
 
 挂载
 const app =  new Vue({xxx})  app.$mout(app);
-
-2.data必须使用函数式
-data:function(){        可简化成 data(){  }
-	return {
-		name: 'zlc'
-	}
-}
 ```
 
 #### 2.MVVM模型
@@ -1761,77 +1969,7 @@ addSex(){
     </script>
 ```
 
-通过动态绑定class 来实现  按下一个按钮切换字体颜色/也可以实现 鼠标悬停改变颜色
 
-
-
-```vue
-    <style>
-        .active{
-            color:red;
-        }
-    </style>
-</head>
-<body>
-    <div class="app">
-        <h2 v-bind:class="{active:isActive,line:isLine}">{{message1}}</h2>
-        <button v-on:click="update">按钮</button>
-    </div>
-    
-    <script type="text/javascript" src="../js/vue.js"></script>
-    <script>
-            const app = new Vue({
-            el:'.app',
-            data:{
-                message1: '你好，zlc',
-                isActive:true,
-                isLine:true
-            },
-            methods: {
-                update: function(){
-                    this.isActive = !this.isActive
-                }
-            }
-        })
-    </script>
-</body>
-</html>
-```
-
-```vue
-    <style>
-        .active{
-            color:red;
-        }
-    </style>
-</head>
-<body>
-    <div class="app">
-        <h2 v-bind:class="getClasses()">{{message1}}</h2>//如果这个对象很复杂就可以通过调用函数的方式来实现
-        <button @click="update">按钮</button>
-    </div>
-    
-    <script type="text/javascript" src="../js/vue.js"></script>
-    <script>
-            const app = new Vue({
-            el:'.app',
-            data:{
-                message1: '你好，zlc',
-                isActive:true,
-                isLine:true
-            },
-            methods: {
-                update(){
-                    this.isActive = !this.isActive
-                },
-                getClasses(){
-                    return {active:this.isActive,line:this.isLine}
-                }
-            }
-        })
-    </script>
-</body>
-```
 
 ```
 <div><h2 class="basic" :class="mood">{{message1}}</h2></div> 
@@ -2327,7 +2465,48 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 - **更新流程**
 - **销毁流程**
 
+```
+1. beforeCreate
+官网：在实例初始化之后,进行数据侦听和事件/侦听器的配置之前同步调用。
 
+详细：在这个阶段，数据是获取不到的，并且真实dom元素也是没有渲染出来的
+
+2. created
+官网：在实例创建完成后被立即同步调用。在这一步中，实例已完成对选项的处理，意味着以下内容已被配置完毕：数据侦听、计算属性、方法、事件/侦听器的回调函数。然而，挂载阶段还没开始，且 $el property 目前尚不可用。
+
+详细：在这个阶段，可以访问到数据了，但是页面当中真实dom节点还是没有渲染出来，在这个钩子函数里面，可以进行相关初始化事件的绑定、发送请求操作
+
+3. beforeMount
+官网：在挂载开始之前被调用：相关的 render 函数首次被调用。
+
+详细：代表dom马上就要被渲染出来了，但是却还没有真正的渲染出来，这个钩子函数与created钩子函数用法基本一致，可以进行相关初始化事件的绑定、发送ajax操作
+
+4. mounted
+官网：实例被挂载后调用，这时 el 被新创建的 vm.$el 替换了。如果根实例挂载到了一个文档内的元素上，当 mounted 被调用时 vm.$el 也在文档内。
+注意 mounted 不会保证所有的子组件也都被挂载完成。如果你希望等到整个视图都渲染完毕再执行某些操作，可以在 mounted 内部使用 vm.$nextTick：
+
+详细：挂载阶段的最后一个钩子函数,数据挂载完毕，真实dom元素也已经渲染完成了,这个钩子函数内部可以做一些实例化相关的操作
+
+5. beforeUpdate
+官网：在数据发生改变后，DOM 被更新之前被调用。这里适合在现有 DOM 将要被更新之前访问它，比如移除手动添加的事件监听器。
+
+详细：这个钩子函数初始化的不会执行,当组件挂载完毕的时候，并且当数据改变的时候，才会立马执行,这个钩子函数获取dom的内容是更新之前的内容
+
+6. updated
+官网：在数据更改导致的虚拟 DOM 重新渲染和更新完毕之后被调用。
+当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态。如果要相应状态改变，通常最好使用计算属性或 watcher 取而代之。
+
+详细：这个钩子函数获取dom的内容是更新之后的内容生成新的虚拟dom，新的虚拟dom与之前的虚拟dom进行比对，差异之后，就会进行真实dom渲染。在updated钩子函数里面就可以获取到因diff算法比较差异得出来的真实dom渲染了。
+
+7. beforeDestroy
+官网：实例销毁之前调用。在这一步，实例仍然完全可用。
+
+详细：当组件销毁的时候，就会触发这个钩子函数代表销毁之前，可以做一些善后操作,可以清除一些初始化事件、定时器相关的东西。
+
+8. destroyed
+官网：实例销毁后调用。该钩子被调用后，对应 Vue 实例的所有指令都被解绑，所有的事件监听器被移除，所有的子实例也都被销毁。
+详细：Vue实例失去活性，完全丧失功能
+```
 
 
 
@@ -2959,6 +3138,8 @@ methods:{
 
 ### 3.10 $nextTick()
 
+**/其实$nextTick()也是一个钩子函数**
+
 **作用:是将$nextTick()中的回调函数延迟在下一次dom更新数据后调用**
 
 **用法：如下案例**
@@ -3061,6 +3242,28 @@ methods:{
 
 
 
+实在是受不了了，不知道为什么配置代理一直失败，干脆直接后端解决跨域问题了！
+
+```
+@Configuration
+public class CorsConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping("/**")
+                .allowedOriginPatterns("*")
+                .allowedMethods("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS")
+                .allowCredentials(true)
+                .maxAge(3600)
+                .allowedHeaders("*");
+
+    }
+
+}
+```
+
+
+
 
 
 
@@ -3071,7 +3274,7 @@ methods:{
 
 **//维护频率低，更推荐axios**
 
-
+很简单，用到去搜
 
 
 
@@ -3254,18 +3457,14 @@ npm i vue-router
 main.js中，
 
 ```
-//引入插件
-import VueRouter from 'vue-router'
 //引入路由器
 import router from './router'
-//使用插件
-Vue.use(VueRouter)
 
-new Vue({
-  render: h => h(App),
-  //注册路由
-  router:router
-}).$mount('#app')
+
+const app = createApp(App)
+//使用路由
+app.use(router)
+app.mount()
 
 ```
 
@@ -3279,31 +3478,78 @@ new Vue({
 
 在src下面生成一个目录router/index.js,内容如下：
 
-```
-// 该文件专门用于创建整个应用的路由器
-import VueRouter from "vue-router"
-//引入组件
-import About from '../components/About'
-import Home from '../components/Home'
+**结构一**
 
-//创建并暴露一个路由器
-export default new VueRouter({
+```
+//引入一些需要使用的方法
+import {
+createRouter,
+  createWebHashHistory,
+} from 'vue-router'
+
+//创建路由
+const router = createRouter({
+  history:createWebHashHistory(),
   routes:[
+    //默认路由
     {
-      path:'/about',
-      component:About
+        path:'/',
+        redirect:'/home'
     },
     {
-      path:'/home',
-      component:Home
+    	path:
+    	component:
     }
   ]
 })
+
+
+
+export default router
+
+```
+
+**结构二:好像区别不大**
+
+```
+// history模式
+import {
+    createRouter,
+    createWebHashHistory,
+} from 'vue-router'
+
+import Home from '../pages/Home.vue'
+import About from '../pages/About.vue'
+
+const routes = [
+// 路由的默认路径
+    {
+        path:'/',
+        redirect:"/home"
+    },
+    {
+        path: '/home',
+        component: Home
+    },
+    {
+        path: '/about',
+        component: About
+    },
+]
+
+// 创建路由对象
+const router = createRouter({
+    history: createWebHashHistory(),
+    routes
+})
+export default router;
 ```
 
 
 
 #### ④ 使用路由
+
+**router-link这个标签底层是转成a标签，这就注定有些场景下是有局限的**
 
 ```
 链接标签: <router-link to="/组件名">xxx</router-link>
@@ -3323,7 +3569,7 @@ export default new VueRouter({
 
 
 
-- 1.涉及路由的组件我们放入文件夹pages,普通组件还是放在components
+- 1.涉及路由的组件我们放入文件夹pages/views ,普通组件还是放在components
 - 2.来回切换组件，组件是在不停地销毁产生
 - 3.每个路由相关的组件身上多了两个属性，一个是自身信息的route(传参有用)，一个是共同的router路由器(里面封装很多好用方法)
   - ![image-20240511201359998](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511201359998.png)
@@ -3339,7 +3585,7 @@ export default new VueRouter({
 区别就两个:
 
 ```
-//1.在父级下面加入children数组，一定要注意此处的path 不需要加/  ，再说一遍：二级路由不要加 / ！！
+//1.在父级下面加入children数组，一定要注意此处的path 不需要加/  ，再说一遍：二级路由不要加 / ,底层会自己加，有点大病的设置
     {
       path:'/home',
       component:Home,
@@ -3372,9 +3618,7 @@ export default new VueRouter({
 #### ①pageURL携带参数
 
 ```
-<router-link to='/home/test1/msg?id=${item.id}&title=${item.title}'>{{item.id}}</router-link>
-											↓↓↓↓
-									//知道这么写就完事了
+						//知道这么写就完事了
 <router-link :to='`/home/test1/msg?id=${item.id}&title=${item.title}`'>{{item.id}}</router-link>
 ```
 
@@ -3386,16 +3630,12 @@ export default new VueRouter({
 
 
 
-
-
-**//个人感觉其实都可以**
-
-#### ②page对象携带参数(推荐)
+#### ②page对象携带参数(推荐！！！)
 
 ```
 <router-link :to='{
-	path:'/home/test1/msg',
-	query:{
+	path:'/home/test1/msg',/name:'xx'
+	query/params:{
 		id:item.id.
 		title:item.title
 	}
@@ -3422,6 +3662,41 @@ export default new VueRouter({
 //3.获取数据
 		$this.params.xxx  简简单单改个params就好了
 ```
+
+
+
+
+
+#### ④路由配置参数
+
+//这个感觉没什么用啊
+
+```
+          children:[
+            {
+              name:'msg',
+              path:'msg',
+              component:Msg,
+              //知道这一种就ok了
+              //这里会提供一个参数$route里面有query和params的数据
+              props($route){
+                return {
+                  id:$route.query.id,
+                  title:$route.query.title
+                }
+              }
+            }
+          ]
+```
+
+
+
+```
+接收数据：
+        //只需要props接收即可使用
+```
+
+
 
 
 
@@ -3460,6 +3735,600 @@ export default new VueRouter({
 
 
 
+### 5.7 路由工作模式
+
+![image-20240515220751223](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515220751223.png)
+
+
+
+
+
+### 5.7 replace属性
+
+**//底层还有一个浏览器历史记录栈这么个东西**
+
+![image-20240512095015226](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240512095015226.png)
+
+
+
+
+
+### 5.8 编程式路由导航
+
+
+
+- 引入：<router-link这个标签底层是转换成a标签，具有局限性，比如如果是一个按钮图片跳转，或延迟三秒跳转就无法实现
+
+
+
+**路由跳转**
+
+```
+methods:{
+	xxx(){
+		this.$router.push/replace({     //使用router路由器封装的方法
+			name:xxx,
+			query:{
+				xxx
+			}
+		})
+	}
+}
+```
+
+**路由前进后退**
+
+```
+methods:{
+	xxx(){
+		this.$router.back() // 后退一步
+		this.$router.forward()  //前进一步
+		this.$router.go(N)  //整数前进N步   负数倒退N步
+	} 
+}
+```
+
+
+
+
+
+### 5.9 缓存组件
+
+**//如果不写include那么所有在此处展示的组件都不被销毁，注意此处写组件名！**
+
+**//如果想写多个组件，  :include="['xx','xx','xx']"**
+
+![image-20240512101346510](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240512101346510.png)
+
+
+
+
+
+### 5.10 两个新钩子函数
+
+**<font color="red">路由组件特有的生命周期!</font>**
+
+
+
+- **active:当组件激活时,简单来说就是页面出现它就触发**
+- **deactive:当组件失活时，简单来说单页面失去它就触发**
+
+```
+active(){
+
+},
+deactive(){
+	
+}
+```
+
+
+
+**例子：**
+想要实现“欢迎学习Vue”使用setInterVal实现若隐若现，但是切换组件时，文本框内容保留，setInterVal停止
+
+![image-20240512102417097](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240512102417097.png)
+
+
+
+解读：to,from的结构
+
+- name就是 路由配置的name，path就是路由配置的path
+- params query就是数据
+- **meta就是程序员自己添加的一些数据,比如 meta:{requestAuth:false},通过这个可以判断有无权限跳转**
+
+![image-20240512121357908](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240512121357908.png)
+
+
+
+
+
+
+
+
+
+### 5.11 路由守卫
+
+
+
+
+
+#### ①全局路由守卫⭐
+
+**//核心作用就是：检验是否有权限跳转**
+
+
+
+**例子演示：**
+
+```
+//1.创建一个路由器不要直接暴露
+export default new VueRouter     X
+const router = new VueRouter({   √ 
+
+//2.配置全局前置路由守卫
+router.beforeEach((to, from, next) => {
+  localStorage.setItem('user','zl1c')
+    if(to.meta.requestAuth) {
+      if(localStorage.getItem('user') === 'zlc'){//如果用户名是zlc就允许跳转
+        next()
+      }else{
+        alert('用户没有权限') 
+      }
+    }else{
+      next()
+    }
+})
+
+//3.配置全局后置路由守卫
+router.afterEach((to,from) => {
+	document.title = to.meta.title  //实现当前在哪个页面就将head标签中的title修改为当前标题
+})
+
+//4.暴露路由器
+export default router
+```
+
+
+
+### 5.12 路由器的两种工作模式
+
+
+
+
+
+**//可以通过nginx解决history的问题**
+
+![image-20240512130148257](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240512130148257.png)
+
+### 5.13 默认路由与重定向
+
+**//将path 变为 redirect中的路径,一般用于默认路由**
+
+![image-20240515133750594](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515133750594.png)
+
+
+
+
+
+## 6.集中式状态(数据)管理
+
+**vue2 经常使用的是 vueX ; vue3 经常使用的是  pinia**
+
+
+
+### 6.1 搭建环境
+
+```
+npm i pinia
+```
+
+```
+import { createApp } from 'vue'
+import App from './App.vue'
+//第一步：引入pinia
+import { createPinia } from 'pinia'
+
+const app = createApp(App)
+//第二步：创建Pinia
+const pinia = createPinia()
+//第三步: 安装Pinia   最好在const app = createApp(App)后面安装Pinia
+app.use(pinia)
+app.mount('#app')
+```
+
+```
+//1.在src目录下创建 store文件
+```
+
+
+
+### 6.2 存储读取
+
+**store下面的count.js文件**
+
+```
+import { defineStore } from "pinia";
+							//规范：要求使用useXXXStroe当对象名，defireStroe的的第一个参数应该是文件的名字			
+export const useCountStore = defineStore('count',{
+  //真正存储数据的地方
+  state(){
+    return {
+      sum:6
+    }
+  }
+  //用于响应组件的方法
+  	actions里面的this指向useCountStore,里面直接就可以使用属性this.xxx
+  actions{
+		test(){
+			xxxxx
+		}
+	}
+})
+```
+
+**组件中的使用**
+
+```
+  import { useCountStore } from '@/store/count'; 
+
+  const countStore = useCountStore()  //countStore是一个Porxy
+    function add(){
+    countStore.sum += n.value 
+  }
+  function device(){
+    countStore.sum -= n.value
+  }
+```
+
+
+
+### 6.3 stroeToRefs
+
+
+
+**//关于解构赋值，如果使用toRefs会导致countStore自带的方法出问题，所以要使用pinia提供的一个API代替**
+
+![image-20240515200353800](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515200353800.png)
+
+
+
+
+
+
+
+
+
+### 6.4 修改数据
+
+```
+//1.直接修改
+	countStore.sum += 1
+
+//2.批处理
+	可以一次性修改多个数据，且有提示词
+	countStore.$patch({
+		sum:888,
+		school:'xxx',
+		address:'xxx'
+	})
+
+//3.调用文件中的actions里面的方法
+```
+
+
+
+
+
+### 6.5 getters
+
+//类比computed
+
+
+
+
+
+### 6.6 $subcribe
+
+//类比watch
+
+
+
+### 6.7 组合式写法
+
+类比setup
+
+
+
+
+
+
+
+## 7. Vue3
+
+
+
+### 7.1 工程结构的区别
+
+
+
+#### ① app挂载与引入crateAp工厂函数
+
+![image-20240514133106804](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514133106804.png)
+
+
+
+
+
+#### ②
+
+
+
+### 7.2 常用Composition API
+
+
+
+#### 1.拉开序幕的setup
+
+```
+vue@3.2以上的版本 可以使用setup语法糖
+//1.不需要return,不需要组件名
+//2.组件名就是文件名
+//3.但是import还是不能省略
+  <script setup>
+    import {ref,reactive,computed} from 'vue'
+
+    let person = reactive({
+        firstName:'jack',
+        lastName:'ssson',
+      })
+      person.fullName = computed(() => {
+        return person.firstName + person.lastName
+      })
+  </script>
+```
+
+
+
+**//如果你使用了setup语法糖，那么还想要指定组件名，可以这样写,直接在script标签属性的name写**
+
+![image-20240515134540882](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515134540882.png)
+
+
+
+![image-20240514133905057](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514133905057.png)
+
+![image-20240514154318848](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514154318848.png)
+
+
+
+
+
+
+
+
+
+
+
+#### 2.ref函数
+
+**//推荐使用ref函数，因为ref函数接收对象类型，底层就是使用的reactive函数**
+
+![image-20240514141234759](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514141234759.png)
+
+![image-20240514140139518](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514140139518.png)
+
+
+
+**Proxy是ES6中提出的，它没有Object的get set，是通过**
+
+![image-20240515130425088](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515130425088.png)
+
+**//如果是数组的话，vue2底层用的是definxxx什么的，不能直接修改，但是vue3底层用的是Proxy可以直接修改**
+
+
+
+**//一个注意点：因为你使用ref函数，使其变成refimp引用对象，需要通过引用对象.value获取值，但是如果在reactive中有一个属性使用了ref函数，此时不需要拆解属性，直接就可以使用！！！！**
+
+![image-20240515142728820](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515142728820.png)
+
+
+
+#### 3.reactive函数
+
+
+
+![image-20240514141325873](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514141325873.png)
+
+![image-20240515132009064](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515132009064.png)
+
+
+
+![image-20240515132117419](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515132117419.png)
+
+[你和我一样纠结过vue3的 ref() 和 reactive()吗？ - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/663590743)
+
+
+
+#### 4.计算属性
+
+**//将Vue3中计算属性直接变成了一个方法，不过一般都是使用简写形式**
+
+![image-20240514162132335](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514162132335.png)
+
+
+
+
+
+#### 5.watch监视
+
+**//反正watch相比计算属性少用**
+
+其他情况就那么写
+
+![image-20240514174253018](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514174253018.png)
+
+
+
+
+
+
+
+#### 6.生命周期
+
+**![image-20240514180003987](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514180003987.png)**
+
+
+
+#### 7. hook
+
+**hook == java中的utils工具**
+
+
+
+**//那以后是不是都会变成这样，需要修改什么就直接去修改对应的hook**
+
+```
+ <script setup>
+    import usePoint from '@/hooks/usePoint'
+    import .............
+	
+	 useXXX()
+	 useXXX()
+	 useXXX()
+	 useXXX()
+    let XXX = usePoint()
+    let XXX = usePoint()
+    let XXX = usePoint()
+    let XXX = usePoint()
+ </script>
+```
+
+
+
+**例子**
+
+```
+//就相当于java中的utils,只不过习惯将里面的js文件命名为useXXXX
+//记录鼠标打点xy的工具方法
+import {ref,reactive,onMounted,onBeforeUnmount} from 'vue'
+export default function(){
+  let point = reactive({
+    x:0,
+    y:0
+  })
+  //保存鼠标xy
+  function savaPoint(event){
+    point.x = event.pageX
+    point.y = event.pageY
+  }
+
+  onMounted(()=>{
+    window.addEventListener('click',savaPoint)
+  onBeforeUnmount(()=>{
+    window.removeEventListener('click',savaPoint)
+    })
+  })
+
+  return point
+}
+```
+
+​	
+
+```
+<template>
+  <div>
+    <h2>鼠标的X:{{ point.x }},y:{{ point.y }}</h2>
+  </div>
+  </template>
+  
+  <script setup>
+    import usePoint from '@/hooks/usePoint'
+
+    let point = usePoint()
+
+  </script>
+```
+
+
+
+
+
+#### 8.toRef与toRefs
+
+**用来复制reactive中的属性，然后转为ref对象，既保留了响应式，又保留了引用。也就是你从 `reactive` 复制过来的属性进行修改后，除了视图会更新，原有 `ractive` 里面对应的值也会跟着更新 ! ! ! ! ! !**   
+
+<font color="red">**toRef和toRefs都是浅拷贝！！！！！**</font>
+
+<font color="red">**用来搭配解构赋值很方便！！**</font>
+
+```
+const x = toRef(person,'name')
+console.log(x.value)
+
+let {name,age} = toRefs(person)
+console.log(name,age)
+```
+
+
+
+
+
+### 7.3 其他Composition API
+
+
+
+#### 1.响应式数据的判断
+
+![image-20240514221553053](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514221553053.png)
+
+
+
+
+
+
+
+### 7.4 新的组件
+
+
+
+#### 1.Fragment(理解)
+
+![image-20240514222146119](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514222146119.png)
+
+
+
+
+
+#### 2.Teleport
+
+
+
+
+
+
+
+#### 3.Suspense
+
+
+
+
+
+
+
+
+
+## 8.Vue UI组件库
+
+
+
+### 8.1 ElementUI-Plus
+
+
+
+
+
 
 
 
@@ -3481,6 +4350,20 @@ export default new VueRouter({
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 四 技巧与经验
 
 
 

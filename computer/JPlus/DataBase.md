@@ -1161,7 +1161,7 @@ show profile cpu for query 5;
 
 #### **1.一个简单索引**
 
-![image-20240425143837410](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240425143837410.png)
+![image-20240425143837410](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240425143837410.png)
 
  
 
