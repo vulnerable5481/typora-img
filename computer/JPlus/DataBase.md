@@ -14,7 +14,7 @@
 
 ### 1.知识回顾
 
-![image-20240330185847058](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240330185847058.png)
+![image-20240330185847058](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330185847058.png)
 
 
 
@@ -651,7 +651,7 @@ MySQL中，文本字符串总体上分为 CHAR 、VARCHAR 、 TINYTEXT 、 TEXT 
 
 - **char(M) , varchar(M)** 就没什么可以说的了,M就是几个字节,**如果不指定(M)，则表示长度默认是1个字符**。
 
-- ![image-20240501144226209](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240501144226209.png)
+- ![image-20240501144226209](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240501144226209.png)
 - 
 - **总结：**
   TEXT文本类型，可以存比较大的文本段，搜索速度稍慢，**因此如果不是特别大的内容，建议使用CHAR， VARCHAR来代替。**还有TEXT类型不用加默认值，加了也没用。而且text和blob类型的数据删除后容易导致“空洞”，使得文件碎片比较多，**所以频繁使用的表不建议包含TEXT类型字段，建议单独分出去，单独用一个表。**
@@ -690,7 +690,7 @@ MySQL中，文本字符串总体上分为 CHAR 、VARCHAR 、 TINYTEXT 、 TEXT 
 
 
 
-## 2.mysql8.0与5.7的一些区别和一些小知识
+## 2.8.0与5.7一些区别
 
 
 

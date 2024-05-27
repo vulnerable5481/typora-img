@@ -186,7 +186,7 @@
 
 ### 2.1 物理层的基本概念
 
-![image-20240305123648466](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240305123648466.png)
+![image-20240305123648466](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240305123648466.png)
 
 
 
@@ -839,7 +839,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240417122652968](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417122652968.png)
+![image-20240417122652968](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417122652968.png)
 
 ![image-20240417123009043](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417123009043.png)
 
@@ -851,11 +851,11 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240417123509727](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417123509727.png)
+![image-20240417123509727](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417123509727.png)
 
 
 
-![image-20240417123521920](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417123521920.png)
+![image-20240417123521920](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417123521920.png)
 
 
 
@@ -879,7 +879,7 @@ S = T/T+t =  1/1+t/T
 
 
 - 由于32比特的ipv4地址不方便阅读，记录等，因此ipv4地址采用**点分十进制表示方法**，便于用户使用
-  - ![image-20240417124449251](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417124449251.png)
+  - ![image-20240417124449251](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417124449251.png)
 
 #### 3.ipv4地址经历的三种分配方式之分类地址
 
@@ -889,26 +889,26 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240417125138865](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417125138865.png)
+![image-20240417125138865](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417125138865.png)
 
 
-![image-20240417125759744](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417125759744.png)
-
-
-
-![image-20240417130234084](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417130234084.png)
+![image-20240417125759744](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417125759744.png)
 
 
 
-![image-20240417130708643](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417130708643.png)
+![image-20240417130234084](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417130234084.png)
+
+
+
+![image-20240417130708643](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417130708643.png)
 
 
 
 
 
-![image-20240417131501645](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417131501645.png)
+![image-20240417131501645](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417131501645.png)
 
-![image-20240417131858903](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417131858903.png)
+![image-20240417131858903](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417131858903.png)
 
 
 
@@ -924,21 +924,21 @@ S = T/T+t =  1/1+t/T
 
 **引出子网掩码**
 
-![image-20240417132147522](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417132147522.png)
+![image-20240417132147522](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417132147522.png)
 
 
 
 **//子网掩码就是从主机号中借用几个比特作为子网号**
 
-![image-20240417132403638](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417132403638.png)
+![image-20240417132403638](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417132403638.png)
 
 **//划分案例**
 
-![image-20240417132645730](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417132645730.png)
+![image-20240417132645730](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417132645730.png)
 
 **//默认子网掩码**
 
-![image-20240417134843766](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417134843766.png)
+![image-20240417134843766](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417134843766.png)
 
 
 
@@ -946,11 +946,11 @@ S = T/T+t =  1/1+t/T
 
 **//三道练习题**
 
-![image-20240417133223148](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417133223148.png)
+![image-20240417133223148](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417133223148.png)
 
-![image-20240417133407827](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417133407827.png)
+![image-20240417133407827](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417133407827.png)
 
-![image-20240417134706356](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417134706356.png)
+![image-20240417134706356](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417134706356.png)
 
 
 
@@ -960,11 +960,11 @@ S = T/T+t =  1/1+t/T
 
 **//为什么使用无分类编址?**
 
-![image-20240417140229106](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417140229106.png)
+![image-20240417140229106](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417140229106.png)
 
 **//具体使用**
 
-![image-20240417140217783](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417140217783.png)
+![image-20240417140217783](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417140217783.png)
 
 
 
@@ -974,13 +974,13 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240417140112860](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417140112860.png)
+![image-20240417140112860](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417140112860.png)
 
 
 
 **//习题**
 
-![image-20240417140700591](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417140700591.png)
+![image-20240417140700591](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417140700591.png)
 
 
 
@@ -990,7 +990,7 @@ S = T/T+t =  1/1+t/T
 
 #### 1.定长的子网掩码FLSM
 
-![image-20240417191139698](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417191139698.png)
+![image-20240417191139698](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417191139698.png)
 
 
 
@@ -1000,7 +1000,7 @@ S = T/T+t =  1/1+t/T
 
 #### 2.边长的子网掩码VLSM
 
-![image-20240417191724673](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240417191724673.png)
+![image-20240417191724673](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417191724673.png)
 
 
 
@@ -1008,7 +1008,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-### 4.5ip数据报的发送和转发过程
+### 4.5 IP数据报的发送和转发过程
 
 **//主机A  ->  主机D**
 
@@ -1022,7 +1022,7 @@ S = T/T+t =  1/1+t/T
 3.到达路由器，将IP数据报中目的地址^路由表中的地址掩码，若目的网络相同则根据表中信息转发
 ```
 
-![image-20240418110745322](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418110745322.png)
+![image-20240418110745322](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418110745322.png)
 
 
 
@@ -1050,7 +1050,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240418120231132](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418120231132.png)
+![image-20240418120231132](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418120231132.png)
 
 ### 4.6动态路由选择
 
@@ -1060,19 +1060,19 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240418120251919](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418120251919.png)
+![image-20240418120251919](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418120251919.png)
 
 
 
 
 
-![image-20240418120441145](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418120441145.png)
+![image-20240418120441145](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418120441145.png)
 
  
 
 
 
-![image-20240418120950149](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418120950149.png)
+![image-20240418120950149](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418120950149.png)
 
 
 
@@ -1123,7 +1123,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240418125852876](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418125852876.png)
+![image-20240418125852876](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418125852876.png)
 
 ![image-20240418125918708](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418125918708.png)
 
@@ -1154,7 +1154,7 @@ S = T/T+t =  1/1+t/T
 
 - 链路状态**是指本路由器都和那些路由器相邻**，以及相应链路的**“代价**”
   - 代价用来表示费用，距离，时延，带宽，等等。这些是由网络管理人员来决定的.
-  - ![image-20240418134405019](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418134405019.png)
+  - ![image-20240418134405019](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418134405019.png)
 
 
 
@@ -1178,7 +1178,7 @@ S = T/T+t =  1/1+t/T
   - ![image-20240418135644588](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418135644588.png)
 - 使用OSPF的每个路由器都有一个链路状态数据库LSDB，用于存储LSA
 - 通过各路由器洪范发送封装有自己LSA的LSU分组，各路由器的LSDB最终达到一致
-  - ![image-20240418140251730](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418140251730.png)
+  - ![image-20240418140251730](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418140251730.png)
 
 
 
@@ -1215,7 +1215,834 @@ https://gitee.com/vulnerable5481/typora-img/raw/master/img/https://gitee.com/vul
 
 
 
-### 4.7 IPv4数据报的首部格式
+### 4.7 IP数据报
+
+#### ①IP数据报
+
+![image-20240525120525578](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525120525578.png)
+
+- **IP数据报的报头，通常称之为IP首部，即图中IP数据上面的全部属于IP首部，由20字节固定部分和40字节可变长度构成**
+
+- **IP首部的组成**
+
+  - **版本**：(4字节) 对于IPv4来说，这个值总是4
+
+  - **首部长度**：按照32位(4字节)计算IP首部的长度，包括任何选项字节数，取值范围5-15。
+                        普通IP首部没有任何选项字节时，该字段为5，4*5=20，即20字节
+                         IP首部最长为15 * 4  = 60，该字段为15 即60字节长，这时可选字段中有数据
+
+  - **区分服务/服务类型(**type of service:TOS)：未启用，了解即可
+
+  - **总长度**：整个IP数据报以字节为单位的长度，占16位，因此IP数据报最长可达65535字节。由于链路层MTU
+                   的限制，较长的IP数据报会被分片。当数据报被分片时，该字段也会随着变化，因为该字段表示当前
+                   IP数据报总长度。**IP数据报中没有数据的长度，但是数据长度=  总长度 - 首部长度**
+
+  - **标识符/标识**：唯一标识主机发送的每份数据报，占16位。主机为自己发送的IP报文设置一个报文计数器，发送一次，其报文标识符就+1。不同分片表示同一个IP数据报，其标识应当一致
+
+  - **标志**：说明IP报文是否允许被分片，占3位，目前只有后两位有意义。标志字段的最低位是MF(more fragment),MF=1表示后面还    
+
+    ​           有分片，为0表示本报文就是最后一个分片，标志字段的中间位是DF(don`t fragment) DF=0才允许分片。字段首位无意义
+
+  - **片偏移**：片偏移以8字节为偏移单位。指示出数据报被分片后，当前数据报在原分组的相对位置.
+
+  - 生存时间(time-to-live,TTL):用来设置数据报可以经过的最多路由器数，占8位。TTL的初始值由主机设置，推荐的TTL初始值为64
+                                        一旦经过一个处理报文的路由器，TTL就减少1，当TTL为0时，数据报就被丢弃，并发送ICMP报文通知主机
+
+  - **类型/协议字段**：也叫协议字段，表示向IP传送数据的上层协议。指的是IP数据的格式，可以说是属于传输层范畴。
+                                    当协议字段=6，表明数据部分是TCP报文段
+
+  - **首部检验和**：根据首部数据的二进制反码求和，主要用于对首部进行检验，接收方根据此进行计算，判断该IP数据报是否       
+
+       ​                         有错误，若有错误则丢弃。
+
+  - **源IP地址和目标地址**：每份IP数据报都含有源IP地址和目标地址
+
+  - **选项**：实际上选项用的不多。
+
+- **IP数据：**通常包含一个完整的TCP端或者UDP数据报，也可以包含其协议的报文，如ICMP报文。
+
+
+
+#### **例题1**
+
+![image-20240525125803516](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525125803516.png)
+
+
+
+#### **考研真题**
+
+
+
+![image-20240525131226811](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525131226811.png)
+
+
+
+![image-20240525131310354](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525131310354.png)
+
+
+
+
+
+#### 例题2
+
+![image-20240525132231378](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525132231378.png)
+
+
+
+
+
+
+
+### 4.8 ICMP网络控制报文协议
+
+
+
+#### ①什么是ICMP
+
+![image-20240525133644113](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525133644113.png)
+
+![image-20240525133702249](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525133702249.png)
+
+
+
+
+
+#### ②不发送的情况
+
+![image-20240525134022055](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525134022055.png)
+
+
+
+#### ③ICMP询问报文
+
+![image-20240525140029642](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525140029642.png)
+
+
+
+
+
+#### ③ICMP询问报文典型应用之分组网间探测PING
+
+Ping : **P**acket **I**nter**N**et **G**roup
+
+用来测试目的站是否可达及了解有关状态
+
+在windows命令中为 ping ip地址
+
+
+
+
+
+#### ④ICMP询问报文典型应用之跟踪路由trace route
+
+用来测试IP数据报从源主机到目标主机要经过哪些路由器
+
+在windows中命令为 tracert ip地址
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 4.9 虚拟专用网VPN
+
+![image-20240525134823142](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525134823142.png)
+
+
+
+
+
+![image-20240525134904570](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525134904570.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 4.10网络地址转换NAT
+
+#### ①引出NAT
+
+![image-20240525135109231](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525135109231.png)
+
+
+
+#### ②NAT工作流程
+
+![image-20240525135439875](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525135439875.png)
+
+
+
+
+
+#### ③NAPT的工作流程
+
+![image-20240525135417041](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525135417041.png)
+
+
+
+#### ④NAT的局限和解决方法
+
+解决：可以购买一个公网IP，或者使用内网穿透
+
+![image-20240525135647837](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525135647837.png)
+
+
+
+
+
+
+
+## 五.运输层
+
+
+
+### 5.1 运输层概述
+
+![image-20240525205555095](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525205555095.png)
+
+
+
+### 5.2 运输层端口号，复用与分用的概念
+
+
+
+#### ①端口号
+
+![image-20240525210500409](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525210500409.png)
+
+
+
+
+
+
+
+#### ②复用与分用
+
+![image-20240525210742048](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525210742048.png)
+
+
+
+![image-20240525211153027](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525211153027.png)
+
+
+
+
+
+
+
+
+
+### 5.3 TCP与UDP对比
+
+#### ①面向不同
+
+**TCP面向字节流，这是TCP实现可靠传输，流量控制等功能的基石**
+
+**UDP面向应用报文的，对应用层报文不合并也不拆分**
+
+![image-20240525212130612](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525212130612.png)
+
+
+
+#### ②一对多 一对一
+
+![image-20240525212529100](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525212529100.png)
+
+#### ③数据传输时机不同
+
+**UDP随时可以传输数据**
+
+**TCP必须通过三报文握手建立连接后才能传输数据，通过四报文挥手释放连接**
+
+![image-20240525212615982](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525212615982.png)
+
+
+
+#### ④可靠or不可靠
+
+![image-20240525212855983](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240525212855983.png)
+
+
+
+
+
+
+
+### 5.4 TCP报文段
+
+**//Transmission Control Prototcol   传输控制协议**
+
+![image-20240526164002552](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240526164002552.png)
+
+- **TCP段首部格式**
+
+  - 源端口和目的端口：每一个TCP段都包含对应的源端口和目的端口
+
+  - 序号：用来标识从TCP发送端到接收端发送的数据字节流，指出本TCP报文段数据载荷的第一个字节的序号，
+                 取值范围[0,2^32-1],达到最大后又回到0开始
+
+  - 确认号：指出期望收到对方下一个TCP报文段的数据载荷的第一个字节的序号，同时也是对之前收到的所有数据的确认
+
+    ​			   若 确认号=n  表示到序号n-1之前的数据都已正确接收，期望接收序号为n的数据		
+    ​				只有ACK = 1时，确认号才有效，取值为0时，确认号失效。
+    ​				TCP规定，在建立连接后所有传送的TCP报文段的ACK都要置1
+
+    ​					取值范围[0,2^32-1],达到最大后又回到0开始
+
+  - 数据偏移/HLEN：用来指出TCP报文段的数据载荷部分的起始处距离TCP报文段的起始处有多远
+                       这个字段实际上指出了TCP报文段的首部长度
+                       最小长度20字节，最大60字节
+  - 窗口：以接收方的接受能力来控制发送方的发送能力，也就是`流量控制`
+  - 六个标志位
+    - URG:	紧急指针有效
+    - ACK：  确认序号有效
+    - PSH：  接收方应该尽快将这个报文段交给应用层，不必等到接收缓存都填满后再向上交付
+    - PST：  =1时，表明TCP连接出现异常，必须释放连接再重新连接
+    - SYN：   同步序号，用来发起一个连接 ; SYN=1 本报文段不能携带数据，普通TCP报文段为0，可携带数据
+    - FIN ：   发送端完成发送任务，可以断开连接
+  - 检验和：用来检测整个TCP报文段在传输过程中是否出现误码。计算时要加上12字节形成一个伪首部。
+  - 紧急指针：当发送发有紧急数据，可插队到发送缓存的最前面，并立刻封装TCP段发送。
+                        紧急指针会指出本报文段数据载荷部分包含了多长的紧急数据，紧急数据之后是普通数据
+
+     
+
+
+
+
+
+
+
+
+
+### 5.5 UDP
+
+**//User Datagram Protocol，用户数据报协议**
+
+
+
+
+
+
+
+### 5.6 TCP的流量控制
+
+
+
+**根据接收方缓存剩余量，对发送方进行流量控制，调整接收窗口.当接收方缓存已满，将接收窗口调整为0。**
+
+**此时，发送方发送零窗口探测报文，若接收方缓存有了存储空间则调整接收窗口，若没有则依然为0。**
+
+![image-20240526134456130](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240526134456130.png)
+
+![image-20240526134907108](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240526134907108.png)
+
+
+
+
+
+### 5.7 TCP的拥塞控制
+
+![image-20240526140007382](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240526140007382.png)
+
+
+
+**慢开始和拥塞避免是1988年提出的TCP拥塞控制算法(TCP Tahoe版本)**
+
+以下是慢开始与要塞避免的演示过程:
+
+```jav
+刚开始cwnd<sstresh使用慢开始算法，即指数增长；
+当超过ssthresh使用拥塞避免算法，即每次只+1；当出现报文丢失等错误时，将ssthresh调整为当前cwnd的1/2,并设置cwnd=1.
+```
+
+![image-20240526145419387](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240526145419387.png)
+
+
+
+**1990年又增加了快重传和快恢复算法，用来改进TCP的性能，比如报文丢失但没有发生网络拥塞会导致发送发超时重传，误认为拥塞，将cwnd重置为1，使效率降低很多。**
+
+![image-20240526150306003](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240526150306003.png)
+
+![image-20240526150417228](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240526150417228.png)
+
+
+
+
+
+
+
+
+
+### 5.8 TCP的超时重传时间的选择（了解）
+
+
+
+
+
+### 5.9 TCP可靠传输的实现
+
+**TCP基于以<font color=red>字节为单位的滑动窗口</font>来实现可靠传输**
+
+**感觉就是普通的滑动窗口机制	**
+
+![image-20240526154148110](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240526154148110.png)
+
+
+
+![image-20240526154944252](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240526154944252.png)
+
+
+
+
+
+![image-20240526155210710](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240526155210710.png)
+
+**//easy**
+
+![image-20240526155443690](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240526155443690.png)
+
+
+
+
+
+### 5.10 TCP建立连接⭐
+
+**//<font color=red>比较专业的版本</font>**
+
+![image-20240526163420660](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240526163420660.png)
+
+
+
+**//<font color =red>便于理解的版本</font>**
+
+![img](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/202008271630393.png)
+
+
+
+### 5.11 TCP释放连接
+
+**//<font color=red>正常的TCP释放连接</font>**
+
+![image-20240527163151399](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527163151399.png)
+
+
+
+**//<font color=red>为什么要客户端需要等待2MSL后才关闭呢？答：防止最后一次确认报文丢失导致TCP服务器无法关闭，且此期间可以清除以前的数据</font>**
+
+![image-20240527163359432](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527163359432.png)
+
+
+
+**<font color=red>如果TCP客户端出现故障，TCP服务器该如何发现并处理呢？答：TCP保活计时器</font> 	**
+
+![image-20240527163641841](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527163641841.png)
+
+
+
+
+
+## 六.应用层
+
+
+
+
+
+### 6.1 C/S与P2P对等方式
+
+
+
+![image-20240527164648731](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527164648731.png)
+
+​	
+
+
+
+### 6.2 动态主机配置协议DHCP
+
+
+
+<font color=red>**DHCP的作用：可以为局域网中各主机自动配置IP地址，子网掩码，默认网关，DNS服务器等信息**</font>
+
+![image-20240527170500609](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527170500609.png)
+
+**<font color=red>DHCP工作流程(了解一下就可以了)</font>**
+
+![image-20240527170303370](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527170303370.png)
+
+
+
+<font color=red>**DHCP中继代理:让主机可以访问不在同一局域网的DHCP服务器，从而获取网络配置信息**</font>
+
+![image-20240527171231388](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527171231388.png)
+
+
+
+
+
+### 6.3 域名系统DNS
+
+#### ①域名组成及其分类
+
+![image-20240527190801227](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527190801227.png)
+
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527191117417.png)
+
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527191336696.png)
+
+
+
+#### ②域名服务器分类
+
+![image-20240527191620604](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527191620604.png)
+
+
+
+#### ③域名解析
+
+![image-20240527193709695](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527193709695.png)
+
+![image-20240527193800604](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527193800604.png)
+
+
+
+
+
+
+
+
+
+### 6.4 文件传送协议FTP	
+
+![image-20240527195156859](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527195156859.png)
+
+**//用于传送控制命令的TCP连接在整个过程都打开，传送数据的TCP连接则在数据传输完毕后关闭**
+
+![image-20240527195656555](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527195656555.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 6.5 电子邮件
+
+#### ①发送过程总览
+
+![image-20240527202035881](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527202035881.png)
+
+
+
+
+
+
+
+#### ②SMTP(Simple Mail Transfer Protocol)工作原理(了解)
+
+
+
+![image-20240527202308186](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527202308186.png)
+
+
+
+#### ③ 电子邮件格式
+
+![image-20240527202514238](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527202514238.png)
+
+
+
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527202631630.png)
+
+
+
+#### ④ 邮件读取协议
+
+![image-20240527202824587](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527202824587.png)
+
+#### ⑤基于万维网的电子邮件
+
+![image-20240527203025938](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527203025938.png)
+
+
+
+
+
+### 6.6万维网WWW
+
+
+
+
+
+#### ①万维网相关概念
+
+![image-20240527203518104](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527203518104.png)
+
+
+
+![image-20240527203539841](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527203539841.png)
+
+#### ② HTTP两种连接方式
+
+![image-20240527203803987](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527203803987.png)
+
+![image-20240527204014615](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527204014615.png)
+
+
+
+
+
+#### ③HTTP请求/响应报文格式
+
+![image-20240527204238353](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527204238353.png)
+
+
+
+![image-20240527204337797](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527204337797.png)
+
+
+
+#### ④万维网缓存
+
+![image-20240527204609798](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527204609798.png)
+
+#### ⑤真题
+
+![image-20240527204944209](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240527204944209.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 计算机组成原理
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 操作系统
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 数据结构与算法
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
