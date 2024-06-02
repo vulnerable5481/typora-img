@@ -1,4 +1,6 @@
-# 计算机网络
+
+
+计算机网络
 
 
 
@@ -12,7 +14,7 @@
 
 #### (1) 分组交换⭐
 
-​	![image-20240228103558021](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240228103558021.png)
+​	![image-20240228103558021](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228103558021.png)
 
 
 
@@ -38,7 +40,7 @@
 
 
 
-分类：![image-20240228103855408](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240228103855408.png)
+分类：![image-20240228103855408](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228103855408.png)
 
 
 
@@ -51,7 +53,7 @@
 
 
 - 速率
-  ![image-20240228104138303](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240228104138303.png)
+  ![image-20240228104138303](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228104138303.png)
 - 带宽：最大速率
 - 吞吐量 :  单位时间总传输的数据量
 - 时延 : 通常包括  发送时延，传输时延 ，接收时延，排队时延(可能没有可能有)
@@ -68,17 +70,17 @@
 
 #### (1)常见的计算机网络体系结构
 
-![image-20240228104408856](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240228104408856.png)
+![image-20240228104408856](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228104408856.png)
 
 **TCP/IP协议的展开**
 
 
 
-![image-20240228113407353](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240228113407353.png)
+![image-20240228113407353](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228113407353.png)
 
 #### (2)计算机网络分层的必要性
 
-![image-20240228105019240](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240228105019240.png)
+![image-20240228105019240](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228105019240.png)
 
 
 
@@ -94,25 +96,23 @@
 
 
 
+**主机H1中的浏览器发出一个Http请求到路由器的过程**
 
+1.第一步：在应用层  (具体就是在谷歌浏览器)  根据http协议创建一个http报文
 
-##### 1 主机H1中的浏览器发出一个Http请求到路由器的过程
-
-1.第一步：在应用层  (具体就是在谷歌浏览器)  根据http协议创建一个htpp报文
-
-![image-20240228105757745](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240228105757745.png)
+![image-20240228105757745](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228105757745.png)
 
 2.第二步：在运输层  添加一个TCP首段 使之成为 TCP报文段（该首部的作用主要是为了区分应用进程，以及实现可靠传输）
 
 
 
-![image-20240228105925915](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240228105925915.png)
+![image-20240228105925915](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228105925915.png)
 
 
 
 3.第三步，在网络层  添加一个IP首部 ，使之成为 IP数据报(该首部含有目的地址，其主要作用是可以被路由器转发(因为在这里可以得到目的地址))
 
-![image-20240228110040252](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240228110040252.png)
+![image-20240228110040252](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228110040252.png)
 
 
 
@@ -120,7 +120,7 @@
 
 
 
-​	![image-20240228110949276](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240228110949276.png)
+​	![image-20240228110949276](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228110949276.png)
 
 
 
@@ -132,7 +132,7 @@
 
 
 
-![image-20240228111441553](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240228111441553.png)
+![image-20240228111441553](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228111441553.png)
 
 
 
@@ -140,31 +140,7 @@
 
 
 
-##### 2，路由器处理比特流的过程
 
-
-
-1.去掉前导码，将其转交给数据链路层(实际上交付的是帧)
-
-2.数据链路层将帧的首部尾部去掉后，交付给网络层(实际上交付的是IP数据报)
-
-3.网络层解析IP数据报的首部，得到目的地址，然后查找自身路由表，确定转发端口以便转发，网络层将IP数据报转交给数据链路层
-
-4.数据链路层给IP数据报添加一个首部和一个尾部使之成为一个帧，然后交给物理层。
-
-5.物理层将帧看作比特流，由于N2是以太网，物理层还会加入前导码,转化为相应的信号发送到传输媒体,信号通过传输媒体到达web服务器。
-
-
-
-##### 3.从路由器到目的主机(web服务器)的过程
-
-层层剥皮，最后在应用层得到http请求报文，解析数据,然后给h1主机返回http响应
-
-
-
-##### 4.从目的主机(web服务器)返回http响应到主机h1的过程
-
-和前面差不多，也是层层剥皮，层层套皮。
 
 
 
@@ -176,9 +152,7 @@
 
 ## 二.物理层
 
-**//简单学习一下即可，重点是掌握基本概念**
-
-
+**//物理层的主要任务就是解决比特0和1在线路上传输的问题**
 
 
 
@@ -186,17 +160,73 @@
 
 ### 2.1 物理层的基本概念
 
+
+
+#### ①四个特性
+
 ![image-20240305123648466](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240305123648466.png)
 
+#### ②传输方式
+
+
+
+- **串行传输与并行传输**
+  - 串行传输就是一个字节一个字节传输
+  - 并行传输就是N条线，N个字节N个字节传输
+- **同步传输与异步传输**
+  - ![image-20240528160355343](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528160355343.png)
 
 
 
 
-### 2.2 物理层之下的传输媒体(了解)
 
-**//知道传输媒体大概有这几个就Ok 了**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 2.2 物理层之下的传输媒体
+
+**//大致分为导引型传输媒体 和 非导引型传输媒体**
 
 ![image-20240305123811825](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240305123811825.png)
+
+- **导引型传输媒体**
+  - **同轴电缆**
+    - ![image-20240528153818209](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528153818209.png)
+  - **双绞线**
+    - ![image-20240528153944979](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528153944979.png)
+  - **光纤**
+    - ![image-20240528154120469](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528154120469.png)
+    - <font color=red>**光在光纤的传播原理**</font>
+      ![image-20240528154329948](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528154329948.png)
+
+
+
+- **非引导型传输媒体**
+  - 无线电波
+    - ![image-20240528154836309](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528154836309.png)
+  - 微波
+    - 由于微波只能直线传播且会穿透电离层，故其地面波传播距离一般在五十公里内，为扩大距离常常使用中继站将收到的微波扩大在发送给下一站。一般微波通信分为两种地面微波接力通信(天线塔作为中继站)，另一种是卫星通信(利用人造地球同步卫星作为中继站，除此之外低轨道卫星通信系统也开始在空间部署并构成了空间高速链路,马斯克的星链是这种吗？)。
+    - ![image-20240528155030944](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528155030944.png)
+  - 红外线
+    - 这个很熟悉，电视遥控器，空调遥控器你懂吧
+      ![image-20240528155808843](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528155808843.png)
+
+
+
+
+
+
 
 
 
@@ -206,15 +236,49 @@
 
 
 
-![image-20240305124256236](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240305124256236.png)
+![image-20240305124256236](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240305124256236.png)
 
 
 
 
 
-### 2.4编码与调制(⭐)
+### 2.4编码与调制
 
-![image-20240305134336274](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240305134336274.png)
+![image-20240528162120298](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528162120298.png)
+
+![image-20240528163020991](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528163020991.png)
+
+![image-20240528163042354](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528163042354.png)
+
+
+
+
+
+
+
+![image-20240528163432895](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528163432895.png)
+
+
+
+
+
+![image-20240528163617990](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528163617990.png)
+
+
+
+
+
+![image-20240528163608462](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528163608462.png)
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -222,7 +286,47 @@
 
 ### 2.5 信道的极限容量
 
-![image-20240305142453179](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240305142453179.png)
+#### ① 码间串扰
+
+![image-20240528164010420](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528164010420.png)
+
+#### ② 奈氏准则
+
+![image-20240528165353179](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528165353179.png)
+
+
+
+#### ③ 香农公式
+
+**信息传输速率 = 波特率(码元传输速率) * 每个码元携带信息量**
+
+![image-20240528165848220](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528165848220.png)
+
+
+
+
+
+#### ④ 真题
+
+
+
+![image-20240528170337602](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528170337602.png)
+
+![image-20240528171916622](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528171916622.png)
+
+![image-20240528173526490](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528173526490.png)
+
+
+
+![image-20240528174136688](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528174136688.png)
+
+
+
+
+
+
+
+
 
 
 
@@ -246,21 +350,21 @@
 
 ​					**//PPP帧：**
 
-![image-20240312120412227](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312120412227.png)
+![image-20240312120412227](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312120412227.png)
 
 
 
 **//以太网V2的MAC帧**
 
-![image-20240312120457875](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312120457875.png)
+![image-20240312120457875](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312120457875.png)
 
 //其中前导码 前七个字节为前同步码，作用是使接收方的时钟同步；后面一个字节是帧开始定界符，表明紧跟着的就是MAC帧
 
 
 
-//另外，以太网的MAC帧不需要帧结束定界符，因为有帧间间隔（后面会详细讲解）
+//另外，以太网的MAC帧不需要帧结束定界符，因为有帧间间隔
 
-![image-20240312120747027](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312120747027.png)
+![image-20240312120747027](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312120747027.png)
 
 
 
@@ -269,7 +373,7 @@
 - **透明传输**
   - 含义：将数据链路层对上层交付的传输数据没有任何限制，就好像数据链路层不存在一样
   - 提问：若在数据中恰好含有 和帧开始结束定界符一样 的字节 该怎么办？
-    - ![image-20240312121505883](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312121505883.png)
+    - ![image-20240312121505883](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312121505883.png)
 
 ​		
 
@@ -281,7 +385,7 @@
 
 - **奇偶检测（漏洞多，一般不会采用该方法）**
 
-![image-20240312121626716](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312121626716.png)
+![image-20240312121626716](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312121626716.png)
 
 
 
@@ -289,25 +393,25 @@
 
 - **循环冗余检验CRC(Cyclic Redundancy Check)**
 
-![image-20240312124952968](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312124952968.png)
+![image-20240312124952968](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312124952968.png)
 
-![image-20240312125012554](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312125012554.png)
+![image-20240312125012554](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312125012554.png)
 
-![image-20240312125056495](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312125056495.png)
+![image-20240312125056495](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312125056495.png)
 
 
 
-![image-20240312125111487](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312125111487.png)
+![image-20240312125111487](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312125111487.png)
 
 ### 3.3可靠传输
 
 #### 3.3.1  一些基本概念
 
-![image-20240312125358854](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312125358854.png)
+![image-20240312125358854](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312125358854.png)
 
 
 
-![image-20240312125407375](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312125407375.png)
+![image-20240312125407375](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312125407375.png)
 
 
 
@@ -315,17 +419,17 @@
 
 
 
-![image-20240312125956484](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312125956484.png)
+![image-20240312125956484](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312125956484.png)
 
 
 
 #### 3.3.3 回退N帧协议GBN
 
-![image-20240312130048735](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312130048735.png)
+![image-20240312130048735](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312130048735.png)
 
 
 
-![image-20240312130212292](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312130212292.png)
+![image-20240312130212292](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312130212292.png)
 
   
 
@@ -337,11 +441,11 @@
 
 总体流程也是滑动窗口那样，只不过接收窗口的接收数量不再是1。
 
-![image-20240312131438514](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312131438514.png)
+![image-20240312131438514](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312131438514.png)
 
 
 
-![image-20240312131503952](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312131503952.png)
+![image-20240312131503952](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312131503952.png)
 
 
 
@@ -349,25 +453,29 @@
 
 ### 3.4 点对点协议PPP
 
+**//特点：PPP报文没有序号，不需要ACK确认，只对检验码出错的数据进行丢弃。**
+
+
+
 
 
 #### 3.4.1 帧格式
 
-![image-20240312132511372](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312132511372.png)
+![image-20240312132511372](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312132511372.png)
 
 
 
 #### 3.4.2 透明传输
 
-![image-20240312132734084](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312132734084.png)
+![image-20240312132734084](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312132734084.png)
 
 
 
-![image-20240312132952660](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312132952660.png)
+![image-20240312132952660](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312132952660.png)
 
 
 
-![image-20240312133719483](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312133719483.png)
+![image-20240312133719483](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312133719483.png)
 
 
 
@@ -379,7 +487,7 @@
 
 //采用前面学过的CRC 进行计算
 
-![image-20240312133943995](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312133943995.png)
+![image-20240312133943995](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312133943995.png)
 
 
 
@@ -387,7 +495,7 @@
 
 
 
-![image-20240312134425041](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240312134425041.png)
+![image-20240312134425041](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240312134425041.png)
 
 
 
@@ -403,7 +511,7 @@
 
 
 
-![image-20240313130000993](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313130000993.png)
+![image-20240313130000993](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313130000993.png)
 
 
 
@@ -415,35 +523,35 @@
 
 - **频分复用FDM**
 
-![image-20240313130124945](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313130124945.png)
+![image-20240313130124945](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313130124945.png)
 
 - **时分复用TDM**
 
-![image-20240313130219510](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313130219510.png)
+![image-20240313130219510](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313130219510.png)
 
 
 
 - **波分复用WDM**
 
-![image-20240313130159167](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313130159167.png)
+![image-20240313130159167](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313130159167.png)
 
 - **⭐码分复用CDM**
 
 
 
-![image-20240313130305618](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313130305618.png)
+![image-20240313130305618](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313130305618.png)
 
 
 
-![image-20240313130335927](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313130335927.png)
+![image-20240313130335927](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313130335927.png)
 
 
 
-![image-20240313130349151](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313130349151.png)
+![image-20240313130349151](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313130349151.png)
 
 
 
-![image-20240313130410158](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313130410158.png)
+![image-20240313130410158](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313130410158.png)
 
 
 
@@ -459,32 +567,32 @@
 
 **//CSMA/CD协议适用于 有线网络，CSMA/CA协议适用于无线网络**
 
-![image-20240313131246643](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313131246643.png)
+![image-20240313131246643](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313131246643.png)
 
 
 
 
 ##### 2.**CSMA/CD协议--碰撞检测的流程**
 
-![image-20240313131452352](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313131452352.png)
+![image-20240313131452352](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313131452352.png)
 
 ##### 3.**CSMA/CD协议--争用期（碰撞窗口）**
 
-![image-20240313132008824](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313132008824.png)
+![image-20240313132008824](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313132008824.png)
 
 ##### 4.**CSMA/CD协议--最小帧长和最大帧长**
 
 最小帧长 = 争用期 * 数据传输速率
 
-![image-20240313132610509](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313132610509.png)
+![image-20240313132610509](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313132610509.png)
 
-![image-20240313133043076](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313133043076.png)
+![image-20240313133043076](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313133043076.png)
 
 
 
 ##### 5. **CSMA/CD协议--截断二进制指数退避算法**
 
-![image-20240313133359241](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313133359241.png)
+![image-20240313133359241](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313133359241.png)
 
 
 
@@ -492,15 +600,15 @@
 
 S = T/T+t =  1/1+t/T 
 
-![image-20240313133626688](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313133626688.png)
+![image-20240313133626688](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313133626688.png)
 
 ##### 7.**CSMA/CD协议--帧接收和发送流程**
 
-​		![image-20240313133919741](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313133919741.png)
+​		![image-20240313133919741](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313133919741.png)
 
 
 
-![image-20240313134154261](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313134154261.png)
+![image-20240313134154261](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313134154261.png)
 
 
 
@@ -510,7 +618,7 @@ S = T/T+t =  1/1+t/T
 
 **//CSMA/CD协议曾经用于各种总线结构以太网和双绞线以太网的早期版本中，现在的以太网基于减缓及和全双工连接，不会有碰撞，因此没必要使用CSMA/CD协议**
 
-![image-20240313140346274](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313140346274.png)
+![image-20240313140346274](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313140346274.png)
 
 
 
@@ -532,7 +640,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240313174909038](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313174909038.png)
+![image-20240313174909038](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313174909038.png)
 
 ![image-20240313175011566](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313175011566.png)
 
@@ -540,7 +648,7 @@ S = T/T+t =  1/1+t/T
 
 ##### 2.   注意:  802.11标准  使用了	SW
 
-![image-20240313175256965](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313175256965.png)
+![image-20240313175256965](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313175256965.png)
 
 
 
@@ -550,15 +658,15 @@ S = T/T+t =  1/1+t/T
 
 ##### 3.帧间间隔(IFS)   SIFS DIFS
 
-![image-20240313175422690](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313175422690.png)
+![image-20240313175422690](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313175422690.png)
 
 
 
 ##### 4.退避算法
 
-![image-20240313175643190](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313175643190.png)
+![image-20240313175643190](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313175643190.png)
 
-![image-20240313175725469](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313175725469.png)
+![image-20240313175725469](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313175725469.png)
 
 
 
@@ -566,7 +674,7 @@ S = T/T+t =  1/1+t/T
 
 ##### 5.具体工作流程	
 
-![image-20240313175950154](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313175950154.png)
+![image-20240313175950154](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313175950154.png)
 
 
 
@@ -576,11 +684,11 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240313180031024](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313180031024.png)
+![image-20240313180031024](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313180031024.png)
 
 
 
-​	![image-20240313180334354](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313180334354.png)
+​	![image-20240313180334354](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313180334354.png)
 
 
 
@@ -588,7 +696,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240313180415857](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240313180415857.png)
+![image-20240313180415857](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240313180415857.png)
 
 
 
@@ -608,7 +716,7 @@ S = T/T+t =  1/1+t/T
 
 - 总览
 
-![image-20240318133316442](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318133316442.png)
+![image-20240318133316442](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318133316442.png)
 
 
 
@@ -622,7 +730,7 @@ S = T/T+t =  1/1+t/T
 
 **//全F  就是 广播地址**
 
-![image-20240318132511261](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318132511261.png)
+![image-20240318132511261](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318132511261.png)
 
 
 
@@ -632,11 +740,11 @@ S = T/T+t =  1/1+t/T
 
 **//单播帧 就是地址匹配就接收，不匹配就丢弃,easy**
 
-![image-20240318132814159](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318132814159.png)
+![image-20240318132814159](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318132814159.png)
 
 **//多播帧**
 
-![image-20240318133239410](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318133239410.png)
+![image-20240318133239410](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318133239410.png)
 
 
 
@@ -657,7 +765,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240318134343003](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318134343003.png)
+![image-20240318134343003](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318134343003.png)
 
 
 
@@ -665,9 +773,9 @@ S = T/T+t =  1/1+t/T
 
 - 数据包转发过程中IP地址与MAC地址的变化情况	
 
-**//哇哦，这样就无法定位发送信息的主机真实信息**
+**//哇哦，这样就无法直接定位发送信息的主机真实信息，更加安全！！！**
 
-![image-20240318134040958](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318134040958.png)
+![image-20240318134040958](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318134040958.png)
 
 
 
@@ -685,7 +793,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240318135025426](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318135025426.png)
+![image-20240318135025426](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318135025426.png)
 
 
 
@@ -693,7 +801,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240318135107463](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318135107463.png)
+![image-20240318135107463](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318135107463.png)
 
 
 
@@ -701,7 +809,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240318135331369](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318135331369.png)
+![image-20240318135331369](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318135331369.png)
 
 
 
@@ -709,7 +817,7 @@ S = T/T+t =  1/1+t/T
 
 4. ARP高速缓存的一些信息
 
-![image-20240318135355770](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318135355770.png)
+![image-20240318135355770](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318135355770.png)
 
 
 
@@ -719,7 +827,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240318135427454](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318135427454.png)
+![image-20240318135427454](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318135427454.png)
 
 
 
@@ -727,7 +835,7 @@ S = T/T+t =  1/1+t/T
 
 **//区别就是，交换机能自己判断，集线器只是传播工具**
 
-![image-20240318141542441](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318141542441.png)
+![image-20240318141542441](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318141542441.png)
 
 
 
@@ -739,7 +847,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240318143338935](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318143338935.png)
+![image-20240318143338935](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318143338935.png)
 
 
 
@@ -753,7 +861,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240318161832766](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318161832766.png)
+![image-20240318161832766](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318161832766.png)
 
 - STP  
   - BID(桥ID)  由桥优先级 和 桥MAC 组成，缺省为32768
@@ -792,7 +900,7 @@ S = T/T+t =  1/1+t/T
 
 #### 3.9.1 虚拟局域网VLAN概述
 
-![image-20240318162405855](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318162405855.png)
+![image-20240318162405855](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318162405855.png)
 
 
 
@@ -1030,13 +1138,13 @@ S = T/T+t =  1/1+t/T
 
 
 
-![image-20240418110722031](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418110722031.png)
+![image-20240418110722031](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418110722031.png)
 
 
 
 **//练习题**
 
-![image-20240418112617883](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418112617883.png)
+![image-20240418112617883](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418112617883.png)
 
 
 
@@ -1086,7 +1194,7 @@ S = T/T+t =  1/1+t/T
 
 #### 4.6.2路由信息协议RIP的基本工作原理
 
-
+**//Router Information Protocol RIP**
 
 **一些概念**
 
@@ -1096,7 +1204,7 @@ S = T/T+t =  1/1+t/T
   - 路由器到直连网络的距离为1
   - 路由器到非直连网络的距离为中间经过的路由器数量+1
   - 一条路径最多只能包含十五个路由器，当距离 == 16 意思是不可达，因此RIP只适用于小型互联网
-  - ![image-20240418124658267](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418124658267.png)
+  - ![image-20240418124658267](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418124658267.png)
 
 - RIP 认为 好的路由是 距离短的路由
 - 当到达同一目的网络有多条距离相等的路由时，可以进行等价负载均衡
@@ -1107,15 +1215,15 @@ S = T/T+t =  1/1+t/T
 
 **基本工作过程**
 
-![image-20240418124126922](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418124126922.png)
+![image-20240418124126922](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418124126922.png)
 
 
 
 **更新规则**
 
+**//到达目的网络，相同下一跳，如果是新消息则更新**
 
-
-![image-20240418124144953](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418124144953.png)
+![image-20240418124144953](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418124144953.png)
 
 
 
@@ -1139,11 +1247,11 @@ S = T/T+t =  1/1+t/T
 
 #### 4.6.3开放最短路径优先OSPF基本工作原理
 
-
+**//Open Shortest Path First OSPF**
 
 **一些概念**
 
-- 开放最短路径优先OSPF是为了克服RIP的缺点在1989年开发出来的
+- 开放最短路径优先OSPF是为了克服RIP的许多缺点在1989年开发出来的
   - “开放” 表明OSPF协议不是受某家公司控制，而是公开发表的
   - 最短路径优先，是指使用了迪结特斯拉发明的spf最短路径算法
 
@@ -1161,7 +1269,7 @@ S = T/T+t =  1/1+t/T
 **OPSF的五个分组类型**
 
 - 问候(Hello)分组
-  - ![image-20240418134558549](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418134558549.png)
+  - ![image-20240418134558549](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418134558549.png)
 
 - 数据库描述分组
 - 链路状态请求分组
@@ -1175,7 +1283,7 @@ S = T/T+t =  1/1+t/T
 
 
 - 链路状态通告LSA
-  - ![image-20240418135644588](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418135644588.png)
+  - ![image-20240418135644588](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418135644588.png)
 - 使用OSPF的每个路由器都有一个链路状态数据库LSDB，用于存储LSA
 - 通过各路由器洪范发送封装有自己LSA的LSU分组，各路由器的LSDB最终达到一致
   - ![image-20240418140251730](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418140251730.png)
@@ -1189,11 +1297,11 @@ S = T/T+t =  1/1+t/T
 1. 通过问候分组创建邻居表，链路状态通告LSA的洪范使各个路由器的链路状态数据库达到一致
 2. 使用OSPF的各路由器基于链路状态数据库LSDB，进行最短路径SPF算法计算，构建出各自到达其他路由器的最短路径
 
-![image-20240418140614579](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418140614579.png)
+![image-20240418140614579](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418140614579.png)
 
 
 
-![image-20240418141311367](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418141311367.png)
+![image-20240418141311367](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418141311367.png)
 
 
 
@@ -1201,13 +1309,11 @@ S = T/T+t =  1/1+t/T
 
 #### 4.6.4边界网关协议BGP的基本工作原理
 
-https://gitee.com/vulnerable5481/typora-img/raw/master/img/https://gitee.com/vulnerable5481/typora-img/raw/master/img/
-
 不再深入讨论
 
 
 
-![image-20240418152335546](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240418152335546.png)
+![image-20240418152335546](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240418152335546.png)
 
 
 
@@ -1561,9 +1667,20 @@ Ping : **P**acket **I**nter**N**et **G**roup
 
 **//User Datagram Protocol，用户数据报协议**
 
+**//UDP也会搞一个UDP伪头部**
 
+```
+伪头部
+在执行校验和算法之前，还会产生一个虚拟的伪头部出来（也不会真的被传输出去），以用于校验和算法。它是12字节（IPv4则是40字节），满足了偶数字节的要求。它比较奇怪的地方在于，这个作为存在于传输层的伪头部，它居然拥有网络层的信息（即拥有下一层的信息）：
 
+来自IP头部的源ip地址。
+来自IP头部的目的ip地址。
+来自IP头部的协议号，这个协议号用来指明IP的数据里，装的到底哪个传输层协议的分组。比如装的是UDP的话，就是17。
+UDP长度。
+伪头部的目的是，让UDP层验证数据是否已经到达了正确的目的地。
+```
 
+![image-20240528145744051](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240528145744051.png)
 
 
 

@@ -1,3 +1,67 @@
+# 过渡
+
+
+
+1. hygiene
+
+3. ego
+
+4. hinder
+
+5. depressed
+
+6. shake xx off: get rid of sth/sb
+
+7. pissed  v 撒尿 adj 怒气冲冲的
+
+7. resume
+
+7. industry
+
+7. considerably   :
+
+7. tourist resort 
+
+7. sigh 
+
+7. sign   : 1, 2
+
+7. firm  1,2
+
+7. evaluate   rate assess  review appraise  estimate 
+
+15. access 
+
+16. inspect
+
+17. process
+
+18. letter   not word 
+
+    
+
+    
+
+    
+
+1. 
+
+
+
+
+
+# 听力单词过渡
+
+
+
+1. process 
+2. progress
+3. priorities
+
+
+
+
+
 # A
 
 
@@ -35,6 +99,16 @@ press sth very hard so that it`s broken or its shape is destroyed
 ## duplicate
 
 As a programmer , you should know what`s meaning of 'duplicate'  
+
+
+
+## dental
+
+dental hygiene 
+
+
+
+
 
 
 
@@ -99,7 +173,8 @@ a large organ in the body that cleans the blood and produces bile,or this organ 
 
 ## instruct
 
-to order or tell someone to do sth, especially in a formal way
+- to order or tell someone to do sth, especially officially or as their employer
+- to teach smone a subject or skill
 
 ## instruction
 
@@ -109,8 +184,8 @@ sth others ask you to do
 
 ## introduce
 
-- to put sth into use , operation ,or a place for the first time 
-- 介绍
+- to put sth into use , operation ,or a place for the first time ；to bring sth into existence or use for the first time;
+- to tell sb another person`s name when they meet for the first time
 
 ## induct 
 
@@ -176,17 +251,25 @@ adj:  	literary
 
 # O
 
+## occur
 
+occur to sb :  	被想到
 
 
 
 # P
 
-### pant
+## pant
 
 /pænt/
 
-to breathe quickly and loudly through your mouth**, **usually because you have been doing something very**** **energetic**
+to breathe quickly and loudly through your mouth**, **usually because you have been doing something very energetic
+
+## psycology
+
+psycologist psycological
+
+
 
 # Q
 
@@ -206,10 +289,12 @@ to breathe quickly and loudly through your mouth**, **usually because you have b
 
 ## seperate
 
-this word is not easy before you really understand it
-
-- v: depart ... frim
+- v: depart ... from
 - adj:    existing or happening independently or in a different physical space
+
+## shoelace
+
+
 
 
 
