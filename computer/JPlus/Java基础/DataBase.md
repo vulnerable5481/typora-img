@@ -2613,11 +2613,7 @@ select xxxx FOR SHARE/UPDATE;  share 共享锁，update排他锁
 
 #### 5.锁的内存结构与监控策略
 
-
-
-
-
-![image-20240503150418533](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240503150418533.png)
+![image-20240503150418533](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240503150418533.png)
 
 
 
@@ -3039,7 +3035,7 @@ TTL : 查看一个key的剩余有效期
 
 ### 1.1 redis的数据类型
 
-![image-20240402162348526](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240402162348526.png)
+![image-20240402162348526](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240402162348526.png)
 
 
 
@@ -3069,7 +3065,7 @@ TTL : 查看一个key的剩余有效期
 
 
 
-![image-20240402164344125](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240402164344125.png)
+![image-20240402164344125](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240402164344125.png)
 
 
 
@@ -3112,7 +3108,7 @@ TTL : 查看一个key的剩余有效期
 
 
 
-![image-20240402170557754](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240402170557754.png)q
+![image-20240402170557754](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240402170557754.png)q
 
 ```
 1.LPUSH key element
@@ -3138,7 +3134,7 @@ TTL : 查看一个key的剩余有效期
 
 
 
-![image-20240402180625576](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240402180625576.png)
+![image-20240402180625576](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240402180625576.png)
 
 
 
@@ -3168,7 +3164,7 @@ TTL : 查看一个key的剩余有效期
 
 
 
-![image-20240402181751599](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240402181751599.png)
+![image-20240402181751599](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240402181751599.png)
 
 **sortedset 默认是升序**
 
@@ -3211,7 +3207,7 @@ TTL : 查看一个key的剩余有效期
 
 #### 2.0 三种常用，一个整合
 
-![image-20240402213101169](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240402213101169.png)
+![image-20240402213101169](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240402213101169.png)
 
 
 
@@ -3223,7 +3219,7 @@ TTL : 查看一个key的剩余有效期
 
 
 
-![image-20240402213619285](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240402213619285.png)
+![image-20240402213619285](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240402213619285.png)
 
 
 
@@ -3235,7 +3231,7 @@ TTL : 查看一个key的剩余有效期
 
 
 
-####   2.2StringDataRedis
+####   2.2StringDataRedis⭐
 
 
 
@@ -3243,7 +3239,7 @@ TTL : 查看一个key的剩余有效期
 
 
 
-![image-20240402220350324](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240402220350324.png)
+![image-20240402220350324](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240402220350324.png)
 
 
 
@@ -3278,7 +3274,7 @@ TTL : 查看一个key的剩余有效期
 
 
 
-![image-20240403122127294](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240403122127294.png)
+![image-20240403122127294](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240403122127294.png)
 
 
 
@@ -3327,7 +3323,7 @@ static RedisSerializer<String> string() {
 
 **//小细节;ctrl + h 可以查看实现类**
 
-![image-20240403130542313](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240403130542313.png)
+![image-20240403130542313](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240403130542313.png)
 
 
 
@@ -3345,13 +3341,13 @@ static RedisSerializer<String> string() {
 
 
 
-![image-20240403132307534](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240403132307534.png)
+![image-20240403132307534](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240403132307534.png)
 
-![image-20240403132324634](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240403132324634.png)
+![image-20240403132324634](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240403132324634.png)
 
 
 
-![image-20240403132348437](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240403132348437.png)
+![image-20240403132348437](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240403132348437.png)
 
 
 
@@ -3406,11 +3402,11 @@ public class TestRedis {
 
 
 
-![image-20240403134306803](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240403134306803.png)
+![image-20240403134306803](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240403134306803.png)
 
+#### 2.2.4 配置yaml文件
 
-
-
+![image-20240616180458864](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240616180458864.png)
 
 
 
@@ -4305,13 +4301,13 @@ Set<String> intersect = stringRedisTemplate.opsForSet().intersect(key1, key2);
 
 **//redis中使用String类型实现bitmap**
 
-![image-20240422220640253](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240422220640253.png)
+![image-20240422220640253](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240422220640253.png)
 
-![image-20240422221003372](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240422221003372.png)
+![image-20240422221003372](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240422221003372.png)
 
 
 
-![](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240422220853001.png)
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240422220853001.png)
 
 ```\
 setbit group1 0 1
@@ -4322,7 +4318,7 @@ u是无符号,i是有符号
 
 
 
-![image-20240422222743602](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240422222743602.png)
+![image-20240422222743602](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240422222743602.png)
 
 
 

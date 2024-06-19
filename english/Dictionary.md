@@ -3,54 +3,59 @@
 
 
 1. merit | demerit  of .... are  `numerous` and `manifold` 
+2. economy  n / economic adj
+3. hygiene
+4. ego
+5. substantially
+6. tremendous
+7. hinder
+8. depressed
+9. shake xx off: get rid of sth/sb
+10. resume
+11. industry
+12. outfit : a set of clothes worn for a particular occasion or activity
+13. considerably   :
+14. tourist resort 
+15. firm  1,2
+16. evaluate   rate assess  review appraise  estimate 
+17. access 
+18. inspect
+19. process
+20. **dissertation**
+21. **proofread**
+22. **reference**
+23. **viable**
+23. sponsor : v/n
+24. **deter**
+24. **specialist**
+27. cruise
+25. depict
+25. **laymen**:外行；门外汉
+25. function
+26. **celebrity**
+20. commenrate
+20. fascinated
+20. susceptible
+20. sacrifice67
 
-1. economy  n / economic adj
 
-1. hygiene
 
-3. ego
+- effective    efficent
+- improve promote
 
-3. substantially
 
-3. tremendous
 
-4. hinder
 
-5. depressed
 
-6. shake xx off: get rid of sth/sb
 
-7. pissed  v 撒尿 adj 怒气冲冲的
 
-7. resume
+- pissed  v 撒尿 adj   怒气冲冲的	
 
-7. industry
 
-7. outfit : a set of clothes worn for a particular occasion or activity
 
-7. considerably   :
 
-15. tourist resort 
 
-7. firm  1,2
 
-7. evaluate   rate assess  review appraise  estimate 
-
-15. access 
-
-16. inspect
-
-17. process
-
-18. letter   not word 
-
-    
-
-    
-
-    
-
-1. 
 
 
 
@@ -103,8 +108,9 @@
 
 
 
+# 词组
 
-
+- make sense :  to be clear and easy to understand
 
 
 
@@ -154,6 +160,18 @@ police ; officer
 ## crush 
 
 press sth very hard so that it`s broken or its shape is destroyed
+
+## conduct⭐
+
+v: ①to organize and perform an particular activity ②to behave ,expecially in a public or formal situation ③lead/guide 指挥/领导
+
+n:①behavior ,expecially in a public or formal situation. ②the way in which an activity organized and performed
+
+
+
+
+
+
 
 
 

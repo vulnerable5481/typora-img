@@ -339,8 +339,8 @@
 
 
 - **IEEE 802.3帧的别称是以太网帧**（Ethernet Frame）。这是因为IEEE 802.3标准规定了以太网的帧结构和传输方式，因此在讨论网络数据传输时，IEEE 802.3帧通常直接称为以太网帧。IEEE 802.3最初使用长度字段（Length）来指示数据部分的长度，但后续版本也引入了类型字段。**IEEE 802.3帧，又包括802.3 MAC帧和802.3 SNAP帧**
-- **以太网V2（Ethernet Version 2）即以太网II帧**，以太网V2使用类型字段（Type）来指明数据部分所使用的协议。
-- **IEEE 802.1Q帧,**添加了VLAN标签（4字节），用于支持VLAN
+- **以太网V2（Ethernet Version 2）即以太网II帧，用于区分vlan也被称为未标记帧**，以太网V2使用类型字段（Type）来指明数据部分所使用的协议。
+- **802.1Q帧，用于区分vlan也被称为标记帧/vlan帧,**相对于以太网II帧添加了Vlan标签(包含TPID,PRI,CFI,VID)，用于支持VLAN
 
 ​	<font color='pink'>**这三种帧格式都是在局域网中广泛使用的封装方法，各自有其特定的应用场景和兼容性要求。Ethernet II帧由于其简单和有效性，已经成为当前以太网的主流帧格式。而IEEE 802.1Q帧则被广泛用于需要支持VLAN的网络环境中。**</font>
 
@@ -354,7 +354,16 @@
 
 ### 3.1封装成帧
 
-**<font color='orange'>篇章·网络协议分析 有详细拆解过程</font>**
+**<font color='orange'>详细拆解一下封装成帧</font>**
+
+```
+举例
+ 【7B    1B 前导码部分】【以太网II头部包括6B的目的MAC，6B的源MAC，2B的类型/长度；一般作为帧首】
+【前同步码 帧开始定界符】【EthernetII头部】【DATA】【FCS】
+               【数据就是上层交付的协议】         【FCS是帧检验序列，4B，一般作为帧尾】                           
+```
+
+
 
 - 含义：数据链路层将上层交付的协议数据单元添加帧头和帧尾，使之成为帧
   - 帧头和帧尾中包含重要的控制信息
@@ -795,51 +804,7 @@ S = T/T+t =  1/1+t/T
 
 #### 3.5.3 ARP协议
 
-
-
-**//ARP协议工作流程**
-
-
-
-1.在本机的ARP高速缓存中查找 Ip地址对应的MAC地址
-
-
-
-![image-20240318135025426](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318135025426.png)
-
-
-
-2.  查找成功就直接发送，查找失败就发送ARP请求	 (该请求是一个广播帧)
-
-
-
-![image-20240318135107463](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318135107463.png)
-
-
-
-3.找到后，另外那台主机就发送ARP响应，以告知自己的MAC地址，主机收到ARP响应后，将其添加到ARP高速缓存中,并发送
-
-
-
-![image-20240318135331369](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318135331369.png)
-
-
-
-
-
-4. ARP高速缓存的一些信息
-
-![image-20240318135355770](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318135355770.png)
-
-
-
-
-
-5.不可以通过ARP协议跨网络获取其他网络中主机的MAC地址，因为广播帧只能在本频道中传播
-
-
-
-![image-20240318135427454](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318135427454.png)
+**//详细内容移步下面的网络协议分析**
 
 
 
@@ -855,21 +820,9 @@ S = T/T+t =  1/1+t/T
 
 #### 与集线器的区别
 
-**//区别就是，交换机能自己判断，集线器只是传播工具**
+**//区别就是，交换机能自己判断，集线器只是传播工具;交换机工作在数据链路层也包括部分物理层，集线器只包含物理层**
 
 ![image-20240318141542441](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318141542441.png)
-
-
-
-
-
-### 3.7以太网交换机自学习与转发帧的流程
-
-
-
-
-
-![image-20240318143338935](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318143338935.png)
 
 
 
@@ -936,24 +889,30 @@ S = T/T+t =  1/1+t/T
 
 - IEEE 802.1Q帧
 
-![image-20240318164412552](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318164412552.png)
+![image-20240318164412552](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240318164412552.png)
 
 
 
-**//交换机的三大端口类型**
+#### **④交换机的三大端口类型**
 
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609115433717.png)
 
+- **<font color='orange'>Access端口类型 ：连接用户的端口为access端口</font>**
 
-- Access端口类型 ：连接用户的端口为access端口
+1. **定义**：Access端口用于连接终端设备，如计算机、打印机、服务器等。
+2. **VLAN**：一个Access端口只能属于一个VLAN。它接收到的所有流量都被打上该VLAN的标签，并且发送出去的流量也是无标签的。
+3. **使用场景**：常用于需要将单个VLAN流量发送到终端设备的场景。比如，办公室中的PC连接到交换机的Access端口。
 
-![image-20240318164617630](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318164617630.png)
+- **<font color='orange'>trunk端口类型 : 交换机内部的端口为trunk端口</font>**
 
-- trunk端口类型 : 交换机内部的端口为trunk端口
+1. **定义**：Trunk端口用于连接交换机之间或交换机与路由器之间，以便多VLAN之间的通信。
+2. **VLAN**：一个Trunk端口可以携带多个VLAN的流量。Trunk端口上的帧被打上VLAN标签，以便接收端知道该帧属于哪个VLAN。
+3. **使用场景**：常用于需要在交换机之间传输多个VLAN流量的场景。比如，在大型网络中，主干链路（Trunk链路）通常用于连接核心交换机和接入交换机。
 
-![image-20240318165152433](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240318165152433.png)
-
-- hybrid端口
+- <font color='orange'>**hybird端口类型**</font>
   不用了解
+  
+  混合端口
 
 
 
@@ -966,6 +925,8 @@ S = T/T+t =  1/1+t/T
 
 
 ## 四.网络层
+
+
 
 
 
@@ -1022,6 +983,8 @@ S = T/T+t =  1/1+t/T
 **128（1-127）  64（128-191）32（192-223）
 
 
+
+**<font color='orange'>224-239用于多播，240-247保留</font>**
 
 ![image-20240417125138865](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417125138865.png)
 
@@ -1115,6 +1078,21 @@ S = T/T+t =  1/1+t/T
 **//习题**
 
 ![image-20240417140700591](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417140700591.png)
+
+
+
+
+
+#### 6.网关
+
+- 一般情况下网关都设置成254，因为255是广播，后面就没有了
+- 软件网关：比如你使用的jwt
+
+
+
+
+
+
 
 
 
@@ -1218,7 +1196,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-#### 4.6.2路由信息协议RIP的基本工作原理
+#### 4.6.2路由信息协议RIP
 
 **//Router Information Protocol RIP**
 
@@ -1271,7 +1249,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-#### 4.6.3开放最短路径优先OSPF基本工作原理
+#### 4.6.3开放最短路径优先OSPF
 
 **//Open Shortest Path First OSPF**
 
@@ -1333,7 +1311,7 @@ S = T/T+t =  1/1+t/T
 
 
 
-#### 4.6.4边界网关协议BGP的基本工作原理
+#### 4.6.4边界网关协议BGP
 
 不再深入讨论
 
@@ -1363,7 +1341,7 @@ S = T/T+t =  1/1+t/T
                         普通IP首部没有任何选项字节时，该字段为5，4*5=20，即20字节
                          IP首部最长为15 * 4  = 60，该字段为15 即60字节长，这时可选字段中有数据
 
-  - **区分服务/服务类型(**type of service:TOS)：未启用，了解即可
+  - **区分服务/服务类型(**type of service:TOS)：设置分类和优先级
 
   - **总长度**：整个IP数据报以字节为单位的长度，占16位，因此IP数据报最长可达65535字节。由于链路层MTU
                    的限制，较长的IP数据报会被分片。当数据报被分片时，该字段也会随着变化，因为该字段表示当前
@@ -1893,6 +1871,42 @@ UDP长度。
 
 
 
+#### ④DNS报文格式
+
+![image-20240610210140553](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610210140553.png)
+
+​																					**<font color='orange'>八个标志</font>**
+
+![image-20240610210123667](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610210123667.png)
+
+**<font color='red'>真实抓包结果:</font>**
+
+![image-20240610214448296](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610214448296.png)
+
+
+
+
+
+
+
+#### ⑤抓包
+
+**//注意：1.有的字段没有显示，因为抓包工具认为不重要；**
+
+​				**2.zero(零域)：现在新规则应该是1bit**
+
+![image-20240610211423793](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610211423793.png)
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2031,53 +2045,27 @@ UDP长度。
 
 
 
-### 2.模型，格式与封装
+### 2.格式
 
+#### ①两种以太网帧+802.1Q帧
 
+![image-20240609112218426](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609112218426.png)
 
-- **模型**
 
-| OSI/RM     | TCP/IP     | 五层模型   |
-| ---------- | ---------- | ---------- |
-| 应用层     | 应用层     | 应用层     |
-| 表示层     | 传输层     | 传输层     |
-| 会话层     | 网络层     | 网络层     |
-| 传输层     | 网络接口层 | 数据链路层 |
-| 网络层     |            | 物理层     |
-| 数据链路层 |            |            |
-| 物理层     |            |            |
 
-- **封装**
+![image-20240609114519844](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609114519844.png)
 
-  - ​	**数据链路层**
 
-    - Ethnet II:
 
-      | 目的地址 | 源地址 | 类型 | 数据 | CRC  |
-      | -------- | ------ | ---- | ---- | ---- |
-      |          |        |      |      |      |
+​																									**主要是802.3MAC帧和802.2 LLC**
 
-      802.3 MAC帧
+![image-20240609111455584](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609111455584.png)
 
-      | 目的地址 | 源地址 | 长度 | 数据 | CRC  |
-      | -------- | ------ | ---- | ---- | ---- |
-      |          |        |      |      |      |
+![image-20240609112944400](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609112944400.png)
 
-      802.3 SNAP帧
+![image-20240609114936969](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609114936969.png)
 
-      LLC头部（LLC Header）：3字节，包括DSAP（1字节）、SSAP（1字节）、Control（1字节）。
-      
-      SNAP头部（SNAP Header）：5字节，包括组织唯一标识符（OUI, 3字节）和协议类型字段（2字节）。
 
-      | 目的地址 | 源地址 | 长度 | DSAP    | SSAP    | Cntl    | org code | Type     | 数据 | CRC  |
-      | -------- | ------ | ---- | ------- | ------- | ------- | -------- | -------- | ---- | ---- |
-      |          |        |      | LLC头部 | LLC头部 | LLC头部 | SNAP头部 | SNAP头部 |      |      |
-      
-      820.1Q帧 / vlan帧
-      
-      | 目的地址 | 源地址 | TPID | PRI    | CFI  | VID⭐         | 类型 | 数据 | CRC  |
-      | -------- | ------ | ---- | ------ | ---- | ------------ | ---- | ---- | ---- |
-      |          |        | 略   | 优先级 | 略   | Vlan号1-4094 |      |      |      |
 
 
 
@@ -2089,43 +2077,68 @@ UDP长度。
 
 
 
+### 3.详解ARP协议
 
 
 
+#### 3.1同网段ARP
 
+![image-20240608185348060](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240608185348060.png)
 
 
 
+![image-20240608185649515](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240608185649515.png)
 
+#### 3.2跨网段ARP
 
+![image-20240608185926690](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240608185926690.png)
 
 
 
+![image-20240608190253205](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240608190253205.png)
 
 
 
+#### 3.3 ARP格式
 
+- <font color='orange'>**ARP报文格式**</font>
 
+​                                                                     **帧首:**
 
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609110308893.png)
 
+![image-20240609110140668](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609110140668.png)
 
+​																	**总览**
 
+![image-20240609113603118](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609113603118.png)
 
 
 
 
 
+- **<font color='orange'>同网段ARP格式</font>**
+  - 略
 
+- **<font color='orange'>跨网段ARP格式</font>**
 
+  **第一个ARP请求**
 
+![image-20240609113913647](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609113913647.png)
 
+**第一个ARP应答**
 
+![image-20240609113924884](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609113924884.png)
 
+**第二个ARP请求**
 
+![image-20240609114140327](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609114140327.png)
 
 
 
+**第二个ARP应答**
 
+![image-20240609114202083](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609114202083.png)
 
 
 
@@ -2133,27 +2146,39 @@ UDP长度。
 
 
 
+#### 3.4 跨网段ARP流程图
 
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609114035171.png)
 
 
 
 
 
+​	
 
+#### 3.5 特殊ARP之免费ARP
 
 
 
+##### ①四种原因
 
+**这三种情况都可以归结为  IP地址要生效**
 
+![image-20240609122209213](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609122209213.png)
 
+**此外，就是修改mac地址，可以归结为 刷新ARP缓存记录**
 
 
 
 
 
+##### ② 流程
 
+<font color='orange'>开机，重启，修改的原理</font>：想要当前IP生效，就去询问本网段中该IP的mac地址，若有则说明被占用，系统会随机分配(这里也会发免费ARP检验)；没有就可以使用
 
+- 1.发送ARP请求
 
+![image-20240609123239598](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609123239598.png)
 
 
 
@@ -2161,8 +2186,11 @@ UDP长度。
 
 
 
+#### 3.6 特殊ARP之ARP代理
 
+<font color='orange'>**arp代理：就是路由器帮你去问，没有arp代理,pc3会先问3.254的mac，但有arp代理pc3可以直接问1.1的mac地址**</font>
 
+![image-20240609150731743](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609150731743.png)
 
 
 
@@ -2170,6 +2198,7 @@ UDP长度。
 
 
 
+#### 3.7 arp欺骗
 
 
 
@@ -2177,43 +2206,85 @@ UDP长度。
 
 
 
+### 4. ICMP协议分析
 
 
 
+#### 4.1 ICMP报文类型
 
 
 
+![image-20240609222153588](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609222153588.png)
 
+![image-20240609222650660](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609222650660.png)
 
 
 
 
 
+#### 4.2 不产生差错报文的情况
 
+![image-20240609222544711](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609222544711.png)
 
 
 
+#### 4.3 路由跟踪
 
+**利用时间超时差错报告报文  实现 路由跟踪**
 
+![image-20240609223650543](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240609223650543.png)
 
 
 
+### 5.IP选路协议基础
 
+#### 5.0 路由基础
 
+- 主机路由     /32
+- 网络路由
+- 黑洞路由
+- 缺省路由
 
 
 
+#### 5.1 路由表项与转发表项
 
+![image-20240610160748277](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610160748277.png)
 
+- Proto
+  - ![image-20240610160717920](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610160717920.png)
 
+- Pre
+  - ![image-20240610160738940](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610160738940.png)
 
 
 
+- Cost :   16表示不可达
+- Flags: 
+  - D  ： 下发到FIB表  ， 一般用于 直连
+  - RD：  迭代路由    一般用于 非直连
+  - R : 备份路由， 如果RIB有个路由出问题，刚好该路由有备份路由，备份路由就会立刻替代
 
+**<font color='orange'>转发表 表项解读(只解读不同的):</font>**
 
+![image-20240610162229310](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610162229310.png)
 
+![image-20240610162445372](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610162445372.png)
 
+![image-20240610162453117](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610162453117.png)
 
+- Flags:
+  - G : Gateway Route 网关路由,类似上面的RD
+  - H Host Route 主机路由
+  - U  Up Route  可用路由
+  - S Static Route 静态路由
+  - D Dynamic Route 动态路由
+  - B Black Hole Route 黑洞路由
+  - L Vlink Route   Vlink的虚拟链路路由
+- TimeStap:表项已存在时间
+- TunnelID:隧道ID    
+  - =0    不通过隧道转发
+  - ≠0    通过隧道转发
 
 
 
@@ -2221,14 +2292,19 @@ UDP长度。
 
 
 
+#### 5.2 路由选择基础
 
 
 
+![image-20240610155737997](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610155737997.png)
 
+**平时我们说的查路由表查路由表，实际上主要指的就是本地核心路由表**
 
+![image-20240610155754489](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610155754489.png)
 
 
 
+![image-20240610160232061](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610160232456.png)
 
 
 
@@ -2236,16 +2312,69 @@ UDP长度。
 
 
 
+### 6. 动态路由协议RIP
 
 
 
+#### 6.1 工作原理
 
+**//简单一句话：就是靠人传人的原理**
 
+![image-20240610175356460](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610175356460.png)
 
 
 
 
 
+#### 6.2 计时器
+
+
+
+- <font color='orange'>更新计时器：</font>路由器定期将路由表发给相邻路由器
+- <font color='orange'>失效计时器：</font>
+  - 为每一条RIP路由表项建立一个定时器
+  - 时间内未收到更新，将该路由度量设置无穷大，标注删除
+- <font color='orange'>垃圾收集计时器:</font>标注为删除后生存时间，到期后将彻底删除
+
+![image-20240610180453365](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610180453365.png)
+
+
+
+
+
+
+
+
+
+
+
+#### 6.3 格式
+
+
+
+#### 6.4 静默端口
+
+**像以下四个端口，不需要发送rip，就可以设置成静默端口**
+
+![image-20240610182212621](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240610182212621.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 7.DNS
 
 
 

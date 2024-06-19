@@ -22,7 +22,7 @@
 2. 服务端验证后，创建一个 Session 信息，并且将 SessionID 存到 cookie，发送回浏览器；
 3. 下次客户端再发起请求，自动带上 cookie 信息，服务端通过 cookie 获取 Session 信息进行校验；
 
-![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X2pwZy9pYVdTRG80VGZ5WmdoR05TUTVOWTZWWlU5Y0hBaWNFQ3RUalBScUh5Q1lhSW83a3BqMmdma2FVR2dHWThNRlBYOTJ4UzVUMm84eExZUmRwb3VrWFB1aWNjZy82NDA?x-oss-process=image/format,png)
+
 
 #### **传统方式的弊端**：
 
@@ -287,11 +287,66 @@ public String login(HttpServletResponse response , @RequestParam Map<String,Obje
 
 
 
+### 5.SpringBoot整合JWT
+
+- <font color='orange'>**1.引入依赖**</font>
+
+```
+    <dependency>
+        <groupId>com.auth0</groupId>
+        <artifactId>java-jwt</artifactId>
+        <version>3.14.0</version>
+    </dependency>
+
+```
+
+- **<font color='orange'>2.JWTUtils</font>**
+
+```
+public class JWTUtils {
+
+    /**
+     * 生成token  header.payload.singature
+     */
+    private static final String SING = "z";
+
+    public static String getToken(Map<String, String> map) {
+
+        Calendar instance = Calendar.getInstance();
+        // 默认7天过期
+        instance.add(Calendar.DATE, 7);
+
+        //创建jwt builder
+        JWTCreator.Builder builder = JWT.create();
+
+        // payload
+        map.forEach((k, v) -> {
+            builder.withClaim(k, v);
+        });
+        String token = builder.withExpiresAt(instance.getTime())  //指定令牌过期时间
+                .sign(Algorithm.HMAC256(SING));  // sign
+        return token;
+    }
+
+    /**
+     * 验证token  合法性
+     */
+    public static DecodedJWT verify(String token) {
+        return JWT.require(Algorithm.HMAC256(SING)).build().verify(token);
+    }
+
+    /**
+     * 获取token信息方法
+     */
+    /*public static DecodedJWT getTokenInfo(String token){
+        DecodedJWT verify = JWT.require(Algorithm.HMAC256(SING)).build().verify(token);
+        return verify;
+    }*/
+}
+
+```
 
 
-### 5.一个问题
-
-JWT 有个问题，导致很多开发团队放弃使用它，那就是一旦颁发一个 JWT 令牌，服务端就没办法废弃掉它，除非等到它自身过期。有很多应用默认只允许最新登录的一个客户端正常使用，不允许多端登录，JWT 就没办法做到，因为颁发了新令牌，但是老的令牌在过期前仍然可用。这种情况下，就需要服务端增加相应的逻辑。
 
 
 
@@ -307,13 +362,7 @@ JWT 有个问题，导致很多开发团队放弃使用它，那就是一旦颁�
 
 
 
-## 1.登录功能
 
-使用jwt,写个拦截器实现hanlerxxx，配置拦截器webconfig
-
-可以考虑责任链模式什么的
-
-搞个多重拦截器
 
 
 
