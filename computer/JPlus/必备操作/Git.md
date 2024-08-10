@@ -17,9 +17,7 @@ Git本地有三个工作区域：
 - 资源库(Repository或Git Directory)
 - 远程的git仓库(Remote Directory)【第四个工作区域,不在本地】
 
-
-
-![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy91SkRBVUtyR0M3S3N1OFVsSVR3TWxiWDNrTUd0WjlwME5KNEw5T1BJOWlhMU1taWJwdkRkNmNTZGRCZHZybGJkRXR5RU9yaDRDS25XVmlieWZDSGEzbHpYdy82NDA?x-oss-process=image/format,png)
+![image-20240810090649096](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240810090649096.png)
 
 
 
@@ -32,7 +30,7 @@ Git本地有三个工作区域：
 
 ### **文件在这四个区域的具体存储**
 
-![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy91SkRBVUtyR0M3S3N1OFVsSVR3TWxiWDNrTUd0WjlwMGljejZYMmFpYklnVVd6SHh0d1g4a2ljUENLcERyc2lhUHpaazA0T2xJMmJ6bHlkemljQnVYVEp2TEVRLzY0MA?x-oss-process=image/format,png)
+![image-20240810090658982](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240810090658982.png)
 
 - Directory：使用Git管理的一个目录，也就是一个仓库，包含我们的工作空间和Git的管理空间。
 
@@ -55,8 +53,6 @@ Git本地有三个工作区域：
 | 2、将需要进行版本管理的文件放入暂存区域； | 已暂存（staged）   |
 | 3、将暂存区域的文件提交到git仓库。        | 已提交(committed)  |
 
-![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy91SkRBVUtyR0M3S3N1OFVsSVR3TWxiWDNrTUd0WjlwMDlpYU9obDBkQUNmTHJNd05iRHp1Y0dRMzBzM0huc2lhY3pmY1I2ZEM5T2VoaWN1d2liS3VIalJsemcvNjQw?x-oss-process=image/format,png)
-
 
 
 
@@ -73,13 +69,11 @@ Git本地有三个工作区域：
 
 ### 创建工作目录常用指令
 
-![img](https://imgconvert.csdnimg.cn/aHR0cHM6Ly9tbWJpei5xcGljLmNuL21tYml6X3BuZy91SkRBVUtyR0M3S3N1OFVsSVR3TWxiWDNrTUd0WjlwMEFJSTZZVm9vVXppYnBpYnpKbm9PSEhYVXNMM2Y5RHFBNGhvclVpYmZjcEVaODhPeWYyZ1FRTlI2dy82NDA?x-oss-process=image/format,png)
+![image-20240810090951999](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240810090951999.png)
 
 `WorkSpace`（工作目录）：你希望Git帮助你管理的文件夹，可以是你项目的目录，也可以是一个空目录，建议不要有中文。
 
 
-
-看iOK i
 
 ### 本地仓库搭建
 
@@ -161,30 +155,6 @@ doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt`
 
 
 
-
-
-
-
-## 使用码云
-
-
-
-1. 注册 gitee ，生成ssh key 
-2. 在gitee上面新建一个仓库
-3. 在本地目标目录下 git clone [url]   ， 即可成功克隆
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## IDEA集成使用Git
 
 
@@ -195,7 +165,7 @@ doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt`
 
 1. 在Gitee新建一个本地仓库
 2. 在本地新建一个仓库(git init)
-3. 在该仓库下面建立一个目录，比如git-learn,然后将gitee仓库中的新建项目git clone 到 当前目录，将其里面的文件复制到git-learn，然后可以将它删掉了(万能法,其实直接重名就更加简单了).**//牛逼！！！**
+3. 在该仓库下面建立一个目录，比如git-learn,然后将gitee仓库中的新建项目git clone 到 当前目录，将其里面的文件复制到git-learn，然后可以将它删掉了(万能法,其实直接重名就更加简单了)
 4. Idea中的使用细节，自己去琢磨
 
 
@@ -251,6 +221,8 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 - git status  //红色未添加or修改后未添加    绿色已经add了  
 
 
+
+​	
 
 - git add
 - git commit -m "版本信息比如first commit" fileName，

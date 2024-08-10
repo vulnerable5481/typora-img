@@ -118,7 +118,11 @@ public class CorsConfig implements WebMvcConfigurer {
 
 
 
+# 六.待实现功能
 
+
+
+## 1.websocket实现实施弹幕和聊天室,统计在线人数
 
 
 
