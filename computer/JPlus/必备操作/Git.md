@@ -230,8 +230,6 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 
 
 
-
-
 - git rm --cache fileName   删除暂存区里面的文件
 
 
@@ -253,7 +251,7 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 - git pull 远程库地址  分支名
 - git clone 远程库地址 
 
-
+​	
 
 1. git remote add xxx  url     添加一个新的远程仓库,并命名。
 2. git remote -v 显示所有远程仓库的详细信息。
@@ -332,9 +330,7 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 
 
 
-SSH 免密码登录
 
-用到在学
 
 
 
@@ -343,10 +339,6 @@ SSH 免密码登录
 **可以直接在idea到github/gitee创建远程仓库**
 
 
-
-
-
-傻逼GitHub   目前解决问题的方案
 
 
 
