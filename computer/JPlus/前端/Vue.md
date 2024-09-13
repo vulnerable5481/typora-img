@@ -6,6 +6,10 @@
 
 
 
+```
+z-index : 1可以提高优先级
+```
+
 
 
 ### 1.1总结⭐
@@ -432,7 +436,9 @@ button {
 
 **backgroud: url(图片路径) no-repeat x y    通常插入背景图片都是这样的**
 
+**background-size: 100% 100%   //还可以写 cover 和contain**
 
+<img src="https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240907134154776.png" alt="image-20240907134154776" style="zoom:50%;" />
 
 
 
@@ -975,7 +981,7 @@ textarea{
 
 
 
-### 3.7 html5,css3新特性对号
+### 3.7 新特性
 
 
 
@@ -1057,7 +1063,212 @@ vue3修改favicon图标的方法
 
 
 
-#### ⑧ 转换
+#### 
+
+
+
+## 4.CSS++
+
+
+
+### 4.1 2D转换
+
+
+
+#### 2D位移
+
+
+
+**①作用：移动盒子，类似定位**
+
+<font color='red'>**对行内元素无效**</font>
+
+```
+transform: translate(x,y)
+transform: translateX(x)
+transform:translateY(y)
+
+
+transform:translate(50%,50%)
+此处的50%是参照盒子本身的大小，这样以后就不需要自己计算px了，直接使用2D移动很方便
+```
+
+![image-20240905123426445](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240905123426445.png)
+
+**<font color='orange'>②定位，2D位移，内外边距的区别</font>**
+
+- 定位，内外边距，2D转换，三者都可以实现盒子的移动
+- 区别：内外边距 与 绝对定位 会影响布局，但是相对定位 与 2D转换 不会影响 布局
+- 应用：比如实现鼠标移动到一个商品图片，该图片便向上移动的效果
+  实现：思路1：字绝父相   思路2:直接transfrom:translate(0,y)
+  明显思路2要更加简单，只需要一行代码就搞定，思路1还涉及到父盒子什么的
+- 总结：三者各有应用场景,没有优劣 ! **灵活使用！**
+
+
+
+③ 定位+2D移动
+
+以往我们实现大盒子内小盒子的移动，通常都是子绝父相+调整小盒子的margin/大盒子的padding,现在更推荐
+使用子绝父相+2D移动，这样就不需要计算内外边距了，同时盒子大小改变也会自动修改距离
+
+
+
+例子：
+
+```
+  有父盒子a 子盒子b，实现无论a，b大小怎么变，b始终在a的中心显示
+  .a{
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+    background-color: pink;
+  }
+  .b{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);    //简单的小学几何题
+    width: 100px;
+    height: 100px;
+    background-color: red;
+  }
+```
+
+
+
+
+
+
+
+#### 2D旋转
+
+**<font color='orange'>                        配合过渡很好用哦！！！！！！！！！！！1</font>**
+
+```
+transform: rotate(-45deg)  //逆时针旋转四十五度
+```
+
+![image-20240905125759358](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240905125759358.png)
+
+
+
+#### 2D中心点
+
+![image-20240905130817689](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240905130817689.png)
+
+
+
+#### 2D缩放
+
+**<font color='red'>最关键的优点：可以设置转换中心点缩放；不影响其他盒子布局！！！扩大的部分会浮在其他盒子上面</font>**
+
+![image-20240905141435845](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240905141435845.png)
+
+
+
+### 4.2 动画
+
+#### 	① 使用
+
+```
+//定义动画
+@keyframes 动画名字 {
+    0% { 初始状态可以省略，你直接不写这行代码也无所谓}
+    25% {
+      transform: translate(400px , 0);
+    }
+    50% {
+      transform: translate(400px , 400px);
+    }
+    75% {
+      transform: translate(0 , 400px);
+    }
+    100% {
+      transform: translate(0 , 0);
+    }
+}
+.box {
+	略
+	//调用动画
+	animation-name:动画名字;
+	animation-duration:10s;
+}
+```
+
+
+
+#### ② 属性
+
+联合写法:  animation: name 10s ease infinite
+
+![image-20240905150401004](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240905150401004.png)
+
+
+
+#### ③ steps
+
+animation-timing-function:steps()  步数的妙用
+
+- **制作进度条**
+- **实现单个文字逐个显示**
+- **定格动画**
+
+
+
+
+
+### 4.3 3D转换
+
+![image-20240905181339323](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240905181339323.png)
+
+
+
+#### ① 3D位移
+
+```
+transform: translate3D(x,y,z)   //注意不能用百分之 只能是px
+//z轴 需要配合透视才有效果
+```
+
+
+
+
+
+
+
+#### ② 透视
+
+![image-20240905184427575](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240905184427575.png)
+
+```
+要在被观察元素的父盒子上面加入Perspective
+父盒子{
+	perspective: n px   //    n距离相当于视距，n越小离得越近图就越大
+}
+```
+
+
+
+
+
+#### ③ 3D旋转
+
+**<font color='red'>配合透视效果很好</font>**
+
+```
+transform: rotateX(180deg);   
+transform: rotateY(180deg);
+transform: rotateZ(180deg);  
+```
+
+
+
+#### ④ transfo rm-style
+
+
+
+![image-20240905201453710](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240905201453710.png)
 
 
 
@@ -1085,11 +1296,7 @@ vue3修改favicon图标的方法
 
 
 
-
-
-
-
-## 4.JavaScript
+## 5.JavaScript
 
 
 
@@ -1814,7 +2021,7 @@ function(fn,t){
 
 
 
-## 5.案例和技巧
+## 6.案例和技巧
 
 
 
@@ -1838,34 +2045,6 @@ text-align: center  //可以使单行文字居中
 
 
 关于图片与文字的垂直居中要使用到 vircal-align
-
-
-
-
-
-
-
-
-
-#### 2.链接(li + a)
-
-
-
-**//有一个细节那就是如果要浮动，我们是将float给li 还是给 a???**
-
-**//解答：一般都是给li    ，不过看情况，灵活选择**
-
-![image-20240330133912312](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330133912312.png)
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1905,7 +2084,7 @@ text-align: center  //可以使单行文字居中
 
 #### 5.固定在版心右侧位置	
 
-
+ 
 
 ![image-20240330174603275](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330174603275.png)
 
@@ -1993,7 +2172,7 @@ ul li:hover{
 
 
 
-## 6.一些功能的实现
+## 7.一些功能的实现
 
 
 
@@ -2175,6 +2354,33 @@ ul li:hover{
 如果<textarea></textarea>不在同一行会出现空白区域，你放在同一行就完事了
 
 
+
+## 8. 移动端
+
+### 8.1 区别
+
+
+
+#### ① 视口
+
+最标准的视口：
+
+```
+ <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,
+ user-scalbale=0">  
+```
+
+
+
+![image-20240907132115988](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240907132115988.png)
+
+#### ② 二倍图
+
+**<font color='red'>一句话概括：PC端的准备的图片在移动端可能被放大，放大后就模糊了。解决思路就是：比如移动端物理像素比是2，原先图片是50px*50px,现在准备100px*100px的二倍图，手动css代码修改为width,height=50px，然后在移动端自动放大二倍后也不会出现模糊的情况</font>**
+
+![image-20240907133002338](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240907133002338.png)
+
+![image-20240907133629784](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240907133629784.png)
 
 
 
@@ -4984,6 +5190,65 @@ console.log(name,age)
 
 
 
+### ⑦排列十二个盒子
+
+**要求：制作如下图所示的十二个排列整齐的盒子**
+
+![image-20240904153832405](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240904153832405.png)
+
+<font color='orange'>难点：如何解决border叠加？ 思路1：margin负值的妙用，但是会导致盒子位置偏移</font>
+
+<font color='orange'>思路2：严格的计算宽度×   此方法麻烦，需要准确的计算</font>
+
+<font color='orange'>思路3：只给每一个li border-right和border-bottom,然后给大盒子border-top(此案例也有了故不用给)和left,但是这样盒子会溢出，如何解决？答：扩大ul 使盒子能被装下，超出的部分切掉即可，这样损失一点点像素也无伤大雅!!!!!!</font>
+
+![image-20240904154244937](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240904154244937.png)
+
+
+
+**代码实现**
+
+```
+  /* 快报 lifesrvice */
+  .newsflash .lifeservice {
+    height: 150px;
+    border:1px solid #aeadad;   //设置border，其实单独设置左右也可以
+    border-top: 0;			//去除重复的上
+    border-bottom: 0;		//去除重复的下
+    overflow: hidden;	//隐藏超出的部分
+  }
+  .newsflash .lifeservice ul {
+    width: 252px;      //扩大ul的宽
+  }
+  .newsflash .lifeservice ul li {
+    float: left;
+    width: 60px;
+    height: 50px;
+    border-right: 1px solid #aeadad;
+    border-bottom: 1px solid #aeadad;
+  }
+```
+
+
+
+### ⑧ 版心的使用
+
+```
+.w {
+	wight:1200px;
+	margin: 0 auto;
+}
+
+
+这个版心的两种使用
+第一： 并列类
+    <div class="header w"></div>
+第二:  嵌套
+	<div class="header">
+		<div class="w">
+		</div>
+	</div>
+```
 
 
 
@@ -4997,52 +5262,229 @@ console.log(name,age)
 
 
 
+# 五.思路
 
 
 
 
 
+## 1.入门
+
+
+
+### 1.1   图片旋转覆盖
+
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240905140758590.png)
+
+- 思路1：伪类选择器+2D旋转+过渡
+
+- <font color='red'>**不用担心影响其他盒子的布局，因为2D转换不会影响其他盒子布局**</font>
+
+- **不止是下面案例所演示的，你给after也可以做到，方法不唯一很多！**
+
+- ```
+   //注意超过盒子范围的::after图片要被隐藏
+   .box{
+   	略
+   	overflow:hidden;
+   }
+   
+   //给盒子下面放一张图片
+    .box::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background: url(../assets/images/test1.jpg);
+      background-size: 100%,100%;
+      transform-origin: left bottom;     //设置旋转中心点
+      transform: rotate(90deg);		   //设置 旋转角度
+      transition: all .5s;				//设置过渡
+    }
+    // 当鼠标划过，将旋转清空 即可将图片旋转上去
+    .box:hover::before {
+      transform: rotate(0);
+    }
+  ```
 
 
 
 
 
+### 1.2 扩散效果
+
+![image-20240905172654422](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240905172654422.png)
+
+
+
+- 思路：一个点重叠三个圆盒子，动画
+
+- ```
+  //中心圆点
+  .point {
+  	略
+  }
+  //圆盒子
+  .circle {
+    position: absolute;
+    top: 49%;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    box-shadow: 0 0 12px #009dfd;       //阴影效果
+    animation:diffuse 1.2s linear infinite;   //调用动画
+  }
+  @keyframs diffuse {
+  	70% {
+  		weight:40px;
+  		height:40px;
+  		opacity:1;
+  	}
+  	100%{
+  		weight:100px;
+  		height:100px;
+  		opacity:0;
+  	}
+  }
+  ```
+
+  
+
+
+
+### 1.3 文字逐个显示
+
+思路：利用动画的steps,控制好字体大小与一行大小
+
+```
+  .w {
+    text-align: center;
+    overflow: hidden;
+    line-height: 50px;
+    width: 400px;
+    height: 50px;
+    background-color: pink; 
+    white-space: nowrap;            //强行让文字在一行上，防止影响布局
+    animation: test 3s steps(20)    //vital code
+  }
+  .w span {
+    font-size: 20px;
+    color: #42233b;
+  }
+```
 
 
 
 
 
+### 1.4 图片翻转
+
+- 效果：鼠标经过图片使其翻转并显示后面的图片
+
+```
+.w {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 100px;
+  height: 100px;
+  transition: all 1s;
+  perspective: 500px;                  //透视
+  transform-style: preserve-3d;		  //让子元素的3d效果呈现
+}
+.front {
+  z-index: 1;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: url(../assets/images/test3.jpg);
+  backface-visibility: hidden;     //隐藏后背 ！！！！
+  background-size: 100% 100%;
+}
+.back {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background: url(../assets/images/test4.jpg);
+  background-size: 100% 100%;
+  transform: rotateY(180deg);
+}
+.w:hover {
+  transform: rotateY(180deg);     //翻转！
+}
+```
 
 
 
 
 
+### 1.5 轮播图
 
+![image-20240907122700515](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240907122700515.png)
 
+- 
 
+- 思路：<img src="https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240907122831233.png" style="zoom:50%;" />
 
+- ```js
+  // 动画：旋转360度
+  @keyframes move {
+    100% {
+      transform: rotateY(360deg);
+    }
+  }
+  .body {
+    perspective: 1000px;      //透视
+  }
+  
+  .box {
+    position: relative;
+    margin: 150px auto;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;               //
+    animation: move 15s linear infinite;        //调用动画
+  }
+  
+  .box div {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: url(../assets/images/test4.jpg) no-repeat;
+    background-size: 100% 100%;
+  }
+  
+  // 六个盒子的布局
+  //相当于一个六边形 每个边到中心点的距离是一样的，每次旋转六十度，六个就是360度,如果是四个就应该是90度
+  .box div:nth-child(1) {
+    transform: translateZ(400px);
+  }
+  
+  .box div:nth-child(2) {
+    transform:  rotateY(60deg) translateZ(400px);//   先旋转 再移动，旋转六十度 该图的z轴也会旋转六十度
+  }
+  .box div:nth-child(3) {
+    transform: rotateY(120deg) translateZ(400px);
+  }
+  .box div:nth-child(4) {
+    transform: rotateY(180deg) translateZ(400px);
+  }
+  .box div:nth-child(5) {
+    transform: rotateY(240deg) translateZ(400px);
+  }
+  .box div:nth-child(6) {
+    transform: rotateY(300deg) translateZ(400px);
+  }
+  .box:hover {
+    animation-play-state: paused;
+  }
+  ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  
 
 
 

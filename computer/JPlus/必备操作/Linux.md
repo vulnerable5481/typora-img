@@ -2,15 +2,7 @@
 
 
 
-## 学习git需要的基础命令
-
-
-
-
-
-
-
-## 一.初始Linux
+## 一.基础操作
 
 ### 1.1 软件安装
 
@@ -55,21 +47,19 @@
 
 
 
-https://gitee.com/vulnerable5481/typora-img/raw/master/img/https://gitee.com/vulnerable5481/typora-img/raw/master/img/
+![image-20240321121230376](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240321121230376.png)
 
-![image-20240321121230376](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240321121230376.png)
-
-![image-20240321121500094](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240321121500094.png)
+![image-20240321121500094](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240321121500094.png)
 
 
 
-![image-20240321121719487](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240321121719487.png)
+![image-20240321121719487](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240321121719487.png)
 
 
 
 
 
-![image-20240321122023626](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240321122023626.png)
+![image-20240321122023626](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240321122023626.png)
 
 
 
@@ -79,15 +69,13 @@ https://gitee.com/vulnerable5481/typora-img/raw/master/img/https://gitee.com/vul
 
 ### 1.3 vm  vim
 
-**//自带的一个文本编译器**
-
-https://gitee.com/vulnerable5481/typora-img/raw/master/img/https://gitee.com/vulnerable5481/typora-img/raw/master/img/
+使用vim   比vm 好用
 
 **//三种模式的切换**
 
-![image-20240321125955986](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240321125955986.png)
+![image-20240321125955986](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240321125955986.png)
 
-![image-20240321130024745](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240321130024745.png)
+![image-20240321130024745](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240321130024745.png)
 
 
 
@@ -408,7 +396,17 @@ unzip:
 
 
 
+docker run -p 3306:3306 --name mysql \
 
+-v /mydata/mysql/log:/var/log/myhsql \
+
+-v /mydata/mysql/data:/var/lib/mysql \
+
+-v /mydata/mysql/conf:/etc/mysql \
+
+-e MYSQL_ROOT_PASSWORD=1674472827 \
+
+-d mysql:5.7
 
 
 
@@ -592,7 +590,7 @@ vim   /etc/hostname
   - 查看进程树pstree -p    ：  -p显示 进程号  **（静态）** 
   - ![image-20240328124346843](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240328124346843.png)
 
-​           ![image-20240328124638214](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240328124638214.png)
+​           ![image-20240328124638214](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240328124638214.png)
 
 
 
@@ -625,7 +623,7 @@ setup  //用来查看服务名
 
 ##### (2)运行级别
 
-![image-20240327210019193](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240327210019193.png)
+![image-20240327210019193](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240327210019193.png)
 
 
 
@@ -674,7 +672,7 @@ systemctl [start|stop|restart|status] 服务名   //临时关闭打开服务，�
 
 //关于自启动
 查看服务自启动状态: systemctl list-unit-files | grep xxx    //可以查看服务自启动状态
-查看某个服务是否自启动: systemctl is-enable 服务名  
+查看某个服务是否自启动: systemctl is-enable 服务名  	
 设置服务开机启动:systemctl enable 服务名    
 设置服务开机关闭:systemctl disable 服务名	//这三个指令和上面chkconfig的区别就是该指令只会修改级别3和5
 
@@ -866,10 +864,6 @@ systemctl [start|stop|restart|status] 服务名   //临时关闭打开服务，�
 
 
 ### 3.1 第一个shell脚本
-
-![image-20240328174201895](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240328174201895.png)
-
-
 
 ![image-20240328174732557](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240328174732557.png)
 

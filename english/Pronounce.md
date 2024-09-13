@@ -44,9 +44,19 @@
 
 <font color=red>**/æn/  /ən/  /n/**</font>
 
-**//三种弱读情况，看情况弱读吧，不过个人感觉随便**
+and在一个句子开头就弱读成第一个
+
+其他情况都弱读成第二个和第三个，一般都是第三个，和字母N发音差不多
 
 
+
+
+
+## at
+
+**<font color='red'><ət>     <əd></font>**
+
+consonnant --> stop t;   vowel --> flap t
 
 
 
@@ -60,21 +70,71 @@
 
 ## to
 
-<font color=red>**/tə/**</font>
+<font color=red>**/tə/**</font>  **<font color='red'>/də/</font>**
 
-
+you can use flap T in the word 'to' any time excepet when the word 'to' follows  a word  that ends in  a  T
 
 ## as
 
 <font color=red>**/əz/**</font>
 
-
+除了as if  其他基本都弱读
 
 ## was
 
 <font color=red>**/wəz/**</font>
 
-**wu + z**
+
+
+
+
+
+
+# TIPS
+
+
+
+## 1.d,t闪音
+
+dady,water,litle
+
+不止是单词，句子也可以
+
+pick it up   ;   think about it ;
+
+
+
+## 2.t的四种发音
+
+
+
+### ① 爆破音
+
+就是正常的t
+
+### ② flap t
+
+闪音t
+
+### ③ stop t
+
+student  实际上应该是闪音t吧？？？
+
+### ④ help t
+
+t在词尾时，或者t后面跟着其他辅音字母时，t本身会变得很弱，称之为**Held t**。但依然要做口型、留位置哦。
+
+
+
+### ⑤ nt组合
+
+nt组合  本质是闪音t  但在美式英语中其实往往直接省略t的发音，如twenty  -> tweny,直接省略T,发闪音当然也没错
+
+want to == wanna  因为nt导致t可以不发音，后来演变成单词 wanna
+
+类似的 going to = gonna  
+
+<img src="https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240911220754484.png" alt="image-20240911220754484" style="zoom:25%;" />
 
 
 
@@ -84,33 +144,13 @@
 
 
 
-# t闪音
 
 
 
 
+# 真难读
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 听力遇到的问题
-
-
-
-
-
-## 真难读·1
 
 ![image-20240603224738807](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240603224738807.png)
 

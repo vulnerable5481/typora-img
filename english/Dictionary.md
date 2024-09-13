@@ -1,10 +1,48 @@
-# 过渡
+# 介词不理解的部分
+
+## 空间介词
+
+- below 与 under 相当于 over 与 on      below 和 over 都有动态的意思 a bird flied over the hill/ a fish swam below the bridge .
+- near: 在...附近   比较远  by/beside/next to ：在...附近  都是比较近的意思
+- across ：在表面上穿过去   through 内部穿过去
+- past:  经过
+- before:很少用作空间介词，in front of 和 behind 是一组
+- to : 向，朝； towards ：朝
+- onto:更常用于动作，the rabbit jumped onto the table;  into: 更常用于动作, I add some beef into the soup/walk into the house
+- opposite :在 ... 对面
+- aginst:与 ... 相反；倚，靠；
+- up:沿着...向上  down : 沿着...向下
+- off: 离...有些距离
+
+## 时间介词
+
+- in on at 在里面(范围大) 在上面(一个面，范围中)，at在一个点(范围小),时间对应关系也差不多
+- for 通常和原因有关系，用作时间介词，可以加一段时间：I`ve benn learning English for 2 years.
+- in 也可以表示将来的时间 I plan to learn English in 2 years,我打算在之后的两年里学习英语
+- by:在...之前，相对于before，by更侧重”违规迟到，你不要超过这个时间线“
+
+ <font color=red>****</font> 
+
+## 原因介词
+
+- **in**: <font color=red>**当成固定搭配**</font> Speak in + language: Write in + language: Translate into + language:
+- **by**: <font color=red>**强调的是一种手段或方式**</font> 。例如： "We submit our homework by computer." 强调用电脑这一方式来提交作业。
+- **through** <font color=red>**强调的是一个过程或渠道**</font> 。例如："We submit our homework through computers." 强调通过电脑这个渠道来完成作业的提交。     例句： We make it through hard work 我们通过努力做到了
+
+
+
+
+
+
+
+# 记忆过渡
 
 
 
 1. merit | demerit  of .... are  `numerous` and `manifold` 
 2. economy  n / economic adj
 3. hygiene
+3. yogurt 
 4. ego
 5. substantially
 6. tremendous
@@ -66,42 +104,113 @@
 
 
 
+
+
+
+
 1. process 
 2. progress
 3. priorities
 
 
 
-# 介词不理解的部分
+# 错误发音单词
 
-## 空间介词
 
-- below 与 under 相当于 over 与 on      below 和 over 都有动态的意思 a bird flied over the hill/ a fish swam below the bridge .
-- near: 在...附近   比较远  by/beside/next to ：在...附近  都是比较近的意思
-- across ：在表面上穿过去   through 内部穿过去
-- past:  经过
-- before:很少用作空间介词，in front of 和 behind 是一组
-- to : 向，朝； towards ：朝
-- onto:更常用于动作，the rabbit jumped onto the table;  into: 更常用于动作, I add some beef into the soup/walk into the house
-- opposite :在 ... 对面
-- aginst:与 ... 相反；倚，靠；
-- up:沿着...向上  down : 沿着...向下
-- off: 离...有些距离
 
-## 时间介词
+1. natural       /ˈnætʃ.ɚ.əl/
 
-- in on at 在里面(范围大) 在上面(一个面，范围中)，at在一个点(范围小),时间对应关系也差不多
-- for 通常和原因有关系，用作时间介词，可以加一段时间：I`ve benn learning English for 2 years.
-- in 也可以表示将来的时间 I plan to learn English in 2 years,我打算在之后的两年里学习英语
-- by:在...之前，相对于before，by更侧重”违规迟到，你不要超过这个时间线“
 
- <font color=red>****</font> 
 
-## 原因介词
 
-- **in**: <font color=red>**当成固定搭配**</font> Speak in + language: Write in + language: Translate into + language:
-- **by**: <font color=red>**强调的是一种手段或方式**</font> 。例如： "We submit our homework by computer." 强调用电脑这一方式来提交作业。
-- **through** <font color=red>**强调的是一个过程或渠道**</font> 。例如："We submit our homework through computers." 强调通过电脑这个渠道来完成作业的提交。     例句： We make it through hard work 我们通过努力做到了
+
+
+
+
+
+
+
+# 顽固份子
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 记过却遗忘
+
+
+
+1. shell   the hard outer covering of eggs , nuts and sea creatures;    explosive weapon
+
+
+
+
+
+1. yogurt
+2. yolk
+
+
+
+1. fried
+
+
+
+1. explode , explosion , explosive
+
+
+
+
+
+
+
+
+
+
+
+# 有点陌生
+
+
+
+1. vowel /vaʊəl/
+2. consonnant
+
+
+
+
+
+
+
+# 陌生词
+
+## bile
+
+bile produced by your liver , can help you digest fat
+
+## cab
+
+ taxi;   literary words
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -116,43 +225,10 @@
 
 
 
-# A
-
-## amount
-
-（尤指不可数事物的）数量，数额，量，总数
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# B
-
-## bile
-
-bile produced by your liver , can help you digest fat
-
-
-
-
-
-# C
-
-## cab
-
- taxi;   literary words
 
 ## cop
 
@@ -192,26 +268,6 @@ dental hygiene
 
 
 
-
-
-# E
-
-
-
-
-
-
-
-
-
-# F
-
-
-
-
-
-
-
 # G
 
 ## garlic
@@ -234,10 +290,6 @@ people in the ShanDong Province usually eat food with it in order to make food t
 /ɡrəʊn/
 
 **a** [deep](https://dictionary.cambridge.org/zhs/词典/英语/deep)**,** [long](https://dictionary.cambridge.org/zhs/词典/英语/long) [sound](https://dictionary.cambridge.org/zhs/词典/英语/sound) [showing](https://dictionary.cambridge.org/zhs/词典/英语/showing) [great](https://dictionary.cambridge.org/zhs/词典/英语/great) [pain](https://dictionary.cambridge.org/zhs/词典/英语/pain) **or** [unhappiness](https://dictionary.cambridge.org/zhs/词典/英语/unhappiness)**:**
-
-
-
-# H
 
 
 
@@ -275,16 +327,6 @@ to introduce someone formally ,or with a special ceromony to an organization or 
 
 
 
-
-
-
-
-# J
-
-
-
-
-
 # K
 
 ## kidney
@@ -311,26 +353,6 @@ adj:  	literary
 
 
 
-
-
-
-
-# M
-
-
-
-
-
-
-
-# N
-
-
-
-
-
-
-
 # O
 
 ## occur
@@ -352,16 +374,6 @@ to breathe quickly and loudly through your mouth**, **usually because you have b
 psycologist psycological
 
 
-
-# Q
-
-
-
-
-
-# R
-
-## recommend
 
 
 
@@ -417,43 +429,11 @@ a long passage under or through the ground ,especially one made by people
 
 
 
-# V
-
-
-
-
-
-# W
-
-
-
-
-
-# X
-
-
-
-
-
-# Y
-
-
-
 ## yolk
 
 
 
-## yogurt
 
- /jəʊk/
-
-**the** [yellow](https://dictionary.cambridge.org/zhs/词典/英语/yellow)**,** [middle](https://dictionary.cambridge.org/zhs/词典/英语/middle) [part](https://dictionary.cambridge.org/zhs/词典/英语/part) **of an** [egg](
-
-
-
-
-
-# Z
 
 
 
