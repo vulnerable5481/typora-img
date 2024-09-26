@@ -310,9 +310,9 @@ public boolean addUser(User user);
 
 **<font color='orange'>不符合约定怎么办？三个注解来帮忙 ! </font>**
 
-- @TableName : 表名
+- @TableName : 表名   
 - @TableId ： 主键
-- @TableField ： 属性名
+- @TableField ： 属性名   **一般情况只有这个常用**
 
 **<font color='orange'>几种情况如下：</font>**
 
@@ -456,6 +456,12 @@ public List<User> queryUsers(String name,Integer status,Integer minBalance,Integ
 **原理类似redis学的逻辑过期**
 
 **比如淘宝订单这种数据，用户即使删除了数据库层面不会真的删除，会有一个属性比如deleted 记录，以后增删改查都需要一个条件：where deleted = 0,很冗余麻烦，mybatisplus就可以使用配置文件实现全局的逻辑删除**
+
+<font color='orange'>使用步骤1： 配置全局的逻辑删除规则(可省略,默认1代表逻辑删除和0逻辑未删除)
+</font>
+<font color='orange'>使用步骤2：配置逻辑删除的组件Bean(3.1版本以后不需要加)</font>
+
+<font color='orange'>使用步骤3：给逻辑删除字段 添加注解@Tablelogic</font>
 
 ![image-20240913153014950](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240913153014950.png)
 

@@ -1312,7 +1312,9 @@ transform: rotateZ(180deg);
   - 空字符串 默认是 false
   - 除了空字符串其他的非布尔值全都会隐式转换成true
 
+#### 1.3  !==
 
+不同于后端，js中的不等于要用 !== , !=不够严谨，原因很简单，自己去查
 
 
 
@@ -1894,17 +1896,47 @@ Json.parse(json字符串)
 
 #### 4.1 解构赋值
 
-多级解构
+**多级解构  /  解构嵌套**
 
 ![image-20240516144832622](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240516144832622.png)
 
-修改变量名
+- **修改变量名**
 
 ![image-20240516150431885](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240516150431885.png)
+
+
+
+
+
+- <font color='orange'>**结构赋值的本质**</font>
 
 **// const {name,age,sex} = person**
 
 //**本质等于    const name = person.name ,  const age = person.age , const sex = person.sex**
+
+
+
+
+
+- <font color='orange'>**结构赋值与三元运算符**</font>
+
+```
+    updateShowStatus(brand) {
+      let {brandId,showStatus} = brand
+      this.$http({
+      url: this.$http.adornUrl('/product/brand/update'),
+      method: 'post',
+      data: this.$http.adornData({brandId,showStatus:showStatus==true?1:0},false)
+      })
+    }
+
+```
+
+
+
+
+
+
 
 
 
@@ -3359,13 +3391,15 @@ render: zlc => zlc(App)
 
 
 
-### 3.2 ref
+### 3.2 ref捉dom
+
+<font color='red'>相当好用啊，不用js那么麻烦的获取了！！！！</font>
 
 **//某些特殊场景我们确实需要获取dom元素，不建议使用js获取，可以使用vue提供的ref**
 
 **//如果只是单纯地获取html标签，那传统的js代码和vue提高的ref确实没区别，但要是针对组件区别就大了！！！**
 
-**//vue的ref可以获取组件实例对象,即可以获取vc**
+**//vue的ref可以获取组件实例对象**
 
 ```
 使用方法:比如获取一个input的dom元素
@@ -3443,30 +3477,145 @@ console.log(props.name)这样就可以取到了
 
 #### 1.props
 
-可以使用props实现父子通信
+**<font color='orange'>实现父子通信</font>**
 
 ```
+
+// Parent.vue 传送
 <template>
-    <h1>父组件</h1>
-    <Child :StudentName="StudentName" :sendNumber="getNumber"></Child>
+    <child :msg="msg"></child>
 </template>
-
-<script setup>
-  import {ref} from 'vue'
-  import Child from './components/Child.vue'
-
-  let StudentName = ref('赵联城')
-
-  function getNumber(number){
-    console.log("收到子组件Number:",number)
-  }
+​
+// Child.vue 接收
+export default {
+  // 写法一 用数组接收
+  props:['msg'],
+  // 写法二 用对象接收，可以限定接收的数据类型、设置默认值、验证等
+  props:{
+      msg:{
+          type:String,
+          default:'这是默认数据'
+      }
+  },
+  mounted(){
+      console.log(this.msg)
+  },
 ```
 
-#### 2.自定义事件(子传父)
+#### 2.父子双向绑定
+
+和 <font color='red'>.sync 类似</font>，可以实现将父组件传给子组件的数据为双向绑定，子组件通过 $emit 修改父组件的数据
+
+```
+
+// 最简单的 v-model实现 父组件 Home 
+<template>
+  <div class="">
+    <HelloWorld v-model="value"></HelloWorld>
+    {{ value }}
+  </div>
+</template>
+​
+<script>
+import HelloWorld from "../components/HelloWorld.vue";
+export default {
+  data() {
+    return {
+      value: "我是Home里的数据 响应式的",
+    };
+  },
+  components: { HelloWorld },
+};
+</script>
+// 子组件 HelloWorld
+<template>
+  <input :value="value" @input="handlerChange" />
+</template>
+<script>
+export default {
+  props: ["value"],
+  methods: {
+    handlerChange(e) {
+       // 一定要是 input 事件
+      this.$emit("input", e.target.value);
+    },
+  },
+};
+</script>
+
+                        
+原文链接：https://blog.csdn.net/qq_54753561/article/details/122281196
+```
+
+<font color='red'>.sync实现父子双向绑定</font>
+
+**稍微讲解一下.sync修饰符,用于实现父组件与子组件之间的双向绑定**
+
+```
+//父组件
+<HelloWorld :val.sync="val"></HelloWorld>
+//子组件
+this.$emit('update:val', newValue);
+意思是子组件向父组件发送一个事件，事件名为 update:val，并将输入框的值作为参数传递。父组件监听这个事件后，可以更新自己的数据，达到双向绑定的效果。这里的 update:val 是约定的命名，用于与 .sync 修饰符配合使用。
+这里的newValue一般都是Input框,这样写：this.$emit("update:val", event.target.value)
+```
+
+```
+
+// 父组件 Home
+<template>
+  <div class="">
+    <HelloWorld :val.sync="val"></HelloWorld>
+    {{ val }}
+  </div>
+</template>
+​
+<script>
+import HelloWorld from "../components/HelloWorld.vue";
+export default {
+  data() {
+    return {
+      val: "我是Home里的数据 响应式的",
+    };
+  },
+  components: { HelloWorld },
+};
+</script>
+​
+// 子组件  HelloWorld
+<template>
+  <input class="i911-sync" :value="val" @input="handleInput" />
+</template>
+<script>
+export default {
+  name: "HelloWorld",
+  props: {
+    val: {
+      type: String,
+      default: "",
+    },
+  },
+  methods: {
+    handleInput(event) {
+      this.$emit("update:val", event.target.value);
+    },
+  },
+};
+</script>
+
+```
 
 
 
-#### 3.mitt
+#### 3.ref
+
+```
+//父组件
+<HelloWorld ref="child"></HelloWorld>
+这样就直接使用了
+vue2:this.$refs.child.xxxx
+vue3:const child = r
+```
 
 
 

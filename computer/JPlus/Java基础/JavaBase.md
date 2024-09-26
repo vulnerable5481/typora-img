@@ -36,14 +36,9 @@
 
 # 5.Stream流详解
 
-
-
-
-
-
-
 # 6.Lambda表达式
 
+# 7. Comparator
 
 
 
@@ -52,15 +47,10 @@
 
 
 
-# 7. 字符串切割
 
 
 
-
-
-
-
-# 8.Comparator
+# 8.Comparator字符串切割
 
 
 
