@@ -54,6 +54,7 @@ Spring框架的核心就是   XML文件 or 注解 来驱动底层以反射执行
 				  总之，除了Json格式外好像都用这个
 @RequestBody :    注解接收的参数则是来自于 requestBody 中，即请求体中
 				  Get 方式无请求体，所以使用 @RequestBody 接收数据时，前端不能使用 Get 方式提交数据;
+				  
 @ResponseBody :   javaBean -> json字符串   ，直接RestController即可 
 ```
 

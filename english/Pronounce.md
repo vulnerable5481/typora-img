@@ -50,8 +50,6 @@ and在一个句子开头就弱读成第一个
 
 ​	
 
-
-
 ## at
 
 **<font color='red'><ət>     <əd></font>**
@@ -74,67 +72,63 @@ consonnant --> stop t;   vowel --> flap t
 
 you can use flap T in the word 'to' any time excepet when the word 'to' follows  a word  that ends in  a  T
 
+下面这种情况大多数都是直接发一个true t, flat d的音即可
+
+![image-20241008224040949](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241008224040949.png)
+
+![image-20241008223312230](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241008223312230.png)
+
 ## as
 
 <font color=red>**/əz/**</font>
 
 除了as if  其他基本都弱读
 
-## was
-
-<font color=red>**/wəz/**</font>
 
 
+# linking
 
 
 
+## 1.v + v
 
-
-# TIPS
-
-
-
-## 1.d,t闪音
-
-dady,water,litle
-
-不止是单词，句子也可以
-
-pick it up   ;   think about it ;
+直接拼在一起，不能有间隔
 
 
 
-## 2.t的四种发音
 
 
 
-### ① 爆破音
-
-就是正常的t
-
-### ② flap t
-
-闪音t
-
-### ③ stop t
-
-student  实际上应该是闪音t吧？？？
-
-### ④ help t
-
-t在词尾时，或者t后面跟着其他辅音字母时，t本身会变得很弱，称之为**Held t**。但依然要做口型、留位置哦。
 
 
 
-### ⑤ nt组合
+## 2. v + c
 
-nt组合  本质是闪音t  但在美式英语中其实往往直接省略t的发音，如twenty  -> tweny,直接省略T,发闪音当然也没错
+直接拼在一起
 
-want to == wanna  因为nt导致t可以不发音，后来演变成单词 wanna
 
-类似的 going to = gonna  
 
-<img src="https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240911220754484.png" alt="image-20240911220754484" style="zoom:25%;" />
+
+
+
+
+## 3.c + c (6)
+
+下面六个辅音相遇，需要将前面的辅音弱化，具体来说就是不发er的音，比如 hot today ,**有一种停顿的感觉**
+
+<img src="C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20241006175203250.png" alt="image-20241006175203250" style="zoom:50%;" />
+
+```
+p b   t d   k  g 
+```
+
+
+
+## 4.c + c
+
+1.除了上面那几个塞音 其他c+c都是 两个变一个  比如 gas station   ;  some might 
+
+2.和上面的一致,都是塞音  hot sorce 
 
 
 
@@ -148,17 +142,93 @@ want to == wanna  因为nt导致t可以不发音，后来演变成单词 wanna
 
 
 
-# 真难读
-
-
-
-![image-20240603224738807](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240603224738807.png)
 
 
 
 
+# 听力单词过渡
 
 
+
+## 1.ted演讲
+
+
+
+1. expert 
+2. favouritism
+3. spot  spotting
+4. psychologist
+5. earn earning my doctorate
+6. doctorate
+7. barely
+8. tell you
+8. **hygiene**
+8. failure
+8. comprehensi
+
+
+
+
+
+
+
+
+
+# 100个常见单词发音
+
+
+
+
+
+## 1.the
+
+the cat  发得要非常非常快！！
+
+如果下个音是元音或者是双元音，那么就需要发/ði/
+
+## 2.be
+
+注意一定要发得很快~~~
+
+- I am    =  I`m  有时 你都听不到I的发音  ，直接就只剩下m了  比如 I am  sorry  ==>  /m/ sorry
+- you are / your  ==>  /jər/
+- they`re /ðər/   
+- we`re  /wər/
+
+## 3.it 
+
+t后面如果是单双元音也要变成flap t ,  it always
+
+## 4.of
+
+有的时候甚至都直接变成 懒人音 了 比如 kind of    I`m kind of lazy	
+
+## 5.have
+
+- I`ve
+- he`s
+- she`s
+- <font color='red'>**they`ve   /ðeiv/**</font>
+
+
+
+## 6.with
+
+
+
+## 7.not
+
+didn`t这种t就是轻读
+
+如果是did not  这种 not就需要重读，起强调作用！
+
+## 8.you 
+
+/jə/,你当然也可以不用弱读，都可以，但是要弱读！
+
+## 9.what did
+
+你可以缩读成 wha + flap t + id , 你甚至可以进一步缩读成what`d
 
 
 

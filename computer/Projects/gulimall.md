@@ -381,7 +381,9 @@ export default {
 
 1. <font color='orange'>**学习到了 逆向工程的使用，这些代码生成器可以极大地提高项目构建速度**</font>
 2. maven版本依赖问题，配置地狱，各种莫名其妙的Bug，无法解决的恶性bug，接踵而来。
-3. 很重要的一点是，我使用到了elementUi的使用，对一些基础组件的调用有了认识，之前都没有怎么用过
+3. elementUI的熟练度大大提升
+3. mybatisPlus的熟练度大大提升
+4. 学习了elasticSearch
 4. 
 
 

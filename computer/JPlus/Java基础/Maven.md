@@ -139,6 +139,7 @@
               <version>2.4</version>  
           </dependency>  
       </dependencies>  
+      
   ```
 
   
@@ -227,7 +228,22 @@
 
 
 
+# Maven实战
 
+
+
+## 1.parant
+
+**实际上parant，也可以这样使用，这样制定所有未分配版本的依赖，按照2.6.13 version，方便统一版本**
+
+```
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.6.13</version>
+        <relativePath></relativePath>
+    </parent>
+```
 
 
 

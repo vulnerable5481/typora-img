@@ -1,10 +1,10 @@
-# Linux
+# Linux(一切皆是文件)
 
 
 
 ## 一.基础操作
 
-### 1.1 软件安装
+### 1. 软件安装
 
 
 
@@ -22,28 +22,28 @@
 
 
 
-### 1.2文件目录
+### 2. 文件目录
 
 
 
-/bin        二进制文件，系统常规命令
-/boot       系统启动分区，系统启动时读取的文件
+/bin        二进制文件，系统常规命令都在这
+**/boot       系统启动分区，系统启动时读取的文件**
 /dev        设备文件
 **/etc        大多数配置文件**
-**/home       普通用户的家目录**
-/lib        32位函数库
-/lib64      64位库
-/media      手动临时挂载点
-/mnt        手动临时挂载点
+**/home       普通用户的主目录，linux每一个用户都有一个目录，就放在这里	**
 **/opt        第三方软件安装位置**
-/proc       进程信息及硬件信息
-/root       临时设备的默认挂载点
+**/usr        类似于windows的program files目录,你安装的应用程序会默认放在这**
+/media      手动临时挂载点
+**/mnt        手动临时挂载点**
+/proc[不能动]       进程信息及硬件信息
+/root       超级权限者的用户主目录
 /sbin       系统管理命令
-/srv        数据
-/var        数据
-/sys        内核相关信息
+/srv[不能动]        数据
+/var        用于存放经常变化的数据，比如日志、缓存、临时文件
+/sys[不能动]        内核相关信息
 /tmp        临时文件
-**/usr        类似于windows的program files目录**
+//lib        32位函数库               /lib64      64位库
+/lost+found   当非法关机后，会存一些文件在此
 
 
 
@@ -67,9 +67,9 @@
 
 
 
-### 1.3 vm  vim
+### 3. vm  vim
 
-使用vim   比vm 好用
+<font color='red'>**使用vim   比vm 好用**</font>
 
 **//三种模式的切换**
 
@@ -93,36 +93,13 @@
 
 
 
-### 1.4指令操作
-
-
+### 4.指令操作
 
 [Linux 常用操作命令大全（最后更新时间：2024年1月）_linux常用命令-CSDN博客](https://blog.csdn.net/m0_46422300/article/details/104645072)
 
-/bin        二进制文件，系统常规命令
-/boot       系统启动分区，系统启动时读取的文件
-/dev        设备文件
-/etc        大多数配置文件
-/home       普通用户的家目录
-/lib        32位函数库
-/lib64      64位库
-/media      手动临时挂载点
-/mnt        手动临时挂载点
-/opt        第三方软件安装位置
-/proc       进程信息及硬件信息
-/root       临时设备的默认挂载点
-/sbin       系统管理命令
-/srv        数据
-/var        数据
-/sys        内核相关信息
-/tmp        临时文件
-/usr        用户相关设定
 
 
-
-
-
-#### (1) 关机重启操作
+#### ① 关机重启操作
 
 ```
 - shutdown -h now  立刻关机
@@ -135,7 +112,7 @@
 
 
 
-#### (2)用户管理操作
+#### ② 用户管理操作
 
 ```
 用户管理操作：
@@ -165,13 +142,16 @@ groupdel xx
 
 
 
-#### (3)目录操作
+#### ③ 目录操作
+
+- /：当前目录的根目录
+- ./：当前目录
+- ../当前目录的上一级目录
 
 ```
 切换目录：
   cd /                 //切换到根目录
-  cd /bin              //切换到根目录下的bin目录
-  cd ../               //切换到上一级目录 或者使用命令：cd ..
+  cd ..               //切换到上一级目录 或者使用命令：cd ../
   cd ~                 //切换到home目录
   cd -                 //切换到上次访问的目录
   cd xx(文件夹名)       //切换到本目录下的名为xx的文件目录，如果目录不存在报错
@@ -200,7 +180,7 @@ groupdel xx
   rm -rf /*             //将根目录下的所有文件全部删除【慎用！相当于格式化系统】
 
 修改目录：
-  mv 当前目录名 新目录名        //修改目录名，同样适用与文件操作
+  mv 当前目录名 新目录名        //修改目录名，同样适用文件操作
   mv /usr/tmp/tool /opt       //将/usr/tmp目录下的tool目录剪切到 /opt目录下面
   mv -r /usr/tmp/tool /opt    //递归剪切目录中所有文件和文件夹
 
@@ -213,7 +193,7 @@ groupdel xx
 
 
 
-#### (4)文件操作
+#### ④ 文件操作
 
 ```
 创建文件:
@@ -226,9 +206,12 @@ groupdel xx
 
 修改文件：
   vim xx    //上节详细讲解
+  
+  mv 同样适用于修改和移动文件
  
   echo “你好” > wd.txt     >就是重定向，可以以此来文本写入信息 //重定向会覆盖原有文本的内容！！
-  echo "xx" > xx.txt  >>就是追加 而不覆盖原有内容
+  echo "xx" >> xx.txt     >>就是追加 而不覆盖原有内容
+  
 
 查看文件
   cat a.txt          //查看文件最后一屏内容
@@ -242,7 +225,7 @@ groupdel xx
 
 
 
-#### (5)查找操作
+#### ⑤ 查找操作
 
 ```
 find:
@@ -267,7 +250,7 @@ grep:
 
 
 
-#### (6)解压打包文件
+#### ⑥ 解压打包文件
 
 **//说明:**
 
@@ -278,25 +261,37 @@ grep:
 
 
 
-
+**tar指令在linux中最常用，实际上tar底层还是gzip 或者 bzip2 等其它命令来达成 ; 但是 gzip 等命令通常只能处理单个文件，并不方便，所以一般我们都是选择使用 tar 命令间接的完成解压缩**
 
 ```
  最常用:::::::tar指令
- tar -zcvf 打包压缩后的文件名 要打包的文件
-  参数说明：z：调用gzip压缩命令进行压缩; c：打包文件; v：显示运行过程; f：指定文件名;
+ tar -zcvf 打包压缩文件
+ tar -zxvf 解压文件
+  参数说明：z：gzip模式; c：创造压缩文件,压缩模式; v：显示解压/压缩的进度;
+  			f：指定要解压/压缩的文件名;  x:创造解压文件，解压模式； -C：选择解压的目的地
   示例：
-  tar -zcvf a.tar file1 file2,...      //多个文件压缩打包
+	1.将多个文件 压缩成 a.tar.gz
+  tar -zcvf a.tar.gz file1 file2,...      //多个文件压缩打包
   									   //该指令既可以压缩也可以解压
+	2.将home目录 压缩成 myhome.tar.gz
+  tar -zcvf myhome.tar.gz /home/
+	3.将pc.tar.gz 解压到 当前目录
+  tar -zxvf pc.tar.gz
+	4.将pc.tar.gz 解压到 /opt/tmp目录下
+  tar -zxvf pc.tar.gz -C /opt.tmp
   
-
+  
+//专门用于处理 windows系统给linux系统传文件
 zip:
-	zip xxxx
-	zip -r /home/* -r 递归压缩，连带着目录及其下面的内容都压缩
-	
+	zip -r /home/*          -r 递归压缩，目录及其包含的内容都压缩  *可以省略
+
 unzip:
-	unzip xxx
 	unzip -d /opt/tem /home/myhome.zip    -d 指定目录  将myhome.zip解压到/opt/tem
 
+  
+//几乎不再使用，被tar替代了
+gzip ： 压缩成 .gz 
+gunzip ： 解压 .gz
 
 
 ```
@@ -309,16 +304,9 @@ unzip:
 
 
 
-#### (7)其他操作
+#### ⑦ 时间日期操作
 
-
-
-```
-
-
-
-
-```
+![image-20241009165303267](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241009165303267.png)
 
 
 
@@ -334,7 +322,7 @@ unzip:
 
 
 
-### 1.5运行级别
+### 5.运行级别
 
 ![image-20240321140505190](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240321140505190.png)
 
@@ -344,7 +332,7 @@ unzip:
 
 
 
-### 1.6找回root密码
+### 6.找回root密码
 
 
 
@@ -356,19 +344,17 @@ unzip:
 
 
 
-### 1.7权限
+### 7.权限
 
 
 
-#### 1.7.1权限的概念
+#### ①权限的概念
 
 
 
-![image-20240324133939740](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240324133939740.png)
+<img src="https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241009191855133.png" alt="image-20241009191855133" style="zoom: 67%;" />
 
-
-
-
+![image-20241009191158219](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241009191158219.png)
 
 
 
@@ -382,31 +368,15 @@ unzip:
 
 
 
-#### 1.7.2修改权限
+#### ②修改权限
+
+chmod 733
+
+![image-20240324134840934](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240324134840934.png)
 
 
 
-![image-20240324134840934](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240324134840934.png)
-
-
-
-![image-20240324150304789](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240324150304789.png)
-
-
-
-
-
-docker run -p 3306:3306 --name mysql \
-
--v /mydata/mysql/log:/var/log/myhsql \
-
--v /mydata/mysql/data:/var/lib/mysql \
-
--v /mydata/mysql/conf:/etc/mysql \
-
--e MYSQL_ROOT_PASSWORD=1674472827 \
-
--d mysql:5.7
+![image-20240324150304789](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240324150304789.png)
 
 
 
@@ -416,7 +386,9 @@ docker run -p 3306:3306 --name mysql \
 
 
 
-### 1.8修改文件所有者/所在组
+
+
+### 8.修改文件所有者/所在组
 
 
 
@@ -438,13 +410,13 @@ docker run -p 3306:3306 --name mysql \
 
 
 
-### 1.9两个任务制度
+### 9.定时任务调度
 
 
 
-#### 1.9.1crond任务调度
+#### ①crond任务调度
 
-
+<font color='orange'>**cront最经常的操作就是 执行shell文件！**</font>
 
 **// crond任务 是周而复始的， 到时间就会自动执行一次**
 
@@ -460,7 +432,6 @@ crontab:
 
 
 cront任务时间规则  就是 cront表达式
-cront任务 经常是 执行shell脚本
 ```
 
 **//简单例子 ：每一分钟将当前日期写入 /home/test.txt  文件中**
@@ -469,7 +440,7 @@ cront任务 经常是 执行shell脚本
 
 ​	
 
-#### 1.9.2at定时任务
+#### ②at定时任务
 
 
 
@@ -485,7 +456,7 @@ cront任务 经常是 执行shell脚本
 
 
 
-### 1.10磁盘分区和挂载
+### 10.磁盘分区和挂载
 
 
 
@@ -501,42 +472,7 @@ cront任务 经常是 执行shell脚本
 
 
 
-
-
-### 1.11网络代理
-
-
-
-- 原理：就是通过代理，linux虚拟机->vmnet -> 无线网卡 -> baidu.com
-
-![image-20240325102051446](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325102051446.png)
-
-
-
-
-
-
-
-- 实操：如何将linux虚拟机的ip固定，而不是自动分配
-
-
-
-
-![image-20240325104558805](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325104558805.png)
-
-
-
-然后别忘了这里也要修改哦！       比如你打算设置Ip:192.168.150.15  ,这里子网就要修改为192.168.150.0
-
-![image-20240325104757536](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325104757536.png)
-
-
-
-
-
-
-
-### 1.12设置主机名和hosts映射
+### 11.设置主机名和hosts映射
 
 
 
@@ -555,13 +491,13 @@ vim   /etc/hostname
 
 
 
-![image-20240325110235216](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325110235216.png)
+![image-20240325110235216](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325110235216.png)
 
 
 
 
 
-![image-20240325111531924](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325111531924.png)
+![image-20240325111531924](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325111531924.png)
 
 
 
@@ -569,7 +505,7 @@ vim   /etc/hostname
 
 ​											**更加专业的主机名解析机制分析::::**
 
-![image-20240325111645795](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240325111645795.png)
+![image-20240325111645795](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325111645795.png)
 
 
 
@@ -577,18 +513,18 @@ vim   /etc/hostname
 
 
 
-### 1.13进程管理
+### 12.进程管理
 
 
 
 
 
-#### 1.13.1 进程基本操作
+#### ① ps进程指令
 
 - 查看进程
   - 例子 : ps -aux | grep sshd **（静态） **  //-a 显示当前终端的所有进程消息  -u 以用户格式显示进程信息  -x显示后台进程运行参数
-  - 查看进程树pstree -p    ：  -p显示 进程号  **（静态）** 
-  - ![image-20240328124346843](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240328124346843.png)
+  - 查看进程树  pstree -p    ：  -p显示 进程号   ,【如果需要通过**树状图**来显示进程可以用这个指令】
+  -  ![image-20241009195133058](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241009195133058.png)
 
 ​           ![image-20240328124638214](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240328124638214.png)
 
@@ -596,8 +532,14 @@ vim   /etc/hostname
 
 
 
-- 杀死进程
-  - kill 1234  /   killall 1234  /  kill - 9 getid      :    -9强制杀死  killall杀死包括子线程在内的线程
+
+
+#### ② 杀死进程
+
+- kill
+  - kill -9  【**进程号**】:    -9 强制杀死  
+- killall
+  - killall -9  【进程**名称**】: killall杀死包括子线程在内的线程
 
 
 
@@ -607,88 +549,32 @@ vim   /etc/hostname
 
 
 
-#### 1.13.2 服务管理
+
+#### ③  服务管理
+
+**<font color='red'>Centos7.0版本之后，使用systemctl指令 取代 service之类的老指令~~~~</font>**
 
 
 
-##### （1）service 操作
-
-【Centos7.0后面，很多服务使用systemctl管理服务！！故此处不细研究】
-
-
-
-setup  //用来查看服务名
-
-
-
-##### (2)运行级别
-
-![image-20240327210019193](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240327210019193.png)
-
-
-
-
-
-
-
-
-
-**//运行级别的设置与管理，一般我们在实际开发中为了节约空间都是使用级别3，这里使用5只是方便学习**
-
-![image-20240327205901026](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240327205901026.png)
-
-
-
-
-
-
-
-##### （3chkconfig查看设置服务自启动
-
-**//一句话：用于设置各个服务在不同运行级别是自启动还是关闭**
-
-
-
-
+##### systemctl指令⭐
 
 ```
-查看服务运行级别下的自启动状况: chkconfig --list | grep network   //后面的过滤也可以不加
+//1.开启关闭重启查看状态
+	systemctl [start|stop|restart|status] 服务名       
 
-修改服务运行级别下的自启动状况: chkconfig --level 5 服务名 on/off  //设置服务在运行级别X下是自启动还是关闭
+   题外话：下面的指令可以查看所有的服务: ll /usr/lib/systemd/system
 
-修改2，3，4，5级别下自启动状况:chkconfig network on/off  //这个指令只会修改2,3,4,5四个级别下的自启动状态
-
-```
-
-
-
-##### （4)systemctl指令⭐
-
-
-
-```
-查看所有服务: ll /usr/lib/systemd/system    
-systemctl [start|stop|restart|status] 服务名   //临时关闭打开服务，若永久关闭需要使用下面的设置服务关闭指令
-
-//关于自启动
+//2.关于自启动
 查看服务自启动状态: systemctl list-unit-files | grep xxx    //可以查看服务自启动状态
 查看某个服务是否自启动: systemctl is-enable 服务名  	
 设置服务开机启动:systemctl enable 服务名    
-设置服务开机关闭:systemctl disable 服务名	//这三个指令和上面chkconfig的区别就是该指令只会修改级别3和5
+设置服务开机关闭:systemctl disable 服务名	
 
 ```
 
 
 
-
-
-
-
-
-
-
-
-##### （5)firewall指令⭐
+##### firewall指令⭐
 
 ```
 打开指定端口:firewall-cmd --permanent --add-port=端口号/协议
@@ -706,14 +592,22 @@ systemctl [start|stop|restart|status] 服务名   //临时关闭打开服务，�
 
 
 
-#### 1.13.3监控网络状态
+#### ③ 动态监控系统
+
+<img src="https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241009202122045.png" alt="image-20241009202122045" style="zoom: 80%;" />
+
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241009202518182.png)
 
 
+
+
+
+
+
+#### ④监控网络状态
 
 ```
 查看系统网络状态:netstat -anp | grep xxx   //-an 按照一定顺序排列输出  -p显示哪个进程在调用
-
-检测主机连接命令：ping ip/配置过后的主机名  //这个我们比较熟悉了
 ```
 
 
@@ -724,7 +618,7 @@ systemctl [start|stop|restart|status] 服务名   //临时关闭打开服务，�
 
 
 
-### 1.14软件包管理rpm
+### 13.软件包管理rpm
 
 
 
@@ -758,15 +652,41 @@ systemctl [start|stop|restart|status] 服务名   //临时关闭打开服务，�
 
 **//强制删除的参数（不过出现这个依赖错误，我们不建议强行删除）**
 
-![image-20240328134642012](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240328134642012.png)
+![image-20240328134642012](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240328134642012.png)
+
+
+
+​	
+
+**//更加便捷的rpm软件包下载--yum   ,  <font color='orange'>这个yum就是Maven的鼻祖！</font>**     
+
+![image-20240328141545253](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240328141545253.png)
 
 
 
 
 
-**//更加便捷的rpm软件包下载--yum**
+### 14.日志
 
-![image-20240328141545253](https://gitee.com/vulnerable5481/typora-img/raw/master/img/image-20240328141545253.png)
+#### ① 介绍
+
+![image-20241009205845375](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241009205845375.png)
+
+
+
+#### ② rsyslog
+
+**<font color='green'>究竟是谁帮我们自动记录和管理日志呢？   答曰：rsyslog</font>**
+
+![image-20241009210426553](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241009210426553.png)
+
+
+
+
+
+
+
+
 
 
 
@@ -785,6 +705,12 @@ systemctl [start|stop|restart|status] 服务名   //临时关闭打开服务，�
 
 
 ## 二.环境搭配
+
+<font color='red'>**有了docker根本不需要 以前这么麻烦了！！！！**</font>
+
+
+
+
 
 **//如果我们需要在linux下进行JavaEE的开发，我们需要安装如下软件:**
 
@@ -847,13 +773,11 @@ systemctl [start|stop|restart|status] 服务名   //临时关闭打开服务，�
 
 
 
-**//这个有空回去补**
-
 
 
 ### 2.5安装mysql8.0
 
-**//详看mysql数据库那节！！**
+
 
 
 

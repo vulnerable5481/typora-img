@@ -4,13 +4,7 @@
 
 ## 1.HTML
 
-
-
-```
-z-index : 1可以提高优先级
-```
-
-
+ 
 
 ### 1.1总结⭐
 
@@ -43,12 +37,6 @@ title	文本	提示文本。鼠标放到图像上，显示的文字
 //6 锚点标签
 
 ```
-
-![image-20240902124226085](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902124226085.png)
-
-
-
-
 
 
 
@@ -138,8 +126,6 @@ colspan	要合并的单元格个数	合并列单元格，记得要删除多余�
 ²	平方上标2	&sup2;
 ³	立方上标3	&sup3;
 ```
-
-
 
 
 
@@ -428,8 +414,6 @@ button {
 
 
 
-
-
 #### 2.2.3 背景属性
 
 ![image-20240319184729040](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240319184729040.png)
@@ -665,10 +649,6 @@ border分框写法:
 
 
 
-
-
-
-
 ![image-20240326124519492](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240326124519492.png)
 
 
@@ -741,11 +721,7 @@ border分框写法:
 
 
 
-#### 2.8.1为什么需要定位
-
-![image-20240330161923651](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330161923651.png)
-
-#### 2.8.2定位组成及语法
+#### ①定位组成及语法
 
 ![image-20240330162224441](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330162224441.png)
 
@@ -772,7 +748,7 @@ border分框写法:
 
 
 
-#### 2.8.3子绝父相
+#### ② 子绝父相
 
 ![image-20240330171833737](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330171833737.png)
 
@@ -782,13 +758,13 @@ border分框写法:
 
 
 
-#### 2.8.4 定位叠放次序
+#### ③ 定位叠放次序
 
 ![image-20240330183200722](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330183200722.png)
 
 
 
-#### 2.8.5定位的一些特性⭐
+#### ④ 定位的一些特性⭐
 
 **//目前已知可以给行内元素设置宽度高度的方法:**
 
@@ -812,7 +788,7 @@ border分框写法:
 
 
 
-### 2.7显示隐藏元素
+### 2.7 两种显示隐藏元素
 
 
 
@@ -848,7 +824,7 @@ border分框写法:
 
 #### 如何使用
 
-<font color='orange'>**比较简单，用到在说吧**</font>
+
 
 ![image-20240831175847095](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240831175847095.png)
 
@@ -868,36 +844,9 @@ border分框写法:
 
 ### 3.2 字体图标
 
-
-
-
-
-#### 引入
-
-![image-20240831180414231](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240831180414231.png)
-
-![image-20240831180601643](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240831180601643.png)
-
-
-
-#### 使用
-
-**<font color='orange'>直接使用别人做好的，就够用了</font>**
-
-**用到再说，引用也很简单，后续追加也简单**
-
 ![image-20240831180645761](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240831180645761.png)
 
-```
-  .shopcar::before {
-    position: relative;
-    top: 1px;
-    left: 10px;
-    content: "\e902";  //使用这个 不好直接复制图标
-    font-family: 'icomoon';
-    color: #b1191a;
-  }
-```
+
 
 
 
@@ -938,17 +887,20 @@ textarea{
 
 ### 3.4 vertical-align
 
-文字默认是和图片的基线对齐，如果想要文字和图片垂直居中对齐只能暴力调xy那可不行，通过vertical-align即可实现
+- **<font color='red'>注意弹性布局禁用此属性！！！！</font>**
 
-**<font color='orange'>用于实现图片/文本域 和 文字垂直居中</font>**
+- 文字默认是和图片的基线对齐，如果想要文字和图片垂直居中对齐只能暴力调xy那可不行，通过vertical-align即可实现
 
-<font color='red'>**vertical-align只能和行内块元素使用，如果是一个盒子可以与display:inline-block搭配使用**</font>
+
+- **<font color='orange'>用于实现图片/文本域 和 文字垂直居中</font>**
+
+- <font color='red'>**vertical-align只能和行内块元素使用，如果是一个盒子可以与display:inline-block搭配使用**</font>
 
 ![image-20240831184803093](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240831184803093.png)
 
 
 
-
+ 
 
 **案例：**
 
@@ -987,15 +939,11 @@ textarea{
 
 #### ① 语义化dIv
 
-本质就是div 只不过语义化了，你想 <div class = "header/nav/footer"></div>或者直接<header></header><footer都可以
 
-随便你  爱用div就div  想语义化就用这个  反正没什么区别	
 
 ![image-20240901120001037](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240901120001037.png)
 
 #### ② 视频标签
-
-
 
 
 
@@ -1031,25 +979,9 @@ textarea{
 
 
 
-#### ⑥ 过渡
 
 
-
-![image-20240902113306480](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902113306480.png)
-
-![image-20240902113438038](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902113438038.png)
-
-
-
-![image-20240902113547506](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902113547506.png)
-
-![image-20240902113715076](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902113715076.png)
-
-![image-20240902113853222](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902113853222.png)
-
-
-
-#### ⑦ favicon图标
+#### ⑥ favicon图标
 
 vue3修改favicon图标的方法
 
@@ -1063,15 +995,37 @@ vue3修改favicon图标的方法
 
 
 
-#### 
-
 
 
 ## 4.CSS++
 
 
 
-### 4.1 2D转换
+
+
+### 4.1 过渡
+
+![image-20240902113306480](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902113306480.png)
+
+![image-20240902113438038](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902113438038.png)
+
+
+
+
+
+![image-20240902113715076](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902113715076.png)
+
+![image-20240902113853222](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902113853222.png)
+
+
+
+
+
+
+
+
+
+### 4.2 2D转换
 
 
 
@@ -1100,8 +1054,8 @@ transform:translate(50%,50%)
 - 定位，内外边距，2D转换，三者都可以实现盒子的移动
 - 区别：内外边距 与 绝对定位 会影响布局，但是相对定位 与 2D转换 不会影响 布局
 - 应用：比如实现鼠标移动到一个商品图片，该图片便向上移动的效果
-  实现：思路1：字绝父相   思路2:直接transfrom:translate(0,y)
-  明显思路2要更加简单，只需要一行代码就搞定，思路1还涉及到父盒子什么的
+  实现：思路1：子绝父相   思路2:直接transfrom:translate(0,y)
+  明显思路2要更加简单，只需要一行代码就搞定，思路1还需要修改父盒子什么的
 - 总结：三者各有应用场景,没有优劣 ! **灵活使用！**
 
 
@@ -1167,7 +1121,7 @@ transform: rotate(-45deg)  //逆时针旋转四十五度
 
 
 
-### 4.2 动画
+### 4.3 动画
 
 #### 	① 使用
 
@@ -1218,7 +1172,7 @@ animation-timing-function:steps()  步数的妙用
 
 
 
-### 4.3 3D转换
+### 4.4 3D转换
 
 ![image-20240905181339323](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240905181339323.png)
 
@@ -1314,7 +1268,7 @@ transform: rotateZ(180deg);
 
 #### 1.3  !==
 
-不同于后端，js中的不等于要用 !== , !=不够严谨，原因很简单，自己去查
+!== 严格比较       !=宽松比较
 
 
 
@@ -2076,7 +2030,7 @@ text-align: center  //可以使单行文字居中
 
 
 
-关于图片与文字的垂直居中要使用到 vircal-align
+**关于图片与文字的垂直居中要使用到 vircal-align**
 
 
 
@@ -2418,6 +2372,177 @@ ul li:hover{
 
 
 
+## 9.flex布局
+
+
+
+### 1. 注意事项
+
+- 当我们给父元素display:flex, 子元素的float,clear,vertical-align属性都将失效
+
+
+
+### 2. 父项属性
+
+#### ①flex-direction
+
+**<font color='red'>设置主轴</font>**
+
+```
+1.按照X轴 （默认）
+	flex-direction:row
+
+2.按照X轴翻转
+	flex-direction:row-reverse
+
+3.按照Y轴
+	flex-direction:column
+
+4.按照Y轴翻转
+	flex-direction:column-reverse
+```
+
+
+
+#### ② justify-content
+
+**<font color='red'>设置主轴上的子元素排列方式</font>**
+
+```
+1.从左开始 （默认）
+	justify-content:flex-start
+	
+2.从右开始
+	justify-content:flex-end
+
+3.在主轴居中对齐 
+	justify-content:center
+	
+4.平分剩余空间
+	justify-content:space-around  :左右两端距离只有中间的一半，中间是完全平分
+	justify-content:space-evenly  :全部完全平分剩余空间
+	
+5.先两边贴边，再平分空间
+	justify-content:space-between
+```
+
+
+
+#### ③flex-wrap
+
+**<font color='red'>设置子元素是否换行</font>**
+
+- 如果我们使用的浮动，一行放不下盒子，就会将多余的放在下一行，但是在弹性布局中，**默认是不换行的**，会自动缩小每一个盒子，让其挤在一行
+
+- ```
+  1.允许子元素换行
+  	flex-wrap:wrap
+  
+  2.默认不换行
+  	flex-wrap:nowrap
+  ```
+
+  
+
+
+
+#### ④align-items
+
+**<font color='red'>设置测轴上的子元素排列方式(单行)</font>**
+
+```
+1.从上到下
+	align-items:flex-start
+	
+2.从下到上
+	align-items:flex-end
+	
+3.垂直居中
+	align-items:center
+
+4.拉伸(默认)
+	align:items:stretch
+```
+
+
+
+#### ⑤align-content
+
+**<font color='red'>设置侧轴子元素排行方式（多行）</font>**
+
+```
+除了上面四个属性，还多了两个
+5.一个行贴上面，一行贴下面
+	align-content:space-between
+
+6.平分空间
+	align-content:space-around
+```
+
+
+
+
+
+#### ⑥flex-flow
+
+**<font color='red'>flex-direction和flex-wrap的复合属性</font>**
+
+```
+flex-flow:row wrap
+```
+
+
+
+### 3. 子项属性
+
+
+
+#### ①flex属性
+
+
+
+- ![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241012213738006.png)
+
+
+
+
+
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241012213941137.png)
+
+
+
+
+
+
+
+
+
+### 4.其他属性
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -2433,6 +2558,12 @@ ul li:hover{
 ### 一些知识点	
 
 
+
+#### 1. vue-cli创建项目
+
+vue2的脚手架：vue init 项目名
+
+vue3的脚手架：vue create 项目名
 
 
 
@@ -2491,7 +2622,7 @@ ul li:hover{
 
 - **问题的解决**
 
-**可以调用数组里的那七个api，也可以使用Vue.set(target,key,value),这个问题在vue3中已经不存在了！！！！**
+**可以调用数组里的那七个api，也可以使用Vue.set(target,key,value),<font color='red'>这个问题在vue3中已经不存在了！</font>！！！**
 
 addSex(){
 
@@ -2699,7 +2830,7 @@ v-bind可以动态绑定style的属性，格式为：style="{key(属性名):valu
 
 **//可以双向绑定数据，即在一个输入框中你输入的信息也会实时影响vue实例中的数据**
 
-**<font color='orange'>v-model 一般只用于表单属性</font>**
+**<font color='red'>v-model 一般只用于表单属性</font>**
 
 ![image-20240506144227751](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506144227751.png)
 
@@ -3204,11 +3335,11 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 
 
 
-### 2.初学案例
+### 1.10.初学案例
 
 
 
-### ①列表过滤
+#### ①列表过滤
 
 ```
 <body>
@@ -3401,6 +3532,8 @@ render: zlc => zlc(App)
 
 **//vue的ref可以获取组件实例对象**
 
+<font color='red'>下面的例子是vue3</font>
+
 ```
 使用方法:比如获取一个input的dom元素
 import {ref} from 'vue'
@@ -3418,10 +3551,10 @@ const zlc = ref()
 
 
 ```
-//1.简单声明接收 (开发中这种简单的用的多)
+//1.使用数组，简单声明接收 (开发中这种简单的用的多)
 props:['name','age','sex']
 
-//2.类型限制
+//2.使用对象接受，类型限制
 props:{
 	name:String,
 	age:Number,
@@ -3475,7 +3608,7 @@ console.log(props.name)这样就可以取到了
 
 ### 3.4 组件通信
 
-#### 1.props
+#### 1.props父子单向绑定
 
 **<font color='orange'>实现父子通信</font>**
 
@@ -3485,7 +3618,7 @@ console.log(props.name)这样就可以取到了
 <template>
     <child :msg="msg"></child>
 </template>
-​
+​	
 // Child.vue 接收
 export default {
   // 写法一 用数组接收
@@ -3502,9 +3635,19 @@ export default {
   },
 ```
 
-#### 2.父子双向绑定
+#### 2.props父子双向绑定
 
-和 <font color='red'>.sync 类似</font>，可以实现将父组件传给子组件的数据为双向绑定，子组件通过 $emit 修改父组件的数据
+和 <font color='red'>.sync 类似</font>，可以实现将父组件传给子组件的数据为<font color='red'>双向绑定</font>，子组件通过 $emit 修改父组件的数据
+
+
+
+
+
+<font color='red'>**<Child.  v-bind?v-model? = "data"><./Child>,此处应该是v-bind  or  v-model**</font>
+
+**使用 `v-model`**：如果希望 `HelloWorld` 组件能够更新父组件的 `value`，并实现双向绑定。
+
+**使用 `v-bind`**：如果只需要从父组件向子组件单向传递数据，不希望子组件修改数据。
 
 ```
 
@@ -3527,7 +3670,9 @@ export default {
   components: { HelloWorld },
 };
 </script>
-// 子组件 HelloWorld
+
+ 
+//  Vue2版本 子组件 HelloWorld
 <template>
   <input :value="value" @input="handlerChange" />
 </template>
@@ -3540,6 +3685,26 @@ export default {
       this.$emit("input", e.target.value);
     },
   },
+};
+</script>
+
+//Vue3版本 子组件 HelloWorld
+<template>
+  <input :value="modelValue" @input="handlerChange" />
+</template>
+
+<script setup>
+// 接收父组件传递过来的 v-model
+const props = defineProps({
+  modelValue: String, // 用于 v-model 的默认 prop
+});
+
+// 用于发出更新父组件数据的事件
+const emit = defineEmits(['update:modelValue']);
+
+// 处理输入的变化
+const handlerChange = (e) => {
+  emit('update:modelValue', e.target.value); // 更新父组件的值
 };
 </script>
 
@@ -3612,7 +3777,7 @@ export default {
 ```
 //父组件
 <HelloWorld ref="child"></HelloWorld>
-这样就直接使用了
+这样就直接使用子组件里面的 数据  or 方法
 vue2:this.$refs.child.xxxx
 vue3:const child = r
 ```
@@ -3725,7 +3890,7 @@ emitter.on('方法')				//绑定
 
 ```
 
-
+  		 
 
 ```
 <template>
@@ -3824,76 +3989,37 @@ import {ref,reactive} from 'vue'
 
 ### 3.10 $nextTick()
 
-**/其实$nextTick()也是一个钩子函数**
-
-**作用:是将$nextTick()中的回调函数延迟在下一次dom更新数据后调用**
-
-**用法：如下案例**
-
-
-
-**//一个案例，实现点击编辑就会自动将鼠标焦点锁定输入框**
-
-![image-20240508220200832](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240508220200832.png)
+<font color='red'>**/其实$nextTick()也是一个钩子函数**</font>
 
 ```
-<template>
-        <li>
-            <label>
-                <input type="checkbox" v-model="todoObj.done">
-                <span v-show="!todoObj.isEdit">{{todoObj.name}}</span>
-                <input
-                 v-show="todoObj.isEdit"
-                 type="text" ref="inputTitle"
-                 v-model="todoObj.name"
-                 @blur="todoObj.isEdit = false">
-            </label>
-            <button class="btn btn-editnpm" @click="editTodoObj(todoObj)">编辑</button>
-            <button class="btn btn-danger" @click="todoObjDelete">删除</button>
-        </li>
-</template>
+主要作用：是将$nextTick()中的回调函数延迟在下一次dom更新数据后调用
+		由于Vue是在整个代码执行完之后才去更新DOM , 它能保证你操作的 DOM 是最新的，避免因数据更新未及时反映到 DOM 		导致的错误。
+常用场景：包括更新后操作 DOM、触发动画、依赖 DOM 渲染结果的操作等。
+```
 
-<script>
-    export default {
-        name: 'MyItem',
-        props:['todoObj'],
-        methods:{
-            changeDone(){
-                this.todoObj.done = !this.todoObj.done
-            },
-            todoObjDelete(){
-                if(confirm('是否删除')){
-                    this.$bus.$emit('deleteTodoObj',this.todoObj.id)
-                }
-            },
-            editTodoObj(todoObj){
-                this.$set(todoObj,'isEdit',true)
-                //由于我们当时并没有给todoObj这个类加入idEdit属性，我们这里选择后加入该属性，这就导致我们上面
-                //的代码无法及时同步视图，此时视图中还没有文本框，没有文本框这时候设置自动获取焦点是无效的。
-                //问题的解决：使用$nextTick(),可以在该函数回调完的最后再去执行
-                
-                //题外话：vue更新视图是在回调完一整个函数后再回调！！！因为你遇见一个更新就回调效率很慢，vue
-                	//   选择全部执行完之后再去更新视图
-                this.$nextTick(function(){
-                    this.$refs.inputTitle.focus()
-                })
-            }
-        },
-    }
+
+
+```
+<script setup>
+import { ref, nextTick } from 'vue';
+
+const message = ref('Hello World');
+const box = ref(null);
+
+const updateMessage = async () => {
+  message.value = 'Hello Vue 3';
+
+  await nextTick(); // 等待 DOM 更新完成
+  console.log(box.value.textContent); // 确保获取到更新后的 DOM 内容
+};
 </script>
-
-<style>
-
-</style>
 ```
 
 
 
 
 
-### 3.11动画效果
 
-//学习css动画 后 补
 
 
 
@@ -3909,14 +4035,14 @@ import {ref,reactive} from 'vue'
 
 ### 4.1 axios配置代理
 
-**简介：通过配置vue的vue.comfig.js**
+**简介：通过配置vue的vue.config.js**
 
 ![image-20240511125441943](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511125441943.png)
 
 **那么如何开启代理服务器呢？？？？**
 
-- 方法一：nginx （专业）
-- 方法二:   vue-cli （用于自己学习）
+- 方法一：nginx 
+- 方法二:   vue-cli 
 
 
 
@@ -4209,10 +4335,14 @@ npm i vue-router
 
 #### ② 注册路由
 
+**<font color='red'>注意这里注册的路由实际就是第三步配置的路由，但是路径可以省略，因为"./router"，JavaScript 模块解析器会自动查找文件夹会默认去一个这里寻找router/index.js</font>**
+
 main.js中，
 
 ```
 //引入路由器
+//这里使用'./router' 是因为JavaScript 模块解析器会自动查找文件夹会自动寻找 router/index.js文件，比较方便，有点类似
+   SpringBoot的约定大于配置的  感觉了
 import router from './router'
 
 
@@ -4233,37 +4363,6 @@ app.mount()
 
 在src下面生成一个目录router/index.js,内容如下：
 
-**结构一**
-
-```js
-//引入一些需要使用的方法
-import {
-createRouter,
-  createWebHashHistory,
-} from 'vue-router'
-
-//创建路由
-const router = createRouter({
-  history:createWebHashHistory(),
-  routes:[
-    //默认路由
-    {
-        path:'/',
-        redirect:'/home'
-    },
-    {
-    	path:
-    	component:
-    }
-  ]
-})
-
-
-
-export default router
-
-```
-
 **结构二:   这个结构可读性更强一些!**
 
 ```js
@@ -4273,8 +4372,8 @@ import {
     createWebHashHistory,
 } from 'vue-router'
 
-import Home from '../pages/Home.vue'
-import About from '../pages/About.vue'
+const Home = () => import '../pages/Home.vue'
+const About= () => import'../pages/About.vue'
 
 const routes = [
 // 路由的默认路径
@@ -4317,6 +4416,15 @@ export default router;
 
 
 
+
+```
+docker run -p 3306:3306 --name mysql \
+-v /usr/local/docker/mysql/conf:/etc/mysql \
+-v /usr/local/docker/mysql/logs:/var/log/mysql \
+-v /usr/local/docker/mysql/data:/var/lib/mysql \
+-e MYSQL_ROOT_PASSWORD=123456 \
+-d mysql:8.0
+```
 
 
 
@@ -4891,11 +4999,11 @@ export const useCountStore = defineStore('count',{
 
 
 
-### 7.1 工程结构的区别
+### 7.1 工程区别
 
 
 
-#### ① app挂载与引入crateAp工厂函数
+#### ① app挂载引入createApp工厂函数
 
 ![image-20240514133106804](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514133106804.png)
 
@@ -4903,11 +5011,49 @@ export const useCountStore = defineStore('count',{
 
 
 
-#### ②
+#### ② 静态加载与懒加载
+
+- 静态加载
+  - Vue2我们普遍使用静态加载      比如： import Index from 'xxx/index.vue'
+  - 也叫同步导入   ，模块会在应用启动时被**立即加载**
+  - 适应于小项目
+  - 可能会影响首屏加载速度
 
 
 
-### 7.2 常用Composition API
+- 懒加载
+
+  - Vue3我们会经常使用懒加载const Index  = () => import('xxx/index.vue')
+
+  - 只有被使用时才会被加载，减少成本
+
+  - 适应于大项目,但是建议你这样写！
+
+
+
+
+
+#### ③ hook
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 7.2 常用API
 
 
 
@@ -4947,51 +5093,147 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
+#### 2.响应式数据
+
+
+
+##### ①.ref函数
+
+<font color='red'>**都能定义，但因为底层会直接调用reactive,凡是ref定义的对象类型，需要不停地.value太麻烦，所以ref还是只定义基本数据类型比较好**</font>
+
+
+
+- Vue2中的响应式数据
+
+  - ```
+    在Vue2中，{data(){return {x:y}}},我们通过底层的数据代理和数据劫持就已经是响应式的数据了，但是Vue3里面我们需要通过ref/reactive主动声明响应式
+    ```
+
+    
+
+
+
+- ref()返回的是什么
+  - ![image-20241012124422019](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241012124422019.png)
+
+
+
+- .value问题
+  - 注意返回的是RefImp类型的数据,给我们使用的数据其实是 value(....)，这里才是 我们能获取的数据,
+    此时我们要通过  xxx.value才能获取到数据
+  - 但在模版里面  ,我们不需要.value, 底层会自动添加.value
 
 
 
 
 
 
-#### 2.ref函数
 
-**//推荐使用ref函数，因为ref函数接收对象类型，底层就是使用的reactive函数**
+##### ②.reactive函数
 
-**ref在模版里面使用不需要.value**
-
-![image-20240514141234759](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514141234759.png)
-
-![image-20240514140139518](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514140139518.png)
+**<font color='red'>专门定义   对象类型</font>**
 
 
 
-**Proxy是ES6中提出的，它没有Object的get set，是通过**
-
-![image-20240515130425088](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515130425088.png)
-
-**//如果是数组的话，vue2底层用的是definxxx什么的，不能直接修改，但是vue3底层用的是Proxy可以直接修改**
+- reactive返回的是什么?
+  - 返回的是 Proxy对象,   只要看见Proxy代理的xxx对象，那他就是响应式对象！
+    ![image-20241012125208798](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241012125208798.png)
 
 
 
-**//一个注意点：因为你使用ref函数，使其变成refimp引用对象，需要通过引用对象.value获取值，但是如果在reactive中有一个属性使用了ref函数，此时不需要拆解属性，直接就可以使用！！！！**
+- reactive的一个坑 **<font color='red'>reactive会重新分配对象！！！！！</font>**
 
-![image-20240515142728820](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515142728820.png)
+  - 虽然reactive不需要.value，但是如果你需要将整个数据修改，而非单一属性修改，比如
+    const car = reactive({name:'奥拓',price:100}),如果服务器返回一个价格200的宝马,你要怎么修改？
+
+    ```
+    //方法一，直接修改
+    	结果无效，因为此处的car再也不是响应式对象了，而变成了普普通通的对象了
+    function changeCar(){
+    	car = {name:'宝马',price:200} //直接变成了普普通通的对象了
+    }
+    
+    //方法二,reactive套娃
+    	也不行，因为reactive会重新分配对象，这样此时的car和模版里面的car就不是同一个对象了，修改自然就失败了
+    function changeCar(){
+    	car = reactive({name:'宝马',price:200}) //
+    }
+    //方法三, Object.assign(a,b,c)  
+    	该方法会将 b c的属性都给 a 
+    function changeCar(){
+    	Object.assgin(car,{name:'宝马',price:200})
+    }
+    ```
+
+    
 
 
 
-#### 3.reactive函数
 
 
 
-![image-20240514141325873](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514141325873.png)
-
-![image-20240515132009064](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515132009064.png)
 
 
 
-![image-20240515132117419](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515132117419.png)
 
-[你和我一样纠结过vue3的 ref() 和 reactive()吗？ - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/663590743)
+
+
+
+##### ③ 区别
+
+
+
+- 原理不同
+  - ref本质还是vue2那一套，你看RefImp里面还有_value这些老东西
+  - reactive本质是Proxy代理
+
+
+
+
+
+##### ④.toRef, toRefs
+
+- 作用:
+  - **用来复制reactive中的属性，然后转为ref对象，既保留了响应式，又保留了引用。也就是你从 `reactive` 复制过来的属性进行修改后，除了视图会更新，原有 `ractive` 里面对应的值也会跟着更新 ! ! ! ! ! !**   
+  - <font color="red">**toRef和toRefs都是浅拷贝！！！！！**</font>
+  - <font color="red">**专门搭配解构赋值很方便！！**</font>
+
+
+
+- 例子
+
+  - ```
+    const x = toRef(person,'name')
+    console.log(x.value)
+    
+    let {name,age} = toRefs(person)
+    console.log(name.value,age.value)
+    ```
+
+    
+
+
+
+#### 3.props
+
+**<font color='red'>如果不接受数据，那么只能在模版里面使用</font>**
+
+- Vue3中 使用 **defineProps**
+  - 和vue2的props区别不大，这是声明方式变成了方法
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -5007,11 +5249,74 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 #### 5.watch监视
 
-**//反正watch相比计算属性少用**
 
-其他情况就那么写
 
-![image-20240514174253018](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514174253018.png)
+- Vue3中 watch只能监视四种数据
+  - ref,reactive定义的数据
+  - 函数返回的一个值(getter函数)
+  - 一个包含上述内容的数组
+
+- 具体使用
+
+  - ```
+    watch(sum,(newValue,oldValue) => { console.log('我变化了！')})
+    ```
+
+- 深度监视
+
+  - **根本原因就是因为如果是ref定义的对象，watch监视的是对象的地址值**
+
+  - reactive定义的对象**<font color='red'>默认开启深度监视</font>**>
+
+  - ref 定义的对象<font color='red'>**需要手动开启深度监视**</font>
+
+  - ```
+    watch(person,回调函数)    只有person地址变了才能监视到，单纯的改变person.name是无效的
+    
+    watch(person,回调函数,{depp:true})  //无论是地址还是属性只要变了就能监视到
+    ```
+
+- 关于newValue 与 oldValue的一个细节
+  - 如果监视一个对象，假如那个对象的地址变了，也就意味着newValue就指向了新数据，oldValue就指向了之前的旧数据
+  - 如果监视一个对象，假如那个对象只是修改了属性，地址没有变化，newValue和oldValue都指向同一块地址，实际上
+    这种情况下，newValue和oldValue就是同一个对象
+
+- 五种情况
+
+  - 监视ref定义的对象，需要手动开启深度监视
+
+  - 监视reactive定义的对象，默认已经开启深度监视
+
+  - 监视响应式对象的某一个基础属性，但是属性不在监视范围内，需要通过箭头函数return自身让其变成getter函数
+
+    - ```
+      watch(()=>{return person.name},回调函数)  //完整写法
+      watch(()=>person.name ,回调函数)   //箭头函数的省略return的写法  
+      ```
+
+  - 监视响应式对象的某一个响应式属性
+
+    - ```
+      //person.car也是一个响应式对象
+      
+      //1.只能监视car的某一个属性的改变(即使加上深度监视也无效)
+      watch(person.car,回调函数)
+      //2.只能监视car的地址
+      watch(()=>person.car,回调函数)
+      //3.最佳实践,这样属性的变化,地址的变化都可以监视
+      watch(()=>person.car,回调函数,{depp:true})
+      ```
+
+  - 监视多个数据，即监视数组
+
+    - ```
+      watch([()=>persom.name,()=>person.car],回调函数)
+      此时的newValue和oldValue就和数组里的结构对应
+      ```
+
+      
+
+
 
 
 
@@ -5025,108 +5330,33 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
-#### 7. hook
-
-**hook == java中的utils工具**
-
-
-
-**//那以后是不是都会变成这样，需要修改什么就直接去修改对应的hook**
-
-```
- <script setup>
-    import usePoint from '@/hooks/usePoint'
-    import .............
-	
-	 useXXX()
-	 useXXX()
-	 useXXX()
-	 useXXX()
-    let XXX = usePoint()
-    let XXX = usePoint()
-    let XXX = usePoint()
-    let XXX = usePoint()
- </script>
-```
-
-
-
-**例子**
-
-```
-//就相当于java中的utils,只不过习惯将里面的js文件命名为useXXXX
-//记录鼠标打点xy的工具方法
-import {ref,reactive,onMounted,onBeforeUnmount} from 'vue'
-export default function(){
-  let point = reactive({
-    x:0,
-    y:0
-  })
-  //保存鼠标xy
-  function savaPoint(event){
-    point.x = event.pageX
-    point.y = event.pageY
-  }
-
-  onMounted(()=>{
-    window.addEventListener('click',savaPoint)
-  onBeforeUnmount(()=>{
-    window.removeEventListener('click',savaPoint)
-    })
-  })
-
-  return point
-}
-```
-
-​	
-
-```
-<template>
-  <div>
-    <h2>鼠标的X:{{ point.x }},y:{{ point.y }}</h2>
-  </div>
-  </template>
-  
-  <script setup>
-    import usePoint from '@/hooks/usePoint'
-
-    let point = usePoint()
-
-  </script>
-```
+#### 7.动画API
 
 
 
 
 
-#### 8.toRef与toRefs
-
-**用来复制reactive中的属性，然后转为ref对象，既保留了响应式，又保留了引用。也就是你从 `reactive` 复制过来的属性进行修改后，除了视图会更新，原有 `ractive` 里面对应的值也会跟着更新 ! ! ! ! ! !**   
-
-
-
-换句话说，toRef 和 toRefs 就是用来创建响应式的引用的，主要用来取出响应式对象里的属性，或者解构响应式对象，解构出来的属性值依然是响应式属性，**如果不用 toRef 或者 toRefs，直接解构会丢失响应式效果。**
-
-
-
-<font color="red">**toRef和toRefs都是浅拷贝！！！！！**</font>
-
-<font color="red">**专门搭配解构赋值很方便！！**</font>
-
-```
-const x = toRef(person,'name')
-console.log(x.value)
-
-let {name,age} = toRefs(person)
-console.log(name,age)
-```
 
 
 
 
 
-### 7.3 其他Composition API
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### 7.3 其他API
 
 
 

@@ -35,7 +35,7 @@
 
 
 
-# 记忆过渡
+# 过渡
 
 
 
@@ -98,22 +98,6 @@
 
 
 
-
-
-# 听力单词过渡
-
-
-
-
-
-
-
-1. process 
-2. progress
-3. priorities
-
-
-
 # 错误发音单词
 
 
@@ -132,6 +116,11 @@
 
 # 顽固份子
 
+1. process
+2. progress
+2. credit:好多意思 其中之一指完成游戏后在屏幕上显示的开发团队、艺术家和其他参与者的名单
+2. metal
+2. sheet 
 
 
 
@@ -147,8 +136,7 @@
 
 
 
-
-# 记过却遗忘
+# 遗忘
 
 
 
@@ -160,16 +148,12 @@
 
 1. yogurt
 2. yolk
+3. letter :除了信封 还有字母的意思
 
 
 
 1. fried
-
-
-
 1. explode , explosion , explosive
-
-
 
 
 
@@ -185,6 +169,9 @@
 
 1. vowel /vaʊəl/
 2. consonnant
+2. reduction
+2. comprehension   ： the ability to understand sth [reading comprehension]
+2. Greek  希腊的
 
 
 
@@ -198,15 +185,24 @@
 
 bile produced by your liver , can help you digest fat
 
-## cab
-
- taxi;   literary words
 
 
 
 
+1. cop
+1. cab   
+2. articles:a an the  ;          conjunctions:and but or ...  ;                    prepositions:in  on at  ...
+2. soar:  2个意思  ↑
 
 
+
+
+
+# 同义词
+
+
+
+1. alone ;  lonely ; single
 
 
 
@@ -221,6 +217,40 @@ bile produced by your liver , can help you digest fat
 # 词组
 
 - make sense :  to be clear and easy to understand
+
+
+
+
+
+
+
+# Game:行尸走肉
+
+1. broadcast  :  a television or radio program      ;      to send out a program on television or radio
+2. commentray:   a spoken description of an event while the event is happening
+3. developer
+4. gallery
+5. definite   definitely   definitive :  not changed ;   considered to be the best of its type 
+6. feral    wild   savage 
+7. alpha   :   the leader in the animal 
+8. sheet metal   
+9. animal crackers  
+10. fussy :    you `re so  fussy, it means you 
+11. spanner  
+
+
+
+## Phrase
+
+1. worse comes to worst : if worse comes to worst ,the boxcar`s safe enough to sleep in.
+
+
+
+
+
+
+
+
 
 
 
