@@ -224,7 +224,7 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 
 ​	
 
-- git add
+- git add    git add . 
 - git commit -m "版本信息比如first commit" fileName，
 - git commit -m "xxx" fileName -a     //add commit 一块进行
 

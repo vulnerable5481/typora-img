@@ -5330,6 +5330,65 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
+```
+1. beforeCreate
+官网：在实例初始化之后,进行数据侦听和事件/侦听器的配置之前同步调用。
+
+详细：在这个阶段，数据是获取不到的，并且真实dom元素也是没有渲染出来的
+
+2. created
+官网：在实例创建完成后被立即同步调用。在这一步中，实例已完成对选项的处理，意味着以下内容已被配置完毕：数据侦听、计算属性、方法、事件/侦听器的回调函数。然而，挂载阶段还没开始，且 $el property 目前尚不可用。
+
+详细：在这个阶段，可以访问到数据了，但是页面当中真实dom节点还是没有渲染出来，在这个钩子函数里面，可以进行相关初始化事件的绑定、发送请求操作
+
+3. beforeMount
+官网：在挂载开始之前被调用：相关的 render 函数首次被调用。
+
+详细：代表dom马上就要被渲染出来了，但是却还没有真正的渲染出来，这个钩子函数与created钩子函数用法基本一致，可以进行相关初始化事件的绑定、发送ajax操作
+
+4. mounted
+官网：实例被挂载后调用，这时 el 被新创建的 vm.$el 替换了。如果根实例挂载到了一个文档内的元素上，当 mounted 被调用时 vm.$el 也在文档内。
+注意 mounted 不会保证所有的子组件也都被挂载完成。如果你希望等到整个视图都渲染完毕再执行某些操作，可以在 mounted 内部使用 vm.$nextTick：
+
+详细：挂载阶段的最后一个钩子函数,数据挂载完毕，真实dom元素也已经渲染完成了,这个钩子函数内部可以做一些实例化相关的操作
+
+5. beforeUpdate
+官网：在数据发生改变后，DOM 被更新之前被调用。这里适合在现有 DOM 将要被更新之前访问它，比如移除手动添加的事件监听器。
+
+详细：这个钩子函数初始化的不会执行,当组件挂载完毕的时候，并且当数据改变的时候，才会立马执行,这个钩子函数获取dom的内容是更新之前的内容
+
+6. updated
+官网：在数据更改导致的虚拟 DOM 重新渲染和更新完毕之后被调用。
+当这个钩子被调用时，组件 DOM 已经更新，所以你现在可以执行依赖于 DOM 的操作。然而在大多数情况下，你应该避免在此期间更改状态。如果要相应状态改变，通常最好使用计算属性或 watcher 取而代之。
+
+详细：这个钩子函数获取dom的内容是更新之后的内容生成新的虚拟dom，新的虚拟dom与之前的虚拟dom进行比对，差异之后，就会进行真实dom渲染。在updated钩子函数里面就可以获取到因diff算法比较差异得出来的真实dom渲染了。
+
+7. beforeDestroy
+官网：实例销毁之前调用。在这一步，实例仍然完全可用。
+
+详细：当组件销毁的时候，就会触发这个钩子函数代表销毁之前，可以做一些善后操作,可以清除一些初始化事件、定时器相关的东西。
+
+8. destroyed
+官网：实例销毁后调用。该钩子被调用后，对应 Vue 实例的所有指令都被解绑，所有的事件监听器被移除，所有的子实例也都被销毁。
+详细：Vue实例失去活性，完全丧失功能
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### 7.动画API
 
 
@@ -5404,250 +5463,71 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
-### 8.1 ElementUI-Plus
+### 8.1ElementUI-Plus
+
+
+
+#### ① 两个引入
+
+- 全局引入
+
+  - 1.**安装 Element Plus**:npm install element-plus --save
+
+  - 2.**main.js全局引入**
+
+    - ```
+      // main.js 或 main.ts
+      import { createApp } from 'vue';
+      import App from './App.vue';
+      import ElementPlus from 'element-plus';
+      import 'element-plus/dist/index.css'; // 引入样式
+      
+      const app = createApp(App);
+      
+      app.use(ElementPlus); // 全局注册 Element Plus
+      app.mount('#app');
+      ```
+
+      
+
+
+
+- 按需引入
 
 
 
 
 
+#### ②自定义操作组件
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 三.React
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 四 项目经验
-
-
-
-
-
-## 1.品优购
-
-
-
-### ① 版心
-
-可以准备一个版心  
+其实很简单，用搜索为例子，我当初很想知道如何取消input的蓝色外边框，无非就是outline或者box-shadow作怪，但是我却无论如何都操作不了 这个搜索框，查了半天我终于明白 **如果要操作elmentui组件，<font color='red'>需要 ::v-deep 深入</font>**
 
 ```
-/* 版心 */
-  .w {
-    width: 1200px;
-    margin: 0 auto;
-  }
-```
-
-
-
-### ②公共样式
-
-本次项目一些常用的样式 可以提取出来，比如需要某一些字段变成color:red
-
-你要是一个一个去找到修改 太麻烦了
-
-```js
-//1.首先准备 公共样式
-.style_red {
- 	color:red
+//这是修改颜色的一个案例   
+.nav-search-input ::v-deep .el-input__wrapper {
+  background-color: #e4e8e8;
 }
-//2.使用公共样式
-<ul>
-	<li>品优购欢迎您！</li>
-	//你看这样是不是更加便捷高效，可读性也更高了呢？
-	<li><a href="#" class="style_red">请登录</a></li>
-</ul>
 ```
 
+![image-20241015124708536](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241015124708536.png)
 
 
-### ③制作竖线
 
-![image-20240902142117303](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902142117303.png)
 
-**这种竖线的最佳做法：使用li 制作**
 
-具体流程：    将li变成一根竖线
 
-```
-        <ul>
-        <li><a href="#">我的订单</a></li>
-        <li></li>
-        <li><a href="#">我的品优购</a></li>
-        <li></li>
-        <li><a href="#">品优购会员</a></li>
-        <li></li>
-        <li><a href="#">企业采购</a></li>
-        <li></li>
-        <li><a href="#">关注品优购</a></li>
-        <li></li>
-        <li><a href="#">客户端</a></li>
-        <li></li>
-        <li><a href="#">网站导航</a></li>
-      </ul>
-```
 
-```
-  .shortcut .w .right ul li:nth-child(even) {
-    width: 1px;
-    height: 12px;
-    background-color: #666666;
-    margin-top: 10px;
-  }
-```
 
-### ④ 搜索框制作
 
-**这样的搜索框制作：大盒子里面套一个Input 一个button**
 
-有个坑：input button 的高 不能是100%不然框会下坠
 
-![image-20240902164230158](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902164230158.png)
+# 三.思路
 
 
 
 
 
-
-
-### ⑤ 购物车数量栏
-
-```
-  .count {
-    position: absolute;
-    top: 1px;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-    line-height: 20px;
-    text-align: center;
-    border-radius: 7px 7px 7px 0;         /、、、!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!、、、!!!!!!!
-    background-color: rgb(213, 24, 24);           
-    color: #f1f1f1;
-  }
-```
-
-![image-20240902184239772](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902184239772.png)
-
-
-
-
-
-### ⑥ 一个注意点
-
-我以前都是给li padding--top 使其上下有距离，但实际上我们应该给每一个li  height！！！！！
-
-![image-20240902201011832](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902201011832.png)
-
-
-
-### ⑦排列十二个盒子
-
-**要求：制作如下图所示的十二个排列整齐的盒子**
-
-![image-20240904153832405](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240904153832405.png)
-
-<font color='orange'>难点：如何解决border叠加？ 思路1：margin负值的妙用，但是会导致盒子位置偏移</font>
-
-<font color='orange'>思路2：严格的计算宽度×   此方法麻烦，需要准确的计算</font>
-
-<font color='orange'>思路3：只给每一个li border-right和border-bottom,然后给大盒子border-top(此案例也有了故不用给)和left,但是这样盒子会溢出，如何解决？答：扩大ul 使盒子能被装下，超出的部分切掉即可，这样损失一点点像素也无伤大雅!!!!!!</font>
-
-![image-20240904154244937](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240904154244937.png)
-
-
-
-**代码实现**
-
-```
-  /* 快报 lifesrvice */
-  .newsflash .lifeservice {
-    height: 150px;
-    border:1px solid #aeadad;   //设置border，其实单独设置左右也可以
-    border-top: 0;			//去除重复的上
-    border-bottom: 0;		//去除重复的下
-    overflow: hidden;	//隐藏超出的部分
-  }
-  .newsflash .lifeservice ul {
-    width: 252px;      //扩大ul的宽
-  }
-  .newsflash .lifeservice ul li {
-    float: left;
-    width: 60px;
-    height: 50px;
-    border-right: 1px solid #aeadad;
-    border-bottom: 1px solid #aeadad;
-  }
-```
-
-
-
-### ⑧ 版心的使用
-
-```
-.w {
-	wight:1200px;
-	margin: 0 auto;
-}
-
-
-这个版心的两种使用
-第一： 并列类
-    <div class="header w"></div>
-第二:  嵌套
-	<div class="header">
-		<div class="w">
-		</div>
-	</div>
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 五.思路
-
-
-
-
-
-## 1.入门
+## 1.动画入门
 
 
 
