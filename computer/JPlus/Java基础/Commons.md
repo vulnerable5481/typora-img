@@ -1,8 +1,124 @@
+# 1. IO流
+
+
+
+
+
+
+
+# 2. 反射
+
+
+
+
+
+
+
+
+
+
+
+# 3.Calandar
+
+
+
+
+
+
+
+# 4.java时间类
+
+
+
+
+
+
+
+# 5.Stream流详解
+
+# 6.Lambda表达式 
+
+# 7. Comparator
+
+
+
+
+
+
+
+
+
+
+
+# 8.Comparator字符串切割
+
+
+
+
+
+
+
+# 9.字符串操作
+
+
+
+
+
 ```
+        //1.使用,分割descripts后，将其变成字符串封装
+        spuInfoDescEntity.setDecript(String.join(",",decripts));
+        
+        //2.split
+        String s = "xxx"
+        String result = s.split("_")[0] 
+```
+
+
+
+
+
+# 10.枚举类
+
+
+
+```
+package com.zlc.common.constant;
+
+public class WareConstant {
+    public enum PurchaseStatusEnum{
+        CREATED(0,"新建"),
+        ASSIGNED(1,"已分配"),
+        RECEIVED(2,"已领取"),
+        FINISHED(3,"已完成"),
+        HASERROR(4,"有异常");
+
+        private int code;
+        private String message;
+
+        PurchaseStatusEnum(int code, String message) {
+            this.code = code;
+            this.message = message;
+        }
+
+        public int getCode() {
+            return code;
+        }
+
+        public String getMessage() {
+            return message;
+        }
+    }
+}
 
 ```
 
-# 1.线程池
+
+
+
+
+
+
+# 11.线程池
 
 
 
@@ -166,175 +282,139 @@ ThreadPoolExecutor.DiscardOldestPolicy： 此策略将丢弃最早的未处理�
 
 
 
-# 2.阿里云文件操作
-
-看文档即可
 
 
 
 
 
-# 3.验证码
 
 
 
 
 
-# 4.JSR303
-
-<font color='orange'>**数据校验的一大利器，常规简单数据校验可以使用JSR303, 剩余的复杂数据校验再由你自己来写**</font>
-
-## 4.1 快速入门
-
-1..引入依赖	
-
-```
-<dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-validation</artifactId>
-</dependency>
-```
-
-2.添加注解，并自定义错误信息message
-
-3.controller层 添加@Valid   开启数据校验，注意必须要加这个不然就无效
-
-4.controller层 可以添加一个数据 BindingResult result ， 意思是数据校验的结果
-
-
-
-## 4.2 分组校验
-
-- 1.设置空接口
-
-![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240922135412898.png)
-
-
-
-- 2.   设置分组
-
-  ```
-  	@NotNull(message = "品牌id不存在",groups = {UpdateGroup.class})
-  	@Null(message = "新增品牌不能指定id",groups = {AddGroup.class})
-  	@TableId
-  	private Long brandId;
-  	/**
-  	 * 品牌名
-  	 */
-  	@NotBlank(message = "品牌名不能为空",groups = {AddGroup.class,UpdateGroup.class})
-  	private String name;
-  	/**
-  	 * 品牌logo地址
-  	 */
-  	@NotBlank(message = "品牌logo不能为空",groups = {AddGroup.class,UpdateGroup.class})
-  	private String logo;
-  	/**
-  	 * 介绍
-  	 */
-  	 @NotBlank(message = "品牌介绍不能为空")
-  	private String descript;
-  ```
-
-  
-
-- 3. @Validated注解   标明分组
-
-```
-/**
- * 修改
- */
-@RequestMapping("/update")
-public R update(@Validated(UpdateGroup.class) @RequestBody BrandEntity brand) {
-    brandService.updateById(brand);
-
-    return R.ok();
-}
-```
-
-- 4.注意点：如果使用在controller层使用@Validated(UpdateGroup.class)，那么 没有设置分组的属性，比如上面的品牌介绍，其@NotBlank就不会生效，使用普通的@Valid则依然起作用
 
 
 
 
 
-## 4.3 最佳实践
-
-<font color='orange'>**可以设置一个枚举类，来控制异常;**</font>****
-
-```
-package com.zlc.common.exception;
-
-public enum BizCodeEnume {
-    UNKONW_EXCEPTION(10000,"系统未知异常"),
-    VALID_EXCEPTION(10001,"参数格式校验失败");
 
 
-    private int code;
-    private String message;
-
-    BizCodeEnume(int code, String message) {
-        this.code = code;
-        this.message = message;
-    }
-
-    public int getCode() {
-        return code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-}
-
-```
-
-**<font color='orange'>为了让业务逻辑与数据校验分开，可以这么做,这样就不会污染controller层的代码</font>**
-
-```
-package com.zlc.gulimall.product.exception;
-
-import com.zlc.common.exception.BizCodeEnume;
-import com.zlc.common.utils.R;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.MethodArgumentNotValidException;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import java.util.HashMap;
 
 
-@Slf4j
-@RestControllerAdvice
-public class GulimallExceptionControllerAdvice {
 
-    @ExceptionHandler
-    public R handleValidException(MethodArgumentNotValidException e) {
-        log.info("数据校验异常:{}", e.getMessage());
-        //获取 BindingResult
-        BindingResult result = e.getBindingResult();
 
-        HashMap<String, String> map = new HashMap<>();
-        //获取错误信息
-        result.getFieldErrors().forEach((item) -> {
-            //获取到错误信息
-            String message = item.getDefaultMessage();
-            //获取到错误字段
-            String field = item.getField();
-            map.put(field, message);
-        });
 
-        return R.error(BizCodeEnume.VALID_EXCEPTION.getCode(), BizCodeEnume.VALID_EXCEPTION.getMessage())
-                .put("data", map);
-    }
 
-    @ExceptionHandler
-    public R handleAll(Exception e){
-        return R.error(e.getMessage());
-    }
-}
 
-```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

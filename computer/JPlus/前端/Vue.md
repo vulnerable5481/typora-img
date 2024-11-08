@@ -1266,9 +1266,35 @@ transform: rotateZ(180deg);
   - 空字符串 默认是 false
   - 除了空字符串其他的非布尔值全都会隐式转换成true
 
-#### 1.3  !==
 
-!== 严格比较       !=宽松比较
+
+
+
+#### 1.3 Bob
+
+```
+Blob 对象表示一个不可变、原始数据的类文件对象
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1934,71 +1960,108 @@ Json.parse(json字符串)
 
 #### 4.6 防抖
 
-![image-20240517102714205](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240517102714205.png)
+​	**<font color='red'>节流和防抖本质都是优化高频率执行代码的一种手段,mouseEnter,mouseLeave,scroll等事件触发，会不断地触发，极大地浪费资源，为了优化性能，需要节流与防抖</font>**
 
+- 定义
 
+  - ```
+    n 秒后在执行该事件，若在n 秒内被重复触发，则重新计时.
+    ```
 
-例子：
+- 模版
 
-```js
-  function debounce(fn, t) {
-      //声明定时器变量
-      let timeId
-      return function () {
-        // 如果有定时器就清除
-        if (timeId) clearTimeout(timeId)
-        // 开启定时器 
-        timeId = setTimeout(function () {
-          fn() //执行逻辑
-        }, t)
-      }
+  - ```
+    // timeId是定时器变量
+    function debounce(){
+    	//如果有定时器就清除
+    	if(timeId){
+    		clearTimeout(timeId)
+    	}
+    	//开启新的定时器
+    	timeId = setTimeout( () = > {
+    		//执行逻辑
+    	},t)
     }
-```
+    ```
 
+- 例子
 
+  - ```
+    // 悬浮头像时，气泡的显隐
+    function handleMouseEnter() {
+      clearTimeout(outTimer); // 这里要清除隐藏的计时器，否则在0.2秒内出入头像，会导致头像变大但气泡突然消失
+      inTimer = setTimeout(() => {
+        popoverDisplay.value = "";
+        isAvatarBig.value = true;
+      }, 100);
+    }
+    function handleMouseLeave() {
+      clearTimeout(inTimer); // 清除显示计时器防止快速经过头像时的气泡闪烁
+      outTimer = setTimeout(() => {
+        popoverDisplay.value = "none";
+        isAvatarBig.value = false;
+      }, 200);
+    }
+    ```
 
-
-
-
+    
 
 #### 4.7 节流
 
-![image-20240517115513721](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240517115513721.png)
+- 定义
 
+  - ```
+    n 秒内只运行一次，若在n 秒内重复触发，只有一次生效
+    ```
 
+- 模版
 
-例子:
-
-```js
-function(fn,t){
-    let timer = null
-    return function(){
-        //如果没有定时器
-        if(!timer){
-            timer = setTimeout(()=>{
-                fn()//执行逻辑
-                //程序执行完成，清除定时器
-                timer = null
-            },t)
-        }
+  - ```
+    function test(){
+    	//如果有定时器,则
+    	if(timeId){
+    		return;
+    	}
+    	//如果没有定时器
+    	timeId = setTimeout(()=>{
+            // fn 写在 setTimeout 内则是等待 delay 后才能执行，之后可以再次触；即先等待再触发
+            // fn 写在 setTimeout 外是执行后等待 delay 才能再次触发，即先触发再等待
+    		//执行逻辑
+    		//程序执行完全，清除定时器
+    	},t)
     }
-}
-```
+    ```
 
-![image-20240517122326027](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240517122326027.png)
+  
 
+  
 
 
 
 
 
+### 5.ES6
 
+#### ①导入
 
+- **<font color='red'>默认导入</font>**
+  - import userApi from '@/apis/userApi.js'
+- <font color='red'>**命名导入**</font>
+  - import { login register userName } from '@/apis/userApi.js'
 
 
 
+#### ②导出
 
+- <font color='red'>**默认导出**</font>
+  - **定义**：使用 `export default` 关键字导出一个默认的实体（函数、类、对象等），一个模块只能有一个默认导出。
+  - **语法**：默认导出时，不需要为导出的实体指定名称。
+  - **导入方式**：导入时可以不使用大括号，并且导入的名称可以与导出时的名称不同。
 
+- <font color='red'>**命名导出**</font>
+  - **定义**：当一个模块中使用 `export` 关键字导出函数、变量或类时，我们称之为命名导出。
+  - **语法**：使用 `export` 关键字导出多个不同的实体，导出时必须指定名称。
+  - **导入方式**：导入时需要使用大括号 `{}` 来指定导出的名称。
 
 
 
@@ -2006,373 +2069,101 @@ function(fn,t){
 
 
 
+#### ③异步处理
 
-## 6.案例和技巧
+- 所谓异步处理，就是让你先暂时跳过回调函数，执行完整个异步操作之后，再折回去调用回调函数 ! ! ! !
 
+- ```
+  function asyncOpeation(){
+  	return new Promise((resolve,reject) => {
+  		setTimeout(() =>{
+  			console.log('回调函数被执行')
+  			resolve("操作完成"); // 解析 Promise，返回结果
+  		},2000)
+  	})
+  }
+  // 调用异步操作
+  asyncOperation().then(result => {
+      console.log(result) // 这里在异步操作完成后调用xx
+  });
+  // 立即输出内容
+  console.log("开始异步操作")
+  ```
 
 
-#### 1.文字的居中
 
+#### ④异步最佳实践
 
+- ES6抛弃了以往ajax那种冗余的写法，转而使用 Promise
 
-**//line-height可以实现单行文字的上下移动**
-
-```
-height: x px;
-line-height: x px;  // line-height = height 可以实现文字垂
-text-align: center  //可以使单行文字居中
-
-```
-
-**//一个水平方向居中，一个竖直方向居中，两者结合可以实现垂直居中！！**
-
-**//一般情况不建议 margin + padding 去实现 垂直居中**
-
-
-
-**关于图片与文字的垂直居中要使用到 vircal-align**
-
-
-
-
-
-
-
-#### 3.盒子宽度警告
-
-
-
-除了盒子，不要随意指定盒子内部元素的宽度,高度也有时候不需要设置
-
-
-
-
-
-
-
-#### 4.margin:0 auto的失效
-
-如果是块级元素/行内块级元素，使用margin: 0 auto;都会使其居中，但是如果是浮动的,float:left就会导致margin:0 auto;失效，指明margin: 10px还是可以使用，这是为什么呢？？
-
-//解答：因为margin: 0 auto 是根据文档位置计算的，浮动使其**脱离文档，导致计算公式无法计算**，但是指明margin依然可以正常使用！
-
-//如果margin:0 auto在 margin-xxx: 10px 的后面也会失效，在前面就有效
-
-使用position: absolute 绝对定位也会使margin: 0 auto 失效
-
-
-
-**//有一个小技巧解决这种绝对定位引起的失效问题:可以先走到中间(top:50%),然后往回走自身宽度的一半即可()**
-
-**//垂直居中也是一个道理**
-
-
-
-#### 5.固定在版心右侧位置	
-
- 
-
-![image-20240330174603275](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330174603275.png)
-
-
-
-
-
-#### 6.操纵placeholder
-
-```
-.search input::placeholder {
-    font-size: 14px;
-    color: #bfbfbf;
-} 
-```
-
-
-
-
-
-### 7.margin负值的妙用
-
-比如ul中五个li的盒子并排，如果有border则会导致重叠变粗，如何解决呢？
-
-![image-20240831202758242](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240831202758242.png)
-
-
-
-我们可以将每一个li盒子的右侧或者左侧border删除，但不能完美解决问题
-
-**使用margin负值即可解决**
-
-![image-20240831203029205](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240831203029205.png)
-
-### 8.margin负值妙用2
-
-还是接着上面的问题，如果我们要实现这样一个功能:鼠标移动到哪个li就使其边框变成blue
-
-```
-ul li:hover{
-
-	border: 1px solid blue
-
-}
-```
-
-此时会出现一个问题，由于我们刚刚margin负值使右边的li盒子压住了当前的盒子导致有一边无法变成蓝色
-
-解决方法：
-
-1. 添加 positive:relative   // 相对定位会压住其他盒子
-2. 如果出现定位冲突  使用优先级解决
-
-### 9.行内块元素的妙用
-
-
-
-如果你想将一个东西快速水平居中 垂直居中，可以将其设置成行内块元素，然后将其父盒子设置text-alin:center,line-hegiht:height即可
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 7.一些功能的实现
-
-
-
-### 1.tab栏切换
-
-```
-<body>
-  <div class="tab">
-    <div class="tab-nav">
-      <h3>每日特价</h3>
-      <ul>
-        <li><a class="active" href="javascript:;" data-id="0">精选</a></li>
-        <li><a href="javascript:;" data-id="1">美食</a></li>
-        <li><a href="javascript:;" data-id="2">百货</a></li>
-        <li><a href="javascript:;" data-id="3">个护</a></li>
-        <li><a href="javascript:;" data-id="4">预告</a></li>
-      </ul>
-    </div>
-    <div class="tab-content">
-      <div class="item active"><img src="./images/tab00.png" alt="" /></div>
-      <div class="item"><img src="./images/tab01.png" alt="" /></div>
-      <div class="item"><img src="./images/tab02.png" alt="" /></div>
-      <div class="item"><img src="./images/tab03.png" alt="" /></div>
-      <div class="item"><img src="./images/tab04.png" alt="" /></div>
-    </div>
-  </div>
-  <script>
-    //绑定事件
-    document.querySelector('.tab-nav ul').addEventListener('click',function(e){
-      //只要我们点击a标签 事件才触发
-      if(e.target.tagName === 'A'){
-        //修改a标签
-        document.querySelector('.tab-nav .active').classList.remove('active')
-        e.target.classList.add('active')
-        //修改大盒子
-        const i = +e.target.dataset.id // 隐式转换成 Number类型，避免下面的字符串 0 + 1 = 01
-        document.querySelector('.tab-content .active').classList.remove('active')
-        document.querySelector(`.tab-content .item:nth-child(${i+1})`).classList.add('active')
-      }
-    })
-  </script>
-
-</body>
-
-</html>
-```
-
-
-
-
-
-### 2.导航栏
-
-**如果使用透明度也可以但就不会有上下滑动的效果**
-
-```
-<body>
-    <div class="header">我是顶部导航栏</div>
-    <div class="content">
-        <div class="sk">秒杀模块</div>
-    </div>
-    <div class="backtop">
-        <img src="./images/close2.png" alt="">
-        <a href="javascript:;"></a>
-    </div>
-    <script>
-        document.querySelector('.header').style.top = '-80px'
-        const sk = document.querySelector('.sk')
-        //页面滚动事件
-        window.addEventListener('scroll',function(){
-            //当页面滚动到秒杀模块，就改变头部的top值
-            const scrollLength = document.documentElement.scrollTop
-            if(scrollLength >= sk.offsetTop && scrollLength <= (sk.offsetTop + sk.clientHeight)){
-                document.querySelector('.header').style.top = 0
-            }else{
-                document.querySelector('.header').style.top = '-80px'
-            }
-        })
-    </script>
-</body>
-
-</html>
-```
-
-
-
-### 3.页面滚动
-
-
-
-```
- <!-- 电梯 -->
-  <div class="xtx-elevator">
-    <ul class="xtx-elevator-list">
-      <li><a href="javascript:;" data-name="new">新鲜好物</a></li>
-      <li><a href="javascript:;" data-name="popular">人气推荐</a></li>
-      <li><a href="javascript:;" data-name="brand">热门品牌</a></li>
-      <li><a href="javascript:;" data-name="topic">最新专题</a></li>
-      <li><a href="javascript:;" id="backTop"><i class="sprites"></i>顶部</a></li>
-    </ul>
-  </div>
-  <script>
-    (function () {
-      //1.滚动显示电梯
-      const elevator = document.querySelector('.xtx-elevator')
-      const entry = document.querySelector('.xtx_entry')
-      window.addEventListener('scroll', function () {
-        const scrollLength = document.documentElement.scrollTop
-        elevator.style.opacity = scrollLength >= entry.offsetTop ? 1 : 0
-      })
-      //2.点击顶部跳转
-      const backTop = document.querySelector('#backTop')
-      backTop.addEventListener('click', function () {
-        window.scrollTo(0, 0)
-      })
-    })();
-
-    (function () {
-      //3.电梯跳转
-      const list = document.querySelector('.xtx-elevator-list')
-      list.addEventListener('click', function (e) {
-        if (e.target.tagName === 'A') {
-          //排他思想
-          const old = document.querySelector('.xtx-elevator-list .active')
-          if (old) {
-            old.classList.remove('active')
+- ```
+  //定义异步操作
+  function test = new Promise((resolve,reject) => {
+  	//如果有回调函数，则在执行完整个异步操作后，最后执行回调函数
+  	const message = function xxx(){}
+  	//resolve会返回异步操作成功的结果,reject则返回失败
+  	     if (success) {
+              resolve("操作成功"); // 操作成功时调用 resolve
+          } else {
+              reject("操作失败"); // 操作失败时调用 reject
           }
-          //添加active
-          e.target.classList.add('active')
-          //跳转
-          const go = document.querySelector('.xtx_goods_' + e.target.dataset.name)
-          document.documentElement.scrollTop = go.offsetTop
-        }
-      })
-    })();
+  	
+  })
+  //可以使用.then来接收异步操作完全后的结果
+  test.then(result => {
+  	console.log(result);//异步操作的结果
+  })
+  //  async/await
+  	//async 用来声明表示该方法是一个异步操作，但是你不写也没事，除非你想要使用await
+  async function haha() {
+  	//await表示等待异步操作完成，程序会卡在这里
+  	console result = await test();
+  }
+  ```
+
+  
 
 
-    (function () {
-      //4.滚到哪里，哪里高亮
-      const list = document.querySelector('.xtx-elevator-list')
-      window.addEventListener('scroll', function (e) {
-        //排他思想
-        const old = document.querySelector('.xtx-elevator-list .active')
-        if (old) {
-          old.classList.remove('active')
-        }
-        //还真是将各个模块的高度获取啊，懒得获取了，很简单那
-      })
-    })()
 
-  </script>
-```
+### 6.实用api
 
-### 4.记录上一次视频播放位置
 
-![image-20240517123201942](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240517123201942.png)
+
+#### ①FileReader
 
 
 
 
 
-### 5.制作三角形
-
-```
-    .haha {
-      width: 0;
-      height: 0;
-      border: 100px solid transparent;
-      border-top-color: pink;
-    }
-```
-
-
-
-### 6. 文本域空白区域
-
-![image-20240831184445664](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240831184445664.png)
-
-如果<textarea></textarea>不在同一行会出现空白区域，你放在同一行就完事了
-
-
-
-## 8. 移动端
-
-### 8.1 区别
-
-
-
-#### ① 视口
-
-最标准的视口：
-
-```
- <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,
- user-scalbale=0">  
-```
-
-
-
-![image-20240907132115988](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240907132115988.png)
-
-#### ② 二倍图
-
-**<font color='red'>一句话概括：PC端的准备的图片在移动端可能被放大，放大后就模糊了。解决思路就是：比如移动端物理像素比是2，原先图片是50px*50px,现在准备100px*100px的二倍图，手动css代码修改为width,height=50px，然后在移动端自动放大二倍后也不会出现模糊的情况</font>**
-
-![image-20240907133002338](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240907133002338.png)
-
-![image-20240907133629784](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240907133629784.png)
 
 
 
 
 
-## 9.flex布局
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## 6.flex布局
 
 
 
@@ -2405,6 +2196,8 @@ ul li:hover{
 
 
 #### ② justify-content
+
+**<font color='red'>注意flex布局中没有justify-items，这个属性是grid布局中的!!!!!</font>**
 
 **<font color='red'>设置主轴上的子元素排列方式</font>**
 
@@ -2497,18 +2290,14 @@ flex-flow:row wrap
 
 
 
-#### ①flex属性
+#### ①flex
 
-
-
-- ![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241012213738006.png)
-
-
-
-
-
-![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241012213941137.png)
-
+```
+用来表示占据父盒子的几分   
+a,b,c{
+flex:1   //a,b,c各占据一份也就是各自1/3
+}
+```
 
 
 
@@ -2516,14 +2305,179 @@ flex-flow:row wrap
 
 
 
-
-### 4.其他属性
-
+## 7.响应式设计思路
 
 
 
 
 
+### 7.1rem与媒体查询
+
+
+
+#### ① rem
+
+- rem也是单位，和em差不多，只不过rem = **<font color='red'>html</font>**中的font-size ， em = 父元素font-size 
+- 默认 html 的 font-size = 16px  
+
+
+
+#### ② 媒体查询
+
+- **语法：** @media 【类型】 and ()
+
+- **<font color='red'>类型=all可以省略</font>**
+
+- 【**类型**】：  all   ,    screen（电脑手机平板屏幕）   ,  print(打印机or打印机预览)
+
+- ```
+  @media (min-width: 1367px) and (max-width: 1700.9px) {
+      .channel-items__left {
+          padding-right: 30px;
+          grid-template-columns: repeat(11,1fr);
+      }
+  }
+  ```
+
+  
+
+### 7.2 grid布局
+
+**<font color='red'>对于响应式布局，grid非常好用</font>**
+
+
+
+#### ①容器属性
+
+- **<font color='red'>grid基本属性</font>**
+
+  - ```
+    .test{
+      /* 声明一个容器 */
+      display: grid;
+      /*  声明容器按照列/行排列
+      grid-auto-flow: rows  //默认是优先按照行排列
+      //强调一点：grid-auto-flow:rows dense,加了dense会自动用下面小块填补上面空白
+      /*  声明列的宽度  */
+      grid-template-columns: repeat(3, 200px);
+      /*  声明行的高度  */
+      grid-template-rows: repeat(2, 200px);
+      /*  声明行间距和列间距  */
+      gap: 20px; //行间距列间距可以拆开写  columns-gap / row-gap
+      /*  和flex的差不多  */
+      【flex布局中没有justify-items!!!!!!!!!!!!!!别搞混了！！！！！】
+      对内justify-items:strech(默认)/start/end/center
+      对内alin-items:同上
+      对外justify-content:strech(默认)/start/end/center
+      对外alin-content:同上
+    }
+    ```
+
+- **<font color='red'>进阶使用</font>**
+
+  - **grid-template-areas 与 grid-area**
+
+  - ```
+    .text{
+    	...同上 故略
+    	  grid-template-areas:
+        ". header  header"
+        "sidebar content content";
+    }
+    .sidebar {
+      grid-area: sidebar;
+    }
+    
+    .content {
+      grid-area: content;
+    }
+    
+    .header {
+      grid-area: header;
+    }
+    ```
+
+  - **grid-auto-columns 属性和 grid-auto-rows 属性**
+
+  - ```
+    隐式和显示网格：显式网格包含了你在 grid-template-columns 和 grid-template-rows 属性中定义的行和列。如果你在网格定义之外又放了一些东西，或者因为内容的数量而需要的更多网格轨道的时候，网格将会在隐式网格中创建行和列
+    假如有多余的网格（也就是上面提到的隐式网格），那么它的行高和列宽可以根据 grid-auto-columns 属性和 grid-auto-rows 属性设置。它们的写法和 grid-template-columns 和 grid-template-rows 完全相同。如果不指定这两个属性，浏览器完全根据单元格内容的大小，决定新增网格的列宽和行高
+    
+    ```
+
+
+- **<font color='red'>响应式用法</font>**
+
+- 这里的1fr就类似flex布局中 用“ flex:1 ”去等分划分区域一样，使用fr就可以实现响应式布局~~~~
+
+  ```
+  grid-template-columns:1fr 1fr 1fr
+  ```
+
+  
+
+
+
+
+
+#### ②项目属性
+
+- 通过控制网格线可以分别定位在哪根网格线，从而指定项目的位置
+
+  - ```
+    grid-column-start 属性：左边框所在的垂直网格线
+    grid-column-end 属性：右边框所在的垂直网格线
+    grid-row-start 属性：上边框所在的水平网格线
+    grid-row-end 属性：下边框所在的水平网格线
+    若有冲突，使用z-index决定优先级
+    ```
+
+  - ```
+    .grid-item {
+      grid-column: span 2; /* 从起始列开始，该元素占用2列 */
+      /* 跨越从第1列到第3列，占据两个网格列的宽度，等价于 grid-column: span 2; */
+      grid-column: 1/3;
+      /* 跨越从第1行到第3行，占据两个网格行的高度 等价于 grid-r: span 2*/
+      grid-row: 1/3;
+    }
+    ```
+
+    
+
+
+
+
+
+
+
+
+
+## 8. 移动端
+
+### 8.1 区别
+
+
+
+#### ① 视口
+
+最标准的视口：
+
+```
+ <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,
+ user-scalbale=0">  
+```
+
+
+
+![image-20240907132115988](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240907132115988.png)
+
+#### ② 二倍图
+
+**<font color='red'>一句话概括：PC端的准备的图片在移动端可能被放大，放大后就模糊了。解决思路就是：比如移动端物理像素比是2，原先图片是50px*50px,现在准备100px*100px的二倍图，手动css代码修改为width,height=50px，然后在移动端自动放大二倍后也不会出现模糊的情况</font>**
+
+![image-20240907133002338](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240907133002338.png)
+
+![image-20240907133629784](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240907133629784.png)
 
 
 
@@ -2547,7 +2501,43 @@ flex-flow:row wrap
 
 
 
-# 二.Vue
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 二.Vue2、3
 
 
 
@@ -2571,7 +2561,7 @@ vue3的脚手架：vue create 项目名
 
 ![image-20240504193007719](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240504193007719.png)
 
-#### 3.vue的数据代理
+#### 3.vue的数据代理【数据劫持】
 
 **//你写在data里面的数据，vue会将其加工(生成get,set)到vue.\_data里面，然后vue实例根据vue._date生成数据名，然后只要调用set就将变化更新到视图上**
 
@@ -2644,52 +2634,11 @@ addSex(){
 
 
 
-#### 5.使用属性方法加不加this
-
-
-
-- 模板里面是不需要加this的
-- js里面需要加this的
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### 1.1插值操作(标签内容绑定)
 
 
 
 #### (1)Mustache(大胡子)语法
-
-
-
-注意: 可以直接写变量，还可以完成**简单的js表达式,计算**
-
-```
-</head>
-<body>
-    <div class="app">{{message1}}，{{1+1}},{{Date.now()}}</div>
-    
-    <script type="text/javascript" src="../js/vue.js"></script>
-    <script>
-            const app = new Vue ({
-            el:'.app',  
-            data:{
-                message1: '你好, zlc'
-            }
-        })
-    </script>
-    
-</body>
-```
 
 
 
@@ -2713,8 +2662,6 @@ addSex(){
 - 某些情况下，我们从服务器请求到的数据本身就是一个HTML代码
   - 如果我们直接通过{{}}来输出，会将HTML代码也一起输出。
   - 但是我们可能希望的是按照HTML格式进行解析，并且显示对应的内容。
-
-89
 
 ```vue
     <div id="app">
@@ -2755,68 +2702,10 @@ addSex(){
 
 
 
-### 1.2 v-bind 标签属性绑定
-
-​	
-
-**//v-bind 一般都是标签属性的东西**
-
-**//语法糖写法   :src="imgUrl"**,只需要写一个:即可,v-bind可以省略
+### 1.2 v-bind
 
  <font color="red">**v-bind的实质就是将引号里面的东西当成js代码而不是字符串看待！！！！！！**</font>
 
-```vue
-    <div id="app">
-        <img v-bind:src="imgUrl" alt="图片错误">
-    </div>
-
-
-    <script src="../js/vue.js"></script>
-    <script>
-        const app = new Vue({
-            el:'#app',
-            data: {
-                imgUrl: 'https:xxx..服务器穿过来的图片路径'
-            }
-        })
-    </script>
-```
-
-
-
-```
-<div><h2 class="basic" :class="mood">{{message1}}</h2></div> 
-<button @click="update">按钮</button>
-
-data(){
-	return {
-		mood = sad
-	}
-}
-methods:{
-	update(){
-		this.mood = happy
-	}
-}
-```
-
-
-
-**//v-bind绑定style属性**
-
-v-bind可以动态绑定style的属性，格式为：style="{key(属性名):value(属性值)}，此处要注意属性值是否带引号，带引号时为字符串，不带引号时[vue](https://so.csdn.net/so/search?q=vue&spm=1001.2101.3001.7020)会认为它是一个变量。
-
-如果key与value重名就可以简写为 :style="{key}"
-
-```
-        <h2 :style="{opacity}">你好啊</h2>		简写
-        <h2 :style="{opacity:opacity}></h2>  完整写法
-                    data(){
-                return{
-                    opacity: 1
-                }
-            },
-```
 
 
 
@@ -2824,7 +2713,8 @@ v-bind可以动态绑定style的属性，格式为：style="{key(属性名):valu
 
 
 
-### 1.2 v-model 数据双向绑定
+
+### 1.2 v-model
 
 
 
@@ -2882,39 +2772,13 @@ v-bind可以动态绑定style的属性，格式为：style="{key(属性名):valu
 
 ### 1.3 v-for
 
-
-
-- 当我们有一组数据需要进行渲染时，我们就可以使用v-for来完成。
-  - v-for的语法类似于JavaScript中的for循环。
-  - 格式如下：v-for=" item in items  :key = "xxx" ",这里的key作为唯一标识，必须得写！！！
-  - 格式还可以另一种写法v-for=" (item,index) in items  :key = "index" ",利用数组index角标作为唯一标识(但是一般别这么做)
-
-
-
 **从数组中循环取出数据**
 
-```vue
-<body>
-    <div id="app">
-        <li v-for="student in students" :key="student.id">
-            {{student.id}}-{{student.name}} <!--也可以直接{{student}}取出整体-->
-        </li>
-    </div>
-
-<script src="../js/vue.js"></script>
-<script>
-    const app = new Vue({
-        el:'#app',
-        data: {
-            students: [
-                {id:'001',name:'赵联城',age:20},
-                {id:'002',name:'赵城联',age:21},
-                {id:'003',name:'赵某人',age:22}
-            ]
-        }
-    })
-
-</script>
+```
+<li>
+    <li v-for="student in students" :key="student.id">
+    {{student.id}}-{{student.name}} <!--也可以直接{{student}}取出整体-->
+</li>
 ```
 
 **从对象中循环取出数据** :  需要注意参数列表是固定的	  先是取出value然后取出key，最后是index
@@ -2932,69 +2796,6 @@ v-bind可以动态绑定style的属性，格式为：style="{key(属性名):valu
 - 如果在遍历的过程中，我们需要拿到元素在数组中的索引值呢？
 - 语法格式：v-for=(item, index) in items
 - 其中的index就代表了取出的item在原数组的索引值。
-
-
-
-实现  点击哪个列表，该列表就变成红色
-
-```vue
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .active{
-            color: red;
-        }
-    </style>
-</head>
-<body>
-    <div id="app">
-        <li :class="{active:index==currentIndex}" @click="change(index)" v-for="(item,index) in movies">{{item}}</li>
-    </div>
-
-<script src="../js/vue.js"></script>
-<script>
-    const app = new Vue({
-        el:'#app',
-        data: {
-            movies: ['海贼王','火影忍者','名侦探柯南','进击的巨人'],
-            currentIndex: 0
-        },
-        methods: {
-            change: function(index){
-                this.currentIndex = index;
-            }
-        }
-    })
-
-</script>
-
-</body>
-</html>
-```
-
-
-
-
-
-**//总之就是 使用V-for时  必须添加:key=“唯一标识一般都是id"**
-
-![image-20240506122313905](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506122313905.png)
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3151,46 +2952,8 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 
 ### 1.7 v-if、v-else-if、v-else,v-show
 
-
-
-- v-if适合用于**切换频率低**的场景
-- v-if与v-else-if,v-else搭配使用时 结构不能被打断
-- v-if如果判断是false，那么就直接不生成相关代码
-
-```vue
-<body>
-    <div id="app">
-        <h1 v-if="isShow">true</h1>
-        <h1 v-else>false</h1>
-        <button @click="change">按钮</button>
-    </div>
-
-
-    <script src="../js/vue.js"></script>
-    <script>
-        const app = new Vue({
-            el:'#app',
-            data: {
-                isShow:true
-            },
-            methods: {
-                change(){
-                    this.isShow = !this.isShow;
-                }
-            }
-        })
-    </script>
-</body>
-```
-
-
-
-- v-show 和 v-if差不多，适合用于**切换频率高**的场景
-- v-show如果判断是false，那么会生成相关代码，但是样式被隐藏起来了
-
-
-
-**//一个关于组件化的知识**
+- **<font color='red'>v-if 与 v-show的区别</font>**
+- **//一个关于组件化的知识**
 
 ```
 //下面每个都做了相同的判断，太不合理了，怎么解决呢？
@@ -3225,54 +2988,7 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 
 ### 1.9 vue生命周期
 
-#### ①引出生命周期
-
-实现效果：   让一段文字的透明度从0->1再从1->0来回重复 
-
-**changeOpacity方法不能看模板初始化的时候就调用，这时候需要用到生命周期的一些关键方法**
-
-```
-<body>
-    <div id="app">
-        <h2 :style="{opacity}">你好啊</h2>
-        <h2>{{name}}</h2>
-    </div>
-    
-    <script src="../js/vue.js"></script>
-    <script>
-        new Vue({
-            el: '#app',
-            data(){
-                return{
-                    name: 'zlc',
-                    button: true,
-                    opacity: 1
-                }
-            },
-            methods: {
-            	//修改透明度的方法
-                changeOpacity(){
-                        setInterval(() => {
-                        if (this.button == true) {
-                            this.opacity -= 0.01
-                        } else {
-                            this.opacity += 0.01
-                        }
-                        if (this.opacity <= 0 || this.opacity >= 1) this.button = !this.button
-                    }, 16)
-                }
-            },
-            mounted(){
-                    this.changeOpacity()
-                }
-        })
-    </script>
-</body>
-```
-
-
-
-#### ②生命周期
+**<font color='red'>update , mounted常用</font>**
 
 - **挂载流程**
 - **更新流程**
@@ -3323,76 +3039,11 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 
 
 
-#### ③两个最重要常用的钩子函数
-
-
-
-**mouted  和  updated**
 
 
 
 
 
-
-
-### 1.10.初学案例
-
-
-
-#### ①列表过滤
-
-```
-<body>
-    <div id="app">
-        <input type="text" placeholder="请输入名字" v-model="keyWord" @keyup.enter="query">
-        <ul>
-            <li v-for="p in fpersons" :key="p.id">
-                {{p.name}}------{{p.age}}
-            </li>
-        </ul>
-    </div>
-
-
-
-    <script src="../js/vue.js"></script>
-    <script>
-        const app = new Vue({
-            el: '#app',
-            data: {
-                keyWord: '',
-                persons:[
-                    { id: '001', name: '1zlc', age: 18 },
-                    { id: '002', name: 'zlc1', age: 18 },
-                    { id: '003', name: 'zlc2', age: 18 },
-                    { id: '004', name: 'zl2c', age: 18 }
-                ],
-                Fpersons:[]
-            },
-            methods: {
-            },
-            //使用监视属性实现
-            watch: {
-                keyWord:{
-                    immediate: true,
-                    handler(val) {
-                        this.fpersons = this.persons.filter((p) =>{
-                            return p.name.indexOf(val) !== -1
-                        })
-                    }
-                }
-            //使用计算属性实现（优先使用计算属性）
-            computed:{
-                fpersons(){
-                    return this.persons.filter((p) =>{
-                        return p.name.indexOf(this.keyWord) !== -1
-                    })
-                }
-            }
-            }
-        })
-    </script>
-</body>
-```
 
 
 
@@ -3406,234 +3057,21 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 
 
 
-### 2.1组件的构成
 
 
 
-**一个Vue组件包括三个部分 <template></template>**,<script></script>,<style></style>**三个部分**
 
+## 3.Vue技术
 
 
 
-
-### 2.2组件的创建
-
-**//此处的test就称之为组件实例对象(vc)**
-
-```
-const test = Vue.extend({
-	template:``,   //写html
-	data(){        //必须使用函数式，因为函数式每次都return一个新对象，保证数据是全新的
-		return {
-			xxx
-		}
-	}
-})
-// 还有简写版本
-
-
-```
-
-![image-20240506181743102](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506181743102.png)
-
-**//一个重要的内置对象VueComponent.prototype._proto__ == Vue.prototype**
-
-**//为什么要有这个关系？让组件实例对象(vc)也可以访问到Vue原型上的属性和方法**
-
-![image-20240506184259276](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506184259276.png)
-
-
-
-
-
-### 2.3 组件的注册
-
-
-
-```
-new Vue({
-	components:{
-		App,
-		School
-	}
-})
-```
-
-
-
-
-
-### 2.4 组件的使用
-
-
-
-**//写组件标签**
-
-```
-//比如我们有一个School组件
-可以直接在div中写 <School></School>
-```
-
-
-
-
-
-
-
-## 3.Vue技术·上篇
-
-
-
-### 3.1 render渲染
-
-**//详情去看视频**
-
-
-
-**vue脚手架生成的main.js为什么要使用render渲染而不使用模板？**
-
-```
-  render: h => h(App)  
-```
-
-**//我们import Vue from 'vue'，实际上引入的是残缺版本的vue，只有核心缺少了模板解析器(缺少的是解析Js中的模板解析器，vue文件的模板解析器还是一直存在的)，所以需要使用别的方法来替代使用template模板**
-
-**//render的使用方法**
-
-```
-render(createElement){
-	return createElement('h1','你好啊')
-}
-//只有一个参数 一行任务，不需要this，可以使用箭头函数
-render: zlc => zlc('h1','你好啊')
-如果是组件则可以直接写组件名
-render: zlc => zlc(App)
-```
-
-
-
-![image-20240506211230109](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506211230109.png)
-
-
-
-
-
-
-
-
-
-### 3.2 ref捉dom
-
-<font color='red'>相当好用啊，不用js那么麻烦的获取了！！！！</font>
-
-**//某些特殊场景我们确实需要获取dom元素，不建议使用js获取，可以使用vue提供的ref**
-
-**//如果只是单纯地获取html标签，那传统的js代码和vue提高的ref确实没区别，但要是针对组件区别就大了！！！**
-
-**//vue的ref可以获取组件实例对象**
-
-<font color='red'>下面的例子是vue3</font>
-
-```
-使用方法:比如获取一个input的dom元素
-import {ref} from 'vue'
-<input type='text' ref='zlc'>
-//名字必须和上面保持一致
-const zlc = ref()
-```
-
-
-
-
+### 3.2 ref获取dom
 
 ### 3.3 props
-
-
-
-```
-//1.使用数组，简单声明接收 (开发中这种简单的用的多)
-props:['name','age','sex']
-
-//2.使用对象接受，类型限制
-props:{
-	name:String,
-	age:Number,
-	sex:String
-}
-
-//3.限制类型，限制必要性，指定默认值
-props:{
-	name:{
-		type:String,    //name的类型是字符串
-		required:true   //name是必要的
-	}，
-	age:{
-		type:Number,
-		default:99    	//默认值
-	}
-}
-```
-
-
-
-**vue3 中 如何使用props**
-
-```
-import {defineProps} from 'vue'
-
-defineProps(['name','student'])//比如父组件传给子组件数据
-但是 这里接收到的数据 只能使用大胡子打印，不能直接获取
-需要重新接收 才能 对其操作
-比如 let props = defineProps(['name','student'])
-console.log(props.name)这样就可以取到了
-```
-
-
-
-
-
-
-
-
-
-
-
-**{备注：props是只读的，Vue底层会检测你对props的修改，如果进行了修改，就会发出警告，若业务确实需要修改，那么请复制props的内容到data中一份，然后去修改data中的数据}**
-
-**//如果你传的是一个基本类型的数据，修改的话vue会直接报错；但是如果你传的是一个对象,修改对象中的一个基本数据类型是不会报错的，只是vue不建议你这么写！！！！**
-
-
-
-
 
 ### 3.4 组件通信
 
 #### 1.props父子单向绑定
-
-**<font color='orange'>实现父子通信</font>**
-
-```
-
-// Parent.vue 传送
-<template>
-    <child :msg="msg"></child>
-</template>
-​	
-// Child.vue 接收
-export default {
-  // 写法一 用数组接收
-  props:['msg'],
-  // 写法二 用对象接收，可以限定接收的数据类型、设置默认值、验证等
-  props:{
-      msg:{
-          type:String,
-          default:'这是默认数据'
-      }
-  },
-  mounted(){
-      console.log(this.msg)
-  },
-```
 
 #### 2.props父子双向绑定
 
@@ -3779,7 +3217,7 @@ export default {
 <HelloWorld ref="child"></HelloWorld>
 这样就直接使用子组件里面的 数据  or 方法
 vue2:this.$refs.child.xxxx
-vue3:const child = r
+vue3:const child = ref()
 ```
 
 
@@ -3794,42 +3232,7 @@ vue3:const child = r
 
 ### 3.5 Vue插件
 
-**//功能：增强Vue**
-
-**//本质就是包含install()方法的一个对象。install方法第一个参数默认是Vue原型，第二个以后的参数是插件使用者传递的数据**
-
-**//Vue.use(),可以写多个；后面我们引入别人写的功能强大的插件，大大加快开发效率**
-
-
-
-- 创建一个plugin.js
-  - 内容：![image-20240507153648504](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240507153648504.png)
-- 使用方法：在main.js中 使用Vue.use(xxx)
-  - ![image-20240507153728040](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240507153728040.png)
-
-
-
-
-
-
-
-
-
-### 3.6 scopted
-
-比如组件A和组件B样式中都有一个同名的class选择器，这时候将他们都注册到app中，就会发生冲突，后引入的样式会覆盖前面引入的样式
-
-**//解决方法就是加入scopted,本质就是将样式中各种选择器的名字随机生成确保不会重复**
-
-```
-<style scopted>
-	xxxxxx
-</style>
-```
-
-
-
-
+- 使用方法：在main.js中 使用**Vue.use(xxx)**
 
 ### 3.7 自定义事件
 
@@ -3843,120 +3246,17 @@ vue3:const child = r
 
 
 
-
-
-
-
-
-
-
-
-
-
-### 3.8 mitt
-
-**//作用：实现任意组件通信**
-
-**//vue2 的全局事件总线 ，pubsub，mitt本质都是提前绑定事件**
-
-
-
-//配置mitt
-
-```
-1.npm i mitt //下载mitt
-
-2.utils/emitter.js    //配置emitter.js
-
-3.import mitt from 'mitt'    //emitter.js里面的内容
-  const emitter =  mitt()
-  export default emitter
-```
-
-//使用mitt
-
-**使用技巧：哪个组件要数据，哪个组件就要绑定事件；哪个组件给数据，哪个组件就要触发事件**
-
-理由：你想一下，如果一个组件有数据还需要绑定事件吗，直接调用方法不完事了？
-
-```
-比如现在随便在一个组件
-import mitt from '@/utils/emitter'
-
-emitter.all.xxx  			 //拿到所有绑定的事件,有很多便捷的api
-emitter.emit('方法'，数据)			//触发事件
-emitter.off('方法')				//解绑
-emitter.on('方法')				//绑定
-
-```
-
-  		 
-
-```
-<template>
-    <h1>父组件</h1>
-    <Child></Child>
-</template>
-
-<script setup>
-import {ref,reactive} from 'vue'
-  import Child from './components/Child.vue'
-  import emitter from '@/utils/emitter'
-
-  emitter.on('getName',(name) => {
-    console.log(name)
-  })
-
-
-</script>
-<style>
-
-</style>
-```
-
-```
-<template>
-<h2>子组件</h2>
-</template>
-
-<script setup>
-  import {ref,reactive} from 'vue'
-  import emitter from '@/utils/emitter'
-
-  let myname = ref('赵联城')
-
-  emitter.emit('getName',myname.value)  
-
-
-
-</script>
-
-<style>
-
-</style>
-```
-
-
-
-
-
-
-
 ### 3.9 消息订阅与发布
 
 **//知道这个就好，我们一般都还是更加推荐使用全局事件总线 进行 组件间的通信**
 
 
 
-#### ① 下载 pubsub.js库
-
-
+#### ① 下载 pubsub.js
 
 ```
 命令行: npm i pubsub-js
 ```
-
-
 
 #### ② 使用流程
 
@@ -3978,12 +3278,6 @@ import {ref,reactive} from 'vue'
 		Pubsub.unsubscript(this.pubId)    //输入订阅id，就可以取消订阅
 	}
 ```
-
-
-
-
-
-
 
 
 
@@ -4015,91 +3309,7 @@ const updateMessage = async () => {
 </script>
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 4.Vue技术·下篇
-
-
-
-### 4.1 axios配置代理
-
-**简介：通过配置vue的vue.config.js**
-
-![image-20240511125441943](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511125441943.png)
-
-**那么如何开启代理服务器呢？？？？**
-
-- 方法一：nginx 
-- 方法二:   vue-cli 
-
-
-
-**使用**
-
-```
-1.npm i axios
-
-2.api/http.js
-
-//配置axios
-import axios from "axios";
-
-const service = axios.create({
-  baseURL:'http://localhost:8080',
-  timeout:5000
-})
-//请求拦截器
-service.interceptors.request.use((config) => {
-   请求拦截器需要返回config！！！
-  return config
-},e => Promise.reject(e))
-//响应拦截器
-service.interceptors.response.use(res => res.data,e=>{
-  return Promise.reject(e)
-})
-
-export default service
-```
-
-
-
-实在是受不了了，不知道为什么配置代理一直失败，干脆直接后端解决跨域问题了！
-
-```
-@Configuration
-public class CorsConfig implements WebMvcConfigurer {
-
-    @Override
-    public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")
-                .allowedOriginPatterns("*")
-                .allowedMethods("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS")
-                .allowCredentials(true)
-                .maxAge(3600)
-                .allowedHeaders("*");
-
-    }
-
-}
-```
-
-
-
-### 4.2 插槽
-
-
+### 3.11 插槽
 
 #### ①默认插槽
 
@@ -4190,85 +3400,6 @@ public class CorsConfig implements WebMvcConfigurer {
 
 ```
 
-```
-<template>
-  <div class="category">
-    <h3>{{title}}分类</h3>
-      <slot :games="games" msg:"你好">我是默认的</slot>
-  </div>
-</template>
-
-<script>
-      数据在这  games:['LOL','CSGO2','CF','地下城'],
-</script>
-
-```
-
-
-
-
-
-
-
-
-
-
-
-### 4.3 Pinia
-
-<font color="red">**Vue3使用Piano,Vue2才使用vueX**</font>
-
-#### ① 引出
-
-**//当组件间的通信变得复杂，那么全局事件总线实现起来就很麻烦**
-
-**// Pinia相当于一个仓库 存放着 一些通用的数据**
-
-![image-20240511155252491](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511155252491.png)
-
-#### ②使用
-
-```
-1.下载pinia
- npm i pinia
- 
-2.main.js中配置
-
-import { createApp } from 'vue'
-import App from './App.vue'
-//引入Pinia
-import {createPinia} from 'pinia'
-
-createApp(App).mount('#app')
-//创建pinia
-const pinia = createPinia()
-//安装Pinia
-app.use(pinia)
-
-3.新建store文件夹
-  里面比如User.js 就和用户相关的公用数据
-  
-4.配置store/count.js
-	import {defineStore} from 'pinia'
-	
-	const useCountStore = defineStore('此处规范建议为文件名:count',{
-	//真正存储数据的地方
-	 state(){
-	 	return {
-	 		sum:6
-	 	}
-	 }
-	})
-	
-	
-	export default useCountStore
-	
-5.使用store
-import {useCountStore} from '@/store/count.js'
-const countStore = useCountStore()
-//取出state中的数据
-console.log(countStore.sum)
-```
 
 
 
@@ -4281,18 +3412,44 @@ console.log(countStore.sum)
 
 
 
+## 4.配置代理
 
+- 前端解决方案：配置vue.config.js        【此外也可以使用Nginx,或者去让后端配置CorsConfig】
 
+  - 原理：当你在vue项目中需要请求后端服务器，可以直接将url中写vue项目运行的url，而非直接写服务器的url
 
+  - 比如vue项目是http://localhost:9090, 服务器是http://localhost:10001,并且配置了api 【如下代码所示】
+    当我们需要websocket连接时，可以这样写 const websocket = new WebSocket('ws://localhost:9090/api/服务器ws具体名称')
+    服务器的跨域设置比如ws的 .setAllowedOriginPatterns("http://localhost:9090");
 
+  - ```
+    const { defineConfig } = require("@vue/cli-service");
+    module.exports = defineConfig({
+      //关闭严格模式
+      lintOnSave: false,
+      transpileDependencies: true,
+      //配置devServer
+      devServer: {
+        open: true,
+        host: "localhost",
+        port: 9090, 
+        https: false,
+        proxy: {
+          // 配置跨域
+          "/api": {
+            target: "http://localhost:10001",    //这里不需要写/api 因为已经在axios配置了baseURL
+            ws: true,    //允许代理websocked相关的请求
+            changeOrigin: true,  
+            pathRewrite: {
+              "^/api": "",
+            },
+          },
+        },
+      },
+    });
+    ```
 
-
-
-
-
-
-
-
+    
 
 
 
@@ -4309,7 +3466,7 @@ console.log(countStore.sum)
 ### 5.1 SPA
 
 - 单页Web应用,single page web application,SPA
-- 整个应用只有一个页面
+- 整个用只有一个页面
 - 点击页面的导航栏链接，不会刷新页面，只会做页面的局部更新
 - 数据需要通过ajax请求获取
 
@@ -4362,8 +3519,6 @@ app.mount()
 #### ③ 配置路由
 
 在src下面生成一个目录router/index.js,内容如下：
-
-**结构二:   这个结构可读性更强一些!**
 
 ```js
 // history模式
@@ -4473,10 +3628,6 @@ docker run -p 3306:3306 --name mysql \
 
 
 ### 5.5 路由携带参数
-
-
-
-
 
 #### ①pageURL携带参数
 
@@ -4832,8 +3983,132 @@ const userId = route.query?.id
 
 
 
+## 6.封装axios
+
+
+
+- 1、npm i axios -save
+
+- 2.配置axios,   个人习惯在  utils/httpRequest.js 里面配置
+
+  - ```
+    import axios from "axios";
+    
+    const AxiosService = axios.create({
+      baseURL: "/api",
+      timeout: 10 * 1000, //请求超时时间
+      headers: { "Content-Type": "application/json;charset=UTF-8" },
+    });
+    
+    // 请求拦截器
+    AxiosService.interceptors.request.use(
+      (config) => {
+        //根据你的后端业务来写,如果权限验证，token
+        return config;
+      },
+      (err) => {
+        //若出现错误，则直接报错
+        Promise.reject(err);
+      }
+    );
+    
+    // 响应拦截器
+    AxiosService.interceptors.response.use(
+      (res) => {
+        // 这里用于处理返回的结果，比如如果是返回401无权限，可能会是跳回到登录页的操作，结合自己的业务逻辑写
+        // 一定结合自己的后端的返回代码进行操作
+        // res通常包含后端返回的主要数据。如果你只关心后端返回的数据而不需要访问响应的其他元信息（如状态码、响应头等），那么返回 res.data 会使代码更加简洁。
+        return res;
+      },
+      (err) => {
+        // 会将错误传递到调用该请求的代码中，便于后续处理错误。
+        return Promise.reject(err);
+      }
+    );
+    
+    export default AxiosService;
+    
+    ```
+
+- 3.封装post get方法   utils/httpRequest.js
+
+  - ```
+    import AxiosService from "./http";
+    
+    const httpRequest = {
+      //封装 GET 请求
+      get(url, params = {}) {
+        //确保每次请求 URL 都是独一无二的，避免因缓存导致的问题
+        params._t = Date.now();
+        //这里的 { params } 会被 Axios 自动识别添加到请求 URL 上
+        return AxiosService.get(url, { params })
+          .then((response) => response)
+          .catch((error) => {
+            console.error("GET 请求失败:", error);
+            throw error; //抛出错误，拱调用者处理
+          });
+      },
+      //封装 POST 请求
+      //POST请求需要在 body里面放入数据
+      post(url, data = {}) {
+        //不需要时间戳
+        return AxiosService.post(url, data)
+          .then((response) => response)
+          .catch((error) => {
+            console.log("POST请求失败:", error);
+            throw error;
+          });
+      },
+    };
+    
+    export default httpRequest;
+    ```
+
+- 4.封装apis/userApis.js
+
+  - **下面两种方式都可以**
+
+  - ```
+    import httpRequest from "@/utils/httRequest.js";
+    
+    const userApi = {
+      test(url) {
+        // 返回 Promise，调用时可以链式处理响应
+        return httpRequest
+          .get(url)
+          .then((response) => {
+            console.log("服务器响应:", response);
+            return response; // 返回响应给调用方
+          })
+          .catch((error) => {
+            console.error("请求失败:", error);
+            throw error; // 抛出错误供调用方处理
+          });
+      },
+    };
+    
+    export default userApi;
+    ```
 
+  - ```
+    import httpRequest from "@/utils/httRequest.js";
+    
+      function test(url) {
+        // 返回 Promise，调用时可以链式处理响应
+        return httpRequest
+          .get(url)
+          .then((response) => {
+            console.log("服务器响应:", response);
+            return response; // 返回响应给调用方
+          })
+          .catch((error) => {
+            console.error("请求失败:", error);
+            throw error; // 抛出错误供调用方处理
+          });
+      }
+    ```
 
+    
 
 
 
@@ -4841,169 +4116,15 @@ const userId = route.query?.id
 
 
 
+# 三、Vue3
 
 
 
+## 1 区别
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-## 6.集中式状态(数据)管理
-
-**vue2 经常使用的是 vueX ; vue3 经常使用的是  pinia**
-
-
-
-### 6.1 搭建环境
-
-```
-npm i pinia
-```
-
-```
-import { createApp } from 'vue'
-import App from './App.vue'
-//第一步：引入pinia
-import { createPinia } from 'pinia'
-
-const app = createApp(App)
-//第二步：创建Pinia
-const pinia = createPinia()
-//第三步: 安装Pinia   最好在const app = createApp(App)后面安装Pinia
-app.use(pinia)
-app.mount('#app')
-```
-
-```
-//1.在src目录下创建 store文件
-```
-
-
-
-### 6.2 存储读取
-
-**store下面的count.js文件**
-
-```
-import { defineStore } from "pinia";
-							//规范：要求使用useXXXStroe当对象名，defireStroe的的第一个参数应该是文件的名字			
-export const useCountStore = defineStore('count',{
-  //真正存储数据的地方
-  state(){
-    return {
-      sum:6
-    }
-  }
-  //用于响应组件的方法
-  	actions里面的this指向useCountStore,里面直接就可以使用属性this.xxx
-  actions{
-		test(){
-			xxxxx
-		}
-	}
-})
-```
-
-**组件中的使用**
-
-```
-  import { useCountStore } from '@/store/count'; 
-
-  const countStore = useCountStore()  //countStore是一个Porxy
-    function add(){
-    countStore.sum += n.value 
-  }
-  function device(){
-    countStore.sum -= n.value
-  }
-```
-
-
-
-### 6.3 stroeToRefs
-
-
-
-**//关于解构赋值，如果使用toRefs会导致countStore自带的方法出问题，所以要使用pinia提供的一个API代替**
-
-![image-20240515200353800](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515200353800.png)
-
-
-
-
-
-
-
-
-
-### 6.4 修改数据
-
-```
-//1.直接修改
-	countStore.sum += 1
-
-//2.批处理
-	可以一次性修改多个数据，且有提示词
-	countStore.$patch({
-		sum:888,
-		school:'xxx',
-		address:'xxx'
-	})
-
-//3.调用文件中的actions里面的方法
-```
-
-
-
-
-
-### 6.5 getters
-
-//类比computed
-
-
-
-
-
-### 6.6 $subcribe
-
-//类比watch
-
-
-
-### 6.7 组合式写法
-
-类比setup
-
-
-
-
-
-
-
-## 7. Vue3
-
-
-
-### 7.1 工程区别
-
-
-
-#### ① app挂载引入createApp工厂函数
+### ① app挂载引入createApp工厂函数
 
 ![image-20240514133106804](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514133106804.png)
 
@@ -5011,7 +4132,7 @@ export const useCountStore = defineStore('count',{
 
 
 
-#### ② 静态加载与懒加载
+### ② 静态加载与懒加载
 
 - 静态加载
   - Vue2我们普遍使用静态加载      比如： import Index from 'xxx/index.vue'
@@ -5033,7 +4154,7 @@ export const useCountStore = defineStore('count',{
 
 
 
-#### ③ hook
+### ③ hook
 
 
 
@@ -5053,11 +4174,11 @@ export const useCountStore = defineStore('count',{
 
 
 
-### 7.2 常用API
+## 2 常用API
 
 
 
-#### 1.拉开序幕的setup
+### 1.拉开序幕的setup
 
 ```
 vue@3.2以上的版本 可以使用setup语法糖
@@ -5093,11 +4214,11 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
-#### 2.响应式数据
+### 2.响应式数据
 
 
 
-##### ①.ref函数
+#### ①.ref函数
 
 <font color='red'>**都能定义，但因为底层会直接调用reactive,凡是ref定义的对象类型，需要不停地.value太麻烦，所以ref还是只定义基本数据类型比较好**</font>
 
@@ -5129,7 +4250,7 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
-##### ②.reactive函数
+#### ②.reactive函数
 
 **<font color='red'>专门定义   对象类型</font>**
 
@@ -5165,21 +4286,8 @@ vue@3.2以上的版本 可以使用setup语法糖
     }
     ```
 
-    
 
-
-
-
-
-
-
-
-
-
-
-
-
-##### ③ 区别
+#### ③ 区别
 
 
 
@@ -5191,7 +4299,7 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
-##### ④.toRef, toRefs
+#### ④.toRef, toRefs
 
 - 作用:
   - **用来复制reactive中的属性，然后转为ref对象，既保留了响应式，又保留了引用。也就是你从 `reactive` 复制过来的属性进行修改后，除了视图会更新，原有 `ractive` 里面对应的值也会跟着更新 ! ! ! ! ! !**   
@@ -5214,30 +4322,7 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
-#### 3.props
-
-**<font color='red'>如果不接受数据，那么只能在模版里面使用</font>**
-
-- Vue3中 使用 **defineProps**
-  - 和vue2的props区别不大，这是声明方式变成了方法
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### 4.计算属性
+### 4.计算属性
 
 **//将Vue3中计算属性直接变成了一个方法，不过一般都是使用简写形式**
 
@@ -5247,7 +4332,7 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
-#### 5.watch监视
+### 5.watch监视
 
 
 
@@ -5324,7 +4409,7 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
-#### 6.生命周期
+### 6.生命周期
 
 **![image-20240514180003987](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514180003987.png)**
 
@@ -5389,7 +4474,35 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
-#### 7.动画API
+### 7.动画API
+
+
+
+
+
+
+
+### 8. 组件通信
+
+- defineProps
+
+- defineEmits
+
+  - ```
+    父组件:   <Login @changeShow='changeShow'></Login>
+    子组件:   const emit = defineEmits(['changeShow'])
+    		 const changeShow = (num) => {emit.changeShow(number)}
+    ```
+
+- ref 与 defineExpose
+
+  - ```
+    父组件: const child = ref()
+    	   child.xxxx()
+    子组件: defineExpose({xxxx})   //需要把要给父组件的属性/方法暴露出去！
+    ```
+
+    
 
 
 
@@ -5414,12 +4527,11 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
-
-### 7.3 其他API
-
+## 3 其他API
 
 
-#### 1.响应式数据的判断
+
+### 1.响应式数据的判断
 
 ![image-20240514221553053](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514221553053.png)
 
@@ -5429,91 +4541,76 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
-### 7.4 新的组件
+## 4.pinia
 
-
-
-#### 1.Fragment(理解)
-
-![image-20240514222146119](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514222146119.png)
-
-
-
-
-
-#### 2.Teleport
-
-
-
-
-
-
-
-#### 3.Suspense
-
-
-
-
-
-
-
-
-
-## 8.Vue UI组件库
-
-
-
-### 8.1ElementUI-Plus
-
-
-
-#### ① 两个引入
-
-- 全局引入
-
-  - 1.**安装 Element Plus**:npm install element-plus --save
-
-  - 2.**main.js全局引入**
-
-    - ```
-      // main.js 或 main.ts
-      import { createApp } from 'vue';
-      import App from './App.vue';
-      import ElementPlus from 'element-plus';
-      import 'element-plus/dist/index.css'; // 引入样式
-      
-      const app = createApp(App);
-      
-      app.use(ElementPlus); // 全局注册 Element Plus
-      app.mount('#app');
-      ```
-
-      
-
-
-
-- 按需引入
-
-
-
-
-
-#### ②自定义操作组件
-
-其实很简单，用搜索为例子，我当初很想知道如何取消input的蓝色外边框，无非就是outline或者box-shadow作怪，但是我却无论如何都操作不了 这个搜索框，查了半天我终于明白 **如果要操作elmentui组件，<font color='red'>需要 ::v-deep 深入</font>**
+- **<font color='red'>vue2 经常使用的是 vueX ; vue3 经常使用的是  pinia</font>**
+- **<font color='red'>下面只是搭建环境，具体API自己查文档</font>**
 
 ```
-//这是修改颜色的一个案例   
-.nav-search-input ::v-deep .el-input__wrapper {
-  background-color: #e4e8e8;
+npm i pinia
+```
+
+```
+import { createApp } from 'vue'
+import App from './App.vue'
+//第一步：引入pinia
+import { createPinia } from 'pinia'
+
+const app = createApp(App)
+//第二步：创建Pinia
+const pinia = createPinia()
+//第三步: 安装Pinia
+app.use(pinia)
+app.mount('#app')
+```
+
+```
+//1.在src目录下创建 store/index.js
+```
+
+
+
+
+
+
+
+## 5.组件库
+
+
+
+### 5.1ElementUI-Plus
+
+#### ①::v-deep
+
+其实很简单，用搜索为例子，我当初很想知道如何取消input的蓝色外边框，无非就是outline或者box-shadow作怪，但是我却无论如何都操作不了 这个搜索框，查了半天我终于明白 **如果要操作elmentui组件，需要 ::v-deep 深入**
+
+
+
+```
+//这是直接修改属性
+::v-deep .el-dialog {
+  background-color: red;
+  border-radius: 12px;
 }
 ```
 
-![image-20241015124708536](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241015124708536.png)
+![image-20241016222015118](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241016222015118.png)
+
+```
+//这是修改聊天框里面的.el-input_wrapper颜色的一个案例   
+.nav-search-input ::v-deep .el-input__wrapper {
+  .el-input ::v-deep .el-input__wrapper{
+  box-shadow: none;
+  border: 1px solid #e4e8e8;
+}
+}
+```
 
 
 
+#### ②done()
 
+//一个坑
 
 
 

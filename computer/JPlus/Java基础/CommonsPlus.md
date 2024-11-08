@@ -1,16 +1,8 @@
-# 手动实现第一个全栈项目！！
+# 1.JWT
 
 
 
-
-
-
-
-# 1.jwt
-
-
-
-### 1.历史
+## 1.历史
 
 #### **早期的cookie-session 认证方式**
 
@@ -64,7 +56,7 @@
 
 ​				
 
-### 2.介绍
+## 2.介绍
 
 
 
@@ -82,14 +74,14 @@ JSON Web Token（JSON Web令牌）
 
 
 
-#### **JWT作用：**
+### **JWT作用：**
 
 **授权**：一旦用户登录，每个后续请求将包括JWT，从而允许用户访问该令牌允许的路由，服务和资源。它的开销很小并且可以在不同的域中使用。如：单点登录。
 **信息交换**：在各方之间安全地传输信息。JWT可进行签名（如使用公钥/私钥对)，因此可确保发件人。由于签名是使用标头和有效负载计算的，因此还可验证内容是否被篡改。
 
 
 
-#### JWT的数据结构
+### JWT的数据结构
 
 
 
@@ -161,7 +153,7 @@ JSON Web Token（JSON Web令牌）
 
 
 
-### 3.使用方式
+## 3.使用方式
 
 1、在用户登录网站的时候，需要输入用户名、密码或者短信验证的方式登录，登录请求到达服务端的时候，服务端对账号、密码进行验证，然后计算出 JWT 字符串，返回给客户端。
 
@@ -173,7 +165,7 @@ JSON Web Token（JSON Web令牌）
 
 
 
-### 4.实际例子
+## 4.实际例子
 
 
 
@@ -231,8 +223,6 @@ public class JwtUtils {
 }
 ```
 
-
-
 ```
 @Slf4j
 public class JwtTokenAdminInterceptor implements HandlerInterceptor {
@@ -287,17 +277,16 @@ public String login(HttpServletResponse response , @RequestParam Map<String,Obje
 
 
 
-### 5.SpringBoot整合JWT
+## 5.SpringBoot整合JWT
 
 - <font color='orange'>**1.引入依赖**</font>
 
 ```
-    <dependency>
-        <groupId>com.auth0</groupId>
-        <artifactId>java-jwt</artifactId>
-        <version>3.14.0</version>
-    </dependency>
-
+<dependency>
+    <groupId>com.auth0</groupId>
+    <artifactId>java-jwt</artifactId>
+    <version>3.18.2</version> 
+</dependency>
 ```
 
 - **<font color='orange'>2.JWTUtils</font>**
@@ -358,7 +347,6 @@ public class JWTUtils {
 
 
 
-# 2.可实现功能
 
 
 
@@ -366,39 +354,214 @@ public class JWTUtils {
 
 
 
-## 2.签到功能
-
-利用redis的bitmap很简单的就可以实现
 
 
 
 
 
-## 3.地理位置排序⭐
-
-具体实现还得学习es
 
 
 
 
+# 2.阿里云文件操作
 
-## 4.秒杀券
-
-
-
-## 5.Feed流实现关注推送⭐
+看文档即可
 
 
 
-## 6.Alioss实现文件上传下载/本地文件实现上传下载
+
+
+# 3.验证码
 
 
 
-## 7.websocket实现在线互聊⭐
+
+
+# 4.JSR303
+
+<font color='orange'>**数据校验的一大利器，常规简单数据校验可以使用JSR303, 剩余的复杂数据校验再由你自己来写**</font>
+
+## 4.1 快速入门
+
+1..引入依赖	
+
+```
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-validation</artifactId>
+</dependency>
+```
+
+2.添加注解，并自定义错误信息message
+
+3.controller层 添加@Valid   开启数据校验，注意必须要加这个不然就无效
+
+4.controller层 可以添加一个数据 BindingResult result ， 意思是数据校验的结果
 
 
 
-## 8.
+## 4.2 分组校验
+
+- 1.设置空接口
+
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240922135412898.png)
+
+
+
+- 2.   设置分组
+
+  ```
+  	@NotNull(message = "品牌id不存在",groups = {UpdateGroup.class})
+  	@Null(message = "新增品牌不能指定id",groups = {AddGroup.class})
+  	@TableId
+  	private Long brandId;
+  	/**
+  	 * 品牌名
+  	 */
+  	@NotBlank(message = "品牌名不能为空",groups = {AddGroup.class,UpdateGroup.class})
+  	private String name;
+  	/**
+  	 * 品牌logo地址
+  	 */
+  	@NotBlank(message = "品牌logo不能为空",groups = {AddGroup.class,UpdateGroup.class})
+  	private String logo;
+  	/**
+  	 * 介绍
+  	 */
+  	 @NotBlank(message = "品牌介绍不能为空")
+  	private String descript;
+  ```
+
+  
+
+- 3. @Validated注解   标明分组
+
+```
+/**
+ * 修改
+ */
+@RequestMapping("/update")
+public R update(@Validated(UpdateGroup.class) @RequestBody BrandEntity brand) {
+    brandService.updateById(brand);
+
+    return R.ok();
+}
+```
+
+- 4.注意点：如果使用在controller层使用@Validated(UpdateGroup.class)，那么 没有设置分组的属性，比如上面的品牌介绍，其@NotBlank就不会生效，使用普通的@Valid则依然起作用
+
+
+
+
+
+## 4.3 最佳实践
+
+<font color='orange'>**可以设置一个枚举类，来控制异常;**</font>****
+
+```
+package com.zlc.common.exception;
+
+public enum BizCodeEnume {
+    UNKONW_EXCEPTION(10000,"系统未知异常"),
+    VALID_EXCEPTION(10001,"参数格式校验失败");
+
+
+    private int code;
+    private String message;
+
+    BizCodeEnume(int code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+}
+
+```
+
+**<font color='orange'>为了让业务逻辑与数据校验分开，可以这么做,这样就不会污染controller层的代码</font>**
+
+```
+package com.zlc.gulimall.product.exception;
+
+import com.zlc.common.exception.BizCodeEnume;
+import com.zlc.common.utils.R;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.RestControllerAdvice;
+
+import java.util.HashMap;
+
+
+@Slf4j
+@RestControllerAdvice
+public class GulimallExceptionControllerAdvice {
+
+    @ExceptionHandler
+    public R handleValidException(MethodArgumentNotValidException e) {
+        log.info("数据校验异常:{}", e.getMessage());
+        //获取 BindingResult
+        BindingResult result = e.getBindingResult();
+
+        HashMap<String, String> map = new HashMap<>();
+        //获取错误信息
+        result.getFieldErrors().forEach((item) -> {
+            //获取到错误信息
+            String message = item.getDefaultMessage();
+            //获取到错误字段
+            String field = item.getField();
+            map.put(field, message);
+        });
+
+        return R.error(BizCodeEnume.VALID_EXCEPTION.getCode(), BizCodeEnume.VALID_EXCEPTION.getMessage())
+                .put("data", map);
+    }
+
+    @ExceptionHandler
+    public R handleAll(Exception e){
+        return R.error(e.getMessage());
+    }
+}
+
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

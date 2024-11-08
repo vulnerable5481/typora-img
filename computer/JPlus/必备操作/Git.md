@@ -192,7 +192,7 @@ doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt`
 
 ## 1.git基本理论
 
-
+详看上一章
 
 
 
@@ -202,7 +202,7 @@ doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt`
 
 
 
-**设置用户签名和邮箱**
+- **邮箱操作【如果第一次下载git使用，必须配置】**
 
 ```
 git config --global user.name xxx
@@ -213,100 +213,60 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 
 
 
+- 基本操作
 
+```
+1.初始化
+	git init //会生成一个.git隐藏文件
 
-**常用命令**
+2.git status
+  git add [file]  
+  git add .   【推荐，所有操作都会上传】
+  git add *	   【删除操作不会】
+  git commit -m '信息' master
+  git commit -m "xxx" fileName -a     //add commit 一块进行
+  git clone url
+  git push origin master
+  git pull 
+  git pull origin master --allow-unrelated-histories   //两个独立的 Git 历史尝试合并
+ 
+3. 操作远程仓库
+	git remote add xxx  url     添加一个新的远程仓库,并命名。
+    git remote -v 显示所有远程仓库的详细信息。
+    git remote show 显示某个远程仓库的详细信息。
+    git remote rename 重命名远程仓库。
+    git remote remove 删除远程仓库。
+ 
+4.其他操作
+	git relog   //简单查看资源库文件
+	git log     //详细查看资源库文件
+	git reset --hard 简化版本号     //用于回溯版本
 
-- git init   //初始化本地库，会生成一个.git隐藏文件
-- git status  //红色未添加or修改后未添加    绿色已经add了  
-
-
-
-​	
-
-- git add    git add . 
-- git commit -m "版本信息比如first commit" fileName，
-- git commit -m "xxx" fileName -a     //add commit 一块进行
-
-
-
-- git rm --cache fileName   删除暂存区里面的文件
-
-
-
-- git reflog  //简单查看资源库文件
-- git log //详细查看资源库文件
-
-
-
-- git reset --hard 简化版本号     //用于回溯版本
-
-
-
-- git remote -v 查看远程库的别名
-
-
-
-- git push 远程库地址 分支名
-- git pull 远程库地址  分支名
-- git clone 远程库地址 
-
-​	
-
-1. git remote add xxx  url     添加一个新的远程仓库,并命名。
-2. git remote -v 显示所有远程仓库的详细信息。
-3. git remote show 显示某个远程仓库的详细信息。
-4. git remote rename 重命名远程仓库。
-5. git remote remove 删除远程仓库。
-
-
-
-## 3.分支
-
-
-
-### 3.1 图懂分支
-
-**//可以以明日方舟的更新来理解这张图**
-
-![image-20240417210348681](https://cdn.jsdelivr.net/gh/nmsil/typora_img@main/data/image-20240417210348681.png)
-
-
-
-
-
-### 3.2分支操作
-
-
-
-- git branch -v     //查看分支
-
-
-
-- git branch xxx //新建一个分支
-
-
-
-- git checkout  xxx   //切换到xxx分支
-
-
-
-- git merge xxx     //将xxx 分支  合并到 --> 当前分支
+5.分支
+ git branch -v     //查看分支
+ git branch xxx //新建一个分支
+ git checkout  xxx   //切换到xxx分支
+ git merge xxx     //将xxx 分支  合并到 --> 当前分支
   - 分支冲突，比如master对a.txt修改了,hot-fix也对a.txt修改了,（新版本不在同一行不会出现冲突，以前的版本会冲突），这时合并分支会发生冲突，解决方法: 会报错误，将冲突所在文件告诉你，由你手动去解决冲突
+```
 
 
 
+## 3.几个常见的错误
+
+- github 2020年之后默认分支为 main 而非master
+
+- github创建一个库，此时库中若有自带的readme ,  .gitnore之类的文件，需要先pull，再push
+
+  - 但是经常性的会pull失败，需要借助下面的指令 
+
+    ```
+    git pull origin master --allow-unrelated-histories
+    ```
+
+    
 
 
-### 3.团队协作与跨团队协作
-
-![image-20240417215045143](https://cdn.jsdelivr.net/gh/nmsil/typora_img@main/data/image-20240417215045143.png)
-
-
-
-**//垮团队协作**
-
-![image-20240417215058189](https://cdn.jsdelivr.net/gh/nmsil/typora_img@main/data/image-20240417215058189.png)
 
 
 
@@ -336,13 +296,7 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 
 
 
-**可以直接在idea到github/gitee创建远程仓库**
 
-
-
-
-
-[git:上传代码时，出现fatal: unable to access ‘XXX‘: Recv failure: Connection was reset 错误解决方法（保姆级教学）-CSDN博客](https://blog.csdn.net/m0_69087087/article/details/128838186)
 
 
 
