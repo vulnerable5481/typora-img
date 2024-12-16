@@ -70,7 +70,13 @@
         
         //2.split
         String s = "xxx"
-        String result = s.split("_")[0] 
+        String result = s.split("_")[0]
+        
+        //3.subString 与 lastIndexOf 自己搜去,简单得一批
+            String fileName = img.getOriginalFilename(); // 获取图片名称
+            int index = fileName.lastIndexOf("."); 
+            String prefix = fileName.substring(0, index - 1); // 提取文件名字
+            String fileExtension = fileName.substring(index); // 提取文件扩展名
 ```
 
 

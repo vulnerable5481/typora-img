@@ -3773,7 +3773,7 @@ docker run -p 3306:3306 --name mysql \
 
 - 引入：<router-link这个标签底层是转换成a标签，具有局限性，比如如果是一个按钮图片跳转，或延迟三秒跳转就无法实现
 
-
+​	
 
 **路由跳转**
 
@@ -4239,11 +4239,6 @@ vue@3.2以上的版本 可以使用setup语法糖
 
 
 
-- .value问题
-  - 注意返回的是RefImp类型的数据,给我们使用的数据其实是 value(....)，这里才是 我们能获取的数据,
-    此时我们要通过  xxx.value才能获取到数据
-  - 但在模版里面  ,我们不需要.value, 底层会自动添加.value
-
 
 
 
@@ -4282,7 +4277,7 @@ vue@3.2以上的版本 可以使用setup语法糖
     //方法三, Object.assign(a,b,c)  
     	该方法会将 b c的属性都给 a 
     function changeCar(){
-    	Object.assgin(car,{name:'宝马',price:200})
+    	Object.assgin(car,{name:'宝马',price:200})   // Object.assgin是浅拷贝
     }
     ```
 

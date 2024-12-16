@@ -47,22 +47,71 @@ Spring框架的核心就是   XML文件 or 注解 来驱动底层以反射执行
 
 
 
-```
-@Pathvariable :   是获取请求路径中的变量作为参数,需要和 @RequestMapping(“item/{itemId}”) 配合使用
-@Requestparam :   注解接收的参数是来自于 requestHeader 中，即请求头。都是用来获取请求路径 url 中的动态参数。
-				  也就是在 url 中，格式为 xxx?username=123&password=456
-				  总之，除了Json格式外好像都用这个
-@RequestBody :    注解接收的参数则是来自于 requestBody 中，即请求体中
-				  Get 方式无请求体，所以使用 @RequestBody 接收数据时，前端不能使用 Get 方式提交数据;
-				  
-@ResponseBody :   javaBean -> json字符串   ，直接RestController即可 
-```
+## 1. 参数注解
 
+- **@Pathvariable**
 
+  - 接收URL中 prefix/属性/subfix中的属性
 
+  - ```
+    // 前端请求                                   
+    export function exit(token) {
+      return httpRequest
+        .post(`/user/exit/${token}`)
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          throw error;
+        });
+    }
+    // 后端请求
+    @RequestMapping("/exit/{token}")
+    (@Pathvariable String token)
+    ```
 
+- **@RequestParam**
 
+  - 接收URL中 url?key=value
 
+  - ```
+    // 前端请求
+    export function exit(token) {
+      return httpRequest
+        .post(`/user/exit?token=${token}`)   // 注意key=${value}中的key一定要和@RequestParam("key")保持一致
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          throw error;
+        });
+    }
+    // 后端
+    (@RequestParam("token") String token)
+    ```
+
+- **@RequestBody**
+
+  - 如果是对象还用说吗，但是前端如果就偏要单独传一个属性，还偏偏指定使用@RequestBody怎么办？
+    很简单：后端我们造一个只有一个属性的对象不就完事了
+
+  - ```
+    // 前段请求
+    export function exit(token) {
+      return httpRequest
+        .post('/user/exit', token)
+        .then((response) => {
+          return response;
+        })
+        .catch((error) => {
+          throw error;
+        });
+    }
+    // 后端不能直接接收此处的token，需要使用
+    ```
+
+- **@ResonseBody 与 @RestController**
+  - easy
 
 
 

@@ -16,27 +16,7 @@ if (!password.equals(employee.getPassword())) {
 }
 ```
 
-2.threadocal 的  使用
 
-```
-public class BaseContext {
-
-    public static ThreadLocal<Long> threadLocal = new ThreadLocal<>();
-
-    public static void setCurrentId(Long id) {
-        threadLocal.set(id);
-    }
-
-    public static Long getCurrentId() {
-        return threadLocal.get();
-    }
-
-    public static void removeCurrentId() {
-        threadLocal.remove();
-    }
-
-}
-```
 
 **3.疑问：既然一次Http请求是一次线程，那么它的生命周期是多长？？是不是和一个Http请求的生命周期是一个东西（应该是的）好像得需要深入学习计算机网络后才能有答案**
 
@@ -72,8 +52,6 @@ user包下面  和  admin包下面  都有ShopController，这时编译没问题
 
 
 
-
-#### 3.未解之谜:gitee 有冲突 ？？？
 
 
 
@@ -112,20 +90,6 @@ HttpClient 介绍{
 }
 
 
-
-HttpClient 使用
-
-1.导入maven坐标:
-
-```
-<!--微信支付-->
-<dependency>
-    <groupId>com.github.wechatpay-apiv3</groupId>
-    <artifactId>wechatpay-apache-httpclient</artifactId>
-    <version>0.4.8</version>
-</dependency>
-//阿里云OSS 的maven依赖就包含这个maven坐标哦！！！
-```
 
 
 

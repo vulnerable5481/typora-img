@@ -5,9 +5,7 @@
 - below 与 under 相当于 over 与 on      below 和 over 都有动态的意思 a bird flied over the hill/ a fish swam below the bridge .
 - near: 在...附近   比较远  by/beside/next to ：在...附近  都是比较近的意思
 - across ：在表面上穿过去   through 内部穿过去
-- past:  经过
 - before:很少用作空间介词，in front of 和 behind 是一组
-- to : 向，朝； towards ：朝
 - onto:更常用于动作，the rabbit jumped onto the table;  into: 更常用于动作, I add some beef into the soup/walk into the house
 - opposite :在 ... 对面
 - aginst:与 ... 相反；倚，靠；
@@ -37,45 +35,81 @@
 
 # 过渡
 
+1. sway  : move slowly from side to side
+
+1. feedback
+
+2. quantity     
+
+3. domain
+
+4. 2 times 2    or    2  multiplied by 2
+
+5. digit : 0-9   even digits / odd digits 
+
+6. fifth powers f of X    f(x)  = x^5   nth powers of f   f(x) = x^n   
+
+7. f(x) = 2x^3 + 5x^2 - 2x + 1    :   f of x equals 2x cubed plus five x squared minus  2x plus one 
+
+8. f(x) = √x  f of x equals the square root of x
+
+9. nonnegative : [0,+无穷)
+
+10. infinity 
+
+11. bracket     parentheses; Square brackets ;Curly brackets ; Angle brackets
+
+13. **angel  /ˈeɪn.dʒəl/    angle /ˈæŋ.ɡəl/**
+
+14. evaluate   :   to judge or calculate the quantity,importance ,amount ,or value of sth;
+    assess  : same like evaluate 
+    estimate : /ˈes.tə.meɪt/   to guess or calculate the cost ,size ,value , etc of sth
+
+    `evaluate ` 更加正式，强调综合性以及最终判断，`assess` 比较侧重于初步评估，强调了解事物的现状和情况
+    `estimate` 比较侧重基于不完全不准确的信息进行粗略/大致的判断	
+
+14. deceive /   fake /  cheat / trick
+
+17. interval   :  p period  between two events of times /  a space between two points
+
+18. squeeze theorem
+
+18. even  ==  smooth   != rough
+
 
 
 1. merit | demerit  of .... are  `numerous` and `manifold` 
 2. economy  n / economic adj
 3. hygiene
-3. yogurt 
 4. ego
 5. substantially
 6. tremendous
 7. hinder
-8. depressed
-9. shake xx off: get rid of sth/sb
-10. resume
-11. industry
-12. outfit : a set of clothes worn for a particular occasion or activity
-13. considerably   :
-14. tourist resort 
-15. firm  1,2
-16. evaluate   rate assess  review appraise  estimate 
-17. access 
-18. inspect
-19. process
-20. **dissertation**
-21. **proofread**
-22. **reference**
-23. **viable**
-23. sponsor : v/n
-24. **deter**
+8. shake xx off: get rid of sth/sb
+9. resume
+10. industry
+11. outfit : a set of clothes worn for a particular occasion or activity
+12. considerably   :
+13. tourist resort 
+14. firm  
+15. access 
+16. inspect
+17. process
+18. **dissertation**
+19. **proofread**
+20. **reference**
+21. **viable**
+22. sponsor : v/n
+23. **deter**
 24. **specialist**
-27. cruise
-25. depict
-25. **laymen**:外行；门外汉
-25. function
-26. **celebrity**
-20. commenrate
-20. fascinated
-20. susceptible
-20. sacrifice
-20. pro
+25. cruise
+26. depict
+27. **laymen**:
+28. **celebrity**
+29. commenrate
+30. fascinated
+31. susceptible
+34. sacrifice
 
 
 
@@ -86,24 +120,11 @@
 
 
 
-
-
-- pissed  v 撒尿 adj   怒气冲冲的	
-
-
-
-
-
-
-
-
-
 # 错误发音单词
 
 
 
-1. natural       /ˈnætʃ.ɚ.əl/
-
+1. vehicle       /ˈviː.ə.kəl/
 
 
 
@@ -116,11 +137,10 @@
 
 # 顽固份子
 
-1. process
-2. progress
-2. credit:好多意思 其中之一指完成游戏后在屏幕上显示的开发团队、艺术家和其他参与者的名单
-2. metal
+1. metal
 2. sheet 
+3. charge:   电荷(exceed charge)；小费(same as tips)；指控(was charges with theft)；
+                   冲锋(charge into rain wind)；掌管控制(take charge of )
 
 
 
@@ -146,9 +166,8 @@
 
 
 
-1. yogurt
-2. yolk
-3. letter :除了信封 还有字母的意思
+1. yolk
+2. letter :除了信封 还有字母的意思
 
 
 
@@ -172,6 +191,7 @@
 2. reduction
 2. comprehension   ： the ability to understand sth [reading comprehension]
 2. Greek  希腊的
+2. credit:好多意思 其中之一指完成游戏后在屏幕上显示的开发团队、艺术家和其他参与者的名单
 
 
 
@@ -203,8 +223,9 @@ bile produced by your liver , can help you digest fat
 
 
 1. alone ;  lonely ; single
-
-
+1. creek ;  stream ; river ; ocean ; leak 
+3. **track : a mark or line left on the ground by person , animal or vehicle** ; 
+   其他类似的词语比如：       path       trail       road         tunnel 
 
 
 
