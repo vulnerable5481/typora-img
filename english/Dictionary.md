@@ -78,6 +78,11 @@
 
 
 
+- rug  cloth  carpet
+- fling     splash
+
+
+
 1. merit | demerit  of .... are  `numerous` and `manifold` 
 2. economy  n / economic adj
 3. hygiene
