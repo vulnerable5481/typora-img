@@ -123,7 +123,30 @@ Spring框架的核心就是   XML文件 or 注解 来驱动底层以反射执行
 
 
 
-### 1.引用
+## 0.简介
+
+- Mybatis是一款优秀的持久层框架，真正强大在于它的**语句映射**，这是它的魔力所在。由于它的异常强大，映射器的 XML 文件就显得相对简单。如果拿它跟具有相同功能的 JDBC 代码进行对比，你会立即发现省掉了将近 95% 的代码。致力于减少使用成本，让用户能更**专注于 SQL 代码**。
+
+- 什么是jdbc？
+
+  - 谈起jdbc，不得不回忆一下我刚开始学习的那段光辉岁月
+
+  - ```
+    jdbc是java提供的一种api，允许java程序与关系型数据库比如mysql进行通信。
+    通过jdbc，我们可以在Java中，连接数据库、执行sql语句操作数据库等等
+    jdbc的基本工作流程：
+    	1.加载数据库驱动
+    	2.建立数据库连接
+    	3.创建Statement对象，执行sql语句
+    	4.如果是查询语句，需要处理结果集，可以通过ResultSet对象处理
+    	5.关闭连接
+    ```
+
+- Mybatis可以帮助我们免除上述一系列jdbc代码和获取结果集的工作，极大地提高了我们的开发速度！
+
+
+
+## 1.引用
 
 ```
 <dependency>
@@ -147,11 +170,11 @@ mybatis:
 
 
 
-### 2.动态SQL
+## 2.动态SQL
 
 **<font color='orange'>动态SQL中 使用 #{}取值</font>**
 
-- \#{}是预编译处理，mybatis在处理#{}时，会将其替换成"?"，再调用PreparedStatement的set方法来赋值。
+- \#{}是预编译处理，相当于占位符，mybatis在处理#{}时，会将其替换成"?"，再调用PreparedStatement的set方法来赋值。
 - ${}是拼接字符串，将接收到的参数的内容不加任何修饰的拼接在SQL语句中，会引发SQL注入问题。
 
 **<font color='orange'>动态SQL常用的标签</font>**
@@ -183,6 +206,7 @@ mybatis:
         <where>
             <if test="name != null">and name = #{name}</if>
             <if test="id != null">and id = #{id}</if>
+            <if test="gender != null">and gender = #{gender}</if>
             <if test="password != null">and password = #{password}</if>
         </where>
     </select>
@@ -239,9 +263,9 @@ mybatis:
 
 
 
-### 3.模糊查询
+## 3.模糊查询
 
-<font color='orange'>在xml配置文件中添加"%"通配符，借助mysql函数</font>
+- <font color='orange'>在xml配置文件中添加"%"通配符，借助mysql函数</font>
 
 ```
 <select id="fuzzyQuery" resultType="com.bin.pojo.Book">
@@ -252,7 +276,7 @@ mybatis:
 
 
 
-### 4.获取子增值
+## 4.获取子增值
 
 **<font color='orange'>1.@Option useGeneratedKeys、keyProperty、keyColumn    //效率高，推荐使用这个</font>**
 
@@ -283,30 +307,284 @@ public boolean addUser(User user);
 
 
 
-### 5.PageHelper
-
-
-
-### 6.XML映射器
-
-**SQL映射文件常用的几个顶级元素（按照定义列出）**
-
-- cache ---该命名空间的缓存配置
-- cache-ref --引用其他命名空间的缓存配置
-- resultMap--描述如何从数据库结果集中加载对象，是最复杂也是最强大的元素
-- parameterType--将会传入这条语句的参数的类全限定名或别名
-
-
-
-### 7.映射关系
+## 5.PageHelper
 
 
 
 
 
+## 6.resultMap
+
+### ① 简介
+
+- resultMap是何许人也？
+
+  - ```
+    `resultMap`元素是 `MyBatis` 中最重要最强大的元素。它可以让你从 90% 的 `JDBC ResultSets` 数据提取代码中解放出来，并在一些情形下允许你进行一些 JDBC 不支持的操作。实际上，在为一些比如连接的复杂语句编写映射代码的时候，一份 `resultMap` 能够代替实现同等功能的长达数千行的代码。`ResultMap` 的设计思想是：对于简单的语句根本不需要配置显式的结果映射，而对于复杂一点的语句只需要描述它们的关系就行了>
+    ```
+
+- **<font color='blue'>联表查询，resultMap就非常关键！</font>**
 
 
-### 8. 缓存
+
+
+
+
+
+### ② 字段映射
+
+- 最简单最基础的应用场景，字段映射，专门解决字段名字不匹配的问题
+
+- 比如说，数据库中表的字段与`User`类的属性名称一致，我们就可以使用`resultType`来返回；
+    但是，假如数据库是name字段，但是User类是username字段，字段不一样怎么办？
+
+- ```
+  1.定义resultMap
+  <resultMap id="getUserByIdMap" type="User">
+  	<result property="id" column="uid"></result>
+  </resultMap>
+  
+  2.修改select语句
+  <select id="getUsers" resultMap="getUserByIdMap">
+  ```
+
+### ③ 一对一级联
+
+- **级联查询**：在数据库中包含着一对多、一对一的关系。比如说一个人和他的身份证就是一对一的关系，但是他和他的银行卡就是一对多的关系。我们的生活中存在着很多这样的场景。我们也希望在获取这个人的信息的同时也可以把他的身份证信息一同查出，这样的情况我们就要使用级联。在级联中存在三种对应关系，一对一，一对多，多对多。
+
+
+
+
+
+
+
+- 实际的业务中，我们的用户一般都有一个角色，用户与角色就是一对一的关系，可以用级联查询！
+
+- **如何解决一对一的级联？**
+
+  - ```
+    @Data
+    public class User {
+        //省略用户属性...
+    	
+        //角色信息
+        private Role role;
+    }
+    ```
+
+- 假如我们查询的时候也希望联表得到该数据，我们会这样来写查询语句：
+
+  - **关于方法一和二哪个好？**实际上就是比较 多表连查VS 多次单表查询 ，数据量比较大的情况下，使用多次单表查询，但是数据量不怎么大的时候，可以用联表查询。【实际上很多公司都不让用联表查询，怕以后数据量大了性能下降】【单表几百万就不适合联表查询了】【阿里规约中，禁止使用三表以上的join】
+    							
+
+  - ```
+    方法一：  【联表查询】
+    <resultMap id="userMap" type="User">
+    	<id property="id column="id></id>
+    	<result property="username" column="username"></result>
+    	<result property="password" column="password"></result>
+    	<result property="address" column="address"></result>
+    	<result property="email" column="email"></result>
+    	
+    	<association property="role" javaType="Role">
+    		<id property="id" column="id"></id>
+    		<result property="name" columen="name"></result>
+    	</association>
+    </resultMap>
+    
+    <select id="getUsers" resultMap="userMap">
+    	SELECT
+    		u.id,u.username,u.password,u.address,u.email,r.id,r.name
+    	FROM USER u
+    			LEFT JOIN user_roles ur ON u.id = ur.user_id
+    			LEFT JOIN role r ON r.id = ur.role_id
+    	where u.id=#{id}
+    </select>
+    方法二：   【分治思想：多表联查拆分成多个单表查询】❤推荐！
+    	 		我们有userMapper也有roleMapper！
+    //////////////【UserMapper】:	
+    <resultMap id="userMap" type="User">
+    	<id property="id column="id></id>
+    	<result property="username" column="username"></result>
+    	<result property="password" column="password"></result>
+    	<result property="address" column="address"></result>
+    	<result property="email" column="email"></result>
+    	// 注意此处的column就是getRoleByUserId的一个参数，简单理解为getRoleByUserId(column),此处就是userId为参数
+    	<association property="role" column="id" select="com.zlc.mapper.RoleMapper.getRoleByUserId">
+    	</association>
+    </resultMap>
+    
+    <select id="getUsers" resultMap="userMap">
+    	SELECT
+    		u.id,u.username,u.password,u.address
+    	FROM USER u
+    	where u.id=#{id}
+    </select>
+    /////////////【roleMapper】:
+    <select id="getRoleByUserId" resultType="Role">
+    	select xxx
+    	from role
+    	where user_id = #{id}
+    </select>
+    方法三：  自动填充 【看完下面第六小节，你就明白了】
+    <select id="getUsers" resultMap="userMap">
+    	SELECT
+    		u.id,u.username,u.password,u.address,u.email,r.id AS role.id,r.name AS role.name
+    	FROM USER u
+    			LEFT JOIN user_roles ur ON u.id = ur.user_id
+    			LEFT JOIN role r ON r.id = ur.role_id
+    	where u.id=#{id}
+    </select>
+    ```
+
+  
+
+  
+
+
+
+
+
+### ④ 一对多级联
+
+
+
+- 前面说到一个用户有一个角色，实际上一个用户可能有多个角色信息，需要User类，Role就需要修改为List
+
+- **如何解决多个类型的关联？**
+
+- ```
+  <resultMap id="userMap" type="User">
+  	<id property="id column="id></id>
+  	<result property="username" column="username"></result>
+  	<result property="password" column="password"></result>
+  	<result property="address" column="address"></result>
+  	<result property="email" column="email"></result>
+  	
+  	<collection property="roles" column="id" ofType="Role" select="xxx.xxx">
+  	</collection>
+  </resultMap>
+  
+  <select id="getUsers" resultMap="userMap">
+      SELECT	
+          u.id AS 'user_id', 
+          u.username, 
+          u.password, 
+          u.address, 
+          u.email,
+      FROM USER u
+      WHERE u.id = #{id}
+  </select>
+  
+  ```
+
+- 这样即使有多个角色也会被显示出来
+
+- ```
+  {
+      "id": "1003",
+      "username": "貂蝉",
+      "password": "123456",
+      "address": "北京市东城区",
+      "email": "510273027@qq.com",
+      "roles": [
+          {
+              "id": "1",
+              "name": "中单"
+          },
+          {
+              "id": "2",
+              "name": "打野"
+          }
+      ]
+  }
+  ```
+
+  
+
+### ⑤ 集合的嵌套Select查询
+
+
+
+- 比如说我们有菜单实体类，实际上可以分为一级，二级，多级菜单
+
+- ```
+  @Data
+  public class Menu {
+      private String id;
+      private String name;
+      private String url;
+      private String parent_id;
+      private List<Menu> childMenu;
+  }
+  ```
+
+- **思考一下，我们如何在只调用一次Mapper层的方法就返回我们想要的多级菜单？**  修改对应resultmap即可
+
+- ```
+  <resultMap id="menuMap" type="Menu">
+  	 <id property="id" column="id"></id>
+  	 <result property="name" column="name"></result>
+  	 <result property="url" column="url"></result>
+  	 <result property="parent_id" column="parent_id"></result>
+  	 
+  	 <collection property="childMenu" ofType="Menu" select="getMenus" column="{parent_id=id}">  
+  	 </collection>
+  </result>
+  
+  <select id="getMenus" resultMap="menusMap">
+  	SELECT
+  		m.id,
+  		m.name,
+  		m.url,
+  		m.parent_id
+  	FROM menus m
+  	<choose>
+  		<when test="parent_id != 0">
+  			amd m.parent_id = #{parent_id}
+  		</when>
+  		<otherwise>
+  			and m.parent_id = '0'
+  		</otherwise>
+  	</choose>
+  ```
+
+  
+
+
+
+
+
+### ⑥自动填充关联对象
+
+- 上面我提到了一个用户对应一个角色的例子，实际上我们也可以利用mybatis的自动填充的一个特性
+
+- ```
+  自动填充特性：
+  			我们知道，在Mybatis解析返回值的时候。
+              第一步是获取返回值类型，拿到Class对象，然后获取构造器，设置可访问并返回实例，然后又把它包装成MetaObject对象。
+              从数据库rs中拿到结果之后，会调用MetaObject.setValue(String name, Object value) 来填充对象。
+              在这过程中，有趣的是，它会以.符号来分隔这个name属性。
+              如果name属性中包含.符号，就找到.符号之前的属性名称，把它当做一个实体对象来处理。
+  比如说：  mybatis解析到 r.id AS role.id 通过.符号分割之后，发现role别名对应Role对象，
+  		则会先初始化Role对象，并将对应的值赋给id，这样即使我们不使用resultMap也能做到联表查询的效果
+  ```
+
+
+
+
+
+
+
+### ⑦discriminator
+
+
+
+
+
+
+
+## 7. 缓存
 
 
 
@@ -653,7 +931,7 @@ public class ConstanceConfig implements WebMvcConfigurer {
 
 在idea 安装lombok插件就可以使用一些扩展注解，比如日志的输出
 
-- @Slk4j注解 :   就可以使用log.info("xxxx:{}", zlc)  打印日志。
+- @Slk4j注解 :   就可以使用log.info("xxxx:{}", zlc)  打印日志。【slk4j是一种快速打印日志框架，比如日志框架可能是log4j，slk4j封装																										 API就可以快速调用log4j的接口】
 
 
 

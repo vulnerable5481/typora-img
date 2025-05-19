@@ -1,10 +1,10 @@
-# bestbest-love
+# BEST-LOVE
 
 1. #### STARS-256---永野いち夏       Fawn Deer
 
 1. #### **SSNI-373** **架乃ゆら**      逃犯
 
-3. #### HND-796-C ---永濑唯      litile sister.         
+3. #### HND-796-C ---永濑唯      little sister.         
 
 4. #### MIAA-672--- 永濑唯     sister  brother and father
 
@@ -14,13 +14,11 @@
 
 2. #### **HOKS-042** ---泉りおん     Sexual Slave
 
-4. #### SAME-026 ---倉本すみれ   Gang Rape Plan
-
-4. #### IPX-559----桃乃木            sister and evil
+8. #### SAME-026 ---倉本すみれ   Gang Rape Plan
 
 8. #### **ABW-054 -**--涼森れむ     Isekai
 
-8. #### WAAA-041逢見リカ        The girl was imprisoned in the room
+8. #### WAAA-041逢見リカ        The girl was imprisoned in a room
 
 9. #### MIDE-909 ---七泽美亚   <font color='orange'>a girl  imprisoned in a bedroom</font>
 
@@ -52,7 +50,8 @@
 
 # best-love
 
-1. #### SDAB-129 青春汁！  <font color="red">无码流出</font>
+1. SDAB-129 -----  久留木玲    青春汁！
+1. SDAB-129 -----  久留木玲    泡姫
 
 
 

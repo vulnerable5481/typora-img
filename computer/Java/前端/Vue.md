@@ -2173,6 +2173,22 @@ Json.parse(json字符串)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### 2. 父项属性
 
 #### ①flex-direction
@@ -4836,6 +4852,8 @@ app.mount('#app')
   ```
 
   
+
+
 
 
 

@@ -16,7 +16,7 @@
 
 
 
-### ② 引导扇区
+### ② 引导扇区 
 
 - **<font color='blue'>0x07c0:0</font>**  将0x07c0:0处的256个字copy到0x9000:0处，也就是从BOOTSEG拷贝到INITSEG
 - 然后修改cs和ip，跳转到0x9000:0处（INITSEG）
@@ -150,6 +150,10 @@
 
 ## 5. 操作系统接口
 
+
+
+### 5.1 前置知识
+
 - **操作系统接口，就是暴露给外面的调用的一些函数，平时我们说调用函数，那这里就是调用系统函数，即system_call**
 
 - **<font color='red'>system_call是什么？</font>**，就是操作系统给我们提供的可以访问被保护的内核的函数
@@ -168,9 +172,10 @@
 
 - **系统函数调用的核心：**   系统函数实际上展开，就是一段包含int指令的代码。而int指令才会真正进入操作系统内核，根据中断类型查询IDT（中断描述符表）,找出对应的程序入口，取指执行，执行完毕再跳回去，返回。
 
-  
+  ​	
 
 - **我们以 ptintf()为例子**
+  
   - 第一，我们在应用程序中调用 printf("xx",xx);
   - 第二，printf又会调用C库函数printf(...),主要作用就是将参数转换为系统调用需要的参数
   - 第三，调用另一个库函数write,这个write展开就是包含int 0x80指令的代码  【这里的详细细节我们就省略了】
@@ -179,11 +184,61 @@
 
 ​	
 
+### 5.2. write的宏展开
+
+- 展开之后，将_NR_write-> eax,  余下三个参数分别给 ebx ecx edx，然后触发int 0x80中断，int 0x80处理完之后，将eax的值置给res，最后根据条件返回
+- 显然 _NR_write是系统调用号，放在eax中，根据eax中存放的4，到IDT表中查表处理
+
+![image-20250217184334998](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20250217184334998.png)
+
+
+
+
+
+
+
+### 5.3 0x80的处理
+
+
+
+- **<font color='blue'>这也就解释了，为什么 int 0x80 中断，被称之为操作系统留的一个门，让用户态间接访问内核态</font>**
+- 虽然看起来挺麻烦，但实际上很简单，就是填写 IDT（中断描述符表），将 `system_call` 函数地址写到 `0x80` 对应的中断描述符中，也就是在中断 `0x80` 发生后，**就会自动调用函数 `system_call`。**
+
+![image-20250217190912095](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20250217190912095.png)
+
+
+
+### 5.4system_call
+
+- 前面可以忽略不看，重点就是system_call又调用了sys_call_table(,%eax,4)
+- 这里的call实际上是调用的   段基址sys_call_table +4*4  ，其实就是 call  sys_write
+  - 也就是说，到sys_call_table表里面找到下标为4的函数入口，调用该函数
+  - 我们都表里一看，果然下标为4的函数，是我们真正要调用的sys_write，该函数才会真正地去做一些动作，比如往显存里面写
+  - ![image-20250217192326866](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20250217192326866.png)
+- 其中参数%eax 不就是_NR_write，也就是4吗
+- 第二个4好理解就是_NR_write，表示下标为4的系统调用号，第一个4什么意思？其实是因为32位，所以函数的入口也就是一个指针，也是32位，即四个字节
+
+![image-20250217191824076](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20250217191824076.png)
+
+
+
+### 5.5 全流程
+
+![image-20250217192738671](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20250217192738671.png)
+
+
+
+
+
+
+
+
+
+
+
 
 
 # 二. 多进程
-
-
 
 
 
@@ -296,8 +351,8 @@
 
 
 
-- 如下图，刚开始我们通过TthraedCreate函数创建，通过Yield函数来回切换
-- 也就是说，搞明白create和yield函数，我们就搞明白了线程级别的切换！
+- 如下图，刚开始我们通过thraedCreate函数创建，通过Yield函数来回切换
+- 也就是说，搞明白thraedCreate和yield函数，我们就搞明白了线程级别的切换！
   - ![image-20241229192210194](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241229192210194.png)
 
 
@@ -340,7 +395,9 @@
 ### ⑤ThreadCreate
 
 - **前面说的create ,就是这个threadCreate**
-- 其核心：就是用程序做出这三样东西   （哪三样？一个栈，一个TCB和栈关联，栈里面放着返回的地址）
+- 其核心：就是用程序实现三件事
+  - 申请栈，申请TCB，TCB与栈关联并将要返回的地址压入栈(压入现场)
+
 - ![image-20241229201630551](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20241229201630551.png)
 
 
@@ -364,6 +421,7 @@
 
 
 
+## 4. 内核级线程
 
 
 
@@ -397,20 +455,21 @@
 
 
 
-
-# 八个实验
-
-
-
-## 一、操作系统的引导
+# 八个lab
 
 
 
+## ①、操作系统的引导
 
+- 修改输出
+- 由于我只做了前面的部分，难度很低，难度比较繁琐的部分我跳过了，涉及一堆转换感觉没必要
 
+## ② 系统调用
 
+- 编写 两个系统调用 iam , whoami 
+- 总体难度尚可
 
-
+## ③ 手写进程
 
 
 

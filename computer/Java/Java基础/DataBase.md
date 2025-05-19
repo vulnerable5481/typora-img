@@ -680,7 +680,7 @@ MySQL中，文本字符串总体上分为 CHAR 、VARCHAR 、 TINYTEXT 、 TEXT 
 
 
 
-**//挺麻烦的，直接去看视频，有空自己总结下来，还是很有帮助的!**
+直接用docker就完事了！
 
 
 

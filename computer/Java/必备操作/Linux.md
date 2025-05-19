@@ -8,7 +8,6 @@
 
 
 
-- vmware    : 虚拟机
 - Xshell7  ： 远程登录
 - XFTP7  : UNIX/LINUX 和 windows PC之间传输文件
 

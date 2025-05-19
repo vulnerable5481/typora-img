@@ -128,20 +128,6 @@ public class WareConstant {
 
 
 
-## ① 单线程基本使用
-
-- 继承  Thread
-- 实现 Runnable
-
-
-
-```
-1.开启线程
-	Thread thread = new Thead(new MyRunnable());
-	thread.start();
-2.重写run方法
-```
-
 
 
 ## ② 线程池DEMO
@@ -187,7 +173,7 @@ public class ThreadPoolExecutorDemo {
 
 ```
 
-## ③ ThreadPoolExecutor
+## ③ThreadPoolExecutor
 
 ​	`ThreadPoolExecutor` 类中提供的四个构造方法
 
