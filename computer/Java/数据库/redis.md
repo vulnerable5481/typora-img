@@ -1,4 +1,4 @@
-# Redis基础
+#  Redis基础
 
 
 
@@ -43,7 +43,7 @@
 
 ### ③ List
 
-**<font color='red'>查询速度快，比较适合朋友圈点赞列表，评论列表</font>**
+**<font color='red'>比较适合朋友圈点赞列表，评论列表</font>**
 
 ![image-20240402170557754](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240402170557754.png)
 
@@ -65,7 +65,7 @@
 
 ### ④ Set
 
-**<font color='red'>不可重复，适合实现标签、好友列表等功能</font>**
+**<font color='red'>不可重复，适合实现好友列表、存放所有点赞的用户，多个数据源进行交集并集操作</font>**
 
 ![image-20240402180625576](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240402180625576.png)
 
@@ -90,6 +90,10 @@
 
 
 ### ⑤ SortedSet
+
+```
+各种排行榜比如直播间送礼物的排行榜、朋友圈的微信步数排行榜、段位排行榜、话题热度排行榜等等。
+```
 
 ![image-20240402181751599](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240402181751599.png)
 

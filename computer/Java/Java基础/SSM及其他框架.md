@@ -21,10 +21,10 @@ File 类的对象 还不能直接对文件进行读写操作，只能修改文�
 File类的一些基本操作：
 
 - `boolean`  `createNewFile()`  当且仅当具有此名称的文件尚不存在时，以原子方式创建由此抽象路径名命名的新空文件。
-- `boolean`  `delete()`  删除此抽象路径名表示的文件或目录。
-- `boolean`  `exists()`  测试此抽象路径名表示的文件或目录是否存在
-- boolean mkdir() 创建单个目录   
-- boolean mikdirs() 创建多级目录
+- `boolean`  `delete()`                 删除此抽象路径名表示的文件或目录。
+- `boolean`  `exists()`                 测试此抽象路径名表示的文件或目录是否存在
+- `boolean` `mkdir()`                    创建单个目录   
+- `boolean` `mikdirs()`                创建多级目录
 
 ​    //注意  ：  这里的file只是一个Java对象，只有使用了createNewFile()方法之后才会真正地在磁盘中创建一个文件
 

@@ -51,7 +51,7 @@ Spring框架的核心就是   XML文件 or 注解 来驱动底层以反射执行
 
 - **@Pathvariable**
 
-  - 接收URL中 prefix/属性/subfix中的属性
+  - 接收URL中 /exit/{token} 站位参数
 
   - ```
     // 前端请求                                   
@@ -188,7 +188,7 @@ mybatis:
 
 4.foreach【类似in】
 
-5.trim【替换关键字/定制元素的的功能】
+5.trim【自定义sql语句】
 
 6.set【在update的set元素中，可以保证进入set标签的属性被修改，而没有进入set的，保持原来的值]
 ```
@@ -204,7 +204,7 @@ mybatis:
     <select id="querySingleUser" resultType="com.zlc.sykks.entity.User">
         select id,name,password,age,sex,address,phone from user
         <where>
-            <if test="name != null">and name = #{name}</if>
+            <if test="name != null">name = #{name}</if>
             <if test="id != null">and id = #{id}</if>
             <if test="gender != null">and gender = #{gender}</if>
             <if test="password != null">and password = #{password}</if>
@@ -216,9 +216,9 @@ mybatis:
 
 - 常见使用场景是对集合进行遍历（尤其是在构建 IN 条件语句的时候
 - 属性描述:
-  - collection	指定要遍历的集合。表示传入过来的参数的数据类型。该属性是必须指定的，要做 foreach 的对象。
+  - collection	指定要遍历的集合。表示传入过来的参数的数据类型。**该属性是必须指定的**，要做 foreach 的对象。
   - index	索引，index 指定一个名字，用于表示在迭代过程中，每次迭代到的位置。遍历 list 的时候 index 就是索引，遍历 map 的时候 index 表示的就是 map 的 key，item 就是 map 的值。
-  - item	表示本次迭代获取的元素，若collection为List、Set或者数组，则表示其中的元素；若collection为map，则代表key-value的value，该参数为必选
+  - item	表示本次迭代获取的元素，若collection为List、Set或者数组，则表示其中的元素；若collection为map，则代表key-value的value，**该参数为必选**
   - open	表示该语句以什么开始，最常用的是左括弧’(’，注意:mybatis会将该字符拼接到整体的sql语句之前，并且只拼接一次，该参数为可选项
   - separator	表示在每次进行迭代之间以什么符号作为分隔符。select * from tab where id in(1,2,3)相当于1,2,3之间的","
   - close	表示该语句以什么结束，最常用的是右括弧’)’，注意:mybatis会将该字符拼接到整体的sql语句之后，该参数为可选项
@@ -649,7 +649,7 @@ public boolean addUser(User user);
   - 1.默认id为主键，若**没有id**需要 tableld标明哪一个是主键，其中属性type可以实现数据库自增，程序员指定，雪花生成ID共三种
   - 2.<font color='red'>**如果属性是boolean(包装类Boolean好像就没事)且名字为 isXxxxx,mybatisplus底层反射时， 会自动去除is比如此处就会映射成错误的名字:married,需要注解来标明**</font>有时间你自己测试一下Boolean会不会出错吧
   - 3.<font color='red'>**最好别冲突**</font>如果属性名与数据库关键字冲突，比如此处order 与 order by中的order冲突 需要@TableField("`order`")处理
-  - 4.如果属性在数据库中没有出现，你也得标明，@TableField(exist = false)
+  - **4.如果属性在数据库中没有出现，你也得标明，@TableField(exist = false)**
 
 ![image-20240913132355531](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240913132355531.png)
 
@@ -743,31 +743,6 @@ users.forEach(System.out::println);
 <img src="https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240913140251468.png" alt="image-20240913140251468" style="zoom: 50%;" />
 
 <img src="https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240913140933145.png" alt="image-20240913140933145" style="zoom:50%;" />
-
-
-
-
-
-### 5.3 lambda使用
-
-**<font color='orange'>基础的crud直接使用方法，稍微麻烦点的就用lambda，很麻烦的就老老实实自己去写sql</font>**
-
-- 复杂条件查询
-
-```
-public List<User> queryUsers(String name,Integer status,Integer minBalance,Integer maxBalance){
-	return lamdaQuery()
-				.like(name != null ,User::getUsername,name)
-				.eq(status != null,User::getStatus,status)
-				.ge(minBalance != null,User::getMinBalance,minBalance)
-				.le(maxBalance != null,User::getMaxBalace,maxBalamce)
-				.list();	
-}
-```
-
-- 复杂条件修改
-
-![image-20240913150429733](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240913150429733.png)
 
 
 
@@ -937,6 +912,8 @@ public class ConstanceConfig implements WebMvcConfigurer {
 
 ### 4.静态资源
 
+// 前后端分离之后，应该用处不大了吧，一般都是存储到别的地方
+
 ```
 SpringBoot 默认配置就可以直接URL访问类路径下的静态资源
 
@@ -961,6 +938,8 @@ postHandler:  当前请求处理完成之后，也就是 Controller 方法调用
 
 
 afterHandler: 该方法将在整个请求结束之后，也就是在 DispatcherServlet 渲染了对应的视图之后执行。此方法主要用来进行资源清理。
+
+【前后端分离项目，基本都是restcontroller+json，springMVC的传统视图处理作用几乎很少，所以posthandler也几乎没用，但是其他两个方法还是很有用的！】
 ```
 
 

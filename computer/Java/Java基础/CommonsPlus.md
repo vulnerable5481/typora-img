@@ -541,7 +541,126 @@ public class GulimallExceptionControllerAdvice {
 
 
 
+# 5.Excel操作
 
+
+
+一个案例你就懂了！
+
+```
+        // 合并、过滤出最终表单数据
+        List<FacebookAdExcelData> finalList = Stream.of(
+                        ruleList1,
+                        ruleList2,
+                        ruleList3,
+                        ruleList4,
+                        ruleList5
+                )
+                .flatMap(List::stream)
+                .distinct()
+                .collect(Collectors.toList());
+
+        // 投放Excel表
+        Workbook workbook = new XSSFWorkbook();
+        ByteArrayOutputStream os = new ByteArrayOutputStream();
+        try {
+            // 填充Excel表单数据
+            exportOpenRuleExcelData(finalList,workbook);
+            workbook.write(os);
+            byte[] bytes = os.toByteArray();
+            ByteArrayInputStream inputStream = new ByteArrayInputStream(bytes);
+            // 上传阿里云
+            OSSConfig config = OSSParams.getCod();
+            String todayStr = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
+            String objectPath = String.format("exports/rules-%s-%s.xlsx", todayStr,UUID.randomUUID());
+            PutObjectResult result = OSSUtil.upload(config, objectPath, inputStream);
+
+            String endpoint = config.getEndpoint().replaceFirst("^https?://", "");
+            //    最终 URL -> https://{bucket}.{endpoint}/{objectName}
+            String url = String.format("https://%s.%s/%s",
+                    config.getBucket(),
+                    endpoint,
+                    objectPath
+            );
+
+            // 推送钉钉群
+            String token = "8911c7afda860f2de7c8c260e60e4532918d086f8fdee514794103644d4e7202";
+            String title = "测试规则表导出-title";
+            String text = "测试规则表导出-text";
+            String messageUrl = url;
+            String prl = "";
+            dingRobotSendMessageService.sendLinkMessage(token,title,text,messageUrl,prl);
+
+        } catch (Exception e) {
+            LoggerUtil.error(getClass(),"导出规则表单失败",e);
+            throw new RuntimeException(e);
+        }finally {
+            try {
+                workbook.close();
+                os.close();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+
+    }
+
+    String[] open_headers = {
+            "广告编号", "广告名称", "广告账户编号", "广告账户",
+            "广告组编号", "开投时间", "存活天数", "投放状态", "广告预算",
+            "今日出单IP数","今日出单成本","历史出单成本","地区",
+            "今日加购成本","千展",
+            "规则类型"
+    };
+    public void exportOpenRuleExcelData(List<FacebookAdExcelData> finalList, Workbook workbook){
+        // 创建工作簿
+        Sheet sheet = workbook.createSheet("规则表");
+
+        // 设置表头
+        Row headRow = sheet.createRow(0);
+        CellStyle cellStyle = workbook.createCellStyle();
+        Font font = workbook.createFont();
+        font.setBold(true);
+        cellStyle.setFont(font);
+
+        for(int i=0;i<open_headers.length;i++){
+            Cell cell = headRow.createCell(i);
+            cell.setCellValue(open_headers[i]);
+            cell.setCellStyle(cellStyle);
+            sheet.autoSizeColumn(i);
+        }
+
+        // 填充数据
+        int rowIndex = 1;
+        for (FacebookAdExcelData ad : finalList) {
+            int index = 0;
+            Row row = sheet.createRow(rowIndex++);
+
+            BigDecimal todaySpent = ad.getTodaySpent();
+            if(todaySpent == null) continue;
+            double addCartOrderCost = todaySpent.subtract(BigDecimal.valueOf(ad.getTodayAddCart())).doubleValue();
+
+            row.createCell(index++).setCellValue(ad.getAdId());
+            row.createCell(index++).setCellValue(ad.getAdName());
+            row.createCell(index++).setCellValue(ad.getAccountId());
+            row.createCell(index++).setCellValue(ad.getAccountName());
+            row.createCell(index++).setCellValue(ad.getAdsetId());
+            row.createCell(index++).setCellValue(ad.getDateStart());
+            row.createCell(index++).setCellValue(ad.getSurvivalDays());
+            row.createCell(index++).setCellValue(ad.getStatus());
+            row.createCell(index++).setCellValue(ad.getBudget().doubleValue());
+            row.createCell(index++).setCellValue(ad.getTodayOrderNoRepeat());
+            row.createCell(index++).setCellValue(ad.getTodayOrderCost().doubleValue());
+            row.createCell(index++).setCellValue(ad.getTotalOrderCost().doubleValue());
+            row.createCell(index++).setCellValue(ad.getLocation());
+            row.createCell(index++).setCellValue(addCartOrderCost);
+            row.createCell(index++).setCellValue(ad.getCpm().doubleValue());
+            row.createCell(index++).setCellValue("打开关闭的人群包广告");
+        }
+
+    }
+```
 
 
 
