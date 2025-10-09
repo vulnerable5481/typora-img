@@ -166,6 +166,7 @@
 
 
 1. shell   the hard outer covering of eggs , nuts and sea creatures;    explosive weapon
+1. neutral
 
 
 
@@ -189,14 +190,10 @@
 
 # 有点陌生
 
-
-
-1. vowel /vaʊəl/
-2. consonnant
-2. reduction
+1. reduction
 2. comprehension   ： the ability to understand sth [reading comprehension]
-2. Greek  希腊的
-2. credit:好多意思 其中之一指完成游戏后在屏幕上显示的开发团队、艺术家和其他参与者的名单
+3. Greek  希腊的
+4. credit:好多意思 其中之一指完成游戏后在屏幕上显示的开发团队、艺术家和其他参与者的名单
 
 
 
