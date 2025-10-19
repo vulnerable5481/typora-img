@@ -1,14 +1,10 @@
 ## 一,计算机网络概述
 
-
-
 ### 1.1 三种交换方式
-
-
 
 #### (1) 分组交换⭐
 
-​	![image-20240228103558021](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228103558021.png)
+![image-20240228103558021](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240228103558021.png)
 
 
 
@@ -845,26 +841,6 @@ S = T/T+t =  1/1+t/T
   - BID(桥ID)  由桥优先级 和 桥MAC 组成，缺省为32768
   - PID(端口ID) 由端口优先级 和 端口号 组成 ，缺省128
   - RB（根桥）确定依据：
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
