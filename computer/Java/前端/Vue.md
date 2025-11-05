@@ -241,7 +241,7 @@ button {
 
 ![image-20240325130848922](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325130848922.png)
 
-#### ④	属性选择器
+#### ④属性选择器
 
 比如  .box input[type=text]{  color:pink     },怎么说呢，感觉还是比较便捷的!
 
@@ -262,8 +262,6 @@ button {
 ![image-20240901132633416](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240901132633416.png)
 
 ![image-20240901133831146](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240901133831146.png)
-
-
 
 **利用 ::before 实现 便捷遮罩层!**
 
@@ -292,31 +290,7 @@ button {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### 2.2 各种属性
-
-
 
 #### 2.2.1字体属性
 
@@ -334,21 +308,7 @@ button {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 #### 2.2.2   文本属性
-
-
 
 ![image-20240319184324372](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240319184324372.png)
 
@@ -359,12 +319,6 @@ button {
 **//text-decoration 知道underline 添加下划线 和 none 取消下划线   就ok**
 
 **//line-height 控制行高,常用于垂直居中显示，line-height = height的高度     文字垂直居中 **
-
-
-
-
-
-
 
 
 
@@ -407,27 +361,11 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 
 
-
-
 #### 2.26 文字阴影
-
-
 
 ![image-20240325184520481](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325184520481.png)
 
-
-
-
-
-
-
-
-
-
-
 ### 2.3 CSS的元素显示模式
-
-
 
 -  块元素:**< h1 >~< h6 >、< p >、< div >、< ul >、< ol >、< li >**
 -  行内元素: **< a >、< strong >、< b >、< em >、< i >、< del >、< s >、< ins >、< u >、< span >、< img />、< input />、< select >、< textarea >、< br />、等，其中 < span > 标签是最典型的行内元素。有的地方也将行内元素称为内联元素。**
@@ -443,17 +381,11 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 ![image-20240325141840598](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325141840598.png)
 
-
-
-
-
 ### 2.4 CSS三大特性与盒子模型
-
-
 
 - 层叠性
 - 继承性
-  - 子元素可以继承父元素一些样式，但是只能继承文字相关样式，但是不会继承浮动啊边框等其他元素
+  - 子元素可以继承父元素一些样式，但是只能继承文字等相关样式，但是不会继承浮动啊边框等其他元素
 
 - 优先级
   - 权重：![image-20240327173935459](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240327173935459.png)
@@ -461,15 +393,7 @@ border-radius: 0 0 0 0   按照顺时针角度设置
 
 
 
-
-
-
-
-
-
 #### 2.5.1网页布局的本质
-
-
 
 ![image-20240325131138597](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325131138597.png)
 
@@ -498,8 +422,6 @@ border分框写法:
 
 
 
-
-
 ##### 2.padding内间距
 
 ![image-20240325134952622](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325134952622.png)
@@ -522,8 +444,6 @@ border分框写法:
 
 
 ##### 3.margin外边距
-
-
 
 ![image-20240325142237958](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325142237958.png)
 
@@ -555,21 +475,11 @@ border分框写法:
 
 ​	
 
-
-
-
-
-
-
 ​	
-
-
 
 ### 2.5浮动
 
 **三种网页布局 ： 标准流，浮动，定位，开发一个页面往往三者都需要使用**
-
-
 
 ![image-20240325185923009](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240325185923009.png)
 
@@ -669,11 +579,7 @@ border分框写法:
 
 
 
-
-
 ### 2.6定位
-
-
 
 #### ①定位组成及语法
 
@@ -708,17 +614,11 @@ border分框写法:
 
 
 
-
-
-
-
 #### ③ 定位叠放次序
 
 ![image-20240330183200722](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330183200722.png)
 
-
-
-#### ④ 定位的一些特性⭐
+#### ④ 定位的一些特性
 
 **//目前已知可以给行内元素设置宽度高度的方法:**
 
@@ -728,25 +628,13 @@ border分框写法:
 
 ![image-20240330184511724](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240330184511724.png)
 
-
-
 浮动只会对之前的元素有影响，而且浮动只会压住下面的标准流盒子，不会压住下面标准流盒子中的文本/图片，标准流盒子中的文字/图片会被挤到一边
 
 但是绝对定位/固定定位 会完完全全地压住盒子和盒子中所有的内容
 
 
 
-
-
-
-
-
-
 ### 2.7 两种显示隐藏元素
-
-
-
-
 
 ![image-20240331150414524](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240331150414524.png)
 
@@ -756,19 +644,9 @@ border分框写法:
 
 
 
-
-
-
-
-
-
 ## 3.CSS下篇
 
-
-
 ### 3.1 精灵图
-
-
 
 #### 为什么需要
 
@@ -800,16 +678,6 @@ border分框写法:
 
 ![image-20240831180645761](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240831180645761.png)
 
-
-
-
-
-
-
-
-
-
-
 ### 3.3 用户界面样式
 
 #### ①鼠标样式
@@ -825,8 +693,6 @@ input {outline:none}
 或者 {outline:0}
 ```
 
-
-
 #### ③ 禁止文本拖拽
 
 ```
@@ -834,8 +700,6 @@ textarea{
 	resize:none;
 }
 ```
-
-
 
 
 
@@ -851,10 +715,6 @@ textarea{
 - <font color='red'>**vertical-align只能和行内块元素使用，如果是一个盒子可以与display:inline-block搭配使用**</font>
 
 ![image-20240831184803093](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240831184803093.png)
-
-
-
- 
 
 **案例：**
 
@@ -876,8 +736,6 @@ textarea{
 
 ### 3.6 文字溢出显示省略号
 
-
-
 1.  white-space:nowrap    //强制单独一行内显示文本
    **默认为normal：超过一行就换行**
 2. overflow: hidden //超出的部分隐藏
@@ -885,25 +743,19 @@ textarea{
 
 
 
-
-
 ### 3.7 新特性
 
-
-
 #### ① 语义化dIv
-
-
 
 ![image-20240901120001037](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240901120001037.png)
 
 #### ② 视频标签
 
+```
+<vedio>
+```
 
-
-#### ③音频标签
-
-
+#### ③ 音频标签
 
 #### ④ input验证
 
@@ -911,11 +763,7 @@ textarea{
 
 ![image-20240901121120303](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240901121120303.png)
 
-
-
-
-
-#### ⑤  盒子新模型
+#### ⑤ 盒子新模型
 
 ![image-20240902112915595](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240902112915595.png)
 
@@ -928,12 +776,6 @@ textarea{
   box-sizing:border-box  //css初始化可以加上这一句，这样就不会有撑大盒子的问题了
 }
 ```
-
-
-
-
-
-
 
 #### ⑥ favicon图标
 
@@ -952,10 +794,6 @@ vue3修改favicon图标的方法
 
 
 ## 4.CSS++
-
-
-
-
 
 ### 4.1 过渡
 
@@ -981,11 +819,7 @@ vue3修改favicon图标的方法
 
 ### 4.2 2D转换
 
-
-
 #### 2D位移
-
-
 
 **①作用：移动盒子，类似定位**
 
@@ -1012,14 +846,10 @@ transform:translate(50%,50%)
   明显思路2要更加简单，只需要一行代码就搞定，思路1还需要修改父盒子什么的
 - 总结：三者各有应用场景,没有优劣 ! **灵活使用！**
 
-
-
 ③ 定位+2D移动
 
 以往我们实现大盒子内小盒子的移动，通常都是子绝父相+调整小盒子的margin/大盒子的padding,现在更推荐
 使用子绝父相+2D移动，这样就不需要计算内外边距了，同时盒子大小改变也会自动修改距离
-
-
 
 例子：
 
@@ -1042,10 +872,6 @@ transform:translate(50%,50%)
     background-color: red;
   }
 ```
-
-
-
-
 
 
 
@@ -1212,17 +1038,13 @@ transform: rotateZ(180deg);
 
 #### 1.1变量
 
-![image-20240509120603382](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509120603382.png)
+![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509120603382.png)
 
 #### 1.2 数据类型
 
 - 布尔值
   - 空字符串 默认是 false
   - 除了空字符串其他的非布尔值全都会隐式转换成true
-
-
-
-
 
 #### 1.3 Bob
 
@@ -1232,33 +1054,11 @@ Blob 对象表示一个不可变、原始数据的类文件对象
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### 2.DOM-API	
 
 ![image-20240509121056093](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509121056093.png)
 
 #### 2.1 操作DOM对象
-
-
 
 - **获取DOM对象**
 
@@ -1268,8 +1068,6 @@ Blob 对象表示一个不可变、原始数据的类文件对象
 //2.返回所有
 	document.querySelectorAll('css选择器')   
 ```
-
-
 
 - **操作DOM对象**
 
@@ -1298,19 +1096,11 @@ Blob 对象表示一个不可变、原始数据的类文件对象
 	xx.dataset.xxx
 ```
 
-![image-20240509140552963](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509140552963.png)
-
-
-
 
 
 #### 2.2 定时器-间歇函数
 
 **//setInterval每隔一段时间都会执行一次；setTimeout只会在指定时间到后执行一次	**
-
-
-
-
 
 **使用 setInterval(函数，间隔时间)**
 
@@ -1336,8 +1126,6 @@ clearInterval(id)
 
 
 
-
-
 一个例子：我同意协议：原来还可以自杀啊，直接在定时器里面让其自杀
 
 ```
@@ -1351,8 +1139,6 @@ clearInterval(id)
       }
     },1000)
 ```
-
-
 
 一个例子：图片轮播图：关于li的扩展
 
@@ -1370,14 +1156,12 @@ clearInterval(id)
 
 
 
-
-
-
-
 #### 2.3 事件监听
 
 ```
-xxx.addEventListener(函数)     
+xxx.addEventListener('click',function(event){//})
+
+event：这里的event包含了一些事件相关的数据
 ```
 
 ![image-20240509181304225](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509181304225.png)
@@ -1386,17 +1170,11 @@ xxx.addEventListener(函数)
 
 #### 2.4几个重要知识
 
-
-
 - ##### **事件对象**
 
-**作用：可以获取事件触发时的相关信息**
+作用：可以获取事件触发时的相关信息
 
-**例如:鼠标点击事件，事件对象就存储了鼠标点在哪个位置等信息，可以实现点哪里哪里就出现特效**
-
-​		**判断用户按下了哪个键，比如按下不同的键有不同的作用**
-
-
+例如:鼠标点击事件，事件对象就存储了鼠标点在哪个位置等信息，可以实现点哪里哪里就出现特效
 
 ```
 //1.获取事件对象
@@ -1409,101 +1187,82 @@ xxx.addEventListener(函数)
 	e.target.xxx: 获取触发事件的元素  比如 e.target.style = 'red' ,e.target.tagName = '元素标签名如Li,p'
 ```
 
-
-
 - **环境对象**
 
-**普通函数的this指向的是window,因为是window调用的函数**
+普通函数的this指向的是window,因为是window调用的函数
 
-**简单一句话，谁调用的就指向谁**
-
-
+简单一句话，谁调用的就指向谁
 
 - **回调函数**
 
-![image-20240509185605162](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509185605162.png)
+```
+回调函数 = 传给别人执行的函数，通常在某个事件或异步操作完成后被调用。
 
-
-
-
+1、比如异步事件回调：在点击之后再去调用对应的方法
+document.addEventListener("click", function(event) {
+  console.log("页面被点击了！");
+});
+2、AJAX 请求
+  这样的请求也是回调函数，回调是在请求成功和失败后触发
+3、事件监听
+   在对应的事件触发后，进行回调
+and so on ...
+```
 
 
 
 #### 2.5 事件流
 
-##### **定义**
+```
+1、什么是事件流？
+	就是事件触发后在DOM树上按照一定的顺序流动，触发相应相应元素的事件处理函数。
+	
+2、事件流的三个阶段
+	有三个阶段：捕获阶段从document>html>body>..>目标元素，一层层捕获，目标阶段，事件到达目标阶段就触发对应的函数，冒泡阶段则是从目标元素依次向上层冒泡，不断触发父元素对应的事件，捕获阶段我们一般不关注，一般关注的是冒泡阶段，这里除了focus、blur等不冒泡的事件，其他都会被事件流经过
 
-##### **事件执行流程的流动路径**
-
-![image-20240509212656309](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509212656309.png)
-
-
-
-##### **捕获阶段(很少使用)**
-
-![](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509212856720.png)
-
+3、事件冒泡
+	冒泡就是点击目标元素，会触发目标元素及其父元素的事件，比如触发子元素的click事件，那么也会触发父元素的click事件，这样就形成了一个事件流，会向上层不断冒泡一样的触发事件。【触发的是子元素与父元素同名的事件，比如都是click事件】
+```
 
 
-##### **冒泡阶段(⭐)**
 
 ![image-20240509215801602](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509215801602.png)
 
-![image-20240509213011940](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509213011940.png)
-
-
-
-##### **阻止冒泡**
-
-##### 阻止默认行为
-
-![image-20240509223306880](C:\Users\赵联城\AppData\Roaming\Typora\typora-user-images\image-20240509223306880.png)
-
-
-
-
-
 #### 2.6事件委托
 
-
-
-##### **引出**
-
-![image-20240509213356085](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509213356085.png)
-
-##### **好处**
-
-![image-20240509213459830](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509213459830.png)
-
-
-
-
-
-
-
-
+```
+1、事件委托
+	就是利用冒泡机制，将子元素的事件绑定给父元素，这样利用冒泡机制委托给父元素。
+2、好处：
+	假如要给多个子元素绑定相同事件，不如直接只给父元素绑定即可
+```
 
 
 
 #### 2.7 其他事件
 
-##### 页面加载事件
+##### ① 页面加载事件
 
-**//一般写在head**
+```
+1、一般都是写在head部分，当然vue就无所谓了
 
-![image-20240509223757732](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509223757732.png)
+2、例子：
+	// 页面资源加载事件
+    window.addEventListener('load', () => {
+      console.log('页面所有资源（图片、样式等）都加载完毕！');
+    });
+    // 页面即将关闭/刷新事件
+    window.addEventListener('beforeunload', (event) => {
+      event.preventDefault();
+      event.returnValue = ''; // Chrome 需要这样才能弹出提示
+    });
+```
 
-
-
-##### 页面滚动事件⭐
+##### ② 页面滚动事件
 
 **//不仅仅是window里面有，普通的事件也有**
 
 ![image-20240509224019879](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509224019879.png)
-
-
-
-
 
 ![image-20240509224318782](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509224318782.png)
 
@@ -1511,19 +1270,11 @@ xxx.addEventListener(函数)
 
 ![image-20240509224648219](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240509224648219.png)
 
-
-
-##### 页面尺寸事件
+##### ③ 页面尺寸事件
 
 ```
 window.scrollTo(0,0)   跳转到顶部
 ```
-
-
-
-
-
-
 
 
 
@@ -1537,10 +1288,6 @@ window.scrollTo(0,0)   跳转到顶部
 //1. dom对象.clientWidth
 	 dom对象.clientHeight
 ```
-
-
-
-****
 
 
 
@@ -1586,13 +1333,7 @@ dom对象.getBoudingClientRect()
 
 ##### 滚动跳转
 
-
-
 方法一：window.scrollTo(x,y)
-
-
-
-
 
 方法二: document.documentElement.scrollTop = xxx.offsetTop
 
@@ -1600,25 +1341,7 @@ dom对象.getBoudingClientRect()
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 #### 2.9 时间函数
-
-
 
 ```
 //1.const d = new Date()
@@ -1629,30 +1352,22 @@ dom对象.getBoudingClientRect()
 	2.3 +new Date()
 ```
 
-
-
 #### 2.10 节点操作
 
 ![image-20240510212715023](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240510212715023.png)
-
-
 
 - 查询节点
   - xx.parentNode
   - xx.childrien
   - xxx.nextElementSibling/previousElementSibling
 
-- 增加节点 :演示⭐
+- 增加节点 :演示
   - const ul = document.querySelector('ul')
   - const li= document.createElement("li")
   - li.appendChild/insertBefore(li,ul.children[0])
 - 克隆节点
 - 删除节点
   - xx.remove(child)
-
-
-
-
 
 
 
@@ -1664,45 +1379,19 @@ dom对象.getBoudingClientRect()
 
 ![image-20240510221650931](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240510221650931.png)
 
-
-
-
-
-
-
 #### 2.12 Swiper插件
-
-
 
 **//一个很强大的开源插件，只需要cv修改部分代码，就可以实现很多功能**
 
 ![image-20240510224109619](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240510224109619.png)
 
-
-
-
-
-
-
-
-
-
-
-
-
 ### 3.BOM
-
-
 
 #### 3.1 window对象
 
 **//实际上我们之前就接触了很多BOM相关的api，比如定时器，获取当前滚动位置；**
 
-
-
 ![image-20240511115039272](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511115039272.png)
-
-
 
 #### 3.2 定时器-延时函数
 
@@ -1721,14 +1410,6 @@ setTimeout(回调函数，等待的毫秒数)
 let timer = setTimeout(回调函数,等待毫秒数)
 clearTimeout(timer)   
 ```
-
-
-
-
-
-
-
-
 
 
 
@@ -1753,39 +1434,27 @@ clearTimeout(timer)
 
 ![image-20240511121133346](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511121133346.png)
 
-
-
 #### 3.4 location对象
 
 **//总之location对象可以获取页面URL属性，可以刷新页面，可以从当前页面跳转**
 
 ![image-20240516123412218](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240516123412218.png)
 
-
-
 #### 3.5 navigation对象和history对象
 
-**navigation对象的主要作用就是里面有很多关于浏览器的信息**
-
-**可以用来判断当前是移动端还是PC，PC跳转到哪个页面，移动端跳转到哪个页面**
-
-
-
-**history对象的主要作用就是操纵浏览器历史记录，可以back/forward**
-
-**比如vue中的下面几个方法底层都是用的history对象**
-
 ```
+1、navigation对象的主要作用就是里面有很多关于浏览器的信息
+   可以用来判断当前是移动端还是PC，PC跳转到哪个页面，移动端跳转到哪个页面
+
+2、history对象的主要作用就是操纵浏览器历史记录，可以back/forward
+
+3、vue中的下面几个方法底层都是用的history对象
 		this.$router.back() // 后退一步
 		this.$router.forward()  //前进一步
 		this.$router.go(N)  //整数前进N步   负数倒退N步
 ```
 
-
-
 #### 3.6 本地存储 
-
-
 
 ##### ①localStorage
 
@@ -1808,25 +1477,13 @@ localStorage.setItem(k,Json.stringfy(v))
 Json.parse(json字符串)
 ```
 
-
-
-
-
-
-
-
-
 ##### ②sessionStorage
 
 只有一点不同：生命周期仅限当前页面，关闭则数据丢失。
 
 
 
-
-
 ### 4.js进阶
-
-
 
 #### 4.1 解构赋值
 
@@ -1838,19 +1495,11 @@ Json.parse(json字符串)
 
 ![image-20240516150431885](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240516150431885.png)
 
-
-
-
-
 - <font color='orange'>**结构赋值的本质**</font>
 
 **// const {name,age,sex} = person**
 
 //**本质等于    const name = person.name ,  const age = person.age , const sex = person.sex**
-
-
-
-
 
 - <font color='orange'>**结构赋值与三元运算符**</font>
 
@@ -1866,35 +1515,15 @@ Json.parse(json字符串)
 
 ```
 
-
-
-
-
-
-
-
-
 #### 4.2 数组常用方法
-
-
 
 - **map:**数组.map 返回的是新数组，里面可以对原数组进行改动;map比forEach更常用
 - **filter:**过滤数组中的一些数据，返回符合条件后的新数组  比如return item >= 20
 - 用到自己搜呗
 
-
-
-
-
-
-
 #### 4.3 内置构造函数常用方法
 
 ![image-20240517100231229](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240517100231229.png)
-
-
-
-
 
 #### 4.4 原型对象与原型链
 
@@ -1904,13 +1533,9 @@ Json.parse(json字符串)
 
 ![image-20240517101735224](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240517101735224.png)
 
-
-
 #### 4.5 异常处理
 
 就是try catch finally
-
-
 
 #### 4.6 防抖
 
