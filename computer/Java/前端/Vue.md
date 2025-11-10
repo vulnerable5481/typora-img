@@ -1583,7 +1583,6 @@ Json.parse(json字符串)
     }
     ```
 
-    
 
 #### 4.7 节流
 
@@ -1613,11 +1612,6 @@ Json.parse(json字符串)
 
   
 
-  
-
-
-
-
 
 ### 5.ES6
 
@@ -1627,8 +1621,6 @@ Json.parse(json字符串)
   - import userApi from '@/apis/userApi.js'
 - <font color='red'>**命名导入**</font>
   - import { login register userName } from '@/apis/userApi.js'
-
-
 
 #### ②导出
 
@@ -1642,131 +1634,52 @@ Json.parse(json字符串)
   - **语法**：使用 `export` 关键字导出多个不同的实体，导出时必须指定名称。
   - **导入方式**：导入时需要使用大括号 `{}` 来指定导出的名称。
 
-
-
-
-
-
-
 #### ③异步处理
 
-- 所谓异步处理，就是让你先暂时跳过回调函数，执行完整个异步操作之后，再折回去调用回调函数 ! ! ! !
+- 所谓异步处理，就是让你先暂时跳过回调函数，执行完整个异步操作之后，再折回去调用回调函数
 
 - ```
-  function asyncOpeation(){
-  	return new Promise((resolve,reject) => {
-  		setTimeout(() =>{
-  			console.log('回调函数被执行')
-  			resolve("操作完成"); // 解析 Promise，返回结果
-  		},2000)
-  	})
-  }
-  // 调用异步操作
-  asyncOperation().then(result => {
-      console.log(result) // 这里在异步操作完成后调用xx
-  });
-  // 立即输出内容
-  console.log("开始异步操作")
-  ```
-
-
-
-#### ④异步最佳实践
-
-- ES6抛弃了以往ajax那种冗余的写法，转而使用 Promise
-
-- ```
-  //定义异步操作
-  function test = new Promise((resolve,reject) => {
-  	//如果有回调函数，则在执行完整个异步操作后，最后执行回调函数
-  	const message = function xxx(){}
-  	//resolve会返回异步操作成功的结果,reject则返回失败
-  	     if (success) {
-              resolve("操作成功"); // 操作成功时调用 resolve
-          } else {
-              reject("操作失败"); // 操作失败时调用 reject
-          }
-  	
-  })
-  //可以使用.then来接收异步操作完全后的结果
-  test.then(result => {
-  	console.log(result);//异步操作的结果
-  })
-  //  async/await
-  	//async 用来声明表示该方法是一个异步操作，但是你不写也没事，除非你想要使用await
-  async function haha() {
-  	//await表示等待异步操作完成，程序会卡在这里
-  	console result = await test();
-  }
-  ```
-
+  1、async、await
+  	使用async标记一个函数为异步函数，异步函数自动返回Promise对象。
+  	async与Promise的关系，async的本质就是让一个函数变成自动返回Promise的函数。
+  	可以使用await去等待异步函数结束，这样就和正常的同步函数没什么区别了，但是我们经常需要这样做。
   
-
-
-
-### 6.实用api
-
-
-
-#### ①FileReader
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  2、Promise对象
+  	用来表示异步操作最终完成或失败其返回结果的对象
+  	Promise对象自带.then .catch .finally，这都是异步操作特有的方法
+      fetch('/api/data')
+        .then(response => {})     // 请求成功
+        .then(data => {})       // 数据解析成功
+        .catch(error => {})  // 请求或解析失败
+        .finally(() => {});  // 无论成功失败都要做的事
+  	
+  3、模拟async
+      function asyncOpeation(){
+          return new Promise((resolve,reject) => {
+              setTimeout(() =>{
+                  console.log('回调函数被执行')
+                  resolve("操作完成"); // 解析 Promise，返回结果
+              },2000)
+          })
+      }
+      // 调用异步操作
+      asyncOperation().then(result => {
+          console.log(result) // 这里在异步操作完成后调用xx
+      });
+      // 立即输出内容
+      console.log("开始异步操作")
+      
+  4、ES6抛弃了以往ajax那种冗余的写法，转而使用 Promise
+  ```
 
 
 
 
 ## 6.flex布局
 
-
-
 ### 1. 注意事项
 
 - 当我们给父元素display:flex, 子元素的float,clear,vertical-align属性都将失效
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ### 2. 父项属性
 
@@ -1787,8 +1700,6 @@ Json.parse(json字符串)
 4.按照Y轴翻转
 	flex-direction:column-reverse
 ```
-
-
 
 #### ② justify-content
 
@@ -1814,8 +1725,6 @@ Json.parse(json字符串)
 	justify-content:space-between
 ```
 
-
-
 #### ③flex-wrap
 
 **<font color='red'>设置子元素是否换行</font>**
@@ -1830,13 +1739,10 @@ Json.parse(json字符串)
   	flex-wrap:nowrap
   ```
 
-  
-
-
 
 #### ④align-items
 
-**<font color='red'>设置测轴上的子元素排列方式(单行)</font>**
+**<font color='red'>设置侧轴上的子元素排列方式(单行)</font>**
 
 ```
 1.从上到下
@@ -1852,8 +1758,6 @@ Json.parse(json字符串)
 	align:items:stretch
 ```
 
-
-
 #### ⑤align-content
 
 **<font color='red'>设置侧轴子元素排行方式（多行）</font>**
@@ -1867,10 +1771,6 @@ Json.parse(json字符串)
 	align-content:space-around
 ```
 
-
-
-
-
 #### ⑥flex-flow
 
 **<font color='red'>flex-direction和flex-wrap的复合属性</font>**
@@ -1879,13 +1779,9 @@ Json.parse(json字符串)
 flex-flow:row wrap
 ```
 
-
-
 ### 3. 子项属性
 
-
-
-#### ①flex
+#### ① flex
 
 ```
 用来表示占据父盒子的几分   
@@ -1896,26 +1792,14 @@ flex:1   //a,b,c各占据一份也就是各自1/3
 
 
 
-
-
-
-
 ## 7.响应式设计思路
 
-
-
-
-
 ### 7.1rem与媒体查询
-
-
 
 #### ① rem
 
 - rem也是单位，和em差不多，只不过rem = **<font color='red'>html</font>**中的font-size ， em = 父元素font-size 
 - 默认 html 的 font-size = 16px  
-
-
 
 #### ② 媒体查询
 
@@ -1939,8 +1823,6 @@ flex:1   //a,b,c各占据一份也就是各自1/3
 ### 7.2 grid布局
 
 **<font color='red'>对于响应式布局，grid非常好用</font>**
-
-
 
 #### ①容器属性
 
@@ -2009,11 +1891,6 @@ flex:1   //a,b,c各占据一份也就是各自1/3
   grid-template-columns:1fr 1fr 1fr
   ```
 
-  
-
-
-
-
 
 #### ②项目属性
 
@@ -2041,17 +1918,9 @@ flex:1   //a,b,c各占据一份也就是各自1/3
 
 
 
-
-
-
-
-
-
 ## 8. 移动端
 
 ### 8.1 区别
-
-
 
 #### ① 视口
 
@@ -2076,73 +1945,13 @@ flex:1   //a,b,c各占据一份也就是各自1/3
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # 二.Vue2、3
 
 
 
 ## 1.Vue核心
 
-
-
 ### 一些知识点	
-
-
 
 #### 1. vue-cli创建项目
 
@@ -2167,12 +1976,6 @@ vue3的脚手架：vue create 项目名
 **(<font color="green">既然vue实例的 \_data已经有了真实数据，为什么还要在vue实例再创建数据呢？因为你每次都要\_data.xxx获取属性不麻烦吗，直接 使用 xx多方便，所以vue实例中的data的数据是通过___data的get获取值，通过_____data的set来修改值，这样就可以直接使用属性名，而不用加-data.xxx</font> ）**
 
 ![image-20240504201600879](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240504201600879.png)
-
-
-
-
-
-
 
 #### 4.vue视图更新
 
@@ -2235,8 +2038,6 @@ addSex(){
 
 #### (1)Mustache(大胡子)语法
 
-
-
 #### (2)v-once
 
 在某些场景我们可能不希望界面随意跟随改动，这时候我们可以使用该指令
@@ -2247,10 +2048,6 @@ addSex(){
   - 代码如下：
 
 ![image-20240319141444920](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240319141444920.png)
-
-
-
-
 
 #### (3)v-html
 
@@ -2277,10 +2074,6 @@ addSex(){
     </script>
 ```
 
-
-
-
-
 #### (4)v-pre
 
 原封不动的显示出来，而不会渲染
@@ -2289,29 +2082,11 @@ addSex(){
 
 
 
-
-
-
-
-
-
-
-
 ### 1.2 v-bind
 
  <font color="red">**v-bind的实质就是将引号里面的东西当成js代码而不是字符串看待！！！！！！**</font>
 
-
-
-
-
-
-
-
-
 ### 1.2 v-model
-
-
 
 **//可以双向绑定数据，即在一个输入框中你输入的信息也会实时影响vue实例中的数据**
 
@@ -2323,16 +2098,6 @@ addSex(){
 //1.checkbox，如果绑定的是布尔值，那么勾选与不勾选将直接影响布尔值;
 			  如果绑定的是数组，那么勾选与不勾选 影响的是数组中有无该数据
 ```
-
-
-
-
-
-
-
-
-
-
 
 **//表单修饰符**
 
@@ -2359,12 +2124,6 @@ addSex(){
 
 
 
-
-
-
-
-
-
 ### 1.3 v-for
 
 **从数组中循环取出数据**
@@ -2384,29 +2143,17 @@ addSex(){
         </li>
 ```
 
-
-
-
-
 - 如果在遍历的过程中，我们需要拿到元素在数组中的索引值呢？
 - 语法格式：v-for=(item, index) in items
 - 其中的index就代表了取出的item在原数组的索引值。
 
 
 
-
-
-
-
 ### 1.4计算属性与监视
 
+//计算属性的set,get方法知道有这个东西就Ok，一般是不会使用的
 
-
-///计算属性的set,get方法知道有这个东西就Ok，一般是不会使用的
-
-**//为什么推荐使用计算属性，而不是写一个函数来获取属性？**因为你写成函数那么用几次该属性就需要调用几次该函数，没有缓存，效率低。**但是你使用计算属性，只会调用一次就会一直获取到该属性，后续再使用该属性可以直接使用**.
-
-
+**//为什么推荐使用计算属性，而不是写一个函数来获取属性？**因为你写成函数那么用几次该属性就需要调用几次该函数，没有缓存，效率低。**但是你使用计算属性，只会调用一次就会一直获取到该属性，后续再使用该属性可以直接复用**.
 
 **//计算机属性**
 
@@ -2441,21 +2188,17 @@ addSex(){
 
 
 
-
-
 **监听器**
 
 **基本上不用watch来实现数据监听，因为太麻烦了，但是watch可以监听路由变化！**
 
 <font color="red">**创建时间**</font>：**immediate: false(默认刚开始不自动生成)，当属性发生变化时再调用，如果将immediate设置为true,参考列表过滤也许有奇效！！！！！**
 
-
-
 ```js
 // 监视属性配置项
 watch: {
-    // 监视isSunny属性
-    imeediate: true/false,
+    // 监视isSunny属性 一般就是默认，不用写
+    immediate: true/false,
     isHot: {
         // handler函数名称是固定的，不能随意更改,固定有两个参数一个是修改前的旧数据，一个是修改后的新数据
         handler(newValue, oldValue) {
@@ -2465,41 +2208,25 @@ watch: {
 }
 ```
 
-
-
 <font color="red">**建议**</font>：**计算属性也可以实现很多属性监视，能够使用计算属性就使用，实在不行才使用监视属性**
 
 ![image-20240504214603128](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240504214603128.png)
 
 
 
-
-
-
-
-
-
-
-
-
-
 ### 1.5事件监听v-on
-
-**v-on:xxxx ,  @xxx   xxx为绑定的一个事件** 
 
 **//语法糖：缩写为@**
 
-​	
-
+```
 当通过methods中定义方法，以供@click调用时，需要注意参数问题：
 
 情况一：如果该方法不需要额外参数，那么方法后的括号()可以不添加。
 
-但是注意：如果方法本身中有一个参数，那么会默认将原生事件event参数传递进去，**可以在参数列表写一个名字获取event**
+但是注意：如果方法本身中有一个参数，那么会默认将原生事件event参数传递进去，可以在参数列表写一个名字获取event
 
 情况二：如果需要同时传入某个参数，同时需要event时，可以通过$event传入事件,否则传入的参数会顶替掉even。
-
-
+```
 
 **//v-on修饰符, 可以代替以往写js代码的形式**
 
@@ -2510,15 +2237,11 @@ methods:{
 		alter('你好!')
 	}
 }
-//1.阻止默认行为     //比如一个超链接，点击就跳转，阻止默认行为就不跳转
-//2.事件冒泡        //比如父标签有一个@click子标签也有一个一摸一样的@click，这时点击子标签就会触发两次，这就是典型的事件冒泡
+1.阻止默认行为     //比如一个超链接，点击就跳转，阻止默认行为就不跳转
+2.事件冒泡        //比如父标签有一个@click子标签也有一个一摸一样的@click，这时点击子标签就会触发两次，这就是典型的事件冒泡
 ```
 
 ![img](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/20210712190852410.png)
-
-
-
-
 
 ### 1.6 键盘监听
 
@@ -2548,6 +2271,10 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 ### 1.7 v-if、v-else-if、v-else,v-show
 
 - **<font color='red'>v-if 与 v-show的区别</font>**
+
+  ```
+  v-if只有生效的时候才会创建dom元素，但是v-show始终渲染DOM，只是通过display:none隐藏了
+  ```
 - **//一个关于组件化的知识**
 
 ```
@@ -2569,17 +2296,9 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 </template>
 ```
 
-
-
-
-
 ### 1.8 自定义指令
 
 ![image-20240506145621186](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240506145621186.png)
-
-
-
-
 
 ### 1.9 vue生命周期
 
@@ -2634,25 +2353,16 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 
 
 
+## 2.Ve组件化编程
 
+```
+<template></template>
+<script></script>
+<style></style>
 
-
-
-
-
-
-
-
-
-
-
-
-
-## 2.Vue组件化编程
-
-
-
-
+1、这里的可以设置不同的css语法，比如<style lang="scss"></style>就是使用scss语法，当然也可以使用别的语法
+2、<style scoped></style> 这里也可以设置scoped，专门防止被其他页面的重名样式互相污染。
+```
 
 
 
@@ -2662,25 +2372,38 @@ name:<input type="text" placeholder="按下回车提示输入" @keyup.enter="sho
 
 ### 3.2 ref获取dom
 
+```
+<template>
+  <div ref="myDiv">Hello Vue2</div>
+</template>
+
+vue2:  this.$ref.myDiv 这样就获取到了  // Vue2 中，ref 会挂载到 this.$refs 上
+```
+
 ### 3.3 props
+
+```
+接收参数，主要就是让父组件给子组件传递数据，也就是组件间的数据传递
+```
 
 ### 3.4 组件通信
 
-#### 1.props父子单向绑定
+#### ① props父子单向绑定>
 
-#### 2.props父子双向绑定
+```
+最简单
+```
 
-和 <font color='red'>.sync 类似</font>，可以实现将父组件传给子组件的数据为<font color='red'>双向绑定</font>，子组件通过 $emit 修改父组件的数据
+#### ② props父子双向绑定
 
+- 父组件传递数据给子组件：  **.sync 、v-model、v-bind** 三种方法,前两种都是双向绑定
+- 子组件传递数据给父组件：子组件通过 **$emit** 修改父组件的数据
 
+- <Child v-bind?v-model? = "data"></Child>,此处应该是v-bind  or  v-model ?????
 
+  - **使用 `v-model`**：如果希望 `HelloWorld` 组件能够更新父组件的 `value`，并实现双向绑定。
 
-
-<font color='red'>**<Child.  v-bind?v-model? = "data"><./Child>,此处应该是v-bind  or  v-model**</font>
-
-**使用 `v-model`**：如果希望 `HelloWorld` 组件能够更新父组件的 `value`，并实现双向绑定。
-
-**使用 `v-bind`**：如果只需要从父组件向子组件单向传递数据，不希望子组件修改数据。
+  - **使用 `v-bind`**：如果只需要从父组件向子组件单向传递数据，不希望子组件修改数据。
 
 ```
 
@@ -2704,8 +2427,7 @@ export default {
 };
 </script>
 
- 
-//  Vue2版本 子组件 HelloWorld
+// Vue2版本 子组件 HelloWorld
 <template>
   <input :value="value" @input="handlerChange" />
 </template>
@@ -2803,9 +2525,7 @@ export default {
 
 ```
 
-
-
-#### 3.ref
+#### ③ ref
 
 ```
 //父组件
@@ -2814,14 +2534,6 @@ export default {
 vue2:this.$refs.child.xxxx
 vue3:const child = ref()
 ```
-
-
-
-
-
-
-
-
 
 
 
@@ -2882,11 +2594,9 @@ vue3:const child = ref()
 
 ```
 主要作用：是将$nextTick()中的回调函数延迟在下一次dom更新数据后调用
-		由于Vue是在整个代码执行完之后才去更新DOM , 它能保证你操作的 DOM 是最新的，避免因数据更新未及时反映到 DOM 		导致的错误。
+		由于Vue是在整个代码执行完之后才去更新DOM , 它能保证你操作的 DOM 是最新的，避免因数据更新未及时反映到 DOM导致的错误。
 常用场景：包括更新后操作 DOM、触发动画、依赖 DOM 渲染结果的操作等。
 ```
-
-
 
 ```
 <script setup>
@@ -2904,11 +2614,11 @@ const updateMessage = async () => {
 </script>
 ```
 
+
+
 ### 3.11 插槽
 
 #### ①默认插槽
-
-
 
 **例子演示：直接在组件标签内部写，然后在组件中需要的位置用slot引出**
 
@@ -2941,21 +2651,15 @@ const updateMessage = async () => {
 </template>
 ```
 
-
-
 - **slot标签内部也可以写一些默认的东西类似于 img的alt**
 
 - **style样式也在组件使用位置可以，相当于将要放入插槽的东西的style加载好一块给插槽**
 
 - **style样式也可以在组件内部写，相当于将要放入插槽的东西的style在插槽加载**
 
-  
-
 #### ②具名插槽
 
 用到再说
-
-
 
 #### ③作用域插槽⭐
 
@@ -2994,16 +2698,6 @@ const updateMessage = async () => {
 </template>
 
 ```
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3046,17 +2740,7 @@ const updateMessage = async () => {
 
     
 
-
-
-
-
-
-
-
-
 ## 5.Vue-router
-
-
 
 ### 5.1 SPA
 
@@ -3065,25 +2749,17 @@ const updateMessage = async () => {
 - 点击页面的导航栏链接，不会刷新页面，只会做页面的局部更新
 - 数据需要通过ajax请求获取
 
-
-
 **路由：在前端就是一个键值对，key是路径，value是组件**
 
 
 
-
-
 ### 5.2 路由的基本使用
-
-
 
 #### ① 下载路由		
 
 ```
 npm i vue-router
 ```
-
-
 
 #### ② 注册路由
 
@@ -3093,23 +2769,15 @@ main.js中，
 
 ```
 //引入路由器
-//这里使用'./router' 是因为JavaScript 模块解析器会自动查找文件夹会自动寻找 router/index.js文件，比较方便，有点类似
-   SpringBoot的约定大于配置的  感觉了
+//这里使用'./router' 是因为JavaScript 模块解析器会自动查找文件夹会自动寻找 router/index.js文件，比较方便，有点类似  SpringBoot的约定大于配置的感觉
+   
 import router from './router'
-
 
 const app = createApp(App)
 //使用路由
 app.use(router)
 app.mount()
-
 ```
-
-
-
-
-
-
 
 #### ③ 配置路由
 
@@ -3149,8 +2817,6 @@ const router = createRouter({
 export default router;
 ```
 
-
-
 #### ④ 使用路由
 
 **router-link这个标签底层是转成a标签，这就注定有些场景下是有局限的**
@@ -3163,37 +2829,14 @@ export default router;
 
 
 
-
-
-
-
-```
-docker run -p 3306:3306 --name mysql \
--v /usr/local/docker/mysql/conf:/etc/mysql \
--v /usr/local/docker/mysql/logs:/var/log/mysql \
--v /usr/local/docker/mysql/data:/var/lib/mysql \
--e MYSQL_ROOT_PASSWORD=123456 \
--d mysql:8.0
-```
-
-
-
 ### 5.3 几个注意点
-
-
 
 - 1.涉及路由的组件我们放入文件夹pages/views ,普通组件还是放在components
 - 2.来回切换组件，组件是在不停地销毁产生
 - 3.每个路由相关的组件身上多了两个属性，一个是自身信息的route(传参有用)，一个是共同的router路由器(里面封装很多好用方法)
   - ![image-20240511201359998](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240511201359998.png)
 
-
-
-
-
 ### 5.4 多级路由
-
-
 
 区别就两个:
 
@@ -3220,8 +2863,6 @@ docker run -p 3306:3306 --name mysql \
 
 
 
-
-
 ### 5.5 路由携带参数
 
 #### ①pageURL携带参数
@@ -3237,8 +2878,6 @@ docker run -p 3306:3306 --name mysql \
   <h4>消息标题:{{ $route.query.title }}</h4>
 ```
 
-
-
 #### ②page对象携带参数(推荐！！！)
 
 ```
@@ -3252,10 +2891,6 @@ docker run -p 3306:3306 --name mysql \
 {{item.id}}
 </router-link>
 ```
-
-
-
-
 
 #### ③params获取参数
 
@@ -3271,10 +2906,6 @@ docker run -p 3306:3306 --name mysql \
 //3.获取数据
 		$this.params.xxx  简简单单改个params就好了
 ```
-
-
-
-
 
 #### ④路由配置参数
 
@@ -3298,26 +2929,10 @@ docker run -p 3306:3306 --name mysql \
           ]
 ```
 
-
-
 ```
 接收数据：
         //只需要props接收即可使用
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -3340,15 +2955,9 @@ docker run -p 3306:3306 --name mysql \
 
 
 
-
-
-
-
 ### 5.7 路由工作模式
 
 ![image-20240515220751223](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515220751223.png)
-
-
 
 
 
@@ -3358,17 +2967,9 @@ docker run -p 3306:3306 --name mysql \
 
 ![image-20240512095015226](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240512095015226.png)
 
-
-
-
-
 ### 5.8 编程式路由导航
 
-
-
 - 引入：<router-link这个标签底层是转换成a标签，具有局限性，比如如果是一个按钮图片跳转，或延迟三秒跳转就无法实现
-
-​	
 
 **路由跳转**
 
@@ -3399,8 +3000,6 @@ methods:{
 
 
 
-
-
 ### 5.9 缓存组件
 
 **//如果不写include那么所有在此处展示的组件都不被销毁，注意此处写组件名！**
@@ -3411,13 +3010,9 @@ methods:{
 
 
 
-
-
 ### 5.10 两个新钩子函数
 
 **<font color="red">路由组件特有的生命周期!</font>**
-
-
 
 - **active:当组件激活时,简单来说就是页面出现它就触发**
 - **deactive:当组件失活时，简单来说单页面失去它就触发**
@@ -3431,14 +3026,10 @@ deactive(){
 }
 ```
 
-
-
 **例子：**
 想要实现“欢迎学习Vue”使用setInterVal实现若隐若现，但是切换组件时，文本框内容保留，setInterVal停止
 
 ![image-20240512102417097](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240512102417097.png)
-
-
 
 解读：to,from的结构
 
@@ -3450,23 +3041,11 @@ deactive(){
 
 
 
-
-
-
-
-
-
 ### 5.11 路由守卫
-
-
-
-
 
 #### ①全局路由守卫⭐
 
 **//核心作用就是：检验是否有权限跳转**
-
-
 
 **例子演示：**
 
@@ -3501,10 +3080,6 @@ export default router
 
 ### 5.12 路由器的两种工作模式
 
-
-
-
-
 **//可以通过nginx解决history的问题**
 
 ![image-20240512130148257](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240512130148257.png)
@@ -3514,10 +3089,6 @@ export default router
 **//将path 变为 redirect中的路径,一般用于默认路由**
 
 ![image-20240515133750594](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240515133750594.png)
-
-
-
-
 
 
 
@@ -3559,10 +3130,6 @@ router.push({
 })
 ```
 
-
-
-
-
 - <font color='red'>路由传参</font>
 
 接收数据
@@ -3579,8 +3146,6 @@ const userId = route.query?.id
 
 
 ## 6.封装axios
-
-
 
 - 1、npm i axios -save
 
@@ -3707,25 +3272,13 @@ const userId = route.query?.id
 
 
 
-
-
-
-
 # 三、Vue3
 
-
-
 ## 1 区别
-
-
 
 ### ① app挂载引入createApp工厂函数
 
 ![image-20240514133106804](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240514133106804.png)
-
-
-
-
 
 ### ② 静态加载与懒加载
 
@@ -3735,8 +3288,6 @@ const userId = route.query?.id
   - 适应于小项目
   - 可能会影响首屏加载速度
 
-
-
 - 懒加载
 
   - Vue3我们会经常使用懒加载const Index  = () => import('xxx/index.vue')
@@ -3745,33 +3296,11 @@ const userId = route.query?.id
 
   - 适应于大项目,但是建议你这样写！
 
-
-
-
-
 ### ③ hook
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ## 2 常用API
-
-
 
 ### 1.拉开序幕的setup
 
