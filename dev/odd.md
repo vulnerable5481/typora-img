@@ -196,6 +196,8 @@ public class MybatisConfig {
 ```
 1、Java中的实体类为什么要 implements Serializable?
 2、java ->  c++  = Native.load()....
+3、assert device != null;  	Java 的断言语法，用来在开发/测试阶段检查某些条件是否成立。
+						     默认情况下，Java 不会执行 assert，除非启动 JVM 时加了 -ea（enable assertions）参数：
 ```
 
 
@@ -216,9 +218,7 @@ public class MybatisConfig {
 ```
 本周任务：
 	1、复习学习笔记，快速之前的内容
-	2、开始进行ospf协议
-	3、阅读完 《作者不详·上》
-	4、donwload a transparent software
+	2、结束ospf协议
 今日任务：
 	1、完成部分ospf协议
 	
@@ -228,9 +228,6 @@ public class MybatisConfig {
 	3、想办法知道运维的工作内容，如果让我去做，我能做到吗？
 	4、从项目中整理need  (1/4)
 学校任务：
-	11.15/16 返校体测
-	本周明确Opsf协议分析要怎么搞，本周要完成p2p
-	11月必须把毕业论文实操内容搞完
 能力提升：
 	1、深挖GIT
 	2、NIO可以利用空闲时间深入学习一下
@@ -257,7 +254,7 @@ cons:
         4、所有的特殊区域
 2、报文格式的分析
 		OSPF首部 + Hello、DD、LSR、LSU、LSack + 封装细节
-3、单、多区域一、三类LSA;广播网络二类LSA;虚连接一、三类LSA;特殊区域各类类LSA
+3、单、多区域一、三类LSA;广播网络二类LSA;虚连接一、三类LSA;特殊区域各类LSA
 4、邻居关系的建立
 5、LSDB的同步机制
 
@@ -270,9 +267,12 @@ cons:
 
 今天的任务：
 1、单区域、多区域P2P、广播区域的拓扑图与命令(easy)
-5、虚链路、广播区域的研究
-6、虚链路的拓扑图与命令
-
+2、对邻居关系的抓包分析、对邻居建立关系的抓包分析(可暂时不做,review)
+3、广播区域的抓包分析(medium)
+4、虚链路的拓扑图与命令(medium)
+5、虚链路的抓包分析(medium)
+6、特殊区域的拓扑图、命令
+7、特殊区域的各类LSA抓包分析
 ```
 
 
@@ -328,23 +328,17 @@ cons:
 			  ：由DR产生；在本区域内传播；描述广播网络上的所有路由器（包括 DR、BDR 和其他路由器 ID）
 	③ 虚连接一、三类LSA
 		// todo
+	④ 特殊区域各类LSA
+		// todo
 	
 5、虚链路：
 	 ospf采用了区域化的设计，正常情况下所有常规区域都要和骨干区域直接连接，通过骨干区域交换LSA，常规区域即使直接相连也无法交换LSA，在某些情况下，有的常规区域不能与骨干区域直连而只能与其它常规区域直连，为了让这些常规区域也能交换LSA，虚链路诞生了。
 	 虚连接（Virtual link）是指在两台ABR之间通过一个非骨干区域建立的一条逻辑上的连接通道。说白了就是拓展骨干区域的范围
 	 
 6、特殊区域
-	// todo 
 	Stub区域、Totally Stub区域、NSSA区域和Totally NSSA区域
+	// todo
 ```
-
-
-
-
-
-
-
-
 
 
 
