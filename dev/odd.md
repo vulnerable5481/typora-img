@@ -213,6 +213,7 @@ public class MybatisConfig {
 
 
 
+<<<<<<< HEAD
 # TASK
 
 ```
@@ -244,6 +245,8 @@ cons:
 	4、体能，嗯，可以去研究一下健身房？或者找个不错的跑道？
 ```
 
+=======
+>>>>>>> 0e07beb91c5c09719b291c937d1a36b3be3f0626
 # Thesis
 
 ```
