@@ -183,6 +183,89 @@ public class MybatisConfig {
 
 
 
+## 4、接入机台
+
+
+
+### 1、标准机台
+
+| 需要实现函数接口        | 函数功能说明                                                 | 是否必须                                                     |
+| ----------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| 继承AbstractDevice      | 继承抽象机台                                                 | 是                                                           |
+| deviceType              | 标记这个机台接口属于AVI或者AOI                               | 是，这个会决定放到AVI复判页面或者AOI群组复检页面             |
+| getProductList          | 获取料号列表                                                 | 是                                                           |
+| getBatchList            | 获取批次列表                                                 | 是                                                           |
+| getBoardList            | 获取板号列表                                                 | 是                                                           |
+| getTimeList             | 获取时间列表                                                 | 取决于文件夹目录是否包含时间                                 |
+| getMergeLayerListByFile | 获取层别列表                                                 | 取决于文件夹目录是否包含层别                                 |
+| getBoardDefect          | 获取板的信息                                                 | 是                                                           |
+| parseDir                | 用于解析自动任务目录                                         | 是                                                           |
+| getExportList           | AI回写策略                                                   | 非必须，看机台接口是否支持AI回写                             |
+| groupReCheck            | 单板复判结束复写AI结果                                       | 否，1.看机台接口是否支持AI回写 2.看是否需要支持这个场景      |
+| matchMode               | 料号匹配查询方式： SELECT_BY_TIME：根据时间查逻辑； ALL_SELECT：全查逻辑； SELECT_BY_CACHE：查询缓存逻辑（牧德AOI特殊）； NO_SELECT：不需要查询料号 | 是                                                           |
+| cutOkImageStrategy      | 切OK图策略                                                   | 非必须，如果机台接口直接提供了双图，则不需要实现切图策略。覆盖成：CutOkImageStrategyEnum.NOT_CUT |
+| setGerberImg            | 加载复判页面的左下角大图                                     | 非必须，看机台接口是否提供了大图                             |
+| setTemplateImg          | 加载用于推理的大图，先加载大图，再根据切OK图策略，得到OK图   | 非必须，看机台接口是否提供了大图                             |
+| isNonDefectRoi          | 机台图片是否有缺陷roi输入（如果没有roi输入跑完算法之后可能有多个缺陷roi，需要走特定的算法结果判定构造正确的imageDefect.defectRegions） | 否，目前悉智项目定制                                         |
+| postProcess             | 新算法AI后置额外处理                                         | 否，目前悉智项目定制                                         |
+| getIndexOrder           | 自定义前端展示列表                                           | 否                                                           |
+| aiRunListLayerUseByFile | 层别获取方式                                                 | 否，AOI机台选择                                              |
+| reLoadProduct           | 从板号重新获取料号或获取第一个料号                           | 否                                                           |
+| storeDefectImage        | 保存缺陷图片到本地                                           | 否                                                           |
+| readBoardImages         | 根据getBoardDefect中存储的图片地址获取对应的缺陷，模板，Gerber图片 | 否                                                           |
+
+
+
+| 关键字段                                         | 说明                  | 是否必须                                  |
+| ------------------------------------------------ | --------------------- | ----------------------------------------- |
+| com.aqrose.core.device.ImageDefect#defectImage   | 缺陷图像              | 是                                        |
+| com.aqrose.core.device.ImageDefect#templateImage | OK图像->模板图        | PCB场景是必须，半导体非必须               |
+| com.aqrose.core.device.ImageDefect#gerberImage   | OK图像->CAM图/Gerbe图 | PCB场景是必须，半导体非必须               |
+| com.aqrose.core.device.ImageDefect#expandImage   | 复判页面的局部放大图  | 非必须，看机台接口是否提供了大图          |
+| com.aqrose.core.device.ImageInfo#boardName       | 板号                  | 是                                        |
+| com.aqrose.core.device.ImageInfo#shotName        | 相机号                | 是，为空会丢失AI结果。如果没有值默认SHOT0 |
+| com.aqrose.core.device.ImageInfo#defectName      | 缺陷名                | 是，图像名的唯一标记，同一板不能重复      |
+
+
+
+### 2、AI回写
+
+```
+就是一个Factory->export
+```
+
+
+
+### 3、watcher
+
+```
+package com.aqrose.airun.design.watcher.device;
+监听机台（AVI 设备）的文件夹变化，当机台产出新的板（Board）相关文件时，自动触发 AI 的“板运行任务
+文件系统监听器 + AI自动运行触发器
+```
+
+
+
+### 4、枚举兼容
+
+```
+1、FactoryTypeEnum
+2、MachineTypeEnum
+3、DeviceFactory
+4、FactoryProducer
+5、AutoTaskFactory
+```
+
+
+
+### 5、前端兼容
+
+```
+由很多地方可能需要添加，因为不同的机台可能要展示的是什么字段可能不同
+```
+
+
+
 
 
 
