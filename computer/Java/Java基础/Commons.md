@@ -4,11 +4,7 @@
 
 
 
-
-
 # 2. 反射
-
-
 
 
 
@@ -135,8 +131,6 @@ ThreadPoolExecutor.DiscardOldestPolicy： 此策略将丢弃最早的未处理�
 
 ## ⑤ 几种常见的对比
 
-
-
 ### execute() vs submit()
 
 1. **`execute()`方法用于提交不需要返回值的任务，所以无法判断任务是否被线程池执行成功与否；**
@@ -148,8 +142,6 @@ ThreadPoolExecutor.DiscardOldestPolicy： 此策略将丢弃最早的未处理�
 
 - **`shutdown（）`** :关闭线程池，线程池的状态变为 `SHUTDOWN`。线程池不再接受新任务了，但是队列里的任务得执行完毕。
 - **`shutdownNow（）`** :关闭线程池，线程的状态变为 `STOP`。线程池会终止当前正在运行的任务，并停止处理排队的任务并返回正在等待执行的 List。
-
-
 
 
 
