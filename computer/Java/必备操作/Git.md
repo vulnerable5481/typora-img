@@ -192,15 +192,11 @@ doc/*.txt    #会忽略 doc/notes.txt 但不包括 doc/server/arch.txt`
 
 ## 1.git基本理论
 
-详看上一章
-
-
+// todo 凑空需要重新整理一份
 
 
 
 ## 2.常用命令
-
-
 
 - **邮箱操作【如果第一次下载git使用，必须配置】**
 
@@ -211,25 +207,38 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 //签名信息主要是确认本次提交是谁做的
 ```
 
-
-
-- 基本操作
+- **基本操作**
 
 ```
 1.初始化
 	git init //会生成一个.git隐藏文件
 
-2.git status
+2.很熟悉的命令：
+  git clone url   // 默认主分支
+  git clone -b [拉取指定的分支] url
+  git status
   git add [file]  
-  git add .   【推荐，所有操作都会上传】
   git add *	   【删除操作不会】
+  git add .   【推荐，所有操作都会上传】
   git commit -m '信息' master
   git commit -m "xxx" fileName -a     //add commit 一块进行
-  git clone url
-  git push origin master
   git pull 
+  git pull github master
   git pull origin master --allow-unrelated-histories   //两个独立的 Git 历史尝试合并
- 
+  git push origin master
+  
+  git log --oneline   //简单查看资源库文件
+  git log             //详细查看资源库文件
+  
+3.进阶操作
+	① git cherry-pick hash值 // 一次提交合并到不同分支，比如合并报表的commit从feat-2.1.1也push到feat-2.1.2
+	② 回退代码（只是回到某个版本看一看）+回到最新一次提交
+	  git log --oneline //查看历史版本，找到需要回退的版本
+	  git checkout hashCode  	   // 回退代码
+	  git switch --detach hashCode  
+	
+	
+	
 3. 操作远程仓库
 	git remote add xxx  url     添加一个新的远程仓库,并命名。
     git remote -v 显示所有远程仓库的详细信息。
@@ -238,16 +247,12 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
     git remote remove 删除远程仓库。
  
 4.其他操作
-	git relog   //简单查看资源库文件
-	git log     //详细查看资源库文件
 	git reset --hard 简化版本号     //用于回溯版本
 
 5.分支
  git branch -v     //查看分支
  git branch xxx //新建一个分支
  git checkout  xxx   //切换到xxx分支
- git merge xxx     //将xxx 分支  合并到 --> 当前分支
-  - 分支冲突，比如master对a.txt修改了,hot-fix也对a.txt修改了,（新版本不在同一行不会出现冲突，以前的版本会冲突），这时合并分支会发生冲突，解决方法: 会报错误，将冲突所在文件告诉你，由你手动去解决冲突
 ```
 
 
@@ -264,37 +269,10 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
     git pull origin master --allow-unrelated-histories
     ```
 
-    
 
 
 
-
-
-
-
-
-
-## 4.GitHub	
-
-
-
-团队协作：需要在远程库的setting中的管理成员 添加新成员 ，之后新成员就可以push了
-
-
-
-**//直接clone和fork的区别，直接clone你在github上没有对应的库，而fork是将别人的库复制一份在github仓库中，然后clone就可以正常push，想修改人家的代码，需要pull request 对方审核同意才可以合并**
-
-!(https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417215058189.png)
-
-
-
-
-
-
-
-## 5. 代理服务
-
-
+## 4. 代理服务
 
 ```
 如果git push 失败，但是网络是可靠的，那么大概率是开VPN导致端口不一致
