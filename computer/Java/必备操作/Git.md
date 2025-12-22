@@ -255,70 +255,98 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 
 - **更多操作**
 
-	1、 git cherry-pick hash值 // 一次提交合并到不同分支，比如合并报表的commit从feat-2.1.1也push到feat-2.1.2
+```
+1、 git cherry-pick hash值 // 一次提交合并到不同分支，比如合并报表的commit从feat-2.1.1也push到feat-2.1.2
+
+2、 回退代码（只是回到某个版本看一看）+回到最新一次提交
+  git log --oneline //查看历史版本，找到需要回退的版本
+  git checkout hashCode    // 回退代码-老版本命令   git switch --detach hashCode //新版本命令	 
+  git checkout master/main // 回到最新一次提交      git switch --detach master/main // 新版本命令
+
+3、 回退代码（真的回退！会移动HEAD）
+case 1:回退但保留修改内容
+	git reset --soft hashCode
+case 2:回退，修改放到工作区
+	git reset --mixed hashCode
+case 3:彻底回退，丢弃当前修改内容 ⚠危险
+	git reset --head hashCode
 	
-	2、 回退代码（只是回到某个版本看一看）+回到最新一次提交
-	  git log --oneline //查看历史版本，找到需要回退的版本
-	  git checkout hashCode    // 回退代码-老版本命令   git switch --detach hashCode //新版本命令	 
-	  git checkout master/main // 回到最新一次提交      git switch --detach master/main // 新版本命令
-	  
-	3、 回退代码（真的回退！会移动HEAD）
-	case 1:回退但保留修改内容
-		git reset --soft hashCode
-	case 2:回退，修改放到工作区
-		git reset --mixed hashCode
-	case 3:彻底回退，丢弃当前修改内容 ⚠危险
-		git reset --head hashCode
-		
-	4、 彻底回退代码，但依然可以补救
-	  git reflog // 查看所有操作，找到类似记录：a1b2c3d HEAD@{0}: reset: moving to e4f5g6h
-	  									   z9y8x7w HEAD@{1}: commit: 最新提交
-	  git reset --hard z9y8x7w  // 通过回退撤销回退
+4、 彻底回退代码，但依然可以补救
+  git reflog // 查看所有操作，找到类似记录：a1b2c3d HEAD@{0}: reset: moving to e4f5g6h
+  									   z9y8x7w HEAD@{1}: commit: 最新提交
+  git reset --hard z9y8x7w  // 通过回退撤销回退
+
+5、 合并代码，比如从mastr分支拉取一个feature分支，当我们开发一段时间后，需要合并master分支到我们当前feature分支
+	      这时候我们一般都使用 git rebase 让分支变成一条直线，整洁历史
+	      假如说在我们开发过程中，本地feature分支有三次提交，master也有两次提交，为避免冲突，肯定要在本地先合并代码
+	      A --- B --- C   (master)
+                 \
+                  D --- E --- F   (feature)
+		 ① git checkout feature // 确保在feature分支
+		 ② git rebase master    // 把master的最新代码“变基”到feature上，这一步做了什么？
+		 						 1.GIT暂时拿走feature上的DEF提交
+		 						 2、把feature的基点移动到master的C
+		 						 3、再把DEF提交一个一个重新应用
+	   							 4、本地feature分支结果：A --- B --- C --- D' --- E' --- F' (feature) 
+		 ③ git checkout master
+		   git merge feature   // 因为 master 没有分叉，Git 会直接前移指针：
+		                            本地master分支结果：A --- B --- C --- D' --- E' --- F'  (master)
+		 ④ 如果出现了冲突，就去解决冲突,解决完就推送到master即可
+		 	解决完冲突:          git rebase --continue
+		 	解决失败放弃rebase:   git rebase --abort
+		 ⑤ 【rebase的前提条件】
+		   第一、永远不要对已经 push 到公共仓库、且被他人使用的分支做 rebase
+		   情况1：git rebase origin/master，此时本地master有DEF未push的提交，远程有一个新的G提交，
+		         D' E' F' 还没有 push 到远程，别人根本不知道 D' E' F'，当然可以rebase即使是master分支
+		   情况2：本地feature分支，如果没人使用这个分支，自然可以随便rebase
+		 ⑥ 在rebase之后会进行切换到master分支然后merge的操作，我的疑问就是这里merge会导致master分支提交时                          commit的提示语是“Merge branch 'master' of xxx ”吗？
+             答： 
+                不会，因为是Fast-Forward Merge（快进合并），rebase过程中已经解决了冲突，也就是没有merge的merge
+                所谓的快进合并：当目标分支没有新提交，只需要往前移动Head指针，而不创建新的commit
+
+6、git fetch
+	git pull github master =  git fetch github master + git merge github master
+	就是获取远程仓库最新状态，但不自动merge到本地仓库代码
+	感觉这个命令实际上用处不大，尤其是在图形化界面+命令一块配合使用的时候，用的时候更少吧。
 	
-	5、 合并代码，比如从mastr分支拉取一个feature分支，当我们开发一段时间后，需要合并master分支到我们当前feature分支
-		      这时候我们一般都使用 git rebase 让分支变成一条直线，整洁历史
-		      假如说在我们开发过程中，本地feature分支有三次提交，master也有两次提交，为避免冲突，肯定要在本地先合并代码
-		      A --- B --- C   (master)
-	                 \
-	                  D --- E --- F   (feature)
-			 ① git checkout feature // 确保在feature分支
-			 ② git rebase master    // 把master的最新代码“变基”到feature上，这一步做了什么？
-			 						 1.GIT暂时拿走feature上的DEF提交
-			 						 2、把feature的基点移动到master的C
-			 						 3、再把DEF提交一个一个重新应用
-		   							 4、本地feature分支结果：A --- B --- C --- D' --- E' --- F' (feature) 
-			 ③ git checkout master
-			   git merge feature   // 因为 master 没有分叉，Git 会直接前移指针：
-			                            本地master分支结果：A --- B --- C --- D' --- E' --- F'  (master)
-			 ④ 如果出现了冲突，就去解决冲突,解决完就推送到master即可
-			 	解决完冲突:          git rebase --continue
-			 	解决失败放弃rebase:   git rebase --abort
-			 ⑤ 【rebase的前提条件】
-			   第一、永远不要对已经 push 到公共仓库、且被他人使用的分支做 rebase
-			   情况1：git rebase origin/master，此时本地master有DEF未push的提交，远程有一个新的G提交，
-			         D' E' F' 还没有 push 到远程，别人根本不知道 D' E' F'，当然可以rebase即使是master分支
-			   情况2：本地feature分支，如果没人使用这个分支，自然可以随便rebase
-			 ⑥ 在rebase之后会进行切换到master分支然后merge的操作，我的疑问就是这里merge会导致master分支提交时                          commit的提示语是“Merge branch 'master' of xxx ”吗？
-	             答： 
-	                不会，因为是Fast-Forward Merge（快进合并），rebase过程中已经解决了冲突，也就是没有merge的merge
-	                所谓的快进合并：当目标分支没有新提交，只需要往前移动Head指针，而不创建新的commit
-	
-	6、git fetch
-		git pull github master =  git fetch github master + git merge github master
-		就是获取远程仓库最新状态，但不自动merge到本地仓库代码
-		感觉这个命令实际上用处不大，尤其是在图形化界面+命令一块配合使用的时候，用的时候更少吧。
-		
-	7、git revert
-		   ① revert与reset的区别： reset用于本地回退，对本地修改影响取决于soft、hard等，会直接改变历史记录，所以能破坏公共历史
-		   						 revert用于公共回退，不影响本地未提交修改，不会直接修改历史记录，所以不会破坏公共历史
-	                     简单理解：   						 
-	                         reset = “直接改掉过去的提交”
-	                         revert = “创建一个新提交，专门用来抵消过去的提交”
-		   ② 应用场景：公共提交中某次提交有问题，需要回退，这时候需要使用git revert ,如果是本地回退用git reset
+7、git revert
+	   ① revert与reset的区别： reset用于本地回退，对本地修改影响取决于soft、hard等，会直接改变历史记录，所以能破坏公共历史
+	   						 revert用于公共回退，不影响本地未提交修改，不会直接修改历史记录，所以不会破坏公共历史
+                     简单理解：   						 
+                         reset = “直接改掉过去的提交”
+                         revert = “创建一个新提交，专门用来抵消过去的提交”
+	   ② 应用场景：公共提交中某次提交有问题，需要回退，这时候需要使用git revert ,如果是本地回退用git reset
+```
 
 
 
-## 3.几个常见的错误
+## 3.代码冲突
+
+- **IDEA 内置处理器**
+
+```
+1、IDEA合并过程中出现冲突，会出现三个选项，我们一般都是手动合并
+			accept yours:代表以自己的为准
+            accept theris:代表以更新下来的文件为准
+            ✅merge:代表手动合并
+2、会出现一个窗口，分为三个部分
+			最左侧：本地当前的代码
+			中间  ：合并后的结果
+			最左侧： 远程仓库的代码
+   【通过比较文件内容，合并需要的代码到中间的位置，最后点击Apply就完成了】
+3、解决完之后，先pull，再push 
+```
+
+- **拉取代码冲突**
+
+```
+1、本地修改量比较大，冲突较多
+	① git stash -> git pull -> git stash pop -> IDEA内置处理器解决冲突
+```
+
+
+
+## 4.几个常见的错误
 
 - github 2020年之后默认分支为 main 而非master
 
@@ -330,10 +358,7 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
     git pull origin master --allow-unrelated-histories
     ```
 
-
-
-
-## 4. 代理服务
+- **端口不一致导致push失败**
 
 ```
 如果git push 失败，但是网络是可靠的，那么大概率是开VPN导致端口不一致
@@ -344,8 +369,6 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 	git config --global --unset http.proxy    // 取消代理
 	git config --global --unset https.proxy
 ```
-
-
 
 
 
