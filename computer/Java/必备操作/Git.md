@@ -284,7 +284,7 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 
 **//直接clone和fork的区别，直接clone你在github上没有对应的库，而fork是将别人的库复制一份在github仓库中，然后clone就可以正常push，想修改人家的代码，需要pull request 对方审核同意才可以合并**
 
-![image-20240417215058189](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417215058189.png)
+!(https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240417215058189.png)
 
 
 
@@ -292,11 +292,19 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 
 
 
+## 5. 代理服务
 
 
 
-
-
+```
+如果git push 失败，但是网络是可靠的，那么大概率是开VPN导致端口不一致
+1、git config --global -l  // 查看端口是否与代理端口一致
+2、git config --global http.proxy 127.0.0.1:7890 // 比如我的端口是7890
+   git config --global https.proxy 127.0.0.1:10809  // 如果是https
+3、如果没有挂着VPN，但还是遇到了该报错，还是端口不一致导致的问题
+	git config --global --unset http.proxy    // 取消代理
+	git config --global --unset https.proxy
+```
 
 
 
