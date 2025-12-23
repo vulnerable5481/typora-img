@@ -6,24 +6,12 @@
 
 ### 1. 软件安装
 
-
-
-- Xshell7  ： 远程登录
-- XFTP7  : UNIX/LINUX 和 windows PC之间传输文件
-
-
-
-
-
-
-
-
+- Xshell7/8 ： 远程登录
+- XFTP7/8  : UNIX/LINUX 和 windows PC之间传输文件
 
 
 
 ### 2. 文件目录
-
-
 
 /bin        二进制文件，系统常规命令都在这
 **/boot       系统启动分区，系统启动时读取的文件**
@@ -53,8 +41,6 @@
 
 
 ![image-20240321121719487](https://zlc-typora.oss-cn-hangzhou.aliyuncs.com/img1/image-20240321121719487.png)
-
-
 
 
 
