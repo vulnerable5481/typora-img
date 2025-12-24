@@ -85,9 +85,55 @@
 	user["age"] = 20
 ```
 
+## 3、类与对象
+
+```
+class Person:
+	
+	#类属性
+	birthPlace = "earth"
+	
+	#静态方法
+	@staticmethod
+	def test_static():
+		print("静态方法")
+	
+	def _init_(self,name,age):
+		super.
+		self._name = name
+		self._age = age
+	
+	def say_hello():
+		print("hello!")
+		
+zlc = Person("zlc",12)
+
+1、 _init_函数就是构造器
+2、self 就是 this
+3、类可以有属性、类属性、函数，注意一下对象属性与类属性的区别
+4、静态方法，加装饰器@staticmethod
+	【这里讲一下python的装饰器，看起来很像注解的东西：
+		def my_decorator(func):
+            def wrapper():
+                print("Before")
+                func()
+                print("After")
+            return wrapper
+
+        @my_decorator
+        def say_hello():
+            print("Hello")
+
+        say_hello()	】
+5、python是一门动态语言，可以动态为对象添加属性，zlc.sex = male
 
 
-
+1、继承
+class Student(Person):
+	def _init_(self,name,age):
+		super._init_(name,age)
+如果要重写的话，直接重写即可
+```
 
 
 
