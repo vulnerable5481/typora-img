@@ -80,19 +80,7 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
 
 
 
-
-
-
-
-
-
-
-
 # 前端问题与解决
-
-
-
-
 
 ## 1.@Change
 
@@ -109,8 +97,6 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
         </template>
       </el-table-column>
 ```
-
-
 
 ## 2. 滑块默认值问题
 
@@ -132,8 +118,6 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
       },
 ```
 
-
-
 ```
       <el-form-item label="是否需要检索" prop="searchType">
         <el-switch v-model="dataForm.searchType" active-color="green" inactive-color="red" active-value='1'
@@ -141,8 +125,6 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
         </el-switch>
       </el-form-item>
 ```
-
-
 
 ## 3.el-cascader标签的坑
 
@@ -167,61 +149,7 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# 后端收获
-
-## 1.JSR303
-
-常规简单数据校验可以使用JSR303, 剩余的复杂数据校验再由你自己来写
-
-
-
-
-
-
-
-
-
-
-
 # 前段收获
-
-
 
 ## 1.OSS单图片上传
 
@@ -233,10 +161,6 @@ public class BrandServiceImpl extends ServiceImpl<BrandDao, BrandEntity> impleme
          <FileUpload v-model="dataForm.logo"></FileUpload>  
       </el-form-item>
 ```
-
-
-
-
 
 <font color='orange'>**②解析子组件**</font>
 
@@ -566,16 +490,6 @@ export default {
 ```
 
 
-
-## 2.OrderId
-
-
-
-
-
-### 3.学习init
-
-学习init方法,  和  dataForom提交时，一个方法解决save与update的思路
 
 
 

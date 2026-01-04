@@ -15,7 +15,7 @@ Spring框架的核心就是   XML文件 or 注解 来驱动底层以反射执行
 
 ## 一. IOC
 
-
+// 手写一个简单的IOC容器
 
 
 
@@ -23,7 +23,7 @@ Spring框架的核心就是   XML文件 or 注解 来驱动底层以反射执行
 
 ## 二. AOP
 
-
+// 手写一个简单的AOP + AOP相关内容整理
 
 
 
@@ -49,9 +49,21 @@ Spring框架的核心就是   XML文件 or 注解 来驱动底层以反射执行
 
 ## 1. 参数注解
 
+```
+@PathVariable  —— URL 路径的一部分
+@RequestParam —— 请求参数（query / form）
+@RequestBody  —— 请求体（JSON）
+
+URL路径的一部分很好理解
+请求参数也是URL后面的一些数据 /xx?a=1&b=2&c=3
+请求体就是HTTP请求的单独一个属性Body用来携带请求数据的   
+```
+
+
+
 - **@Pathvariable**
 
-  - 接收URL中 /exit/{token} 站位参数
+  - 接收URL中 /exit/{token} 占位参数
 
   - ```
     // 前端请求                                   
@@ -97,9 +109,9 @@ Spring框架的核心就是   XML文件 or 注解 来驱动底层以反射执行
 
   - ```
     // 前段请求
-    export function exit(token) {
+    export function exit(params) {
       return httpRequest
-        .post('/user/exit', token)
+        .post('/user/exit', params)
         .then((response) => {
           return response;
         })
@@ -117,11 +129,7 @@ Spring框架的核心就是   XML文件 or 注解 来驱动底层以反射执行
 
 
 
-
-
 # Mybatis
-
-
 
 ## 0.简介
 
@@ -144,8 +152,6 @@ Spring框架的核心就是   XML文件 or 注解 来驱动底层以反射执行
 
 - Mybatis可以帮助我们免除上述一系列jdbc代码和获取结果集的工作，极大地提高了我们的开发速度！
 
-
-
 ## 1.引用
 
 ```
@@ -156,8 +162,6 @@ Spring框架的核心就是   XML文件 or 注解 来驱动底层以反射执行
 </dependency>
 ```
 
-
-
 ```
 mybatis:
   #mapper配置文件
@@ -167,8 +171,6 @@ mybatis:
     # 开启驼峰命名
     map-underscore-to-camel-case: true
 ```
-
-
 
 ## 2.动态SQL
 
@@ -192,8 +194,6 @@ mybatis:
 
 6.set【在update的set元素中，可以保证进入set标签的属性被修改，而没有进入set的，保持原来的值]
 ```
-
-
 
 **演示if  where :**
 
@@ -236,8 +236,6 @@ mybatis:
 </select>
 ```
 
-
-
 **演示set:**
 
 - **<font color='red'>注意：别忘了加逗号，这个还挺容易错的</font>**
@@ -259,10 +257,6 @@ mybatis:
 </update>
 ```
 
-
-
-
-
 ## 3.模糊查询
 
 - <font color='orange'>在xml配置文件中添加"%"通配符，借助mysql函数</font>
@@ -273,8 +267,6 @@ mybatis:
     concat('%',#{info},'%');
 </select>
 ```
-
-
 
 ## 4.获取子增值
 
@@ -305,13 +297,7 @@ public boolean addUser(User user);
 </insert>
 ```
 
-
-
 ## 5.PageHelper
-
-
-
-
 
 ## 6.resultMap
 
@@ -324,12 +310,6 @@ public boolean addUser(User user);
     ```
 
 - **<font color='blue'>联表查询，resultMap就非常关键！</font>**
-
-
-
-
-
-
 
 ### ② 字段映射
 
@@ -351,12 +331,6 @@ public boolean addUser(User user);
 ### ③ 一对一级联
 
 - **级联查询**：在数据库中包含着一对多、一对一的关系。比如说一个人和他的身份证就是一对一的关系，但是他和他的银行卡就是一对多的关系。我们的生活中存在着很多这样的场景。我们也希望在获取这个人的信息的同时也可以把他的身份证信息一同查出，这样的情况我们就要使用级联。在级联中存在三种对应关系，一对一，一对多，多对多。
-
-
-
-
-
-
 
 - 实际的业务中，我们的用户一般都有一个角色，用户与角色就是一对一的关系，可以用级联查询！
 
@@ -437,17 +411,8 @@ public boolean addUser(User user);
     </select>
     ```
 
-  
-
-  
-
-
-
-
 
 ### ④ 一对多级联
-
-
 
 - 前面说到一个用户有一个角色，实际上一个用户可能有多个角色信息，需要User类，Role就需要修改为List
 
@@ -500,11 +465,8 @@ public boolean addUser(User user);
   }
   ```
 
-  
 
 ### ⑤ 集合的嵌套Select查询
-
-
 
 - 比如说我们有菜单实体类，实际上可以分为一级，二级，多级菜单
 
@@ -549,11 +511,6 @@ public boolean addUser(User user);
   	</choose>
   ```
 
-  
-
-
-
-
 
 ### ⑥自动填充关联对象
 
@@ -570,53 +527,9 @@ public boolean addUser(User user);
   		则会先初始化Role对象，并将对应的值赋给id，这样即使我们不使用resultMap也能做到联表查询的效果
   ```
 
-
-
-
-
-
-
 ### ⑦discriminator
 
-
-
-
-
-
-
 ## 7. 缓存
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
