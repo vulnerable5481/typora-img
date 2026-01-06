@@ -79,6 +79,7 @@ var：  声明变量
 const：声明常量
 type： 声明类型
 func： 声明函数
+type xx struct {} 声明结构体
 ```
 
 ### 1.3.2 变量
@@ -104,7 +105,7 @@ func： 声明函数
  	d float32
  )
 
-3、变量的初始化
+3、变量的初始化/类型的零值
     比如 string 默认就是 空字符串，bool默认就是 false 等等
 	如果是slice、指针默认就是nil
 
@@ -196,13 +197,37 @@ const (
 【GO的原生数组并不传递真正的数组地址，而是全量拷贝，是值传递】
 4、多维数组
 	var arr = [2][3]int{1,2,3},{3,2,1}
-	这里你是不是可能感觉很奇怪，GO的数组定义了2个长度为3的数组，这个和其他语言定义的很不一样！
+	感觉有点奇怪，但其实和其他语言的多维数组是没有区别的，就是根据语法怪怪的
+	
 5、可以通过内置函数len()、cap()计算长度
-
+	len()计算的是集合当前元素的大小；
+	cap()计算的是集合最大容量的大小；
 
 【切片slice】
 1、定义：切片是数组的引用，长度是动态的，依然值拷贝传递；其实和java中的arrayList、c++的vector比较相似
 2、声明：var arrayList []int   
+		var arrayList = make([]int,10)
+3、切片表达式：
+	slice[start:end]，左闭右开 [start,end)
+	slice[:end]、slice[start:]，这两种都是省略写法，表示从0或者取到Len-1
+
+4、一些API
+	① 添加数据
+	arrayList = append(arrayList,1) // append是一个全局函数，其次一定要接收，因为可能扩容，切片地址就变了所以要接收
+	② 删除数据：强迫你意识到正在删除意味着内存的拷贝，需要谨慎，其他语言都用优雅的API掩盖，但是go会赤裸裸揭示
+	// 第一种利用append拼接删除某个元素： [0,index) , [index+1,len)/[index+1,len-1]
+	slice = append(slice[:index],slice[index+1:])
+	// 第二种快速删除头节点、尾节点
+	slice = slice[1:]
+	slice = slice[:len(slice)-1]
+	③ 标准库
+	貌似go1.21版本之后引入了slices标准库，可以更优雅地删除
+	## 说实话这跟之前区别也不大啊，一样难用
+	slice = slices.Delete(slice,1,2) // 删除索引[1,2)之间的元素，也就是和删除索引1
+
+5、含有中文字符串：
+	str := "你好世界，hello"
+	strArr := []rune(str)
 ```
 
 
@@ -218,34 +243,6 @@ const (
 
 3、空指针
 	GO的指针被定义后没有被分配任何变量时， = nil
-
-4、new、make
-	为什么需要new和make?
-		如果是值类型会自动分配内存空间，会自动初始化，但是如果是引用类型，比如map、slice之类的，必须显式声明分配内存空间
-		比如: 
-			// 这就不对，因为map类型的零值是nil,压根没有被分配内存空间，你在向“虚无”添加一个键值对
-			 var b = map[string]int
-			 b["age"] = 22 
-		   // 同理，因为指针的零值是nil，压根没有被分配内存空间，你在向"虚无"赋值，当然报错啊
-		   	 var a *int
-		   	 *a = 100
-
-4.1 new
-	首先内置函数new不常用！比如我们很少会孤零零地声明一个指向基础类型的指针。
-	new的函数签名：  func new(Type) *Type
-	// 下面为a分配一个int大小的内存空间
-	var a *int = new(int)
-	*a = 100
-	
-4.2 make
-	make也是用于内存分配，它只为slice、map、以及chan分配内存，返回三个类型本身，因为三个都是引用类型，无需返回它们的指针
-	make函数是很常用的，我们初始化slice map channal的时候，都需要进行make初始化，然后才可以对它们操作
-	
-	语法: make([]type,len)
-	
-	// 下面为b分配内存空间
-	var b map[string]int = make(map[string]int , 10)
-	b["age"] = 22
 ```
 
 
@@ -253,7 +250,8 @@ const (
 ### 1.4.4 map
 
 ```
-1、语法： var a = map[key_type]value_type
+1、语法: var a = map[key_type]value_type
+		var strMap = make(map[string]string,20)
 	
 2、判断map是否存在某个键
 	value,is_contain := scoureMap["赵联城"]
@@ -265,12 +263,16 @@ const (
 
 3、遍历统一使用for
 	// 遍历map
-	for key,value = range scoreMap {
+	for key,value := range scoreMap {
 		print(k,v)
 	}
 	// 只想遍历key
 	for key := raneg scoreMap{
 		print(key)
+	}
+	// 只想遍历value
+	for _,value := range scoureMap{
+		print(value)
 	}
 
 4、删除
@@ -352,17 +354,143 @@ const (
 
 
 
+### 1.4.6 make、new
+
+```
+4、new、make
+	为什么需要new和make?
+		如果是值类型会自动分配内存空间，会自动初始化，但是如果是引用类型，比如map、slice之类的，必须显式声明分配内存空间
+		比如: 
+			// 这就不对，因为map类型的零值是nil,压根没有被分配内存空间，你在向“虚无”添加一个键值对
+			 var b = map[string]int
+			 b["age"] = 22 
+		   // 同理，因为指针的零值是nil，压根没有被分配内存空间，你在向"虚无"赋值，当然报错啊
+		   	 var a *int
+		   	 *a = 100
+
+4.1 new
+	首先内置函数new不常用！比如我们很少会孤零零地声明一个指向基础类型的指针。
+	new的函数签名：  func new(Type) *Type
+	// 下面为a分配一个int大小的内存空间
+	var a *int = new(int)
+	*a = 100
+	
+4.2 make
+	make也是用于内存分配，它只为slice、map、以及chan分配内存，返回三个类型本身，因为三个都是引用类型，无需返回它们的指针
+	make函数是很常用的，我们初始化slice map channal的时候，都需要进行make初始化，然后才可以对它们操作
+	
+	语法: make([]type,len) len可省略
+	
+	// 下面为b分配内存空间
+	var b map[string]int = make(map[string]int , 10)
+	b["age"] = 22
+```
+
+
+
+### 1.4.7 :与:=
+
+```
+1、区别：
+	本质区别 : 就是 赋值 ， 而 := 是声明+赋值
+	        : 如果没有声明就直接赋值是不允许的，会报错，除非你早就已经声明好了
+
+2、问题的起因：
+	for key,value = range hashMap {}
+	for key,value := range hashMap {}
+	我很好奇为什么这里要加:，因为外面没有声明key,value所以需要 先声明在赋值，需要使用 :=
+	如果你确实想要使用第一种直接用=，那么必须先在外部声明key,value
+
+3、作用域不同/变量屏蔽
+	var key,value string
+	for key,value = range hashMap {}
+	----------
+	for key,value := range hashMap {}
+	可以看到第一种=，key和value的作用域放大了，可以在外部，但是如果是第二种key value都只能用在循环内部
+	还有第三种，外部声明了key,value,但是依然使用了:=,这时候就出现了变量屏蔽，循环内部的key,value与外部的key value指向的的内     存地址不同
+```
+
+
+
+### 1.4.8 接口
+
+```
+1、基本使用
+	① 定义：接口(interface)是一种类型，interface是一组method的集合
+	② 签名：type 接口名 interface {
+		test1()
+		test2(string) int
+		......
+	}
+	③ 注意事项、建议：
+	 1.接口名：使用type将接口定义为自定义的类型名。Go语言的接口在命名时，一般会在单词后面添加er，如有写操作的接口叫                   Writer，有字符串功能的接口叫Stringer等。接口名最好要能突出该接口的类型含义。
+     2.方法名：当方法名首字母是大写且这个接口类型名首字母也是大写时，这个方法可以被接口所在的包（package）之外的代码访问。
+     3.参数列表、返回值列表：参数列表和返回值列表中的参数变量名可以省略。
+
+2、例子：假如写一个日志接口
+	// 定义接口
+    type Sayer interface {
+        say()
+    }
+    // 实现接口
+    type Dog struct {}
+    func (d *Dog) say(){
+    	print("wwww")
+    }
+    type Car struct {}
+    func (c *Cat) say(){
+    	print("mmmm")
+    }
+    // 多态的体现
+    func main() {
+    var x Sayer // 声明一个Sayer类型的变量x
+    a := cat{}  // 实例化一个cat
+    b := dog{}  // 实例化一个dog
+    x = a       // 可以把cat实例直接赋值给x
+    x.say()     // 喵喵喵
+    x = b       // 可以把dog实例直接赋值给x
+    x.say()     // 汪汪汪
+}
+
+3、空接口
+	① 定义：空接口是指没有定义任何方法的接口。因此任何类型都实现了空接口。
+		   空接口类型的变量可以存储任意类型的变量。
+	② 语法： interface{} 或者 any
+	③ 应用：
+		// 空接口作为函数参数，可以接收任意类型的函数参数
+		func show(a any) {}
+		// 空接口作为map的值，实现保存任意值的字典
+		var studentInfo = make(map[string]any,100)
+
+4、类型断言
+	① 作用：
+		any空接口类型将不同的东西模糊化，类型断言将东西具体化
+	② 语法：
+		value,ok := x.(type)
+		value就是x转化为type后的值，ok就是布尔值，表示断言成功还是失败
+	③ 实际使用：
+		假如有一个Animal接口，我们需要判断只有Bird类才会飞,这时候就需要类型断言
+		if v,ok := adws.(Bird); ok {
+			bird.fly() // 只有确认是鸟才能调用鸟类特有的方法
+		}
+```
+
+
+
 ## 1.5 流程控制
 
 ```
 1、IF
 	① 可以省略条件表达式的括号
 	② 左边大括号必须和条件表达式在一行
+	③ 自带初始化的条件表达式
+	// 这在其他语言其实比较少见的
+	比如  if err := recover(); err != nil {}
 
 2、switch
 	① 可以省略括号
 	② 不需要显式地声明break！
-	③ 可以直接判断变量类型，java17才支持这一功能
+	③ 支持类型判断，java17才支持这一功能
 	switch (a) {
 		case 1:
 			print(1)
@@ -417,39 +545,167 @@ const (
 
 ## 1.6 函数
 
-```
+```go
+函数的定义
+func 函数名(参数列表) 返回值 {}
+
 1、几个注意事项，或不同之处
 	① 函数本身作为一个参数被使用
 		func test(move() func){
 			move()
 		}
-	② 参数名在前，类型在后，多个参数类型相同可写在一起只用一个类型
+	② 参数名在前，类型在后，多个参数类型相同可叠在一起只用一个类型标识
 	③ 函数可有多个返回值
-		return 1,2,"zlc",person
 	④ 默认情况全部是值传递，即使是引用类型，除非使用指针
 
-2、defer 延迟返回
-	最实用的场景就是做一个最终的检测，给原本要崩溃的程序返回一个错误or默认值
-	func test(a int b int ) (res int) {
-		defer func(){
-			if res < 10 {
-				print("检测到结果过小,出现异常！")
-				// 这里可以改变res，也可以不改变，不改变依然返回res原本的值
-				// res = -1
-			}
-		}
-		res := a + b
-		return res
-	}
+2、闭包
+	题外话：闭包的概念我很久之前在javascript了解过，但是遗忘了，而且也没感觉到有啥用，Go也支持闭包
+	用到再说吧
+
+3、defer 延迟返回
+	① 定义、应用场景
+	最实用的场景就是关闭文件句柄、锁资源的释放、数据库连接释放等等，主要就是资源管理
+	其实defer有点类似于 finally，但是finally在最后，你try了几百行，可能都忘记上面都开了哪些资源
+	如果使用defer，逻辑就是拿到资源先交代后事，打开资源的那一刻就反手一个defer，然后放心大胆地操作资源，反正已经defer兜底关闭
+	② 语法
+		// 第一种直接调用一个函数
+        defer file.close()
+        // 第二种匿名函数,注意末尾要加()，表示立即执行该函数，不然就写错了，相当于错写为defer file.close,你看得加()吧！
+        defer func(){
+            print("xx")
+        }()
+	③ 例子：
+	f, err := os.Open("test.txt")
+    if err != nil {
+        return // 如果打开失败，f 是空的，你不需要也不应该去 Close 它
+    }
+
+    // 只有到了这一行，说明 f 成功拿到了，这时候赶紧注册“后事”
+    defer f.Close()
+    
+    // 接下来你就可以放心地写业务逻辑了，不用再管关闭的事
+    buf := make([]byte, 1024)
+    f.Read(buf)
+    fmt.Println(string(buf))
+    }
+
+4、异常处理
+	① 异常分类：
+	error:GO认为error是业务的一部分，是意料之中的错误，比如文件找不到、网络异常，应该在程序中显式处理
+	panic:GO认为panic是程序的致命崩溃，是意料之外的错误，比如数组越界、内存溢出、空指针
+
+	② 如何捕获异常？（defer+recover）
+		defer预设后事 + recover拦截恐慌
+		func main() {
+    fmt.Println("程序开始...")
+            
+    ③ panic内置函数
+      专门用来抛出异常
+      panic("我是一个异常")
+    
+    ④ recover内置函数
+      专门捕获panic，一般都会与defer一起使用
+            defer func(){
+                if err:=recover(); err != nil {
+                    print("我捕获到了一个异常:",err.(string))
+                }
+            }
+            
+	③ 例子：
+    // 1. 必须在 defer 闭包里调用 recover
+    defer func() {
+        if r := recover(); r != nil {
+            // 如果 r 不为 nil，说明发生了 panic
+            fmt.Printf("【捕获成功】拦截到致命异常: %v\n", r)
+        }
+    }()
+    // 2. 模拟一个触发异常的操作
+    doSomethingDangerous()
+    fmt.Println("这行代码在 panic 之后，永远不会被执行")
+}
+func doSomethingDangerous() {
+    // 第一种模拟手动抛出异常
+    panic("牛魔，系统炸了！") 
+    // 第二种模拟
+    a := 2
+    c := a/0
+}
 ```
 
 
 
+## 1.7 方法
+
+```
+1、方法定义、与函数的区别
+	① 定义：方法就是一个包含接收者的函数，Golang里面的方法总是绑定对象实例，并隐式地将实例作为第一实参（接收者）
+	② 区别：方法会由接收者，函数没有
+
+2、方法的函数签名
+	func (recevier type) 方法名(参数列表) 返回值 {}
+	// 官方建议使用接收者类型名的第一个小写字母，而不是self、this之类的命名
+	例如：
+	func (p *Person) setName(name string) {
+		p.name = name
+	}
+
+3、方法比函数更聪明
+	普通的函数参数要求指针就必须传指针，参数要求值就必须传递值
+	方法的参数要求指针/值，你可以传指针/值，Go底层会自动帮你转化
+```
 
 
 
+## 1.8 面向对象
 
+```
+1、封装
+	go没有private、public等关键字，它的封装就是通过首字母大小写控制
+	type Dog struct {
+		// 大写相当于public
+		Name string
+		// 小写相当于private
+		age int
+	}
+	func (d *Dog) getAge() int{
+		return d.age
+	}
 
+2、继承
+	① 匿名字段/嵌入字段
+	// 这里只写类型Animal就可以直接使用父类Animal的字段，如果有同名字段可以区分
+	type Dog struct {
+		Animal
+		habbit string
+	}
+	dog := Dog{Animal:Animal{Name:"醒醒"},habbit:"eat"}
+
+3、多态
+	【多态体现在接口类型变量】
+		// 定义接口
+    type Sayer interface {
+        say()
+    }
+    // 实现接口
+    type Dog struct {}
+    func (d *Dog) say(){
+    	print("wwww")
+    }
+    type Car struct {}
+    func (c *Cat) say(){
+    	print("mmmm")
+    }
+    // 多态的体现
+    func main() {
+    var x Sayer // 声明一个Sayer类型的变量x
+    a := cat{}  // 实例化一个cat
+    b := dog{}  // 实例化一个dog
+    x = a       // 可以把cat实例直接赋值给x
+    x.say()     // 喵喵喵
+    x = b       // 可以把dog实例直接赋值给x
+    x.say()     // 汪汪汪
+}
+```
 
 
 
