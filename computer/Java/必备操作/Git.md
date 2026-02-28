@@ -259,6 +259,9 @@ case 3:彻底回退，丢弃当前修改内容 ⚠危险
 ```
 1、本地修改量比较大，冲突较多
 	① git stash -> git pull -> git stash pop -> IDEA内置处理器解决冲突
+2、本地有一个或多个commit但未push的提交，经过一段时间有别人提交出现git pull成功但出现一条没有信息的merge，明明别人的代码和自己没有冲突
+	原因：遇到的现象其实非常典型：本地有未 push 的提交（commit），远端也有人提交了新 commit，这时你执行 git pull，Git 发现 两边分叉了，默认就会走“合并（merge）”路线，于是出现一个 merge commit。
+	解决：使用git pull --rebase 将两条提交线汇合一条线，这样就不冲突了！
 ```
 
 
