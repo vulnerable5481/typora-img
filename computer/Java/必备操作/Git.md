@@ -187,7 +187,7 @@ case 2:回退，修改放到工作区
 	git reset --mixed hashCode
 case 3:彻底回退，丢弃当前修改内容 ⚠危险
 	git reset --head hashCode
-	
+		
 4、 彻底回退代码，但依然可以补救
   git reflog // 查看所有操作，找到类似记录：a1b2c3d HEAD@{0}: reset: moving to e4f5g6h
   									   z9y8x7w HEAD@{1}: commit: 最新提交
