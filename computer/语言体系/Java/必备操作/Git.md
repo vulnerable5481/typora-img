@@ -168,6 +168,7 @@ git config --global email xxx  //注意此处可以是一个虚拟的邮箱，�
 4.其他操作
 	git reflog // 查看所有执行过的命令
 	git checkout . // 这样可以快速放弃当前工作目录和暂存区的更改，将它们还原到最新一次提交的状态
+	git reset --soft HEAD~1
 ```
 
 - **更多操作**
