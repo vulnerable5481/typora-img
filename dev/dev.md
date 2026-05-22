@@ -89,6 +89,7 @@ package com.aqrose.airun.design.watcher.device;
 1、抽象wbs能力：与我个人项目中实现不同，此处的web除了有一个websocket类，还单独抽出来一个controller/Feign调用wbs里面的方法，这样设计将wbs的能力封装到了HHTP/Feign中，提高了灵活性；
 2、消息中心落库：系统消息不是只推一下，它会保存到数据库让前端消息中心可以看到未读消息
 3、多渠道通知，除了 WebSocket，还支持邮件、钉钉工作通知、钉钉待办、钉钉机器人
+4、使用到了责任链
 ```
 
 
