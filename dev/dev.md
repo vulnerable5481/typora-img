@@ -123,44 +123,6 @@ package com.aqrose.airun.design.watcher.device;
 
 
 
-## 2、ATS
-
-```消息通知
-基于 Spring Cloud 2021 、Spring Boot 2.6、 OAuth2 的 RBAC 权限管理系统，核心功能：文件存储、消息通知、模型/工程训练测试
-```
-
-
-
-# 信息集合
-
-```
------系统账号--------
-1、aqworking： zlc 123456
-2、gitlab: 邮箱 无字母base版
-3、禅道地址：https://chan.aqrose.com/
-        用户名：liancheng.zhao
-        密码：Aqrose123  
-4、ATS默认账户密码 atsyh 123456
-
-
------加密狗---------
-1、绿色加密狗：101215126 version:2.4
-2、蓝色加密狗：772100003830 version:3.3.0
-
------共享文件-------
-共享文件
-访问方式：远程网络路径
-IP：192.168.2.218
-账号/密码：zxx/1
-位置：\\192.168.2.218
-```
-
-
-
-
-
-
-
 
 
 
