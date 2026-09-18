@@ -14,5 +14,11 @@
    It can also mean a collection of pictures or photos, especially on a phone,computer,or website.
    ```
 
-2. 
+2. develop /dɪˈveləp/
+
+   ```
+   
+   ```
+
+   
 
